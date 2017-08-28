@@ -11,6 +11,6 @@
  Email:    aacgn@cin.ufpe.br, mvhb@cin.ufpe.br, vgcp@cin.ufpe.br, esm7@cin.ufpe.br                                                               
                                                                                            
                                                                                            
- Data:        2016-08-28                                                                   
+ Data:        2017-08-28                                                                   
                                                                                            
 ###########################################################################################
