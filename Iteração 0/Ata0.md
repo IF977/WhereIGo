@@ -1,0 +1,33 @@
+## Ata de Reunião
+
+Data         | Local
+------------ | -------------
+30/08/2017   | Skype
+
+
+### Participantes
+* Antonio Augusto Correa Gondim Neto (aacgn)
+* Marcos Vinicius de Holanda Borges (mvhb)
+* Vinicius Giles Costa Paulino (vgcp)
+* Eduardo Santos de Moura (esm7)
+
+### Objetivos
+* Definir tema
+* Definir a metodologia de desenvolvimento
+* Decidir as funções de cada integrante
+* Definir público alvo da aplicação
+* Estudo de APIs para serem utilizadas
+
+
+### Tópicos debatidos
+* Funcionalidades da aplicação
+* Alocação de tarefas para cada membro
+* Viabilidade da utilização de Google Maps, Twitter e outros webservices
+
+### Tasks
+Tarefa         | Responsável   
+------------ | ------------- 
+Modelagem de dados | Time
+Estudo de APIs | Time
+Estudo de público | Time
+Prática em Ruby on Rails | Time
