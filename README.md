@@ -1,16 +1,1 @@
-# Equipe 6 (Sonegators)
-###########################################################################################
- Univesidade Federal de Pernambuco - UFPE (http://www.ufpe.br)                            
- Centro de Informatica - CIn (http://www.cin.ufpe.br)                                     
- Bacharelado em Sistemas de Informacao
-                                                                                          
- Autores:    Antonio Augusto Correa Gondim Neto (aacgn), Marcos Vinicius de Holanda Borges (mvhb),
- Vinicius Giles Costa Paulino (vgcp) e Eduardo Santos de Moura (esm7)
-                                                                                           
-                                                                                           
- Email:    aacgn@cin.ufpe.br, mvhb@cin.ufpe.br, vgcp@cin.ufpe.br, esm7@cin.ufpe.br                                                               
-                                                                                           
-                                                                                           
- Data:        2017-08-28                                                                   
-                                                                                           
-###########################################################################################
+Aplicativo que recomenda novos ambientes (bares e restaurantes) baseados em gostos pessoais do usuário como tipo de vinho, música, especialidade, comida, local e ambiente, e compartilhará com seus amigos via redes sociais. Será possível avaliar, recomendar e adicionar informações ao aplicativo.
