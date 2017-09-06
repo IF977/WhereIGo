@@ -8,7 +8,7 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 * Vinicius Giles Costa Paulino: Desenvolvedor
 
 ## Descrição
-O "WhereIGo?" é uma aplicação web que fornece ao usuário sugestões de novos ambientes alimenticios, filtrados a partir de seus gostos pessoais. Por exemplo: vinho, música, especilidade de comida, endereço e ambiente. Basicamente, a aplicação: 
+O "WhereIGo?" é uma aplicação web que fornece ao usuário sugestões de novos bares e restaurantes, filtrados a partir de seus gostos pessoais. Por exemplo: vinho, música, especilidade de comida, endereço e ambiente. Basicamente, a aplicação: 
 
 * Busca na base de dados uma sugestão para cliente a partir de seus gostos pessoais;
 * Compartilha o local sugerido via redes sociais;
