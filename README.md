@@ -13,4 +13,4 @@ O "WhereIGo?" é uma aplicação web que fornece ao usuário sugestões de novos
 * Busca na base de dados uma sugestão para cliente a partir de seus gostos pessoais;
 * Compartilha o local sugerido via redes sociais;
 * Cadastra novos estabelecimentos;
-* Adiciona informações a estabelicimentos já existentes;
+* Adiciona informações a estabelecimentos já existentes;
