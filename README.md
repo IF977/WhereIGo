@@ -14,3 +14,6 @@ O "WhereIGo?" é uma aplicação web que fornece ao usuário sugestões de novos
 * Compartilha o local sugerido via redes sociais;
 * Cadastra novos estabelecimentos;
 * Adiciona informações a estabelecimentos já existentes.
+
+## Justificativa
+Todas as pessoas já passaram por um momento "WhereIGo?", em que não sabiam um novo local que se adeque aos seus gostos. Aliado a isso, o setor de alimentação fora de casa – ou de bares e restaurantes - cresce 10% anualmente segundo a Abrasel (Associação Brasileira de Bares e Restaurantes), sendo assim, a cada ano existem novas variedades surgindo e satisfazendo os gostos alheios. Desse modo, o "WhereIGo?" tem como objetivo suprir essa demanda em ascenção. 
