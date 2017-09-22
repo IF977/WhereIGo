@@ -52,4 +52,33 @@ Como um consumidor
 Eu quero seguir promoções/eventos de estabelecimentos
 Para que eu possa usufruir das supracitadas
 ```
+
 ***
+
+#### PRESTADOR DE SERVIÇOS
+
+```
+Como um prestador
+Eu quero ver os feedbacks associados ao meu estabelecimento
+Para que eu possa estar em constante evolução
+```
+```
+Como um prestador
+Eu quero cadastrar informações de meu estabelecimento
+Para que eu possa ter uma maior visibilidade
+```
+```
+Como um prestador
+Eu quero ver quantas indicações foram feitas em meu estabelecimento
+Para que eu possa ter uma maior noção 
+```
+```
+Como um prestador
+Eu quero validar, editando ou removendo, as informações cadastradas por usuários
+Para que eu possa repassar informações verídicas do meu estabelecimento 
+```
+```
+Como um prestador
+Eu quero adicionar promoções/eventos ao meu estabelecimento
+Para que eu possa promover uma interação com meu público
+```
