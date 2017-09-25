@@ -37,7 +37,7 @@ Término da iteração
 | --- | --- |
 |Estudo de APIs para serem utilizadas |Time|
 
-- Impedimentos: Disponibilidade de tempo para encontros  
+- Impedimentos: Disponibilidade de tempo
 -------------------------
 #### Planejado para próxima iteração
 
