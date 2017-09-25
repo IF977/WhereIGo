@@ -24,11 +24,6 @@ Para que eu possa ter companhia
 ```
 ```
 Como um cliente
-Eu quero poder cadastrar informações de estabelicimentos
-Para que outras pessoas, incluindo amigos, tenham acesso aos dados do local
-```
-```
-Como um cliente
 Eu quero avaliar os locais, deixando um feedback privado para os estabelecimentos
 Para que o atendimento possa ser melhorado
 ```
