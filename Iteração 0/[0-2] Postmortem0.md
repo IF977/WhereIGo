@@ -36,8 +36,6 @@ Término da iteração
 | **Ação** | **Responsável** |
 | --- | --- |
 |Estudo de APIs para serem utilizadas |Time|
-
-- Impedimentos: Disponibilidade de tempo
 -------------------------
 #### Planejado para próxima iteração
 
