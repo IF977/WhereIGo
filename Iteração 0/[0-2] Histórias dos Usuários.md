@@ -59,8 +59,8 @@ Para que eu possa ter uma maior noção
 ```
 ```
 Como um prestador
-Eu quero validar, editando ou removendo, as informações cadastradas por usuários
-Para que eu possa repassar informações verídicas do meu estabelecimento 
+Eu quero editar ou remover informações cadastradas
+Para que eu possa atualizar os dados do meu estabelecimento
 ```
 ```
 Como um prestador
