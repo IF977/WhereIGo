@@ -1,4 +1,6 @@
 # WhereIGo
+![WhereIGo](https://user-images.githubusercontent.com/18203276/31318014-7114942a-ac21-11e7-952b-dcfd46b3b2f3.png)
+
 Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em Sistemas de Informação do Centro de Informática da Universidade Federal de Pernambuco (UFPE).
 
 ## Equipe:
