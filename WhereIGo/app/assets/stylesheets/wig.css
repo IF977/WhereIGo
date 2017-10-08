@@ -1,0 +1,82 @@
+body {
+  background-image: url("../images/background-login.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-color: #f0f0f0; }
+
+a {
+  color: #f3276d; }
+  a:hover, a:active {
+    color: #f3276d;
+    text-decoration: underline; }
+
+.wig-textbox {
+  display: block;
+  width: 100%;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #141414;
+  background-color: #f0f0f0;
+  background-clip: padding-box;
+  border: 0;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+  .wig-textbox:focus {
+    border: 1px solid #f0b567;
+    outline: none; }
+
+.wig-formlabel {
+  color: #f0f0f0;
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 12px; }
+
+.wig-button {
+  color: #f0f0f0;
+  background-color: #f3276d;
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  cursor: pointer; }
+  .wig-button:focus {
+    border: 1px solid #f0b567;
+    outline: none; }
+  .wig-button:active {
+    opacity: 0.8; }
+
+#signup-button {
+  width: 100%;
+  font-size: 1.3em;
+  line-height: 1.5em; }
+
+#signup {
+  background-color: #141414;
+  padding: 30px;
+  margin: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px; }
+
+#logo-signup {
+  margin-bottom: 25px;
+  text-align: center; }
+
+#form-inputs {
+  margin-bottom: 30px; }
+
+.wig-formlinks {
+  margin-top: 15px;
+  text-align: center;
+  color: #f0f0f0; }
+
+.wig-formlinks a {
+  color: #f0b567; }
+
+/*# sourceMappingURL=wig.css.map */
