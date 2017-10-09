@@ -1,0 +1,15 @@
+<%=form_for :client, :url => url_for(:action => 'create_client', :controller => 'register') do |f| %>
+Nome
+<%=f.text_field :name %>
+</br>
+Email
+<%=f.email_field :email %>
+</br>
+Senha
+<%=f.password_field :password_digest %>
+</br>
+Confirmar senha
+<input type="password" name="confirmation-password"/>
+</br>
+<%= f.submit "Cadastrar" %>
+<%end%>
