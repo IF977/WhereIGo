@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   
     get '/login' => 'sessions#new'
     
-    get 'login/success' => 'sessions#success'
-    
     get 'login/error' => 'sessions#error'
     
     post 'login/auth' => 'sessions#create'
@@ -13,11 +11,9 @@ Rails.application.routes.draw do
     
     get 'register/client' => 'register#new_client'
     
-    post 'register/client/create' => 'register#create_client'
+    post 'register/create' => 'register#create'
     
     get 'register/provider' => 'register#new_provider'
-    
-    post 'register/provider/create' => 'register#create_provider'
     
     get 'register/error' => 'register#error'
     

@@ -3,35 +3,30 @@ class RegisterController < ApplicationController
     end
     
     def new_client
+        @title = "Cadastro"
     end
 
     def new_provider
+        @title = "Cadastro"
     end
 
-    def create_client
-        values = params.require(:client).permit!
-        if params[:client][:password_digest] == params["confirmation-password"]
-            if Client.exists?(:email => params[:client][:email])
+    def create
+        values = params.require(:user).permit!
+        if params[:user][:password_digest] == params["confirmation-password"]
+            if User.exists?(:email => params[:user][:email])
                 render 'error'
             else
-    	        Client.create values
+                if params[:user][:is_provider] == "Yes"
+                    params[:user][:is_provider] = true
+    	            User.create values
+    	        else
+    	            params[:user][:is_provider] = false
+    	            User.create values
+    	        end
     	    end
     	else
     	    render 'error'
     	end
-    end
-
-    def create_provider
-        values = params.require(:provider).permit!
-        if params[:provider][:password_digest] == params["confirmation-password"]
-            if Provider.exists?(:email => params[:provider][:email])
-                render 'error'
-            else
-                Provider.create values
-            end
-        else
-            render 'error'
-        end
     end
     
     def error

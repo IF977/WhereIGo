@@ -1,48 +1,32 @@
-
-
-
 <div class="container" id="flex-container">     
     <div class="col-md-4" id="signup">
         <section class="login-form">
-            <form method="post" action="#" role="login">
                 <div id="logo-signup">
-                    <img src="images/wig-logo-signup.png" class="img-responsive" alt="" />
+                    <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
                 </div>
     
                 <h1>Cadastro</h1>
-                <div id="form-inputs">
-                    <label for="name" class="wig-formlabel">Nome</label>
-                    <input type="text" name="name" required class="wig-textbox" placeholder="Mamarquitos" />
-    
-                    <label for="email" class="wig-formlabel">E-mail</label>
-                    <input type="email" name="email" required class="wig-textbox" placeholder="você@exemplo.com" />
-                    
-                    <label for="password" class="wig-formlabel">Senha</label>
-                    <input type="password" class="wig-textbox" id="password" required placeholder="Escolha uma senha segura"/>
-    
-                    <label for="password-confirm" class="wig-formlabel">Confirmar senha</label>
-                    <input type="password" class="wig-textbox" name="password-confirm" required placeholder="Digite a senha novamente"/>
-                
-                <%=form_for :client, :url => url_for(:action => 'create_client', :controller => 'register') do |f| %>
-                Nome
-                <%=f.text_field :name %>
-                </br>
-                Email
-                <%=f.email_field :email %>
-                </br>
-                Senha
-                <%=f.password_field :password_digest %>
-                </br>
-                Confirmar senha
-                <input type="password" name="confirmation-password"/>
-                </br>
-                <%= f.submit "Cadastrar" %>
+               
+                <%=form_for :user, :url => url_for(:action => 'create', :controller => 'register') do |f| %>
+                    <div id="form-inputs">
+                        <label for="name" class="wig-formlabel">Nome</label>
+                        <%= f.text_field :name, class: "wig-textbox", placeholder: "Seu nome" %>
+                        
+                        <label for="email" class="wig-formlabel">E-mail</label>
+                        <%=f.email_field :email, class: "wig-textbox", placeholder: "Seu email"%>
+                        
+                        <label for="password" class="wig-formlabel">Senha</label>
+                        <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
+                        
+                        <label for="confirmation-password" class="wig-formlabel">Confirmar senha</label>
+                        
+                        <%= f.text_field :is_provider, style: "display: none", value: "No" %>
+                        
+                        <input type="password" name="confirmation-password" class="wig-textbox" placeholder="Digite a senha novamente"/>
+                    </div>
+                    <%= f.submit "Criar conta", class: "wig-button" %>
                 <%end%>
                 
-                </div>
-    
-                <button type="submit" name="go" class="wig-button" id="login-button">Criar conta</button>
-            </form>
         </section>  
     </div>
 </div>
