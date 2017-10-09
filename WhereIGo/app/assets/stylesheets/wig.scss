@@ -4,18 +4,26 @@ $wig-greatpink: #f3276d;
 $wig-oddyellow: #f0b567;
 $wig-lightgrey: #f0f0f0;
 
+// outros atributos
+$valor-borda: 4px;
+
 @mixin wig-box {
     background-color: $wig-xdarkgrey;
     padding: 30px;
     margin: 15px;
+    border-radius: $valor-borda;
 }
 @mixin center {
     margin-left: auto;
     margin-right: auto;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
 body {
-    background-image: url('../images/background-login.jpg');
+    background-image: url('/assets/background-login.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
     background-color: $wig-lightgrey;
@@ -26,6 +34,17 @@ a {
     &:hover, &:active {
         color: $wig-greatpink;
         text-decoration: underline;
+    }
+}
+
+h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 25px 0 20px 0;
+    &:before, &:after {
+        content: '~';
+        color: $wig-greatpink;
+        margin: 8px;
     }
 }
 
@@ -40,6 +59,7 @@ a {
     background-clip: padding-box;
     border: 0;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: $valor-borda;
 
     &:focus {
         border: 1px solid $wig-oddyellow;
@@ -67,7 +87,9 @@ a {
     padding: .5rem .75rem;
     font-size: 1rem;
     line-height: 1.25;
+    border-radius: $valor-borda;
     cursor: pointer;
+    width: 100%;
     //transition: all .15s ease-in-out;
     &:focus {
         border: 1px solid $wig-oddyellow;
@@ -81,16 +103,29 @@ a {
 ////////////////////////////////////////////////////////////
 ///////////////// LOGIN ////////////////////////////////////
 ////////////////////////////////////////////////////////////
-#signup-button {
+
+#flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#login-button {
     width: 100%;
-    font-size: 1.3em;
     line-height: 1.5em;
 }
 
 #signup {
     @include wig-box;
     @include center;
-    margin-top: 100px;
+    //margin-top: 100px;
+}
+
+#signup a {
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 #logo-signup {
@@ -110,4 +145,31 @@ a {
 
 .wig-formlinks a {
     color: $wig-oddyellow;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// SIGNUP ///////////////////////////////////
+////////////////////////////////////////////////////////////
+.wig-choice-box {
+    margin-bottom: 20px;
+    padding: 6px;
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+    font-weight: 500;
+    color: $wig-lightgrey;
+    border-radius: $valor-borda;
+    &:hover {
+        background-color: $wig-lightgrey;
+        color: $wig-xdarkgrey;
+    }
+}
+
+.wig-choice-box span {
+    line-height: 1.1em;
+    display: block;
+    margin-top: 11px;
+}
+
+#signup h1 {
+    color: $wig-lightgrey;
 }

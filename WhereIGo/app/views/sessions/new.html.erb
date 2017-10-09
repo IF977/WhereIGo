@@ -1,38 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Entrar - WhereIGo</title>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        <link rel="stylesheet" href="stylesheets/wig.css" />
-        <link rel="stylesheet" href="stylesheets/sessions.css" />
-    </head>
-    <body>
-        <div class="container" id="flex-container">     
-            <div class="col-md-4" id="signup">
-                <section class="login-form">
-                    
-                    <%= form_tag(controller: "sessions", action: "create", method: "post", role: "login") do %>
-                        <div id="logo-signup">
-                             <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
-                        </div>
-                        <div id="form-inputs">
-                            <%= label_tag(:email, "E-mail:", class: 'wig-formlabel') %>
-                            </br>
-                            <%= email_field_tag(:email, nil , class: 'wig-textbox') %>
-                            </br>
-                            <%= label_tag(:password, "Senha:", class: 'wig-formlabel') %>
-                            </br>
-                            <%= password_field_tag(:password, nil, class: 'wig-textbox') %>
-                        </div>
-                        <%= submit_tag("Entrar", class: 'wig-button') %>
-                        <div class="wig-formlinks">
-                            <span>Não tem uma conta? <%= link_to 'Cadastre-se', controller:'register', action:'new' %> </span>
-                        </div>
-                    <% end %>
-                </section>  
-            </div>
-        </div>
-    </body>
-</html>
+<div class="container" id="flex-container">     
+    <div class="col-md-4" id="signup">
+        <section class="login-form">
+            <%= form_tag(controller: "sessions", action: "create", method: "post", role: "login") do %>
+                <div id="logo-signup">
+                     <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
+                </div>
+                
+                <h1>Login</h1>
+                
+                <div id="form-inputs">
+                    <%= label_tag(:email, "E-mail:", class: 'wig-formlabel') %>
+                    <%= email_field_tag(:email, nil , class: 'wig-textbox') %>
+                    <%= label_tag(:password, "Senha:", class: 'wig-formlabel') %>
+                    <%= password_field_tag(:password, nil, class: 'wig-textbox') %>
+                </div>
+                <%= submit_tag("Entrar", class: 'wig-button') %>
+                <%= flash_message %>
+                <div class="wig-formlinks">
+                    <span>Não tem uma conta? <%= link_to 'Cadastre-se', controller:'register', action:'new' %> </span>
+                </div>
+            <% end %>
+        </section>  
+    </div>
+</div>

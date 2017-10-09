@@ -1,5 +1,4 @@
 class RegisterController < ApplicationController
-
     def new
     end
     
@@ -12,7 +11,11 @@ class RegisterController < ApplicationController
     def create_client
         values = params.require(:client).permit!
         if params[:client][:password_digest] == params["confirmation-password"]
-    	    Client.create values
+            if Client.exists?(:email => params[:client][:email])
+                render 'error'
+            else
+    	        Client.create values
+    	    end
     	else
     	    render 'error'
     	end
@@ -21,7 +24,11 @@ class RegisterController < ApplicationController
     def create_provider
         values = params.require(:provider).permit!
         if params[:provider][:password_digest] == params["confirmation-password"]
-            Provider.create values
+            if Provider.exists?(:email => params[:provider][:email])
+                render 'error'
+            else
+                Provider.create values
+            end
         else
             render 'error'
         end

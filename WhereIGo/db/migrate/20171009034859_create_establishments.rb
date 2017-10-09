@@ -6,7 +6,7 @@ class CreateEstablishments < ActiveRecord::Migration[5.1]
       t.string :address
       t.string :email
       t.string :website
-      t.boolean :is_active
+      t.boolean :is_active, :default => true
 
       t.timestamps
     end

@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
 def new
+	if session[:current_user_id] != nil
+		render 'success'
+	end
 end
 
 def create
@@ -17,12 +20,13 @@ def create
 		else
 			if user_provider.password_digest == params["password"]
 				session[:current_user_id] = user_provider.id
+				render 'success'
 			else
 				render 'error'
 			end
 		end    
 	else
-		render 'error' #ta caindo aqui
+		#flash[:error] = "Usuário ou senha incorretas!"
 	end
 end
 
@@ -31,6 +35,10 @@ def success
 end
 
 def error
+end
+
+def destroy
+	session[:current_user_id] = nil
 end
 
 end

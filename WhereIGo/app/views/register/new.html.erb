@@ -1,47 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Cadastro - WhereIGo</title>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        
-    </head>
-    <body>
-        <div class="container" id="flex-container">     
-            <div class="col-md-4" id="signup">
-                <section class="login-form">
-                    <form method="post" action="#" role="login">
-                        <div id="logo-signup">
-                            <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
+<!-- Tela de escolha de usuario -->
+<div class="container" id="flex-container">     
+    <div class="col-md-4" id="signup">
+        <section class="login-form">
+            <form method="post" action="#" role="login">
+                <div id="logo-signup">
+                    <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
+                </div>
+
+                <h1>Cadastro</h1>
+
+                <a href="/register/client">
+                    <div class="row wig-choice-box">
+                        <div class="col-sm-3">
+                            <%=image_tag("client-icon.png") %>
                         </div>
-
-                        <h1>Cadastro</h1>
-
-                        <a href="signup-client.html">
-                            <div class="row wig-choice-box">
-                                <div class="col-sm-3">
-                                    <%=image_tag("client-icon.png") %>
-                                </div>
-                                <div class="col-sm-9">
-                                    <span>Eu quero encontrar bares e restaurantes</span>
-                                </div>
-                            </div>
-                        </a>
-
-                        <div class="row wig-choice-box">
-                            <div class="col-sm-3">
-                                <%=image_tag("provider-icon.png") %>
-                            </div>
-                            <div class="col-sm-9">
-                                <span>Eu quero divulgar o meu estabelecimento</span>
-                            </div>
+                        <div class="col-sm-9">
+                            <span>Eu quero encontrar bares e restaurantes</span>
                         </div>
-                        
-                    </form>
-                    
-                </section>  
-            </div>
-        </div>
-    </body>
-</html>
+                    </div>
+                </a>
+                <a href="/register/provider">
+                    <div class="row wig-choice-box">
+                        <div class="col-sm-3">
+                            <%=image_tag("provider-icon.png") %>
+                        </div>
+                        <div class="col-sm-9">
+                            <span>Eu quero divulgar o meu estabelecimento</span>
+                        </div>
+                    </div>
+                </a>
+            </form>
+        </section>  
+    </div>
+</div>

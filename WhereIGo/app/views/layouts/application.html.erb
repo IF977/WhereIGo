@@ -1,13 +1,16 @@
+<!-- LAYOUT PADRÃO DA APLICAÇÃO - NÃO MEXER -->
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WhereIGo</title>
+    <title><% @title %> - WhereIGo</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all' %>
+    <%= stylesheet_link_tag    'wig.css', media: 'all' %>
   </head>
-
   <body>
     <%= yield %>
   </body>

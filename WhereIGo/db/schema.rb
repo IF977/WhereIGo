@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20171009034859) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.boolean "is_active", null: true
+    t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20171009034859) do
     t.string "address"
     t.string "email"
     t.string "website"
-    t.boolean "is_active", null: true
+    t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20171009034859) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.boolean "is_active", null: true
+    t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
