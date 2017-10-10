@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     
     get 'register/provider' => 'register#new_provider'
     
+    get 'register/establishment' => 'register#new_establishment'
+    
     get 'register/error' => 'register#error'
     
     get 'account' => 'account#edit'
