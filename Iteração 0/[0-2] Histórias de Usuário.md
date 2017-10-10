@@ -1,4 +1,4 @@
-> Histórias dos Usuários
+> Histórias de Usuário
 
 
 #### CLIENTE
@@ -47,35 +47,35 @@ Para que eu possa usufruir das supracitadas
 
 ***
 
-#### PRESTADOR DE SERVIÇOS
+#### DONO DE ESTABELECIMENTO
 
 ```
 8ª HU
-Como um prestador
+Como um dono de estabelecimento
 Eu quero ver os feedbacks associados ao meu estabelecimento
 Para que eu possa estar em constante evolução
 ```
 ```
 9ª HU
-Como um prestador
+Como um dono de estabelecimento
 Eu quero cadastrar informações de meu estabelecimento
 Para que eu possa ter uma maior visibilidade
 ```
 ```
 10ª HU
-Como um prestador
+Como um dono de estabelecimento
 Eu quero ver quantas indicações foram feitas em meu estabelecimento
 Para que eu possa ter uma maior noção 
 ```
 ```
 11ª HU
-Como um prestador
+Como um dono de estabelecimento
 Eu quero editar ou remover informações cadastradas
 Para que eu possa atualizar os dados do meu estabelecimento
 ```
 ```
 12ª HU
-Como um prestador
+Como um dono de estabelecimento
 Eu quero adicionar promoções/eventos ao meu estabelecimento
 Para que eu possa promover uma interação com meu público
 ```
