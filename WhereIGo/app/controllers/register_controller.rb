@@ -1,17 +1,18 @@
 class RegisterController < ApplicationController
     def new
+        render layout: "login-signup"
     end
     
     def new_client
-        layout = "login-signup"
+        render layout: "login-signup"
         @title = "Cadastro"
     end
 
     def new_provider
-        layout = "login-signup"
+        render layout: "login-signup"
         @title = "Cadastro"
     end
-
+    
     def create
         render layout: "login-signup"
         values = params.require(:user).permit!

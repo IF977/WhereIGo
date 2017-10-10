@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171010015950) do
     t.string "email"
     t.string "website"
     t.boolean "is_active"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

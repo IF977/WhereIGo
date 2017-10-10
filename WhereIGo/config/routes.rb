@@ -17,10 +17,6 @@ Rails.application.routes.draw do
     
     get 'register/provider' => 'register#new_provider'
     
-    get 'register/establishment' => 'register#new_establishment'
-    
-    post 'register/establishment/create' => 'register#create_establishment'
-    
     get 'register/error' => 'register#error'
     
     get 'account' => 'account#edit'
@@ -28,6 +24,17 @@ Rails.application.routes.draw do
     post 'account/update' => 'account#update'
     
     get '/logout' => 'sessions#destroy'
+    
+    get 'my_establishments' => 'establishment#index'
+    
+    get 'establishments/new' => 'establishment#new'
+    
+    post 'establishments/create' => 'establishment#create'
+    
+    get 'establishments/:id' => 'establishment#show'
+    
+    post 'establishment/update/:id' => 'establishment#update'
+
     
     root 'sessions#new' 
   

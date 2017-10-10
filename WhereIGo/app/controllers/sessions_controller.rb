@@ -9,7 +9,6 @@ def new
 end
 
 def create
-	render layout: "login-signup"
 	@title = "Login"
 	user = User.find_by(email: params["email"])
 	if user != nil
@@ -17,11 +16,9 @@ def create
 			session[:current_user_id] = user.id
 			redirect_to '/account'
 		else
-			#render 'error'
 			redirect_to '/login', :flash => { :error => "Usuário ou senha incorretas!" }
 		end
 	else
-		#render 'error'
 		redirect_to '/login', :flash => { :error => "Usuário não encontrado!" }
 	end
 end
