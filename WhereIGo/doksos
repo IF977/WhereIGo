@@ -1,0 +1,4 @@
+ id | name | cnpj | address | email | website | is_active | created_at | updated_at 
+----+------+------+---------+-------+---------+-----------+------------+------------
+(0 rows)
+

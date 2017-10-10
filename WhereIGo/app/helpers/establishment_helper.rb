@@ -1,0 +1,2 @@
+module EstablishmentHelper
+end

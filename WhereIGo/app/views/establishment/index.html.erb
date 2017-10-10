@@ -1,0 +1,9 @@
+<br/><br/><br/><br/><br/><br/>
+<h1>Meus estabelecimentos</h1>
+<ol>
+    <% @establishments.each do |e| %>
+        <li>
+            <a href="<%=url_for(controller: "establishment", action: "show", id: e.id) %>"><%= e.name %></a>
+        </li>
+    <% end %>
+</ol>
