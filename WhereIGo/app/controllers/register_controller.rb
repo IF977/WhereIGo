@@ -3,14 +3,17 @@ class RegisterController < ApplicationController
     end
     
     def new_client
+        layout = "login-signup"
         @title = "Cadastro"
     end
 
     def new_provider
+        layout = "login-signup"
         @title = "Cadastro"
     end
 
     def create
+        render layout: "login-signup"
         values = params.require(:user).permit!
         if params[:user][:password_digest] == params["confirmation-password"]
             if User.exists?(:email => params[:user][:email])

@@ -1,17 +1,21 @@
 class SessionsController < ApplicationController
 include ApplicationHelper
 def new
+	render layout: "login-signup"
 	@title = "Login"
 	if session[:current_user_id] != nil
+		redirect_to '/account', :flash => { :error => "Você já está logado!" }
 	end
 end
 
 def create
+	render layout: "login-signup"
 	@title = "Login"
-	user_client = User.find_by(email: params["email"])
-	if user_client != nil
-		if user_client.password_digest == params["password"]
-			session[:current_user_id] = user_client.id
+	user = User.find_by(email: params["email"])
+	if user != nil
+		if user.password_digest == params["password"]
+			session[:current_user_id] = user.id
+			redirect_to '/account'
 		else
 			#render 'error'
 			redirect_to '/login', :flash => { :error => "Usuário ou senha incorretas!" }

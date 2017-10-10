@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-    get '/login' => 'sessions#new'
+    get 'login' => 'sessions#new'
     
     get 'login/error' => 'sessions#error'
     
     post 'login/auth' => 'sessions#create'
+    
+    get 'dashboard' => 'dashboard#index'
     
     get 'register' => 'register#new'
     
@@ -17,8 +19,12 @@ Rails.application.routes.draw do
     
     get 'register/error' => 'register#error'
     
+    get 'account' => 'account#edit'
+    
+    post 'account/update' => 'account#update'
+    
     get '/logout' => 'sessions#destroy'
     
-    root 'sessions#new'
+    root 'sessions#new' 
   
 end
