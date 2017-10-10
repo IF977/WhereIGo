@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
-include ApplicationHelper
 def new
-	render layout: "login-signup"
-	@title = "Login"
 	if session[:current_user_id] != nil
 		redirect_to '/account', :flash => { :error => "Você já está logado!" }
+		return
 	end
+	@title = "Login"
+	render layout: "login-signup"
 end
 
 def create
@@ -15,11 +15,14 @@ def create
 		if user.password_digest == params["password"]
 			session[:current_user_id] = user.id
 			redirect_to '/account'
+			return
 		else
 			redirect_to '/login', :flash => { :error => "Usuário ou senha incorretas!" }
+			return
 		end
 	else
 		redirect_to '/login', :flash => { :error => "Usuário não encontrado!" }
+		return
 	end
 end
 
@@ -28,6 +31,7 @@ end
 
 def destroy
 	session[:current_user_id] = nil
+	redirect_to '/login', :flash => { :error => "Desconectado." }
 end
 
 end

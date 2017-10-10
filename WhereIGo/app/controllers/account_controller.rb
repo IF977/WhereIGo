@@ -4,6 +4,7 @@ class AccountController < ApplicationController
         @title = "Minha conta"
         if session[:current_user_id] == nil
             redirect_to '/login', :flash => { :error => "Faça login para continuar!" }
+            return
         end
         
         @user = User.find_by(id: session[:current_user_id])
