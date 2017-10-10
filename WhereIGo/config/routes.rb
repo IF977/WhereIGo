@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     
     get 'register/establishment' => 'register#new_establishment'
     
+    post 'register/establishment/create' => 'register#create_establishment'
+    
     get 'register/error' => 'register#error'
     
     get 'account' => 'account#edit'
