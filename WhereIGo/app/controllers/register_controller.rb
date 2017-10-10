@@ -1,4 +1,5 @@
 class RegisterController < ApplicationController
+    include ActionView::Helpers::UrlHelper #current_page?()
     def new
         render layout: "login-signup"
     end
@@ -29,8 +30,11 @@ class RegisterController < ApplicationController
     	        end
     	    end
     	else
-
-    	    redirect_to '/register', :flash => {:error => "Teste"}
+    	    if current_page?('/register/client')
+    	        redirect_to '/register/client', :flash => {:error => "Senha de confirmação não é igual"}
+    	    else
+    	        redirect_to '/register/provider', :flash => {:error => "Senha de confirmação não é igual"}
+    	    end
     	    #render 'error'
     	end
     end
