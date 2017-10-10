@@ -5,21 +5,21 @@ class RegisterController < ApplicationController
     end
     
     def new_client
-        render layout: "login-signup"
         @title = "Cadastro"
+        render layout: "login-signup"
     end
 
     def new_provider
-        render layout: "login-signup"
         @title = "Cadastro"
+        render layout: "login-signup"
     end
     
     def create
-        #render layout: "login-signup"
         values = params.require(:user).permit!
         if params[:user][:password_digest] == params["confirmation-password"]
             if User.exists?(:email => params[:user][:email])
                 render 'error'
+                return
             else
                 if params[:user][:is_provider] == "Yes"
                     params[:user][:is_provider] = true
@@ -32,11 +32,13 @@ class RegisterController < ApplicationController
     	else
     	    if current_page?('/register/client')
     	        redirect_to '/register/client', :flash => {:error => "Senha de confirmação não é igual"}
+    	        return
     	    else
     	        redirect_to '/register/provider', :flash => {:error => "Senha de confirmação não é igual"}
+    	        return
     	    end
-    	    #render 'error'
     	end
+    	render layout: "login-signup"
     end
     
     def error

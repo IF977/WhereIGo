@@ -14,6 +14,7 @@ class EstablishmentController < ApplicationController
         values = params.require(:establishment).permit!
         if Establishment.exists?(:cnpj => params[:establishment][:cnpj])
             render 'error'
+            return
         else
             user.establishments.create values
         end
