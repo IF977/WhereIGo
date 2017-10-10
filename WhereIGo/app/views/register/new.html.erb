@@ -1,0 +1,35 @@
+<!-- Tela de escolha de usuario -->
+<div class="container" id="flex-container">     
+    <div class="col-md-4" id="signup">
+        <section class="login-form">
+            <form method="post" action="#" role="login">
+                <div id="logo-signup">
+                    <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
+                </div>
+
+                <h1>Cadastro</h1>
+
+                <a href="/register/client">
+                    <div class="row wig-choice-box">
+                        <div class="col-sm-3">
+                            <%=image_tag("client-icon.png") %>
+                        </div>
+                        <div class="col-sm-9">
+                            <span>Eu quero encontrar bares e restaurantes</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="/register/provider">
+                    <div class="row wig-choice-box">
+                        <div class="col-sm-3">
+                            <%=image_tag("provider-icon.png") %>
+                        </div>
+                        <div class="col-sm-9">
+                            <span>Eu quero divulgar o meu estabelecimento</span>
+                        </div>
+                    </div>
+                </a>
+            </form>
+        </section>  
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<%= flash_message %>
+<div class="container" id="flex-container">
+    <div class="col-md-4" id="signup">
+        <section class="login-form">
+            <%= form_tag(controller: "sessions", action: "create", method: "post", role: "login") do %>
+                <div id="logo-signup">
+                     <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
+                </div>
+                
+                <h1>Login</h1>
+                
+                <div id="form-inputs">
+                    <%= label_tag(:email, "E-mail:", class: 'wig-formlabel') %>
+                    <%= email_field_tag(:email, nil , class: 'wig-textbox', placeholder: 'Digite seu e-mail') %>
+                    <%= label_tag(:password, "Senha:", class: 'wig-formlabel') %>
+                    <%= password_field_tag(:password, nil, class: 'wig-textbox', placeholder: 'Digite sua senha') %>
+                </div>
+                <%= submit_tag("Entrar", class: 'wig-button') %>
+                
+                <div class="wig-formlinks">
+                    <span>Não tem uma conta? <%= link_to 'Cadastre-se', controller:'register', action:'new' %> </span>
+                </div>
+            <% end %>
+        </section>  
+    </div>
+</div>
