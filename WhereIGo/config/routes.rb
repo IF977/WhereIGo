@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     
     get '/logout' => 'sessions#destroy'
     
-    get 'my_establishments' => 'establishment#index'
+    get 'establishments' => 'establishment#index'
     
     get 'establishments/new' => 'establishment#new'
     
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     
     get 'establishments/:id' => 'establishment#show'
     
-    post 'establishment/update/:id' => 'establishment#update'
+    post 'establishments/update/:id' => 'establishment#update'
 
     
     root 'sessions#new' 

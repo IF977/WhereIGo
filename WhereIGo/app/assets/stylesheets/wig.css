@@ -67,6 +67,15 @@ h1 {
   .wig-button:active {
     opacity: 0.8; }
 
+.wig-flash {
+  background-color: #f0b567;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  padding: 8px;
+  margin-top: 5px;
+  font-size: 0.7em; }
+
 #flex-container {
   display: flex;
   justify-content: center;

@@ -14,11 +14,21 @@ class RegisterController < ApplicationController
         render layout: "login-signup"
     end
     
+    def flash_create_user(message)
+        if current_page?('/register/client')
+    	   redirect_to '/register/client', :flash => {:error => message}
+    	   return
+    	else
+    	   redirect_to '/register/provider', :flash => {:error => message}
+    	   return
+    	end
+    end
+    
     def create
         values = params.require(:user).permit!
         if params[:user][:password_digest] == params["confirmation-password"]
             if User.exists?(:email => params[:user][:email])
-                render 'error'
+                flash_create_user("O email já está em uso.")
                 return
             else
                 if params[:user][:is_provider] == "Yes"
@@ -28,19 +38,15 @@ class RegisterController < ApplicationController
     	            params[:user][:is_provider] = false
     	            User.create values
     	        end
+    	        redirect_to '/login', :flash => {:notice => "Conta criada com sucesso!"}
+    	        return
     	    end
     	else
-    	    if current_page?('/register/client')
-    	        redirect_to '/register/client', :flash => {:error => "Senha de confirmação não é igual"}
-    	        return
-    	    else
-    	        redirect_to '/register/provider', :flash => {:error => "Senha de confirmação não é igual"}
-    	        return
-    	    end
+    	    flash_create_user("As senhas são diferentes.")
+    	    return
     	end
     	render layout: "login-signup"
     end
-    
     def error
     end
 

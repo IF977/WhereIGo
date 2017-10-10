@@ -24,7 +24,7 @@
             <a class="nav-link" href="<%= url_for controller:'dashboard', action: 'index' %>">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Restaurantes</a>
+            <a class="nav-link" href="<%= url_for controller: 'establishment', action: 'index' %>">Restaurantes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Feedbacks</a>
@@ -34,6 +34,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= url_for controller:'account', action:'edit' %>"><%= @username %></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="<%= url_for controller:'sessions', action: 'destroy' %>">Sair</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
