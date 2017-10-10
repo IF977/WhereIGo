@@ -17,6 +17,7 @@ class EstablishmentController < ApplicationController
             return
         else
             user.establishments.create values
+            redirect_to '/establishments'
         end
     end
     
