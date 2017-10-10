@@ -1,11 +1,8 @@
-Início da Iteração
+## [Iteração 1] Post mortem
 
-25/09/2017
- 
-
-Término da iteração
-
-09/10/2017
+Início da iteração      | Término da iteração
+------------ | -------------
+25/09/2017   | 09/10/2017
 
 -------------------------
 #### O que estava planejado
@@ -31,7 +28,7 @@ Término da iteração
 | Back-end do CRUD de Usuário |Marcos, Eduardo e Augusto|
 | Back-end do CRUD de Estabelecimento |Marcos, Eduardo e Augusto|
 | Identidade visual |Vinicius e Augusto|
-| Criação de models (Usuário, Cliente, Prestador e Estabelecimento) |Time|
+| Criação de models (Usuário e Estabelecimento) |Time|
 
 -------------------------
 #### O que não foi feito?
@@ -45,7 +42,7 @@ Término da iteração
 | **Ação** | **Responsável** |
 | --- | --- |
 | Criação de testes |Time|
-| Continuar desenvolcimento |Time|
+| Continuar desenvolvimento |Time|
 
 -------------------------
 #### Lições aprendidas
