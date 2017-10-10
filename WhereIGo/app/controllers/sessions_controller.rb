@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-include ApplicationHelper
 def new
 	render layout: "login-signup"
 	@title = "Login"

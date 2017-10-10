@@ -14,7 +14,7 @@ class RegisterController < ApplicationController
     end
     
     def create
-        render layout: "login-signup"
+        #render layout: "login-signup"
         values = params.require(:user).permit!
         if params[:user][:password_digest] == params["confirmation-password"]
             if User.exists?(:email => params[:user][:email])
@@ -29,7 +29,9 @@ class RegisterController < ApplicationController
     	        end
     	    end
     	else
-    	    render 'error'
+
+    	    redirect_to '/register', :flash => {:error => "Teste"}
+    	    #render 'error'
     	end
     end
     
