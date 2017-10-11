@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :password_digest
       t.boolean :is_provider
       t.boolean :is_active
-      #t.has_many :establishments
+      t.has_many :establishments
       
       t.timestamps
     end

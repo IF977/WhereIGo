@@ -7,7 +7,7 @@ class CreateEstablishments < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :website
       t.boolean :is_active
-      #t.belongs_to :user, index: true
+      t.belongs_to :user, index: true
  
       t.timestamps
     end

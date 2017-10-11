@@ -7,7 +7,7 @@
     
                 <h1>Cadastro</h1>
                 <%= flash_message.html_safe %>
-                <%=form_for :user, url: {action: 'create'}, :method => :POST do |f| %>
+                <%=form_for :user, url: {action: 'register_create_user'}, :method => :POST do |f| %>
                     <div id="form-inputs">
                         <label for="name" class="wig-formlabel">Nome</label>
                         <%= f.text_field :name, class: "wig-textbox", placeholder: "Seu nome" %>
