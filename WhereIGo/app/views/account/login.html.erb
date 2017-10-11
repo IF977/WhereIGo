@@ -1,7 +1,7 @@
 <div class="container" id="flex-container">
     <div class="col-md-4" id="signup">
         <section class="login-form">
-            <%= form_tag(controller: "sessions", action: "create", method: "post", role: "login") do %>
+            <%= form_tag(controller: "account", action: "login_authentication", method: "post", role: "login") do %>
                 <div id="logo-signup">
                      <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
                 </div>
