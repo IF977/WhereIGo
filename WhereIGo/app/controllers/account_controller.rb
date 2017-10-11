@@ -28,7 +28,7 @@ class AccountController < ApplicationController
     	if user != nil
     		if user.password_digest == params["password"]
     			session[:current_user_id] = user.id
-    			redirect_to '/account'
+    			redirect_to '/dashboard'
     			return
     		else
     			redirect_to '/login', :flash => { :error => "Usuário ou senha incorretas!" }
