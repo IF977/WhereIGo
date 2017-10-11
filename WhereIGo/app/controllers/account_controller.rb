@@ -60,6 +60,16 @@ class AccountController < ApplicationController
         render layout: "login-signup"
     end
     
+    def flash_create_user(message)
+        if current_page?('/register/client')
+    	   redirect_to '/register/client', :flash => {:error => message}
+    	   return
+    	else
+    	   redirect_to '/register/provider', :flash => {:error => message}
+    	   return
+    	end
+    end
+    
     def register_create_user
                 values = params.require(:user).permit!
         if params[:user][:password_digest] == params["confirmation-password"]

@@ -1,7 +1,6 @@
 class EstablishmentController < ApplicationController
     def index
         @title = "Meus estabelecimentos"
-        user = User.find_by(id: session[:current_user_id])
         @establishments = Establishment.all
     end
     
@@ -23,7 +22,7 @@ class EstablishmentController < ApplicationController
     end
     
     def show
-        @e = Establishment.find(params[:id])
+        @e = Establishment.find_by(id: params[:id])
     end
     
     def update
