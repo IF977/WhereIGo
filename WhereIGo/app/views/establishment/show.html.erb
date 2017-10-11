@@ -5,22 +5,22 @@
 
 
 <h1>Editar estabelecimento</h1>
-<%=form_for @e, url: {action: 'update'}, :method => :POST do |e| %>
+<%=form_for @establishments, url: {action: 'update'}, :method => :POST do |e| %>
     <div id="form-inputs">
         <label for="name" class="wig-formlabel">Nome</label>
-        <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento", value: @e.name %>
+        <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento", value: @establishments.name %>
         
         <label for="email" class="wig-formlabel">E-mail</label>
-        <%= e.email_field :email, class: "wig-textbox", placeholder: "Email de contato", value: @e.email %>
+        <%= e.email_field :email, class: "wig-textbox", placeholder: "Email de contato", value: @establishments.email %>
         
         <label for="cnpj" class="wig-formlabel">CNPJ</label>
-        <%= e.text_field :cnpj, class: "wig-textbox", placeholder: "CNPJ", value: @e.cnpj %>
+        <%= e.text_field :cnpj, class: "wig-textbox", placeholder: "CNPJ", value: @establishments.cnpj %>
         
         <label for="address" class="wig-formlabel">Endereço</label>
-        <%= e.text_field :address, class: "wig-textbox", placeholder: "Endereço", value: @e.address %>
+        <%= e.text_field :address, class: "wig-textbox", placeholder: "Endereço", value: @establishments.address %>
         
         <label for="website" class="wig-formlabel">Website</label>
-        <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @e.website %>
+        <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
     </div>
     <%= e.submit "Salvar alterações", class: "wig-button" %>
 <%end%>

@@ -1,6 +1,5 @@
 class User < ApplicationRecord
     #has_secure_password
-    has_many :establishments
     after_initialize :set_default_values
     
     def set_default_values

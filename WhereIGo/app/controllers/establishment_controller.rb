@@ -22,12 +22,12 @@ class EstablishmentController < ApplicationController
     end
     
     def show
-        @e = Establishment.find_by(id: params[:id])
+        @establishments = Establishment.find_by(id: params[:id])
     end
     
     def update
         values = params.require(:establishment).permit!
-        Establishment.update(session[:current_user_id], values)
+        Establishment.update(params[:id], values)
     end
     
     private
