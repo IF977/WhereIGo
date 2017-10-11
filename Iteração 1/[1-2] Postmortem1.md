@@ -23,10 +23,10 @@ Início da iteração      | Término da iteração
 | **Ação** | **Responsável** |
 | --- | --- |
 | Implementar 2 HUs |Time|
-| Front-end do CRUD de Usuário |Vinicius|
-| Front-end do CRUD de Estabelecimento |Vinicius|
-| Back-end do CRUD de Usuário |Marcos, Eduardo e Augusto|
-| Back-end do CRUD de Estabelecimento |Marcos, Eduardo e Augusto|
+| Front-end de Usuário |Vinicius|
+| Front-end de Estabelecimento |Vinicius|
+| Back-end de Usuário |Marcos, Eduardo e Augusto|
+| Back-end de Estabelecimento |Marcos, Eduardo e Augusto|
 | Identidade visual |Vinicius e Augusto|
 | Criação de models (Usuário e Estabelecimento) |Time|
 
