@@ -1,7 +1,7 @@
 class EstablishmentController < ApplicationController
     def index
         @title = "Meus estabelecimentos"
-        @establishments = Establishment.all
+        @establishments = Establishment.where(user_id: session[:current_user_id])
     end
     
     def new
@@ -9,13 +9,13 @@ class EstablishmentController < ApplicationController
     end
     
     def create
-        user = User.find_by(id: session[:current_user_id])
         values = params.require(:establishment).permit!
         if Establishment.exists?(:cnpj => params[:establishment][:cnpj])
-            render 'error'
+            redirect_to '/establishments/new', :flash => { :error => "O CNPJ já está em uso." }
             return
         else
-            user.establishments.create values
+            new_establishment = Establishment.create values
+            Establishment.update(new_establishment[:id], :user_id => session[:current_user_id])
             redirect_to '/establishments'
             return
         end

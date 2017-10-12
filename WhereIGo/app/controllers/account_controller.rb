@@ -1,5 +1,16 @@
 class AccountController < ApplicationController
     include ActionView::Helpers::UrlHelper #current_page?()
+    
+    def flash_create_user(message)
+        if current_page?('/register/client')
+    	   redirect_to '/register', :flash => {:error => message}
+    	   return
+    	else
+    	   redirect_to '/register', :flash => {:error => message}
+    	   return
+    	end
+    end
+    
     def edit
         @title = "Minha conta"
         if session[:current_user_id] == nil
@@ -46,45 +57,21 @@ class AccountController < ApplicationController
 	    return
     end
     
-    def register_role_choice
-        render layout: "login-signup"
-    end
-    
-    def register_client
+    def register_account
         @title = "Cadastro"
         render layout: "login-signup"
     end
     
-    def register_provider
-        @title = "Cadastro"
-        render layout: "login-signup"
-    end
-    
-    def flash_create_user(message)
-        if current_page?('/register/client')
-    	   redirect_to '/register/client', :flash => {:error => message}
-    	   return
-    	else
-    	   redirect_to '/register/provider', :flash => {:error => message}
-    	   return
-    	end
-    end
-    
-    def register_create_user
-                values = params.require(:user).permit!
+    def register_create_account
+        values = params.require(:user).permit!
         if params[:user][:password_digest] == params["confirmation-password"]
             if User.exists?(:email => params[:user][:email])
                 flash_create_user("O email já está em uso.")
                 return
             else
-                if params[:user][:is_provider] == "Yes"
-                    params[:user][:is_provider] = true
-    	            User.create values
-    	        else
-    	            params[:user][:is_provider] = false
-    	            User.create values
-    	        end
-    	        redirect_to '/login', :flash => {:notice => "Conta criada com sucesso!"}
+    	        new_user = User.create values
+    	        session[:current_user_id] = new_user[:id]
+    	        redirect_to '/register/role'
     	        return
     	    end
     	else
@@ -92,6 +79,20 @@ class AccountController < ApplicationController
     	    return
     	end
     	render layout: "login-signup"
+    end
+    
+    def register_role_choice
+        render layout: "login-signup"
+    end
+    
+    
+    def register_role_provider
+        User.update(session[:current_user_id], :is_provider => true)
+        redirect_to '/establishments/new'
+    end
+    
+    def register_role_client
+        User.update(session[:current_user_id], :is_client => true)
     end
     
 end
