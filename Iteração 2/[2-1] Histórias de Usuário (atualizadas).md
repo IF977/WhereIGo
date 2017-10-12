@@ -15,3 +15,4 @@ Id | Escopo | História | Status
 11 | Dono de estabelecimento | Como um dono de estabelecimento<br/>Eu quero editar ou remover informações cadastradas<br/>Para que eu possa atualizar os dados do meu estabelecimento | Implementado (Iteração 1)
 12 | Dono de estabelecimento | Como um dono de estabelecimento<br/>Eu quero adicionar promoções/eventos ao meu estabelecimento<br/>Para que eu possa promover uma interação com meu público | On hold
 13 | Cliente | Como um cliente<br/>Eu quero ver a localização de um estabelecimento num mapa<br/>Para que seja mais fácil chegar até lá | On hold
+14 | Cliente | Como um cliente<br/>Eu quero poder selecionar preferências de estabelecimento<br/>Para encontrar estabelecimentos compatíveis com meu gosto
