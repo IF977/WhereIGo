@@ -38,9 +38,14 @@ class AccountController < ApplicationController
     	user = User.find_by(email: params["email"])
     	if user != nil
     		if user.password_digest == params["password"]
-    			session[:current_user_id] = user.id
-    			redirect_to '/dashboard'
-    			return
+    		    session[:current_user_id] = user.id
+    			if user.is_client or user.is_provider
+    			    redirect_to '/dashboard'
+    			    return
+    			else
+    			    redirect_to '/register/role'
+    		    	return
+    		    end
     		else
     			redirect_to '/login', :flash => { :error => "Usuário ou senha incorretas!" }
     			return
@@ -65,14 +70,28 @@ class AccountController < ApplicationController
     def register_create_account
         values = params.require(:user).permit!
         if params[:user][:password_digest] == params["confirmation-password"]
-            if User.exists?(:email => params[:user][:email])
+            if params[:user][:name].length == 0
+                flash_create_user("O campo nome é obrigatório")
+                return
+            elsif params[:user][:email].length == 0
+                flash_create_user("O campo e-mail é obrigatório")
+                return
+            elsif User.exists?(:email => params[:user][:email])
                 flash_create_user("O email já está em uso.")
+                return
+            elsif params[:user][:password_digest].length == 0
+                flash_create_user("O campo senha é obrigatório")
                 return
             else
     	        new_user = User.create values
-    	        session[:current_user_id] = new_user[:id]
-    	        redirect_to '/register/role'
-    	        return
+    	        if new_user.valid?
+    	            session[:current_user_id] = new_user[:id]
+    	            redirect_to '/register/role'
+    	            return
+    	        else
+                    flash_create_user("O campo nome não pode ter espaço, números ou caracteres especiais!")
+                    return
+                end
     	    end
     	else
     	    flash_create_user("As senhas são diferentes.")
@@ -88,11 +107,21 @@ class AccountController < ApplicationController
     
     def register_role_provider
         User.update(session[:current_user_id], :is_provider => true)
-        redirect_to '/establishments/new'
+        redirect_to 'register/role/provider'
     end
     
     def register_role_client
         User.update(session[:current_user_id], :is_client => true)
+    end
+    
+    def register_provider_establishment
+        @title = "Estabelecimento"
+        render layout: "login-signup"
+    end
+    
+    def register_client_preferences
+        @title = "Preferencias"
+        render layout: "login-signup"
     end
     
 end

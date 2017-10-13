@@ -15,9 +15,9 @@ Rails.application.routes.draw do
     
     get 'register/role' => 'account#register_role_choice'
     
-    get 'register/role/client' => 'account#register_role_client'
+    get 'register/role/client' => 'account#register_client_preferences'
     
-    get 'register/role/provider' => 'account#register_role_provider'
+    get 'register/role/provider' => 'account#register_provider_establishment'
     
     get 'account' => 'account#edit'
     
