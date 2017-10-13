@@ -70,17 +70,17 @@ class AccountController < ApplicationController
     def register_create_account
         values = params.require(:user).permit!
         if params[:user][:password_digest] == params["confirmation-password"]
-            if params[:user][:name].length == 0
+            if params[:user][:name].strip == ""
                 flash_create_user("O campo nome é obrigatório")
                 return
-            elsif params[:user][:email].length == 0
+            elsif params[:user][:email].strip == ""
                 flash_create_user("O campo e-mail é obrigatório")
                 return
             elsif User.exists?(:email => params[:user][:email])
                 flash_create_user("O email já está em uso.")
                 return
-            elsif params[:user][:password_digest].length == 0
-                flash_create_user("O campo senha é obrigatório")
+            elsif params[:user][:password_digest].strip == ""
+                flash_create_user("O campo senha não pode ter espaço.")
                 return
             else
     	        new_user = User.create values
@@ -89,7 +89,7 @@ class AccountController < ApplicationController
     	            redirect_to '/register/role'
     	            return
     	        else
-                    flash_create_user("O campo nome não pode ter espaço, números ou caracteres especiais!")
+                    flash_create_user("O campo nome não pode ter números ou caracteres especiais!")
                     return
                 end
     	    end
