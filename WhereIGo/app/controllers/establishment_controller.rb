@@ -29,14 +29,7 @@ class EstablishmentController < ApplicationController
         values = params.require(:establishment).permit!
         Establishment.update(params[:id], values)
     end
-    
-=begin
-    def review
-        user = session[:current_user_id]
-        
-    end
-=end
-    
+
     private
     def establishment_params
         params.require(:establishment).permit(:cnpj, :name, :address, :email, :website)

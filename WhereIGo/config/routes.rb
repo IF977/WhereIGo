@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     
     post 'account/update' => 'account#update'
     
+    get 'account/user_review' => 'account#user_review'
+    
     get 'establishments' => 'establishment#index'
     
     get 'establishments/new' => 'establishment#new'
