@@ -79,9 +79,6 @@ class AccountController < ApplicationController
             elsif User.exists?(:email => params[:user][:email])
                 flash_create_user("O email já está em uso.")
                 return
-            elsif params[:user][:password_digest].strip == ""
-                flash_create_user("O campo senha não pode ter espaço.")
-                return
             else
     	        new_user = User.create values
     	        if new_user.valid?

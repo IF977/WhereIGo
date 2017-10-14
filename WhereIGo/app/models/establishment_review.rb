@@ -1,0 +1,2 @@
+class EstablishmentReview < ApplicationRecord
+end
