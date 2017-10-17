@@ -6,4 +6,8 @@ class User < ApplicationRecord
     def set_default_values
         self.is_active ||= true
     end
+    
+    validates :name, presence:true
+    validates :email, presence:true
+    validates :password_digest, presence:true
 end
