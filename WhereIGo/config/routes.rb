@@ -9,13 +9,17 @@ Rails.application.routes.draw do
     
     get 'dashboard' => 'dashboard#index'
     
-    get 'register' => 'account#register_role_choice'
+    get 'register' => 'account#register_account'
     
-    get 'register/client' => 'account#register_client'
+    post 'register/create' => 'account#register_create_account'
     
-    post 'register/create' => 'account#register_create_user'
+    get 'register/role' => 'account#register_role_choice'
     
-    get 'register/provider' => 'account#register_provider'
+    get 'register/client' => 'account#register_role_client'
+    
+    get 'register/provider' => 'account#register_role_provider'
+    
+    get 'register/provider/establishment' => 'account#register_provider_establishment'
     
     get 'account' => 'account#edit'
     
