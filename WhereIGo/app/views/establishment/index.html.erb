@@ -4,6 +4,8 @@
     <% @establishments.each do |e| %>
         <li>
             <a href="<%=url_for(controller: "establishment", action: "show", id: e.id) %>"><%= e.name %></a>
+            <a href="<%=url_for(controller: "account", action: "user_review", review: true) %>">UP</a>
+            <a href="<%=url_for(controller: "account", action: "user_review", review: false) %>">DOWN</a>
         </li>
     <% end %>
 </ol>

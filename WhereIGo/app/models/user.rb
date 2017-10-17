@@ -6,4 +6,5 @@ class User < ApplicationRecord
     def set_default_values
         self.is_active ||= true
     end
+
 end

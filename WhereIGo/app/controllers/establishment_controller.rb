@@ -11,7 +11,7 @@ class EstablishmentController < ApplicationController
     def create
         values = params.require(:establishment).permit!
         if Establishment.exists?(:cnpj => params[:establishment][:cnpj])
-            render 'error'
+            redirect_to '/establishments/new', :flash => { :error => "O CNPJ já está em uso." }
             return
         else
             new_establishment = Establishment.create values

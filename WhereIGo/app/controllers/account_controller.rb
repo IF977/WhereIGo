@@ -84,9 +84,14 @@ class AccountController < ApplicationController
                 return
             else
     	        new_user = User.create values
-    	        session[:current_user_id] = new_user[:id]
-    	        redirect_to '/register/role'
-    	        return
+    	        if new_user.valid?
+    	            session[:current_user_id] = new_user[:id]
+    	            redirect_to '/register/role'
+    	            return
+    	        else
+                    flash_create_user("O campo nome não pode ter números ou caracteres especiais!")
+                    return
+                end
     	    end
     	else
     	    flash_create_user("As senhas são diferentes.")
@@ -113,6 +118,30 @@ class AccountController < ApplicationController
     def register_provider_establishment
         @title = "Estabelecimento"
         render layout: "login-signup"
+    end
+    
+    def register_client_preferences
+        @title = "Preferencias"
+        render layout: "login-signup"
+    end
+    
+    def user_review
+        review = params[:review]
+        user = session[:current_user_id]
+        values = {:user_id => user,
+                  :cnpj => "abcde",
+                  :review => review
+        }
+        
+        new_review = EstablishmentReview.create values
+        new_review.review = review
+        
+        redirect_to '/establishments'
+        return
+    
+        #user_reviews = EstablishmentReview.find(user_id: user)
+        #if user_reviews.exists?(:cnpj => Establishment)
+        #end
     end
     
 end
