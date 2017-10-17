@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    #has_secure_password
+    has_secure_password
   
     after_initialize :set_default_values
     
