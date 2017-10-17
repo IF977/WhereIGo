@@ -69,27 +69,25 @@ class AccountController < ApplicationController
     
     def register_create_account
         values = params.require(:user).permit!
-        if params[:user][:password_digest] == params["confirmation-password"]
-            if params[:user][:name].strip == ""
+        if params[:user][:name].strip == ""
                 flash_create_user("O campo nome é obrigatório")
                 return
-            elsif params[:user][:email].strip == ""
-                flash_create_user("O campo e-mail é obrigatório")
-                return
-            elsif User.exists?(:email => params[:user][:email])
-                flash_create_user("O email já está em uso.")
-                return
-            elsif params[:user][:password_digest].strip == ""
-                flash_create_user("O campo senha não pode ter espaço.")
-                return
-            else
-    	        new_user = User.create values
-    	        session[:current_user_id] = new_user[:id]
-    	        redirect_to '/register/role'
-    	        return
-    	    end
-    	else
-    	    flash_create_user("As senhas são diferentes.")
+        elsif params[:user][:password_digest].size < 6
+    	    flash_create_user("A senha precisa ter no mínimo 6 caracteres.")
+    	    return
+        elsif params[:user][:email].strip == ""
+            flash_create_user("O campo e-mail é obrigatório")
+            return
+        elsif User.exists?(:email => params[:user][:email])
+            flash_create_user("O email já está em uso.")
+            return
+        elsif params[:user][:password_digest].strip == ""
+            flash_create_user("O campo senha não pode ter espaço.")
+            return
+        else
+            new_user = User.create values
+    	    session[:current_user_id] = new_user[:id]
+    	    redirect_to '/register/role'
     	    return
     	end
     	render layout: "login-signup"
