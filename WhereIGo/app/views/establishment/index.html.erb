@@ -6,8 +6,8 @@
             <a href="<%=url_for(controller: "establishment", action: "show", id: e.id) %>"><%= e.name %></a>
             <a href="<%=url_for(controller: "establishment", action: "user_review", review: true, id: e.id) %>">UP</a>
             <a href="<%=url_for(controller: "establishment", action: "user_review", review: false, id: e.id) %>">DOWN</a>
-            <%= @ups %>
-            <%= @downs %>
+            <%= EstablishmentReview.where(:review => true).where(:establishment_id => e.id).count %>
+            <%= EstablishmentReview.where(:review => false).where(:establishment_id => e.id).count  %>
         </li>
     <% end %>
 </ol>
