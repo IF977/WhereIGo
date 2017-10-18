@@ -35,4 +35,5 @@ class EstablishmentController < ApplicationController
     #def establishment_params
     #    params.require(:establishment).permit(:cnpj, :name, :address, :email, :website)
     #end
+
 end

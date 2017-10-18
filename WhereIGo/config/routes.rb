@@ -15,12 +15,13 @@ Rails.application.routes.draw do
     
     get 'register/role' => 'account#register_role_choice'
     
+
     get 'register/client' => 'account#register_role_client'
     
     get 'register/provider' => 'account#register_role_provider'
     
     get 'register/provider/establishment' => 'account#register_provider_establishment'
-    
+
     get 'account' => 'account#edit'
     
     post 'account/update' => 'account#update'

@@ -107,12 +107,19 @@ class AccountController < ApplicationController
     
     def register_role_provider
         User.update(session[:current_user_id], :is_provider => true)
+<<<<<<< HEAD
         redirect_to '/register/provider/establishment'
+=======
+        redirect_to 'register/role/provider'
+>>>>>>> 9c62e751b31e05be323f7da1c5082af04bb9e9ab
     end
     
     def register_role_client
         User.update(session[:current_user_id], :is_client => true)
+<<<<<<< HEAD
         redirect_to '/dashboard'
+=======
+>>>>>>> 9c62e751b31e05be323f7da1c5082af04bb9e9ab
     end
     
     def register_provider_establishment
