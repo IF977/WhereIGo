@@ -264,11 +264,9 @@ h1 {
     /*height: 100vh;*/
 }
 .wig-flex-about {
-    display: flex;
     justify-content: center;
     align-items: center;
-    height: 520px;
-    max-width: 1000px;
+    padding: 80px;
 }
 .wig-about h2 {
     font-size: 1.3em;
@@ -296,7 +294,12 @@ h1 {
     max-width: 1000px;
 }
 .wig-team-member {
+    text-align: center;
     h2 {
         font-size: 1.3em;
     }
+}
+.wig-team-pic {
+    width: 150px;
+    border-radius: 30px;
 }

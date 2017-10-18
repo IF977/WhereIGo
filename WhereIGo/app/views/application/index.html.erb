@@ -57,10 +57,10 @@
                             <a class="nav-link" href="#">Equipe</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cadastro</a>
+                            <a class="nav-link" href="<%= url_for controller: 'account', action: 'register_account' %>">Cadastro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Entrar</a>
+                            <a class="nav-link" href="<%= url_for controller: 'account', action: 'login' %>">Entrar</a>
                         </li>
                     </ul>
                 </div>
@@ -73,39 +73,34 @@
                     <span class="wig-homepage-title">Encontre restaurantes e bares em Recife facilmente.</span>
                     <span class="wig-homepage-message">O WhereIGo te indica os melhores estabelecimentos baseado em seus gostos, do jeito que você adora. Cadastre-se para começar ou divulgar o seu próprio estabelecimento!</span>
                 </div>
+
                 <div class="col-md-3 wig-registerbox-homepage">
                     <section class="login-form">
-                        <form method="post" action="#" role="login">
-                            <h1>Cadastrar-se</h1>
-                            <div id="form-inputs">
-                                <label for="name" class="wig-formlabel">Nome</label>
-                                <input type="text" name="name" required class="wig-textbox" placeholder="Mamarquitos" />
-
-                                <label for="email" class="wig-formlabel">E-mail</label>
-                                <input type="email" name="email" required class="wig-textbox" placeholder="você@exemplo.com" />
-                                
-                                <label for="password" class="wig-formlabel">Senha</label>
-                                <input type="password" class="wig-textbox" id="password" required placeholder="Escolha uma senha segura"/>
-
-                                <label for="password-confirm" class="wig-formlabel">Confirmar senha</label>
-                                <input type="password" class="wig-textbox" name="password-confirm" required placeholder="Digite a senha novamente"/>
-                            </div>
-
-                            <button type="submit" name="go" class="wig-button" id="login-button">Continuar</button>
-                            <div class="wig-formlinks">
-                                 <span>Já tem uma conta? <a href="#">Entrar</a></span>
-                            </div>
-                        </form>
+                        
+                    <h1>Cadastrar-se</h1>
+                    <%= form_for :user, url: {controller: 'account', action: 'register_create_account'}, :method => :POST do |f| %>
+                        <div id="form-inputs">
+                            <label for="name" class="wig-formlabel">Nome</label>
+                            <%= f.text_field :name, class: "wig-textbox", placeholder: "Seu nome" %>
+                            
+                            <label for="email" class="wig-formlabel">E-mail</label>
+                            <%=f.email_field :email, class: "wig-textbox", placeholder: "Seu email"%>
+                            
+                            <label for="password" class="wig-formlabel">Senha</label>
+                            <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
+                            
+                        </div>
+                        <%= f.submit "Criar conta", class: "wig-button" %>
+                        <div class="wig-formlinks">
+                            <span>Já tem uma conta? <a href="<%= url_for controller: 'account', action: 'login' %>">Entrar</a></span>
+                        </div>
+                    <%end%>
+                    
                     </section>  
                 </div>
             </div>
         </div>
         <div class="wig-about">
-            <div class="row">
-                    <div class="col-md-12">
-                        <p>WhereIGo é uma serviço que utiliza dados abertos de bares e restaurantes do Recife para entregar uma nova experiência de descoberta de estabelecimentos.</p>
-                    </div>
-                </div>
             <div class="container wig-flex-about">
                 <div class="row">
                     <div class="col-md-4 wig-about-item">
@@ -130,18 +125,22 @@
             <div class="container wig-flex-team">
                 <div class="row">
                     <div class="col-md-3 wig-team-member">
+                        <%= image_tag("augusto.jpg", class: "mg-responsive wig-team-pic") %>
                         <h2>Augusto</h2>
                         <p>@aacgn</p>
                     </div>
                     <div class="col-md-3 wig-team-member">
+                        <%= image_tag("eduardo.jpg", class: "mg-responsive wig-team-pic") %>
                         <h2>Eduardo</h2>
                         <p>@eduardosm7</p>
                     </div>
                     <div class="col-md-3 wig-team-member">
+                        <%= image_tag("marcos.jpg", class: "mg-responsive wig-team-pic") %>
                         <h2>Marcos</h2>
                         <p>@mvhb</p>
                     </div>
                     <div class="col-md-3 wig-team-member">
+                        <%= image_tag("vinicius.jpg", class: "mg-responsive wig-team-pic") %>
                         <h2>Vinícius</h2>
                         <p>@gilesv</p>
                     </div>
