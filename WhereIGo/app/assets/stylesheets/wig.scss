@@ -17,16 +17,18 @@ $valor-borda: 4px;
     margin-left: auto;
     margin-right: auto;
 }
-
+@mixin wig-body {
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-color: $wig-lightgrey;
+}
 html, body {
     height: 100%;
     margin: 0;
 }
-body {
+.wig-body-sign {
+    @include wig-body;
     background-image: url('/assets/background-login.jpg');
-    background-repeat: repeat;
-    background-attachment: fixed;
-    background-color: $wig-lightgrey;
 }
 
 a {
@@ -38,6 +40,7 @@ a {
 }
 
 h1 {
+    color: $wig-lightgrey;
     font-size: 1.3rem;
     text-align: center;
     margin: 25px 0 20px 0;
@@ -52,7 +55,7 @@ h1 {
     display: block;
     width: 100%;
     padding: .5rem .75rem;
-    font-size: 1rem;
+    font-size: 0.8em;
     line-height: 1.25;
     color: $wig-xdarkgrey;
     background-color: $wig-lightgrey;
@@ -72,6 +75,7 @@ h1 {
     text-align: left;
     margin-bottom: 0;
     margin-top: 12px;
+    font-size: .8em;
 }
 
 .wig-button {
@@ -187,4 +191,112 @@ h1 {
 // turbo-links
 .turbolinks-progress-bar {
     background-color: $wig-greatpink;   
+}
+
+////////////////////////////////////////////////////////////
+///////////////// HOMEPAGE /////////////////////////////////
+////////////////////////////////////////////////////////////
+.wig-body-homepage {
+    @include wig-body;
+    background-image: url('/assets/background-homepage.jpg');
+    color: $wig-lightgrey;
+}
+.wig-registerbox-homepage {
+    //@include wig-box;
+    padding: 15px;
+    margin: 0;
+}
+#logo-homepage {
+    display: block;
+    margin-bottom: 40px;
+}
+.wig-flex-homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 1000px;
+}
+.wig-navbar-homepage {
+    background-color: rgba(0,0,0,0);
+    transition: all .2s;
+}
+.wig-navbar-homepage-active {
+    background-color: rgba(0,0,0,.85);
+    transition: all .2;
+}
+.wig-navbar-container-homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    height: 66px;
+}
+.wig-navbar-right {
+    flex-basis: 0;
+}
+.wig-navbar-logo {
+    opacity: 0;
+    transition: all .2s;
+    width: 122px;
+}
+.wig-navbar-logo-active {
+    transition: all .2s;
+    opacity: 1;
+    width: 122px;
+    top: 0;
+}
+.wig-homepage-title {
+    color: #fff;
+    font-size: 3em;
+    font-weight: 500;
+    line-height: .8em;
+}
+.wig-homepage-message {
+    margin-top: 12px;
+    font-size: 1.2em;
+    font-weight: 200;
+    /* line-height: 1.2em; */
+    display: block;
+}
+.wig-about {
+    background-color: rgba(255,255,255, .95);
+    /*height: 100vh;*/
+}
+.wig-flex-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 520px;
+    max-width: 1000px;
+}
+.wig-about h2 {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: $wig-xdarkgrey;
+    margin-top: 34px;
+}
+.wig-about p {
+    color: $wig-xdarkgrey;
+}
+.wig-about-item {
+    text-align: center;
+}
+
+.wig-team {
+    background-color: $wig-xdarkgrey;
+    color: $wig-lightgrey;
+}
+
+.wig-flex-team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 380px;
+    max-width: 1000px;
+}
+.wig-team-member {
+    h2 {
+        font-size: 1.3em;
+    }
 }

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= @title %></title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <%= csrf_meta_tags %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all' %>
+        <%= stylesheet_link_tag    'wig.css', media: 'all' %>
+    </head>
+    <body class="wig-body-homepage">
+        <script>
+            $(document).ready(function() { showNavbar() });
+            $(document).scroll(function() { showNavbar() });
+
+            function showNavbar() {
+                var scroll = $(window).scrollTop();
+                console.log(scroll);
+                if(scroll >= 80) {
+                    $("#navbar").addClass("wig-navbar-homepage-active");
+                    //$("#navbar").removeClass("wig-navbar-homepage");
+                    
+                    $("#logo-navbar").addClass("wig-navbar-logo-active");
+                    $("#logo-navbar").removeClass("wig-navbar-logo");
+                    
+                    
+                } else {
+                    $("#navbar").removeClass("wig-navbar-homepage-active");
+                    $("#navbar").addClass("wig-navbar-homepage");
+
+                    $("#logo-navbar").addClass("wig-navbar-logo");
+                    $("#logo-navbar").removeClass("wig-navbar-logo-active");
+  
+                }
+            }
+
+        </script>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar">
+            <div class="container wig-navbar-container-homepage">
+                <a class="navbar-brand" href="#">
+                    <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-logo", id: "logo-navbar") %>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse wig-navbar-right">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Equipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cadastro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Entrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container wig-flex-homepage">
+            <div class="row">
+                <div class="col-md-9" id="welcome-message">
+                    <%= image_tag("wig-logo-large.png", class: "img-responsive", id: "logo-homepage") %>
+                    <span class="wig-homepage-title">Encontre restaurantes e bares em Recife facilmente.</span>
+                    <span class="wig-homepage-message">O WhereIGo te indica os melhores estabelecimentos baseado em seus gostos, do jeito que você adora. Cadastre-se para começar ou divulgar o seu próprio estabelecimento!</span>
+                </div>
+                <div class="col-md-3 wig-registerbox-homepage">
+                    <section class="login-form">
+                        <form method="post" action="#" role="login">
+                            <h1>Cadastrar-se</h1>
+                            <div id="form-inputs">
+                                <label for="name" class="wig-formlabel">Nome</label>
+                                <input type="text" name="name" required class="wig-textbox" placeholder="Mamarquitos" />
+
+                                <label for="email" class="wig-formlabel">E-mail</label>
+                                <input type="email" name="email" required class="wig-textbox" placeholder="você@exemplo.com" />
+                                
+                                <label for="password" class="wig-formlabel">Senha</label>
+                                <input type="password" class="wig-textbox" id="password" required placeholder="Escolha uma senha segura"/>
+
+                                <label for="password-confirm" class="wig-formlabel">Confirmar senha</label>
+                                <input type="password" class="wig-textbox" name="password-confirm" required placeholder="Digite a senha novamente"/>
+                            </div>
+
+                            <button type="submit" name="go" class="wig-button" id="login-button">Continuar</button>
+                            <div class="wig-formlinks">
+                                 <span>Já tem uma conta? <a href="#">Entrar</a></span>
+                            </div>
+                        </form>
+                    </section>  
+                </div>
+            </div>
+        </div>
+        <div class="wig-about">
+            <div class="row">
+                    <div class="col-md-12">
+                        <p>WhereIGo é uma serviço que utiliza dados abertos de bares e restaurantes do Recife para entregar uma nova experiência de descoberta de estabelecimentos.</p>
+                    </div>
+                </div>
+            <div class="container wig-flex-about">
+                <div class="row">
+                    <div class="col-md-4 wig-about-item">
+                        <%= image_tag("about2.png", class: "img-responsive") %>
+                        <h2>Diga o que você gosta</h2>
+                        <p>Informe suas preferências em relação a comida, ambiente, música e outros itens</p>
+                    </div>
+                    <div class="col-md-4 wig-about-item">
+                        <%= image_tag("about1.png", class: "img-responsive") %>
+                        <h2>Tenha sugestões personalizadas</h2>
+                        <p>O WhereIGo buscará automaticamente estabelecimentos que combinam com suas preferências</p>
+                    </div>
+                    <div class="col-md-4 wig-about-item">
+                        <%= image_tag("about3.png", class: "img-responsive") %>
+                        <h2>Avalie, indique e ganhe</h2>
+                        <p>Indique estabelecimentos aos amigos e aproveite promoções exclusivas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wig-team">
+            <div class="container wig-flex-team">
+                <div class="row">
+                    <div class="col-md-3 wig-team-member">
+                        <h2>Augusto</h2>
+                        <p>@aacgn</p>
+                    </div>
+                    <div class="col-md-3 wig-team-member">
+                        <h2>Eduardo</h2>
+                        <p>@eduardosm7</p>
+                    </div>
+                    <div class="col-md-3 wig-team-member">
+                        <h2>Marcos</h2>
+                        <p>@mvhb</p>
+                    </div>
+                    <div class="col-md-3 wig-team-member">
+                        <h2>Vinícius</h2>
+                        <p>@gilesv</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
