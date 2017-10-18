@@ -70,8 +70,8 @@ class AccountController < ApplicationController
     def register_create_account
         values = params.require(:user).permit!
         if params[:user][:name].strip == ""
-                flash_create_user("O campo nome é obrigatório")
-                return
+            flash_create_user("O campo nome é obrigatório")
+            return
         elsif params[:user][:password_digest].size < 6
     	    flash_create_user("A senha precisa ter no mínimo 6 caracteres.")
     	    return
