@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     
     get 'register/role' => 'account#register_role_choice'
     
-
     get 'register/client' => 'account#register_role_client'
     
     get 'register/provider' => 'account#register_role_provider'
@@ -26,7 +25,7 @@ Rails.application.routes.draw do
     
     post 'account/update' => 'account#update'
     
-    get 'account/user_review' => 'account#user_review'
+    get 'establishments/user_review' => 'establishment#user_review'
     
     get 'establishments' => 'establishment#index'
     

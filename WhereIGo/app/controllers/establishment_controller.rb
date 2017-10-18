@@ -2,6 +2,8 @@ class EstablishmentController < ApplicationController
     def index
         @title = "Meus estabelecimentos"
         @establishments = Establishment.where(user_id: session[:current_user_id])
+        @ups = EstablishmentReview.where(:review => true).count
+        @downs = EstablishmentReview.where(:review => false).count
     end
     
     def new
@@ -23,6 +25,8 @@ class EstablishmentController < ApplicationController
     
     def show
         @establishments = Establishment.find_by(id: params[:id])
+        @ups = EstablishmentReview.where(:review => true).count
+        @downs = EstablishmentReview.where(:review => false).count
     end
     
     def update
@@ -35,5 +39,30 @@ class EstablishmentController < ApplicationController
     #def establishment_params
     #    params.require(:establishment).permit(:cnpj, :name, :address, :email, :website)
     #end
+    
+    def user_review
+        user = session[:current_user_id]
+        establishment = params[:id]
+        review = params[:review]
+        values = {:user_id => user,
+                  :establishment_id => establishment,
+                  :review => review
+        }
+        
+        #Checa se o user já avaliou determinado restaurante
+        user_reviews = EstablishmentReview.where(user_id: user)
+        if user_reviews.exists?(:establishment_id => establishment)
+            user_reviews.where(establishment_id: establishment).update(:review => review)
+        else
+            new_review = EstablishmentReview.create values
+        end
+        
+        @ups = EstablishmentReview.where(:review => true).count
+        @downs = EstablishmentReview.where(:review => false).count
+        
+        redirect_to '/establishments'
+        return
+    
+    end
 
 end
