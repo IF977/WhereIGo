@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= @title %></title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <%= csrf_meta_tags %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all' %>
+        <%= stylesheet_link_tag    'wig.css', media: 'all' %>
+    </head>
+    <body class="wig-body-homepage">
+        <script>
+            $(document).ready(function() { showNavbar() });
+            $(document).scroll(function() { showNavbar() });
+
+            function showNavbar() {
+                var scroll = $(window).scrollTop();
+                console.log(scroll);
+                if(scroll >= 80) {
+                    $("#navbar").addClass("wig-navbar-homepage-active");
+                    //$("#navbar").removeClass("wig-navbar-homepage");
+                    
+                    $("#logo-navbar").addClass("wig-navbar-logo-active");
+                    $("#logo-navbar").removeClass("wig-navbar-logo");
+                    
+                    
+                } else {
+                    $("#navbar").removeClass("wig-navbar-homepage-active");
+                    $("#navbar").addClass("wig-navbar-homepage");
+
+                    $("#logo-navbar").addClass("wig-navbar-logo");
+                    $("#logo-navbar").removeClass("wig-navbar-logo-active");
+  
+                }
+            }
+
+        </script>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar">
+            <div class="container wig-navbar-container-homepage">
+                <a class="navbar-brand" href="#">
+                    <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-logo", id: "logo-navbar") %>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse wig-navbar-right">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Equipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<%= url_for controller: 'account', action: 'register_account' %>">Cadastro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<%= url_for controller: 'account', action: 'login' %>">Entrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="container wig-flex-homepage">
+            <div class="row">
+                <div class="col-md-9" id="welcome-message">
+                    <%= image_tag("wig-logo-large.png", class: "img-responsive", id: "logo-homepage") %>
+                    <span class="wig-homepage-title">Encontre restaurantes e bares em Recife facilmente.</span>
+                    <span class="wig-homepage-message">O WhereIGo te indica os melhores estabelecimentos baseado em seus gostos, do jeito que você adora. Cadastre-se para começar ou divulgar o seu próprio estabelecimento!</span>
+                </div>
+
+                <div class="col-md-3 wig-registerbox-homepage">
+                    <section class="login-form">
+                        
+                    <h1>Cadastrar-se</h1>
+                    <%= form_for :user, url: {controller: 'account', action: 'register_create_account'}, :method => :POST do |f| %>
+                        <div id="form-inputs">
+                            <label for="name" class="wig-formlabel">Nome</label>
+                            <%= f.text_field :name, class: "wig-textbox", placeholder: "Seu nome" %>
+                            
+                            <label for="email" class="wig-formlabel">E-mail</label>
+                            <%=f.email_field :email, class: "wig-textbox", placeholder: "Seu email"%>
+                            
+                            <label for="password" class="wig-formlabel">Senha</label>
+                            <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
+                            
+                        </div>
+                        <%= f.submit "Criar conta", class: "wig-button" %>
+                        <div class="wig-formlinks">
+                            <span>Já tem uma conta? <a href="<%= url_for controller: 'account', action: 'login' %>">Entrar</a></span>
+                        </div>
+                    <%end%>
+                    
+                    </section>  
+                </div>
+            </div>
+        </section>
+        <section class="wig-about">
+            <div class="container wig-flex-about">
+                <div class="row">
+                    <div class="col-md-4 wig-about-item">
+                        <%= image_tag("about2.png", class: "img-responsive") %>
+                        <h2>Diga o que você gosta</h2>
+                        <p>Informe suas preferências em relação a comida, ambiente, música e outros itens</p>
+                    </div>
+                    <div class="col-md-4 wig-about-item">
+                        <%= image_tag("about1.png", class: "img-responsive") %>
+                        <h2>Tenha sugestões personalizadas</h2>
+                        <p>O WhereIGo buscará automaticamente estabelecimentos que combinam com suas preferências</p>
+                    </div>
+                    <div class="col-md-4 wig-about-item">
+                        <%= image_tag("about3.png", class: "img-responsive") %>
+                        <h2>Avalie, indique e ganhe</h2>
+                        <p>Indique estabelecimentos aos amigos e aproveite promoções exclusivas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="wig-team">
+            <div class="container wig-flex-team">
+                <div class="row">
+                    <h1>Equipe</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 wig-team-member">
+                        <%= image_tag("augusto.jpg", class: "mg-responsive wig-team-pic") %>
+                        <h2>Augusto</h2>
+                        <p><a href="http://github.com/aacgn" target="_blank">@aacgn</a></p>
+                    </div>
+                    <div class="col-md-3 wig-team-member">
+                        <%= image_tag("eduardo.jpg", class: "mg-responsive wig-team-pic") %>
+                        <h2>Eduardo</h2>
+                        <p><a href="http://github.com/eduardosm7" target="_blank">@eduardosm7</a></p>
+                    </div>
+                    <div class="col-md-3 wig-team-member">
+                        <%= image_tag("marcos.jpg", class: "mg-responsive wig-team-pic") %>
+                        <h2>Marcos</h2>
+                        <p><a href="http://github.com/mvhb" target="_blank">@mvhb</a></p>
+                    </div>
+                    <div class="col-md-3 wig-team-member">
+                        <%= image_tag("vinicius.jpg", class: "mg-responsive wig-team-pic") %>
+                        <h2>Vinícius</h2>
+                        <p><a href="http://github.com/gilesv" target="_blank">@gilesv</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="wig-footer">
+            <p>WhereIGo - Nenhum direito reservado.</p>
+        </footer>
+    </body>
+</html>
