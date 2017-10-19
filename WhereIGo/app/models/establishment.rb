@@ -4,4 +4,9 @@ class Establishment < ApplicationRecord
     def set_default_values
         self.is_active ||= true
     end
+    
+    validates :name, presence:true
+    validates :email, presence:true
+    validates :address, presence:true
+    validates_length_of :cnpj, :minimum => 14, :maximum => 14
 end
