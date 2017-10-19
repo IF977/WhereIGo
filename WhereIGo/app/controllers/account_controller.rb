@@ -22,7 +22,13 @@ class AccountController < ApplicationController
     
     def update
         values = params.require(:user).permit!
-        User.update(session[:current_user_id], values)
+        user = User.find_by(email: params[:user][:email])
+        if params[:user][:password_digest] == user.password_digest
+            User.update(session[:current_user_id], values)
+            redirect_to '/account', :flash => { :error => "Conta editada com sucesso!" }
+        else
+            redirect_to '/account', :flash => { :error => "Senha incorreta." }
+        end
     end
     
     def login
@@ -82,18 +88,18 @@ class AccountController < ApplicationController
         	end
         else
             if params[:user][:name].strip == ""
-                flash_create_user("O campo nome é obrigatório")
+                flash_create_user("O campo nome é obrigatório.")
                 return
             elsif params[:user][:password_digest].size < 6
         	    flash_create_user("A senha precisa ter no mínimo 6 caracteres.")
         	    return
             elsif params[:user][:email].strip == ""
-                flash_create_user("O campo e-mail é obrigatório")
+                flash_create_user("O campo e-mail é obrigatório.")
                 return
             elsif params[:user][:password_digest].strip == ""
                 flash_create_user("O campo senha não pode ter espaço.")
                 return
-        	end
+            end
         end
     	render layout: "login-signup"
     end
