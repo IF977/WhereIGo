@@ -1,14 +1,9 @@
 class EstablishmentController < ApplicationController
-    include ActionView::Helpers::UrlHelper #current_page?()
     
     def flash_create_user(message)
-        if current_page?('/register/provider/establishment')
-    	   redirect_to '/register/provider/establishment', :flash => {:error => message}
-    	   return
-    	else
-    	   redirect_to '/register/provider/establishment', :flash => {:error => message}
-    	   return
-    	end
+        session[:return_to] ||= request.referer
+    	redirect_to session.delete(:return_to), :flash => {:error => message}
+    	return
     end
     
     def index
@@ -25,11 +20,11 @@ class EstablishmentController < ApplicationController
         new_establishment = Establishment.new values
         if new_establishment.valid?
             if Establishment.exists?(:cnpj => params[:establishment][:cnpj])
-                redirect_to '/login', :flash => { :error => "CNPJ já está em uso." }
+                flash_create_user("CNPJ já está em uso.")
     		    return
     		else
-    		    new_establishment.save
     		    new_establishment.update_attributes(:user_id => session[:current_user_id])
+    		    new_establishment.save!
                 redirect_to '/establishments'
                 return
             end

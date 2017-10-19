@@ -1,14 +1,9 @@
 class AccountController < ApplicationController
-    include ActionView::Helpers::UrlHelper #current_page?()
     
     def flash_create_user(message)
-        if current_page?('/register/client')
-    	   redirect_to '/register', :flash => {:error => message}
-    	   return
-    	else
-    	   redirect_to '/register', :flash => {:error => message}
-    	   return
-    	end
+        session[:return_to] ||= request.referer
+    	redirect_to session.delete(:return_to), :flash => {:error => message}
+    	return
     end
     
     def edit
