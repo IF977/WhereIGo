@@ -227,19 +227,46 @@ h1 {
   color: #f0f0f0; }
 
 .wig-flex-team {
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 380px;
-  max-width: 1000px; }
+  padding: 40px; }
+  .wig-flex-team h1 {
+    color: #f0f0f0;
+    text-align: center;
+    font-size: 1.8em;
+    margin: 40px;
+    width: 100%; }
+    .wig-flex-team h1:before, .wig-flex-team h1:after {
+      content: '~';
+      color: #f3276d;
+      font-weight: 200;
+      margin: 10px; }
 
 .wig-team-member {
   text-align: center; }
   .wig-team-member h2 {
-    font-size: 1.3em; }
+    font-size: 1.3em;
+    margin-bottom: 0; }
+  .wig-team-member p {
+    font-size: .9em; }
+  .wig-team-member a {
+    color: #f0b567; }
+    .wig-team-member a:hover {
+      text-decoration: underline;
+      color: #f0b567; }
+    .wig-team-member a:active {
+      color: #f3276d; }
 
 .wig-team-pic {
-  width: 150px;
-  border-radius: 30px; }
+  width: 120px;
+  border-radius: 47%;
+  border: 5px solid #ef4471;
+  margin: 30px; }
+
+.wig-footer {
+  color: #f0f0f0;
+  text-align: center;
+  margin-top: 15px;
+  font-size: .9em; }
 
 /*# sourceMappingURL=wig.css.map */

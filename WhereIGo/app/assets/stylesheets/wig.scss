@@ -287,19 +287,55 @@ h1 {
 }
 
 .wig-flex-team {
-    display: flex;
     justify-content: center;
     align-items: center;
-    height: 380px;
-    max-width: 1000px;
+    padding: 40px;
+    h1 {
+        color: $wig-lightgrey;
+        text-align: center;
+        font-size: 1.8em;
+        margin: 40px;
+        width: 100%;
+        &:before, &:after {
+            content: '~';
+            color: $wig-greatpink;
+            font-weight: 200;
+            margin: 10px;
+        }
+    }
 }
+
 .wig-team-member {
     text-align: center;
     h2 {
         font-size: 1.3em;
+        margin-bottom: 0;
+    }
+    p {
+        font-size: .9em;
+    }
+    a {
+        color: $wig-oddyellow;
+        &:hover {
+            text-decoration: underline;
+            color: $wig-oddyellow;
+        }
+        &:active {
+            color: $wig-greatpink;
+        }
     }
 }
+
 .wig-team-pic {
-    width: 150px;
-    border-radius: 30px;
+    width: 120px;
+    border-radius: 47%;
+    border: 5px solid #ef4471;
+    margin: 30px;
+}
+
+.wig-footer {
+    color: $wig-lightgrey;
+    text-align: center;
+    margin-top: 15px;
+    font-size: .9em;
 }

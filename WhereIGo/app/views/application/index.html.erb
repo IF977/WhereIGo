@@ -66,7 +66,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container wig-flex-homepage">
+        <section class="container wig-flex-homepage">
             <div class="row">
                 <div class="col-md-9" id="welcome-message">
                     <%= image_tag("wig-logo-large.png", class: "img-responsive", id: "logo-homepage") %>
@@ -99,8 +99,8 @@
                     </section>  
                 </div>
             </div>
-        </div>
-        <div class="wig-about">
+        </section>
+        <section class="wig-about">
             <div class="container wig-flex-about">
                 <div class="row">
                     <div class="col-md-4 wig-about-item">
@@ -120,32 +120,38 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="wig-team">
+        </section>
+        <section class="wig-team">
             <div class="container wig-flex-team">
+                <div class="row">
+                    <h1>Equipe</h1>
+                </div>
                 <div class="row">
                     <div class="col-md-3 wig-team-member">
                         <%= image_tag("augusto.jpg", class: "mg-responsive wig-team-pic") %>
                         <h2>Augusto</h2>
-                        <p>@aacgn</p>
+                        <p><a href="http://github.com/aacgn" target="_blank">@aacgn</a></p>
                     </div>
                     <div class="col-md-3 wig-team-member">
                         <%= image_tag("eduardo.jpg", class: "mg-responsive wig-team-pic") %>
                         <h2>Eduardo</h2>
-                        <p>@eduardosm7</p>
+                        <p><a href="http://github.com/eduardosm7" target="_blank">@eduardosm7</a></p>
                     </div>
                     <div class="col-md-3 wig-team-member">
                         <%= image_tag("marcos.jpg", class: "mg-responsive wig-team-pic") %>
                         <h2>Marcos</h2>
-                        <p>@mvhb</p>
+                        <p><a href="http://github.com/mvhb" target="_blank">@mvhb</a></p>
                     </div>
                     <div class="col-md-3 wig-team-member">
                         <%= image_tag("vinicius.jpg", class: "mg-responsive wig-team-pic") %>
                         <h2>Vinícius</h2>
-                        <p>@gilesv</p>
+                        <p><a href="http://github.com/gilesv" target="_blank">@gilesv</a></p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <footer class="wig-footer">
+            <p>WhereIGo - Nenhum direito reservado.</p>
+        </footer>
     </body>
 </html>
