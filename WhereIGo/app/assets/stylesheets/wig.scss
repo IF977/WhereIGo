@@ -339,3 +339,59 @@ h1 {
     margin-top: 15px;
     font-size: .9em;
 }
+
+////////////////////////////////////////////////////////////
+///////////////// APPLICATION LAYOUT ///////////////////////
+////////////////////////////////////////////////////////////
+.wig-navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: $wig-xdarkgrey;
+    font-size: .9em;
+    a {
+        color: $wig-lightgrey;
+        &:hover, &:active {
+            color: $wig-oddyellow;
+        }
+    }
+}
+.wig-navbar-brand {
+    width: 92px;
+}
+.wig-search {
+    max-width: auto;
+    width: 425px!important;
+}
+.wig-dropdown {
+    a {
+        color: $wig-xdarkgrey;
+        &:hover, &:active {
+            color: $wig-greatpink;
+        }
+    }
+    font-size: .9em;
+    font-weight: 200;
+}
+.wig-userpic {
+    background-color: $wig-greatpink;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.wig-sidebar {
+    background-color: $wig-greatpink;
+    max-width: 90px;
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    overflow-x: hidden;
+    border-right: 1px solid #eee;
+}

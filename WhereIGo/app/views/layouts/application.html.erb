@@ -1,56 +1,65 @@
 <!-- LAYOUT PADRÃO DA APLICAÇÃO - NÃO MEXER -->
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
     <title><%= @title %> - WhereIGo</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'jquery-3.2.1.min.js' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all' %>
     <%= stylesheet_link_tag    'wig.css', media: 'all' %>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#"><%=image_tag("wig-logo-signup.png", class: "img-responsive")%></a>
-      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <header>
+      <nav class="navbar navbar-expand-md wig-navbar">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <form class="form-inline mt-2 mt-md-0 mr-auto ml-auto">
+            <a class="navbar-brand" href="<%= url_for controller: "dashboard", action: "index" %>">
+              <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-brand", id: "logo-navbar") %>
+            </a>
+            <input class="form-control mr-sm-2 wig-textbox wig-search" type="text" placeholder="Encontrar bares e restaurantes..." aria-label="Search">
+          </form>
+          
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= @username || "Mamarquitos" %><div class="wig-userpic"></div></a>
+              <div class="dropdown-menu dropdown-menu-right wig-dropdown" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">Minha página</a>
+                <a class="dropdown-item" href="#">Editar informações</a>
+                <a class="dropdown-item" href="#">Trocar perfil</a>
+                <a class="dropdown-item" href="#">Sair</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 d-none d-sm-block wig-sidebar">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <span class="glyphicon glyphicon-home"></span>
+            </li>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= url_for controller:'dashboard', action: 'index' %>">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= url_for controller: 'establishment', action: 'index' %>">Restaurantes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Feedbacks</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Indicações</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="<%= url_for controller:'account', action:'edit' %>"><%= @username %></a>
-          </li> -->
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= url_for controller:'account', action: 'edit' %>">Editar conta</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= url_for controller:'account', action: 'logout' %>">Sair</a>
-          </li>
-        </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Restaurantes, bares..." aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
+          </ul>
+        </nav>
+        
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+          <%= yield %>
+        </main>
       </div>
-    </nav>
-    <div class="container">
-      <%= yield %>  
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
+
 </html>
+
+

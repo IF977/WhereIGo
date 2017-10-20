@@ -269,4 +269,52 @@ h1 {
   margin-top: 15px;
   font-size: .9em; }
 
+.wig-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #141414;
+  font-size: .9em; }
+  .wig-navbar a {
+    color: #f0f0f0; }
+    .wig-navbar a:hover, .wig-navbar a:active {
+      color: #f0b567; }
+
+.wig-navbar-brand {
+  width: 92px; }
+
+.wig-search {
+  max-width: auto;
+  width: 425px !important; }
+
+.wig-dropdown {
+  font-size: .9em;
+  font-weight: 200; }
+  .wig-dropdown a {
+    color: #141414; }
+    .wig-dropdown a:hover, .wig-dropdown a:active {
+      color: #f3276d; }
+
+.wig-userpic {
+  background-color: #f3276d;
+  width: 21px;
+  height: 21px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px; }
+
+.wig-sidebar {
+  background-color: #f3276d;
+  max-width: 90px;
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  overflow-x: hidden;
+  border-right: 1px solid #eee; }
+
 /*# sourceMappingURL=wig.css.map */
