@@ -385,7 +385,7 @@ h1 {
 }
 .wig-sidebar {
     background-color: $wig-greatpink;
-    max-width: 90px;
+    max-width: 65px;
     position: fixed;
     top: 51px;
     bottom: 0;
@@ -394,4 +394,11 @@ h1 {
     padding: 20px 0;
     overflow-x: hidden;
     border-right: 1px solid #eee;
+    i {
+        color: $wig-lightgrey;
+        font-size: 2em;
+    }
+}
+.wig-sidebar-icon {
+    text-align: center;
 }

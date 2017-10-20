@@ -10,6 +10,7 @@
     <%= javascript_include_tag 'jquery-3.2.1.min.js' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all' %>
+    <%= stylesheet_link_tag    'font-awesome.min.css', media: 'all' %>
     <%= stylesheet_link_tag    'wig.css', media: 'all' %>
   </head>
   <body>
@@ -44,8 +45,20 @@
       <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block wig-sidebar">
           <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <span class="glyphicon glyphicon-home"></span>
+            <li class="nav-item wig-sidebar-icon">
+              <i class="fa fa-home" aria-hidden="true"></i>
+            </li>
+            <li class="nav-item wig-sidebar-icon">
+              <i class="fa fa-cutlery" aria-hidden="true"></i>
+            </li>
+            <li class="nav-item wig-sidebar-icon">
+              <i class="fa fa-comments" aria-hidden="true"></i>
+            </li>
+            <li class="nav-item wig-sidebar-icon">
+              <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            </li>
+            <li class="nav-item wig-sidebar-icon">
+              <i class="fa fa-gear" aria-hidden="true"></i>
             </li>
 
           </ul>
