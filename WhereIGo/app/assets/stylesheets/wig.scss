@@ -3,6 +3,7 @@ $wig-xdarkgrey: #141414;
 $wig-greatpink: #f3276d;
 $wig-oddyellow: #f0b567;
 $wig-lightgrey: #f0f0f0;
+$wig-lightpink: #ff508c;
 
 // outros atributos
 $valor-borda: 4px;
@@ -29,7 +30,30 @@ html, body {
 .wig-body-sign {
     @include wig-body;
     background-image: url('/assets/background-login.jpg');
+    h1 {
+    color: $wig-lightgrey;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 25px 0 20px 0;
+    &:before, &:after {
+        content: '~';
+        color: $wig-greatpink;
+        margin: 8px;
+        }
+    }
 }
+
+h1 {
+    color: $wig-xdarkgrey;
+    font-size: 1.6rem;
+    margin: 25px 0 20px 0;
+    &:after {
+        content: '~';
+        color: $wig-greatpink;
+        margin: 8px;
+        font-weight: 200;
+        }
+    }
 
 a {
     color: $wig-greatpink;
@@ -39,20 +63,11 @@ a {
     }
 }
 
-h1 {
-    color: $wig-lightgrey;
-    font-size: 1.3rem;
-    text-align: center;
-    margin: 25px 0 20px 0;
-    &:before, &:after {
-        content: '~';
-        color: $wig-greatpink;
-        margin: 8px;
-    }
-}
+
 
 .wig-textbox {
     display: block;
+    max-width: 300px;
     width: 100%;
     padding: .5rem .75rem;
     font-size: 0.8em;
@@ -93,7 +108,7 @@ h1 {
     line-height: 1.25;
     border-radius: $valor-borda;
     cursor: pointer;
-    width: 100%;
+    max-width: 300px;
     //transition: all .15s ease-in-out;
     &:focus {
         border: 1px solid $wig-oddyellow;
@@ -343,6 +358,9 @@ h1 {
 ////////////////////////////////////////////////////////////
 ///////////////// APPLICATION LAYOUT ///////////////////////
 ////////////////////////////////////////////////////////////
+.wig-bg {
+    /*background-color: $wig-lightgrey;*/
+}
 .wig-navbar {
     position: fixed;
     top: 0;
@@ -384,21 +402,55 @@ h1 {
     margin: 0 5px;
 }
 .wig-sidebar {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
     background-color: $wig-greatpink;
     max-width: 65px;
     position: fixed;
-    top: 51px;
+    top: 0;
     bottom: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 1031;
     padding: 20px 0;
     overflow-x: hidden;
-    border-right: 1px solid #eee;
-    i {
-        color: $wig-lightgrey;
-        font-size: 2em;
-    }
 }
 .wig-sidebar-icon {
     text-align: center;
+    padding: 35px 0;
+    
+    i {
+        color: $wig-lightgrey;
+        font-size: 1.5em;
+        transition: all .2s;
+    }
+    &:hover {
+        background-color: $wig-lightpink;
+    }
+    
+}
+.wig-align {
+    padding-left: 65px;
+    width: 1070px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+.wig-main {
+    /*border-radius: $valor-borda;
+    box-shadow: 2px 2px 2px 2px;*/
+    .wig-flash {
+        background-color: transparent;
+        display: inline-block;
+        max-width: 180px;
+        width: 100%;
+        text-align: left;
+        font-weight: 500;
+        padding: 8px;
+        margin-top: 5px;
+        font-size: 0.7em;
+    }
+    .wig-formlabel {
+        color: $wig-xdarkgrey;
+    }
 }

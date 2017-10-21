@@ -7,6 +7,25 @@ html, body {
   background-attachment: fixed;
   background-color: #f0f0f0;
   background-image: url("/assets/background-login.jpg"); }
+  .wig-body-sign h1 {
+    color: #f0f0f0;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 25px 0 20px 0; }
+    .wig-body-sign h1:before, .wig-body-sign h1:after {
+      content: '~';
+      color: #f3276d;
+      margin: 8px; }
+
+h1 {
+  color: #141414;
+  font-size: 1.6rem;
+  margin: 25px 0 20px 0; }
+  h1:after {
+    content: '~';
+    color: #f3276d;
+    margin: 8px;
+    font-weight: 200; }
 
 a {
   color: #f3276d; }
@@ -14,18 +33,9 @@ a {
     color: #f3276d;
     text-decoration: underline; }
 
-h1 {
-  color: #f0f0f0;
-  font-size: 1.3rem;
-  text-align: center;
-  margin: 25px 0 20px 0; }
-  h1:before, h1:after {
-    content: '~';
-    color: #f3276d;
-    margin: 8px; }
-
 .wig-textbox {
   display: block;
+  max-width: 300px;
   width: 100%;
   padding: .5rem .75rem;
   font-size: 0.8em;
@@ -62,7 +72,7 @@ h1 {
   line-height: 1.25;
   border-radius: 4px;
   cursor: pointer;
-  width: 100%; }
+  max-width: 300px; }
   .wig-button:focus {
     border: 1px solid #f0b567;
     outline: none; }
@@ -269,6 +279,9 @@ h1 {
   margin-top: 15px;
   font-size: .9em; }
 
+.wig-bg {
+  /*background-color: $wig-lightgrey;*/ }
+
 .wig-navbar {
   position: fixed;
   top: 0;
@@ -306,21 +319,50 @@ h1 {
   margin: 0 5px; }
 
 .wig-sidebar {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
   background-color: #f3276d;
   max-width: 65px;
   position: fixed;
-  top: 51px;
+  top: 0;
   bottom: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1031;
   padding: 20px 0;
-  overflow-x: hidden;
-  border-right: 1px solid #eee; }
-  .wig-sidebar i {
-    color: #f0f0f0;
-    font-size: 2em; }
+  overflow-x: hidden; }
 
 .wig-sidebar-icon {
-  text-align: center; }
+  text-align: center;
+  padding: 35px 0; }
+  .wig-sidebar-icon i {
+    color: #f0f0f0;
+    font-size: 1.5em;
+    transition: all .2s; }
+  .wig-sidebar-icon:hover {
+    background-color: #ff508c; }
+
+.wig-align {
+  padding-left: 65px;
+  width: 1070px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px; }
+
+.wig-main {
+  /*border-radius: $valor-borda;
+  box-shadow: 2px 2px 2px 2px;*/ }
+  .wig-main .wig-flash {
+    background-color: transparent;
+    display: inline-block;
+    max-width: 180px;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 0.7em; }
+  .wig-main .wig-formlabel {
+    color: #141414; }
 
 /*# sourceMappingURL=wig.css.map */

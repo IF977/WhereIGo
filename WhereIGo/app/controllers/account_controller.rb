@@ -23,6 +23,7 @@ class AccountController < ApplicationController
     def update
         values = params.require(:user).permit!
         User.update(session[:current_user_id], values)
+        redirect_to '/account', :flash => { :error => "Alterações salvas." }
     end
     
     def login

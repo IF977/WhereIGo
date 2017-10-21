@@ -29,9 +29,9 @@
               <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= @username || "Mamarquitos" %><div class="wig-userpic"></div></a>
               <div class="dropdown-menu dropdown-menu-right wig-dropdown" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="#">Minha página</a>
-                <a class="dropdown-item" href="#">Editar informações</a>
+                <a class="dropdown-item" href="<%= url_for controller: "account", action: "edit" %>">Editar minha conta</a>
                 <a class="dropdown-item" href="#">Trocar perfil</a>
-                <a class="dropdown-item" href="#">Sair</a>
+                <a class="dropdown-item" href="<%= url_for controller: "account", action: "logout" %>">Sair</a>
               </div>
             </li>
           </ul>
@@ -41,32 +41,49 @@
         </button>
       </nav>
     </header>
-    <div class="container-fluid">
+    <div class="container-fluid wig-bg">
       <div class="row">
-        <nav class="col-sm-3 col-md-2 d-none d-sm-block wig-sidebar">
+        <aside class="col-md-2 d-none d-sm-block wig-sidebar">
           <ul class="nav nav-pills flex-column">
-            <li class="nav-item wig-sidebar-icon">
-              <i class="fa fa-home" aria-hidden="true"></i>
-            </li>
-            <li class="nav-item wig-sidebar-icon">
-              <i class="fa fa-cutlery" aria-hidden="true"></i>
-            </li>
-            <li class="nav-item wig-sidebar-icon">
-              <i class="fa fa-comments" aria-hidden="true"></i>
-            </li>
-            <li class="nav-item wig-sidebar-icon">
-              <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-            </li>
-            <li class="nav-item wig-sidebar-icon">
-              <i class="fa fa-gear" aria-hidden="true"></i>
-            </li>
+            
+            <a href="<%= url_for controller:"dashboard", action: "index" %>" title="Home">
+              <li class="nav-item wig-sidebar-icon">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </li>
+            </a>
+            
+            <a href="#" title="Estabelecimentos">
+              <li class="nav-item wig-sidebar-icon">
+                <i class="fa fa-cutlery" aria-hidden="true"></i>
+              </li>
+            </a>
+            
+            <a href="#" title="Minhas avaliações">
+              <li class="nav-item wig-sidebar-icon">
+                <i class="fa fa-comments" aria-hidden="true"></i>
+              </li>
+            </a>
+            
+            <a href="#" title="Indicações">
+              <li class="nav-item wig-sidebar-icon">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+              </li>
+            </a>
+            
+            <a href="#" title="Configurações">
+              <li class="nav-item wig-sidebar-icon">
+                <i class="fa fa-gear" aria-hidden="true"></i>
+              </li>
+            </a>
 
           </ul>
-        </nav>
+        </aside>
+        <section class="wig-align">
+          <div class="wig-main">
+            <%= yield %>
+          </div>
+        </section>
         
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-          <%= yield %>
-        </main>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

@@ -1,21 +1,18 @@
-<div class="container" id="flex-container">
-    <div class="col-md-4" id="signup">
-        <h1>Editar minha conta</h1>
-        <section class="login-form">
-            <%= form_for @user, url: {action: 'update'}, :method => :POST do |f| %>
-                <div id="form-inputs">
-                    <label for="name" class="wig-formlabel">Nome</label>
-                    <%= f.text_field :name, class: "wig-textbox", value: @user.name %>
-                    
-                    <label for="email" class="wig-formlabel">E-mail</label>
-                    <%=f.email_field :email, class: "wig-textbox", value: @user.email %>
-                    
-                    <label for="password" class="wig-formlabel">Senha</label>
-                    <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
-                </div>
-                <%= f.submit "Salvar", class: "wig-button" %>
-            
-            <% end %>
-        </section>
+<h1>Editar minha conta</h1>
+<section class="login-form">
+<%= form_for @user, url: {action: 'update'}, :method => :POST do |f| %>
+    <div id="form-inputs">
+        <label for="name" class="wig-formlabel">Nome</label>
+        <%= f.text_field :name, class: "wig-textbox", value: @user.name %>
+        
+        <label for="email" class="wig-formlabel">E-mail</label>
+        <%=f.email_field :email, class: "wig-textbox", value: @user.email %>
+        
+        <label for="password" class="wig-formlabel">Senha</label>
+        <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
     </div>
-</div>
+    <%= f.submit "Salvar", class: "wig-button" %>
+    <%= flash_message.html_safe %>
+
+<% end %>
+</section>
