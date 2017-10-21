@@ -380,7 +380,7 @@ a {
     width: 92px;
 }
 .wig-search {
-    max-width: auto;
+    max-width: 425px!important;
     width: 425px!important;
 }
 .wig-dropdown {
@@ -406,7 +406,7 @@ a {
     flex-direction: column;
     justify-content: center;
     background-color: $wig-greatpink;
-    max-width: 65px;
+    max-width: 50px;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -421,7 +421,7 @@ a {
     
     i {
         color: $wig-lightgrey;
-        font-size: 1.5em;
+        font-size: 1.4em;
         transition: all .2s;
     }
     &:hover {
@@ -430,7 +430,7 @@ a {
     
 }
 .wig-align {
-    padding-left: 65px;
+    padding-left: 50px;
     width: 1070px;
     margin-left: auto;
     margin-right: auto;

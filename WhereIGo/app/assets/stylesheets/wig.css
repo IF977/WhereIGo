@@ -299,7 +299,7 @@ a {
   width: 92px; }
 
 .wig-search {
-  max-width: auto;
+  max-width: 425px !important;
   width: 425px !important; }
 
 .wig-dropdown {
@@ -323,7 +323,7 @@ a {
   flex-direction: column;
   justify-content: center;
   background-color: #f3276d;
-  max-width: 65px;
+  max-width: 50px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -337,13 +337,13 @@ a {
   padding: 35px 0; }
   .wig-sidebar-icon i {
     color: #f0f0f0;
-    font-size: 1.5em;
+    font-size: 1.4em;
     transition: all .2s; }
   .wig-sidebar-icon:hover {
     background-color: #ff508c; }
 
 .wig-align {
-  padding-left: 65px;
+  padding-left: 50px;
   width: 1070px;
   margin-left: auto;
   margin-right: auto;
