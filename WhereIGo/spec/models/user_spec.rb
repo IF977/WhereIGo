@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+=begin
+  context "testando a edição de usuario" do
+    it "editar nome" do
+    visit '/account'
+    within("#form-inputs",:visible => false) do
+      fill_in 'Nome',:visible => false, with: 'user'
+      fill_in 'E-mail', with: 'user@example.com'
+      end
+    click_button 'Salvar'
+    expect(page).to have_content 'Success'
+  end
+  end
+=end
+  
   context "quantidade de usuarios no banco de dados" do
     it "o banco de dados está armazenando os novos usuarios?" do
       users= User.count
