@@ -1,0 +1,21 @@
+<div class="row">
+    <section class="col-md-8">
+        <h1>Bares e restaurantes perto de você</h1>
+        <% @places.each do |place| %>
+            <div class="wig-dashboard-card">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="wig-establishment-picture"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <h3><%= place.name %></h3>
+                        
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </section>
+    <aside class="col-md-4">
+        
+    </aside>
+</div>

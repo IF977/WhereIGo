@@ -1,26 +1,19 @@
 html, body {
   height: 100%;
-  margin: 0; }
+  margin: 0;
+  background-color: #f0f0f0;
+  background-image: url("/assets/background-login.jpg"); }
 
 .wig-body-sign {
   background-repeat: repeat;
   background-attachment: fixed;
   background-color: #f0f0f0;
   background-image: url("/assets/background-login.jpg"); }
-  .wig-body-sign h1 {
-    color: #f0f0f0;
-    font-size: 1.3rem;
-    text-align: center;
-    margin: 25px 0 20px 0; }
-    .wig-body-sign h1:before, .wig-body-sign h1:after {
-      content: '~';
-      color: #f3276d;
-      margin: 8px; }
 
 h1 {
   color: #141414;
   font-size: 1.6rem;
-  margin: 25px 0 20px 0; }
+  margin: 13px 0 20px 0; }
   h1:after {
     content: '~';
     color: #f3276d;
@@ -35,8 +28,7 @@ a {
 
 .wig-textbox {
   display: block;
-  max-width: 300px;
-  width: 100%;
+  width: 300px;
   padding: .5rem .75rem;
   font-size: 0.8em;
   line-height: 1.25;
@@ -71,8 +63,7 @@ a {
   font-size: 1rem;
   line-height: 1.25;
   border-radius: 4px;
-  cursor: pointer;
-  max-width: 300px; }
+  cursor: pointer; }
   .wig-button:focus {
     border: 1px solid #f0b567;
     outline: none; }
@@ -88,15 +79,25 @@ a {
   margin-top: 5px;
   font-size: 0.7em; }
 
+.login-form .wig-textbox {
+  width: 100%; }
+.login-form .wig-button {
+  width: 100%; }
+.login-form h1 {
+  color: #f0f0f0;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 25px 0 20px 0; }
+  .login-form h1:before, .login-form h1:after {
+    content: '~';
+    color: #f3276d;
+    margin: 8px; }
+
 #flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; }
-
-#login-button {
-  width: 100%;
-  line-height: 1.5em; }
 
 #signup {
   background-color: #141414;
@@ -279,9 +280,6 @@ a {
   margin-top: 15px;
   font-size: .9em; }
 
-.wig-bg {
-  /*background-color: $wig-lightgrey;*/ }
-
 .wig-navbar {
   position: fixed;
   top: 0;
@@ -323,7 +321,7 @@ a {
   flex-direction: column;
   justify-content: center;
   background-color: #f3276d;
-  max-width: 50px;
+  max-width: 65px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -343,15 +341,18 @@ a {
     background-color: #ff508c; }
 
 .wig-align {
-  padding-left: 50px;
-  width: 1070px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin-left: 65px;
   margin-top: 100px; }
 
 .wig-main {
-  /*border-radius: $valor-borda;
-  box-shadow: 2px 2px 2px 2px;*/ }
+  margin-left: auto;
+  margin-right: auto;
+  width: 1070px;
+  padding: 20px;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
+  background-color: #fff; }
   .wig-main .wig-flash {
     background-color: transparent;
     display: inline-block;
@@ -364,5 +365,22 @@ a {
     font-size: 0.7em; }
   .wig-main .wig-formlabel {
     color: #141414; }
+
+.wig-dashboard-card {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0; }
+  .wig-dashboard-card h3 {
+    font-size: 1.1em; }
+  .wig-dashboard-card p {
+    font-size: .9em;
+    font-weight: 300; }
+
+.wig-establishment-picture {
+  width: 100px;
+  height: 100px;
+  background-color: #f3276d; }
 
 /*# sourceMappingURL=wig.css.map */
