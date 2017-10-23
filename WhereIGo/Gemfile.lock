@@ -224,7 +224,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
-  capybara (~> 2.13)
+  capybara
   coffee-rails (~> 4.2)
   cucumber-rails
   database_cleaner

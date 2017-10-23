@@ -1,20 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-=begin
+
+  before do
+      values = {:name => 'edu',
+                :email => 'edu@edu',
+                :password_digest => 'edueduedu'}
+      @userTest = User.create values
+    end
+
+
   context "testando a edição de usuario" do
-    it "editar nome" do
-    visit '/account'
-    within("#form-inputs",:visible => false) do
-      fill_in 'Nome',:visible => false, with: 'user'
-      fill_in 'E-mail', with: 'user@example.com'
-      end
-    click_button 'Salvar'
-    expect(page).to have_content 'Success'
-  end
-  end
-=end
-  
+    it "o usuario tentar editar a conta passando a senha certa" do
+        visit '/login'
+        fill_in "email", :with => @userTest.email
+        fill_in "password", :with =>@userTest.password_digest
+        click_button "Entrar"
+        visit '/account'
+        fill_in "user_name", :with => "Pedro"
+        fill_in 'user_email', :with => @userTest.email
+        fill_in 'user_password_digest', :with => 'edueduedu'
+        click_button 'Salvar'
+        expect(page).to have_text 'Conta editada com sucesso!'
+    end
+    
+    it "o usuario tentar editar a conta passando a senha errada" do
+        visit '/login'
+        fill_in "email", :with => @userTest.email
+        fill_in "password", :with =>@userTest.password_digest
+        click_button "Entrar"
+        visit '/account'
+        fill_in "user_name", :with => "Pedro"
+        fill_in 'user_email', :with => @userTest.email
+        fill_in 'user_password_digest', :with => 'senhaerrada'
+        click_button 'Salvar'
+        expect(page).to have_content 'Senha incorreta.'
+    end
+  end  
   context "quantidade de usuarios no banco de dados" do
     it "o banco de dados está armazenando os novos usuarios?" do
       users= User.count
