@@ -1,4 +1,5 @@
 <h1>Novo estabelecimento</h1>
+<%= flash_message.html_safe %>
 <%=form_for :establishment, url: {action: 'create'}, :method => :POST do |e| %>
     <div id="form-inputs">
         <label for="name" class="wig-formlabel">Nome</label>

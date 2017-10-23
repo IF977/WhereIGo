@@ -1,14 +1,9 @@
 class AccountController < ApplicationController
-    include ActionView::Helpers::UrlHelper #current_page?()
     
     def flash_create_user(message)
-        if current_page?('/register/client')
-    	   redirect_to '/register', :flash => {:error => message}
-    	   return
-    	else
-    	   redirect_to '/register', :flash => {:error => message}
-    	   return
-    	end
+        session[:return_to] ||= request.referer
+    	redirect_to session.delete(:return_to), :flash => {:error => message}
+    	return
     end
     
     def edit
@@ -22,8 +17,13 @@ class AccountController < ApplicationController
     
     def update
         values = params.require(:user).permit!
-        User.update(session[:current_user_id], values)
-        redirect_to '/account', :flash => { :error => "Alterações salvas." }
+        user = User.find_by(email: params[:user][:email])
+        if params[:user][:password_digest] == user.password_digest
+            User.update(session[:current_user_id], values)
+            redirect_to '/account', :flash => { :error => "Conta editada com sucesso!" }
+        else
+            redirect_to '/account', :flash => { :error => "Senha incorreta." }
+        end
     end
     
     def login
@@ -70,29 +70,32 @@ class AccountController < ApplicationController
     
     def register_create_account
         values = params.require(:user).permit!
-        if params[:user][:password_digest] == params["confirmation-password"]
-            if params[:user][:name].strip == ""
-                flash_create_user("O campo nome é obrigatório")
-                return
-            elsif params[:user][:email].strip == ""
-                flash_create_user("O campo e-mail é obrigatório")
-                return
-            elsif User.exists?(:email => params[:user][:email])
+        new_user = User.new values
+        if new_user.valid?
+            if User.exists?(:email => params[:user][:email])
                 flash_create_user("O email já está em uso.")
+                return
+            else
+                new_user.save
+        	    session[:current_user_id] = new_user[:id]
+        	    redirect_to '/register/role'
+        	    return
+        	end
+        else
+            if params[:user][:name].strip == ""
+                flash_create_user("O campo nome é obrigatório.")
+                return
+            elsif params[:user][:password_digest].size < 6
+        	    flash_create_user("A senha precisa ter no mínimo 6 caracteres.")
+        	    return
+            elsif params[:user][:email].strip == ""
+                flash_create_user("O campo e-mail é obrigatório.")
                 return
             elsif params[:user][:password_digest].strip == ""
                 flash_create_user("O campo senha não pode ter espaço.")
                 return
-            else
-    	        new_user = User.create values
-    	        session[:current_user_id] = new_user[:id]
-    	        redirect_to '/register/role'
-    	        return
-    	    end
-    	else
-    	    flash_create_user("As senhas são diferentes.")
-    	    return
-    	end
+            end
+        end
     	render layout: "login-signup"
     end
     
