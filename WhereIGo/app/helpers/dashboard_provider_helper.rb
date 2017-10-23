@@ -1,0 +1,2 @@
+module DashboardProviderHelper
+end

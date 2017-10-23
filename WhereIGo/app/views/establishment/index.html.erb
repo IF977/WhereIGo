@@ -1,9 +1,0 @@
-<h1>Estabelecimentos</h1>
-<ol>
-    <% @establishments.each do |e| %>
-        <li>
-            <a href="<%=url_for(controller: "establishment", action: "show", id: e.id) %>"><%= e.name %></a>
-        </li>
-    <% end %>
-</ol>
-<%= link_to 'Novo estabelecimento', 'establishments/new', class: 'wig-button' %>

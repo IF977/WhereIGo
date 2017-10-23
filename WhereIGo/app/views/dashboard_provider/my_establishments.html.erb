@@ -1,10 +1,10 @@
 <div class="row">
     <section class="col-md-8">
-        <h1>Bares e restaurantes perto de você</h1>
-        <% @places.each do |place| %>
+        <h1>Meus estabelecimentos</h1>
+        <% @establishments.each do |place| %>
             
             <div class="wig-dashboard-card">
-                <a href="<%=url_for(controller: "establishment", action: "show", id: place.id) %>">
+                <a href="<%=url_for(controller: "dashboard_provider", action: "show_establishment", id: place.id) %>">
                     <div class="row">
                         <div class="col-md-2">
                             <div class="wig-establishment-picture"></div>
@@ -19,6 +19,7 @@
         <% end %>
     </section>
     <aside class="col-md-4">
+        <%= link_to 'Novo estabelecimento', '/p/establishment/new', class: 'wig-button' %>
         
     </aside>
 </div>

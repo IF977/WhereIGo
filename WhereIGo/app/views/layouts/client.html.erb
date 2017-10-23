@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-md wig-navbar">
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <form class="form-inline mt-2 mt-md-0 mr-auto ml-auto">
-            <a class="navbar-brand" href="<%= url_for controller: "dashboard", action: "index" %>">
+            <a class="navbar-brand" href="#">
               <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-brand", id: "logo-navbar") %>
             </a>
             <input class="form-control mr-sm-2 wig-textbox wig-search" type="text" placeholder="Encontrar bares e restaurantes..." aria-label="Search">
@@ -46,7 +46,7 @@
         <aside class="col-md-2 d-none d-sm-block wig-sidebar">
           <ul class="nav nav-pills flex-column">
             
-            <a href="<%= url_for controller:"dashboard", action: "index" %>" title="Home">
+            <a href="<%= url_for controller: "dashboard_client", action: "index" %>" title="Home">
               <li class="nav-item wig-sidebar-icon">
                 <i class="fa fa-home" aria-hidden="true"></i>
               </li>

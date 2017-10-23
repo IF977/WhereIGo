@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     
     get 'logout' => 'account#logout'
     
-    get 'dashboard' => 'dashboard#index'
+    get 'c/dashboard' => 'dashboard_client#index'
+    
+    get 'c/establishment/:id' => 'dashboard_client#show_establishment'
+    
+    get 'p/dashboard' => 'dashboard_provider#my_establishments'
     
     get 'register' => 'account#register_account'
     
@@ -25,15 +29,17 @@ Rails.application.routes.draw do
     
     post 'account/update' => 'account#update'
     
-    get 'establishments' => 'establishment#index'
+    get 'p/my_establishments' => 'dashboard_provider#my_establishments'
     
-    get 'establishments/new' => 'establishment#new'
+    get 'p/establishment/show/:id' => 'dashboard_provider#show_establishment'
     
-    post 'establishments/create' => 'establishment#create'
+    get 'p/establishment/new' => 'dashboard_provider#new_establishment'
     
-    get 'establishments/:id' => 'establishment#show'
+    post 'p/establishment/create' => 'dashboard_provider#create_establishment'
     
-    post 'establishments/update/:id' => 'establishment#update'
+    get 'p/establishment/edit/:id' => 'dashboard_provider#edit_establishment'
+    
+    post 'p/establishment/update/:id' => 'dashboard_provider#update_establishment'
 
     
     root 'application#index' 

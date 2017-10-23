@@ -1,4 +1,4 @@
-class EstablishmentController < ApplicationController
+class DashboardProviderController < ApplicationController
     
     def flash_create_user(message)
         session[:return_to] ||= request.referer
@@ -6,16 +6,12 @@ class EstablishmentController < ApplicationController
     	return
     end
     
-    def index
-        @title = "Meus estabelecimentos"
-        @establishments = Establishment.where(user_id: session[:current_user_id])
-    end
-    
-    def new
+    def new_establishment
         @title = "Novo estabelecimento"
+        render layout: "provider"
     end
     
-    def create
+    def create_establishment
         values = params.require(:establishment).permit!
         new_establishment = Establishment.new values
         if new_establishment.valid?
@@ -25,7 +21,7 @@ class EstablishmentController < ApplicationController
     		else
     		    new_establishment.update_attributes(:user_id => session[:current_user_id])
     		    new_establishment.save!
-                redirect_to '/establishments'
+                redirect_to '/p/my_establishments'
                 return
             end
         else
@@ -44,22 +40,31 @@ class EstablishmentController < ApplicationController
     		elsif params[:establishment][:address].strip == ""
     		    flash_create_user("O campo endereço é obrigatório.")
     		    return
-    		end
-    	end
+    	    end
+        end
     end
     
-    def show
+    def my_establishments
+        @title = "Meus estabelecimentos"
+        @establishments = Establishment.where(user_id: session[:current_user_id])
+        render layout: "provider"
+    end
+
+    def show_establishment
+        @e = Establishment.find_by(id: params[:id])
+        @title = @e.name
+        render layout: "provider"
+    end
+    
+    def edit_establishment
         @establishments = Establishment.find_by(id: params[:id])
+        render layout: "provider"
     end
     
-    def update
+    def update_establishment
         values = params.require(:establishment).permit!
         Establishment.update(params[:id], values)
-        redirect_to '/establishments'
+        redirect_to '/p/my_establishments'
     end
     
-    #private
-    #def establishment_params
-    #    params.require(:establishment).permit(:cnpj, :name, :address, :email, :website)
-    #end
 end
