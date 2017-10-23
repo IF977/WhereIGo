@@ -1,11 +1,6 @@
-<br/>
-<br/>
-<br/><br/><br/>
-<br/><br/><br/>
-
 <h1>Novo estabelecimento</h1>
 <%= flash_message.html_safe %>
-<%=form_for :establishment, url: {action: 'create'}, :method => :POST do |e| %>
+<%=form_for :establishment, url: {action: 'create_establishment'}, :method => :POST do |e| %>
     <div id="form-inputs">
         <label for="name" class="wig-formlabel">Nome</label>
         <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento" %>

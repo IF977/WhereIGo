@@ -1,11 +1,5 @@
-<br/>
-<br/>
-<br/><br/><br/>
-<br/><br/><br/>
-
-
 <h1>Editar estabelecimento</h1>
-<%=form_for @establishments, url: {action: 'update'}, :method => :POST do |e| %>
+<%=form_for @establishments, url: {action: 'update_establishment'}, :method => :POST do |e| %>
     <div id="form-inputs">
         <label for="name" class="wig-formlabel">Nome</label>
         <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento", value: @establishments.name %>

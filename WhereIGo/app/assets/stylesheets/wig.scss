@@ -3,6 +3,7 @@ $wig-xdarkgrey: #141414;
 $wig-greatpink: #f3276d;
 $wig-oddyellow: #f0b567;
 $wig-lightgrey: #f0f0f0;
+$wig-lightpink: #ff508c;
 
 // outros atributos
 $valor-borda: 4px;
@@ -25,11 +26,25 @@ $valor-borda: 4px;
 html, body {
     height: 100%;
     margin: 0;
+    background-color: $wig-lightgrey;
+    background-image: url('/assets/background-login.jpg');
 }
 .wig-body-sign {
     @include wig-body;
     background-image: url('/assets/background-login.jpg');
 }
+
+h1 {
+    color: $wig-xdarkgrey;
+    font-size: 1.6rem;
+    margin: 13px 0 20px 0;
+    &:after {
+        content: '~';
+        color: $wig-greatpink;
+        margin: 8px;
+        font-weight: 200;
+        }
+    }
 
 a {
     color: $wig-greatpink;
@@ -39,21 +54,23 @@ a {
     }
 }
 
-h1 {
-    color: $wig-lightgrey;
+h2 {
+    color: $wig-xdarkgrey;
     font-size: 1.3rem;
-    text-align: center;
-    margin: 25px 0 20px 0;
-    &:before, &:after {
+    margin: 20px 0 10px 0;
+    &:after {
         content: '~';
         color: $wig-greatpink;
         margin: 8px;
+        font-weight: 200;
     }
 }
 
+
+
 .wig-textbox {
     display: block;
-    width: 100%;
+    width: 300px;
     padding: .5rem .75rem;
     font-size: 0.8em;
     line-height: 1.25;
@@ -93,7 +110,6 @@ h1 {
     line-height: 1.25;
     border-radius: $valor-borda;
     cursor: pointer;
-    width: 100%;
     //transition: all .15s ease-in-out;
     &:focus {
         border: 1px solid $wig-oddyellow;
@@ -118,16 +134,31 @@ h1 {
 ///////////////// LOGIN ////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
+.login-form {
+    .wig-textbox {
+        width: 100%;
+    }
+    .wig-button {
+        width: 100%;
+    }
+    h1 {
+    color: $wig-lightgrey;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 25px 0 20px 0;
+    &:before, &:after {
+        content: '~';
+        color: $wig-greatpink;
+        margin: 8px;
+        }
+    }
+}
+
 #flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-#login-button {
-    width: 100%;
-    line-height: 1.5em;
 }
 
 #signup {
@@ -338,4 +369,143 @@ h1 {
     text-align: center;
     margin-top: 15px;
     font-size: .9em;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// APPLICATION LAYOUT ///////////////////////
+////////////////////////////////////////////////////////////
+.wig-bg {
+    
+}
+.wig-navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: $wig-xdarkgrey;
+    font-size: .9em;
+    a {
+        color: $wig-lightgrey;
+        &:hover, &:active {
+            color: $wig-oddyellow;
+        }
+    }
+}
+.wig-navbar-brand {
+    width: 92px;
+}
+.wig-search {
+    max-width: 425px!important;
+    width: 425px!important;
+}
+.wig-dropdown {
+    a {
+        color: $wig-xdarkgrey;
+        &:hover, &:active {
+            color: $wig-greatpink;
+        }
+    }
+    font-size: .9em;
+    font-weight: 200;
+}
+.wig-userpic {
+    background-color: $wig-greatpink;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.wig-sidebar {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $wig-greatpink;
+    max-width: 65px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1031;
+    padding: 20px 0;
+    overflow-x: hidden;
+}
+.wig-sidebar-icon {
+    text-align: center;
+    padding: 35px 0;
+    
+    i {
+        color: $wig-lightgrey;
+        font-size: 1.4em;
+        transition: all .2s;
+    }
+    &:hover {
+        background-color: $wig-lightpink;
+    }
+    
+}
+.wig-align {
+    width: 100%;
+    margin-left: 65px;
+    margin-top: 100px;
+}
+.wig-main {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1070px;
+    padding: 40px;
+    border-radius: $valor-borda $valor-borda 0 0;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    
+    .wig-flash {
+        background-color: transparent;
+        display: inline-block;
+        max-width: 180px;
+        width: 100%;
+        text-align: left;
+        font-weight: 500;
+        padding: 8px;
+        margin-top: 5px;
+        font-size: 0.7em;
+    }
+    .wig-formlabel {
+        color: $wig-xdarkgrey;
+    }
+}
+////////////////////////////////////////////////////////////
+///////////////// DASHBOARD CLIENTE ////////////////////////
+////////////////////////////////////////////////////////////
+
+.wig-dashboard-card {
+    width: 100%;
+    background-color: $wig-lightgrey;
+    border-radius: $valor-borda;
+    padding: 10px;
+    margin: 10px 0;
+    transition: all .2s;
+    h3 {
+        font-size: 1.1em;
+    }
+    p {
+        font-size: .9em;
+        font-weight: 300;
+    }
+    a {
+        color: $wig-xdarkgrey;
+        &:hover {
+            color: $wig-xdarkgrey;
+            text-decoration: none
+        }
+    }
+    &:hover {
+        box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
+    }
+    
+}
+.wig-establishment-picture {
+    width: 100px;
+    height: 100px;
+    background-color: $wig-greatpink;
 }
