@@ -54,6 +54,18 @@ a {
     }
 }
 
+h2 {
+    color: $wig-xdarkgrey;
+    font-size: 1.3rem;
+    margin: 20px 0 10px 0;
+    &:after {
+        content: '~';
+        color: $wig-greatpink;
+        margin: 8px;
+        font-weight: 200;
+    }
+}
+
 
 
 .wig-textbox {

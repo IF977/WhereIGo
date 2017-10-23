@@ -56,7 +56,7 @@ class AccountController < ApplicationController
     			        redirect_to '/p/dashboard'
     			        return
     			    else
-    			        redirect to '/c/dashboard'
+    			        redirect_to '/c/dashboard'
     			    end
     		    else
     			    redirect_to '/register/role'

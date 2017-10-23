@@ -26,6 +26,16 @@ a {
     color: #f3276d;
     text-decoration: underline; }
 
+h2 {
+  color: #141414;
+  font-size: 1.3rem;
+  margin: 20px 0 10px 0; }
+  h2:after {
+    content: '~';
+    color: #f3276d;
+    margin: 8px;
+    font-weight: 200; }
+
 .wig-textbox {
   display: block;
   width: 300px;
