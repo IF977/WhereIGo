@@ -13,6 +13,7 @@ class DashboardProviderController < ApplicationController
     
     def create_establishment
         values = params.require(:establishment).permit!
+
         new_establishment = Establishment.new values
         if new_establishment.valid?
             if Establishment.exists?(:cnpj => params[:establishment][:cnpj])
