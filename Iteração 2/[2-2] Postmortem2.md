@@ -34,10 +34,10 @@ Tipo    | Tarefa         | Responsável
 ------------ | ------------ | ------------- 
 Estudo | RSpec e Cucumber | Time
 Testes | Criação/edição de usuário | Marcos
-Testes | Criação de estabelecimento | Vinícius
+Testes | Criação de estabelecimento | Marcos
 Testes | Login de usuário | Eduardo
 Front-end | Melhoramento do cadastro | Vinícius
-Back-end | Melhoramento do cadastro | Marcos
+Back-end | Melhoramento do cadastro | Marcos e Augusto
 Front-end | Página inicial | Vinícius e Augusto
 Front-end | Layout dashboard do cliente (HU 2) | Vinícius e Augusto
 Back-end | Dashboard cliente (HU 2) | Augusto
@@ -70,7 +70,7 @@ Back-end | Feedbacks de estabelecimentos (HU 8) | Marcos
 #### Lições aprendidas
 
 - Não alterar a master branch diretamente
-- Forcar em o que realmente traz valor ao cliente
+- Focar em o que realmente traz valor ao cliente
 
   
   
