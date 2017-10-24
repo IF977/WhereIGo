@@ -9,8 +9,11 @@ class DashboardClientController < ApplicationController
     def show_establishment
         @e = Establishment.find_by(id: params[:id])
         @title = @e.name
-        @count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => @e.id).count
-        @count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => @e.id).count
+        count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => @e.id).count
+        count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => @e.id).count
+        rating = (count_review_up.to_f / (count_review_up + count_review_down)) * 100
+        @rating_percentage = rating.round(0).to_s + '%'
+        
         render layout: "client"
     end
     

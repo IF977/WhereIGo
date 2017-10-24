@@ -7,5 +7,4 @@
 <p>Gostou desse estabelecimento?</p>
 <a href="<%=url_for(controller: "dashboard_client", action: "user_review_establishment", review: true, id: @e.id) %>">UP</a>
 <a href="<%=url_for(controller: "dashboard_client", action: "user_review_establishment", review: false, id: @e.id) %>">DOWN</a>
-<%= @count_review_up %>
-<%= @count_review_down %>
+<%= @rating_percentage%>
