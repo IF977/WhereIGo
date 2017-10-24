@@ -6,7 +6,7 @@ RSpec.describe User, :type => :request do
     before do
         values = {:name => 'edu',
                   :email => 'edu@edu',
-                  :password_digest => 'edu'}
+                  :password_digest => 'eduedu'}
         @user = User.create values
     end
   
@@ -14,7 +14,7 @@ RSpec.describe User, :type => :request do
         it "o usuario passa o email certo e a senha errada" do
             visit '/login'
             fill_in "email", :with => 'edu@edu'
-            fill_in "password", :with => '123'
+            fill_in "password", :with => '123456'
             click_button "Entrar"
             expect(page).to have_text 'Usuário ou senha incorretas!'
         end
@@ -35,10 +35,10 @@ RSpec.describe User, :type => :request do
         it "o usuario passa o email certo e a senha certa (caso feliz)" do
             visit '/login'
             fill_in "email", :with => 'edu@edu'
-            fill_in "password", :with => 'edu'
+            fill_in "password", :with => 'eduedu'
             click_button "Entrar"
-            visit '/dashboard'
-            expect(page).to have_text 'Sair'
+            visit '/c/dashboard'
+            expect(page).to have_text 'Bares e restaurantes perto de você'
         end
     end
 
