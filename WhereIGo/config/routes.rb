@@ -38,6 +38,6 @@ Rails.application.routes.draw do
     post 'establishments/update/:id' => 'establishment#update'
 
     
-    root 'account#login' 
+    root 'application#index' 
   
 end
