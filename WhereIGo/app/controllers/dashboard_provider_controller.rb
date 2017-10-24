@@ -34,7 +34,7 @@ class DashboardProviderController < ApplicationController
     		    return
     		
     		elsif params[:establishment][:cnpj].size != 14
-    		    flash_create_user("O CNPJ precisa ter 14 caracteres.")
+    		    flash_create_user("CNPJ inválido.")
     		    return
     		
     		elsif params[:establishment][:address].strip == ""
@@ -63,8 +63,29 @@ class DashboardProviderController < ApplicationController
     
     def update_establishment
         values = params.require(:establishment).permit!
-        Establishment.update(params[:id], values)
-        redirect_to '/p/my_establishments'
+        
+        update_establishment = Establishment.new values
+        if not update_establishment.valid?
+            if params[:establishment][:name].strip == ""
+                flash_create_user("O campo nome é obrigatório.")
+    		    return
+    		
+    		elsif params[:establishment][:email] == ""
+    		    flash_create_user("O campo e-mail é obrigatório.")
+    		    return
+    		    
+    		elsif params[:establishment][:cnpj].size != 14
+    		    flash_create_user("CNPJ inválido.")
+    		    return
+    		
+    		elsif params[:establishment][:address].strip == ""
+    		    flash_create_user("O campo endereço é obrigatório.")
+    		    return
+    	    end
+        else
+            Establishment.update(params[:id], values)
+            redirect_to '/p/my_establishments'
+        end
     end
     
 end

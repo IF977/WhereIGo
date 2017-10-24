@@ -17,4 +17,5 @@
         <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
     </div>
     <%= e.submit "Salvar alterações", class: "wig-button" %>
+    <%= flash_message.html_safe %>
 <%end%>
