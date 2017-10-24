@@ -4,9 +4,9 @@
                 <div id="logo-signup">
                     <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
                 </div>
-                <%= flash_message.html_safe %>
                 <h1> <%= @title%> </h1>
-                <%=form_for :establishment, url: {controller: 'establishment', action: 'create'}, :method => :POST do |e| %>
+                <%= flash_message.html_safe %>
+                <%=form_for :establishment, url: {controller: 'dashboard_provider', action: 'create_establishment'}, :method => :POST do |e| %>
                     <div id="form-inputs">
                         <label for="name" class="wig-formlabel">Nome</label>
                         <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento" %>

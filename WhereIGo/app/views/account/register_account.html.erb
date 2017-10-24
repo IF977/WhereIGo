@@ -17,11 +17,7 @@
                         
                         <label for="password" class="wig-formlabel">Senha</label>
                         <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
-                        
-                        <label for="confirmation-password" class="wig-formlabel">Confirmar senha</label>
-                        
-                        <input type="password" name="confirmation-password" class="wig-textbox" placeholder="Digite a senha novamente"/>
-                        <p>Todos os campos são obrigatórios!</p>
+                    
                     </div>
                     <%= f.submit "Continuar", class: "wig-button" %>
                 <%end%>
