@@ -9,10 +9,13 @@ class DashboardClientController < ApplicationController
     def show_establishment
         @e = Establishment.find_by(id: params[:id])
         @title = @e.name
+        @count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => @e.id).count
+        @count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => @e.id).count
         render layout: "client"
     end
     
-    def user_review
+    def user_review_establishment
+        
         user = session[:current_user_id]
         establishment = params[:id]
         review = params[:review]
@@ -29,7 +32,7 @@ class DashboardClientController < ApplicationController
             new_review = EstablishmentReview.create values
         end
         
-        redirect_to '/establishments'
+        redirect_to '/c/establishment/' + establishment
         return
     
     end

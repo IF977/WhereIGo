@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     
     get 'c/establishment/:id' => 'dashboard_client#show_establishment'
     
+    get 'c/establishment/:id/review' => 'dashboard_client#user_review_establishment'
+    
     get 'p/dashboard' => 'dashboard_provider#my_establishments'
     
     get 'register' => 'account#register_account'
