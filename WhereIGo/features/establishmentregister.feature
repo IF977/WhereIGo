@@ -11,5 +11,5 @@ Feature: Cadastro Estabelecimento
       And Eu coloco 12345678901234 no campo establishment_cnpj
       And Eu coloco Rua do CDU no campo establishment_address
       And Eu coloco caldo.edu.com no campo establishment_website
-      And Eu clico em "Criar estabelecimento"
-      Then Eu devo ver o texto CNPJ
+      And Eu clico em Criar estabelecimento
+      Then Eu devo ver o texto Caldinho do Edu
