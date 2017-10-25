@@ -509,3 +509,54 @@ h2 {
     height: 100px;
     background-color: $wig-greatpink;
 }
+
+////////////////////////////////////////////////////////////
+///////////////// ESTABELECIMENTO LAYOUT ///////////////////
+////////////////////////////////////////////////////////////
+.wig-review {
+    width: 100%;
+    h3 {
+        font-size: .8em;
+        text-transform: uppercase;
+        font-weight: 700;
+        &:after {
+            content: '~';
+            font-weight: 600;
+            color: $wig-greatpink;
+            margin-left: 5px;
+        }
+    }
+}
+.wig-range-container {
+    display: flex;
+    wrap: nowrap;
+    #percent {
+        font-size: .7em;
+        font-weight: 700;
+        margin-top: -6px;
+        margin-left: 6px;
+    }
+}
+.wig-review-range {
+    width: 100%;
+    background-color: red;
+    height: 5px;
+    display: inline-block;
+    #positive {
+        width: 50%;
+        height: 5px;
+        background-color: green;
+    }
+}
+.wig-review-percentage {
+    display: inline-block;
+}
+.wig-review-box {
+    .active {
+        
+    }
+}
+.wig-review-thumb {
+    font-size: 2em;
+    margin: 0 5px;
+}
