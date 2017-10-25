@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.boolean :is_client
       t.boolean :is_provider
       t.boolean :is_active
-
+ 
       t.timestamps
     end
   end

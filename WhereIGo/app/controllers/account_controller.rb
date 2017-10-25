@@ -123,6 +123,7 @@ class AccountController < ApplicationController
     def register_role_provider
         User.update(session[:current_user_id], :is_provider => true)
         redirect_to '/register/provider/establishment'
+
     end
     
     def register_role_client
@@ -132,6 +133,11 @@ class AccountController < ApplicationController
     
     def register_provider_establishment
         @title = "Estabelecimento"
+        render layout: "login-signup"
+    end
+    
+    def register_client_preferences
+        @title = "Preferencias"
         render layout: "login-signup"
     end
     
