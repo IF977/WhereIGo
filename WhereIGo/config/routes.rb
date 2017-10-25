@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     
     get 'logout' => 'account#logout'
     
-    get 'c/dashboard' => 'dashboard_client#index'
+    get 'c/dashboard' => 'dashboard_client#all_establishments'
     
     get 'c/establishment/:id' => 'dashboard_client#show_establishment'
     
