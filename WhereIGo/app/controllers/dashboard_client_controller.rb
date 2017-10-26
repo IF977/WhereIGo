@@ -41,10 +41,11 @@ class DashboardClientController < ApplicationController
         @comments = []
         all_comments = EstablishmentComment.where(:establishment_id => @e.id)
         all_comments.each do |c|
-            user = User.where(:id => c.user_id)
+            user = User.find_by(id: c.user_id)
+            user_name = user.name
             comment_text = c.comment
             comment_date = c.created_at
-            @comments << [user, comment_text, comment_date]
+            @comments << [user_name, comment_text, comment_date]
         end
         
         if user_is_authorized_?
@@ -57,7 +58,7 @@ class DashboardClientController < ApplicationController
     def user_comment_establishment
         user = session[:current_user_id]
         establishment = params[:id]
-        comment_text = params[:comment]
+        comment_text = params[:establishment_comment][:comment]
         values = {:user_id => user,
                   :establishment_id => establishment,
                   :comment => comment_text
