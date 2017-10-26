@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     
     get 'c/establishment/:id/review' => 'dashboard_client#user_review_establishment'
     
+    post 'c/establishment/:id/comment'=> 'dashboard_client#user_comment_establishment'
+    
     get 'p/dashboard' => 'dashboard_provider#my_establishments'
     
     get 'register' => 'account#register_account'

@@ -8,3 +8,28 @@
 <a href="<%=url_for(controller: "dashboard_client", action: "user_review_establishment", review: true, id: @e.id) %>">UP</a>
 <a href="<%=url_for(controller: "dashboard_client", action: "user_review_establishment", review: false, id: @e.id) %>">DOWN</a>
 <%= @rating_percentage%>
+
+
+
+<h2>Comentário</h2>
+
+<%= @comments.each do |c| %>
+    <div class="wig-comment">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="wig-comment-userpic" style="width:100px;height:100px;background-color:green;"></div>
+            </div>
+            <div class="col-md-12">
+                <h4><%= c[0].name %></h4>
+                <p><%= c[1] %></p>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+<%=form_for :establishment_comment, url: {action: 'user_comment_establishment'}, :method => :POST do |e| %>
+    <div id="form-inputs">
+        <%= e.text_area :comment, class: "wig-textbox", placeholder: "Digite aqui seu comentário" %>
+    </div>
+    <%= e.submit "Comentar", class: "wig-button" %>
+<% end %>

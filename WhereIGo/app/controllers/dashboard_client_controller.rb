@@ -38,12 +38,37 @@ class DashboardClientController < ApplicationController
             rating = (count_review_up.to_f / (count_review_up + count_review_down)) * 100
             @rating_percentage = rating.round(0).to_s + '%'
         end
-
+        @comments = []
+        all_comments = EstablishmentComment.where(:establishment_id => @e.id)
+        all_comments.each do |c|
+            user = User.where(:id => c.user_id)
+            comment_text = c.comment
+            comment_date = c.created_at
+            @comments << [user, comment_text, comment_date]
+        end
+        
         if user_is_authorized_?
             render layout: "client"
         end
         
     end
+    
+    
+    def user_comment_establishment
+        user = session[:current_user_id]
+        establishment = params[:id]
+        comment_text = params[:comment]
+        values = {:user_id => user,
+                  :establishment_id => establishment,
+                  :comment => comment_text
+        }
+        
+        EstablishmentComment.create values
+        
+        redirect_to '/c/establishment/' + establishment
+        return
+    end
+    
     
     def user_review_establishment
         
