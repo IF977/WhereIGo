@@ -11,29 +11,24 @@
     </section>
     <aside class="col-md-4">
         <div class="wig-review">
-            <h3>Avalie o estabelecimento</h3>
-            <div class="wig-range-container">
+            <h3>Avalie este estabelecimento</h3>
+            <div class="wig-thumbs">
                 <a class="wig-review-box" href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: true, id: @e.id) %>">
                     <div class="wig-review-thumb">
                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                     </div>
                 </a>
-                
                 <a class="wig-review-box" href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: false, id: @e.id) %>">
                     <div class="wig-review-thumb">
                         <i class="fa fa-thumbs-down" aria-hidden="true"></i>
                     </div>
                 </a>
-                
             </div>
-            <div class="wig-review-range">
+            <div class="wig-percentbar" data-toggle="tooltip" data-placement="bottom" title="<%= @rating_percentage %>">
                 <div id="positive"></div>
             </div>
-            <div id="percent"><%= @rating_percentage %></div>
-            
-            
-            
-            
         </div>
+
+            
     </aside>
 </div>
