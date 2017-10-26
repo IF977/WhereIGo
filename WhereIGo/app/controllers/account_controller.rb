@@ -131,6 +131,7 @@ class AccountController < ApplicationController
     def register_role_provider
         User.update(session[:current_user_id], :is_provider => true)
         redirect_to '/register/provider/establishment'
+
     end
     
     def register_role_client
@@ -148,6 +149,11 @@ class AccountController < ApplicationController
             else
                redirect_to({:controller => 'dashboard_client', :action => 'all_establishments'}) 
         end
+    end
+    
+    def register_client_preferences
+        @title = "Preferencias"
+        render layout: "login-signup"
     end
     
 end
