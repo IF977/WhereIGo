@@ -12,23 +12,46 @@
     <aside class="col-md-4">
         <div class="wig-review">
             <h3>Avalie este estabelecimento</h3>
-            <div class="wig-thumbs">
-                <a class="wig-review-box" href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: true, id: @e.id) %>">
-                    <div class="wig-review-thumb">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <a class="wig-review-box" href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: false, id: @e.id) %>">
-                    <div class="wig-review-thumb">
-                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                    </div>
-                </a>
-            </div>
-            <div class="wig-percentbar" data-toggle="tooltip" data-placement="bottom" title="<%= @rating_percentage %>">
-                <div id="positive"></div>
+            
+            <div class="wig-review-box">
+                <div class="wig-thumbs">
+                    <a href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: true, id: @e.id) %>" id="review-true">
+                        <div class="wig-review-thumb" >
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: false, id: @e.id) %>" id="review-false">
+                        <div class="wig-review-thumb">
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="wig-percentbar" data-toggle="tooltip" data-placement="bottom" title="">
+                    <div id="positive"></div>
+                    <div id="percent"><%= @rating_percentage %></div>
+                </div>
             </div>
         </div>
-
-            
     </aside>
 </div>
+<script>
+    function setPercentBarWidth() {
+        $("#positive").css("width", $("#percent").html());
+    }
+    function setExistingReview() {
+        <% if @user_review_selected == true %>
+            $("#review-true").addClass("wig-thumbs-active");
+            console.log("true");
+        <% end %>
+        <% if @user_review_selected == false %>
+            $("#review-false").addClass("wig-thumbs-active");
+            console.log("false");
+        <% end %>
+    }
+    $(document).ready(function() { 
+        setPercentBarWidth();
+        setExistingReview();
+    });
+    
+</script>

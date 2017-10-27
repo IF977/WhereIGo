@@ -413,30 +413,34 @@ h2 {
       color: #f3276d;
       margin-left: 5px; }
 
-.wig-range-container {
+.wig-review-box {
+  width: 80px; }
+
+.wig-thumbs {
   display: flex;
-  wrap: nowrap; }
-  .wig-range-container #percent {
-    font-size: .7em;
-    font-weight: 700;
-    margin-top: -6px;
-    margin-left: 6px; }
+  flex-flow: row nowrap; }
+  .wig-thumbs a {
+    color: #ddd; }
 
-.wig-review-range {
-  width: 100%;
-  background-color: red;
-  height: 5px;
-  display: inline-block; }
-  .wig-review-range #positive {
-    width: 50%;
-    height: 5px;
-    background-color: green; }
-
-.wig-review-percentage {
-  display: inline-block; }
+.wig-thumbs-active {
+  color: #f3276d !important; }
 
 .wig-review-thumb {
   font-size: 2em;
   margin: 0 5px; }
+
+.wig-percentbar {
+  width: 100%;
+  background-color: #ddd;
+  height: 5px;
+  margin-top: 3px; }
+  .wig-percentbar #positive {
+    width: 50%;
+    height: 5px;
+    background-color: #f3276d; }
+  .wig-percentbar #percent {
+    font-size: .7em;
+    text-align: left;
+    font-weight: 700; }
 
 /*# sourceMappingURL=wig.css.map */

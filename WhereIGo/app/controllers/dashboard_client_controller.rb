@@ -9,6 +9,14 @@ class DashboardClientController < ApplicationController
     def show_establishment
         @e = Establishment.find_by(id: params[:id])
         @title = @e.name
+        
+        user_review = EstablishmentReview.where(:user_id => session[:current_user_id]).where(:establishment_id => @e.id).first
+        if user_review != nil
+            @user_review_selected = user_review.review
+        else
+            @user_review_selected = nil
+        end
+        
         count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => @e.id).count
         count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => @e.id).count
         

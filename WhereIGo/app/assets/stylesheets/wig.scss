@@ -4,6 +4,7 @@ $wig-greatpink: #f3276d;
 $wig-oddyellow: #f0b567;
 $wig-lightgrey: #f0f0f0;
 $wig-lightpink: #ff508c;
+$wig-halfgrey: #ddd;
 
 // outros atributos
 $valor-borda: 4px;
@@ -527,39 +528,40 @@ h2 {
         }
     }
 }
-.wig-range-container {
-    display: flex;
-    wrap: nowrap;
-    #percent {
-        font-size: .7em;
-        font-weight: 700;
-        margin-top: -6px;
-        margin-left: 6px;
-    }
-    a {
-        
-    }
-}
-.wig-review-range {
-    width: 100%;
-    background-color: red;
-    height: 5px;
-    display: inline-block;
-    #positive {
-        width: 50%;
-        height: 5px;
-        background-color: green;
-    }
-}
-.wig-review-percentage {
-    display: inline-block;
-}
+
+/////////
 .wig-review-box {
-    .active {
-        
-    }
+    width: 80px;
 }
+.wig-thumbs {
+    display: flex;
+    flex-flow: row nowrap;
+    a {
+        color: $wig-halfgrey;
+    }
+    
+}
+.wig-thumbs-active {
+    color: $wig-greatpink !important;
+}
+
 .wig-review-thumb {
     font-size: 2em;
     margin: 0 5px;
+}
+.wig-percentbar {
+    width: 100%;
+    background-color: $wig-halfgrey;
+    height: 5px;
+    margin-top: 3px;
+    #positive {
+        width: 50%;
+        height: 5px;
+        background-color: $wig-greatpink;
+    }
+    #percent {
+        font-size: .7em;
+        text-align: left;
+        font-weight: 700;
+    }
 }
