@@ -38,7 +38,7 @@ html, body {
 h1 {
     color: $wig-xdarkgrey;
     font-size: 1.6rem;
-    margin: 13px 0 20px 0;
+    margin: 13px 0 5px 0;
     &:after {
         content: '~';
         color: $wig-greatpink;
@@ -529,7 +529,33 @@ h2 {
     }
 }
 
-/////////
+.wig-tag {
+    padding: 4px 8px;
+    background-color: #f0b567;
+    font-size: 0.8em;
+    color: #f0f0f0;
+    font-weight: 800;
+    border-radius: 4px;
+    margin-right: 5px;
+    display: inline-block;
+    margin: 10px 0;
+}
+.wig-description {
+    text-align: justify;
+}
+.wig-establishment-picture {
+    width: 100%;
+    background-color: $wig-halfgrey;
+    height: 310px;
+    margin-bottom: 30px;
+}
+.wig-establishment-info {
+    ul {
+        li {
+            
+        }
+    }
+}
 .wig-review-box {
     width: 80px;
 }
@@ -564,4 +590,9 @@ h2 {
         text-align: left;
         font-weight: 700;
     }
+}
+.wig-establishment-map {
+    background-color: $wig-halfgrey;
+    height: 300px;
+    margin-bottom: 30px;
 }

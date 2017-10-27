@@ -3,16 +3,29 @@
 <div class="row">
     <section class="col-md-8">
         <h1><%= @e.name %></h1>
-        <p>Endereço: <%= @e.address %></p>
-        <p>Contato: <%= @e.email %></p>
-        <p>Site: <%= @e.website %></p>
+        <div class="wig-tag">mpb</div>
+        <div class="wig-tag">comida brasileira</div>
+        <div class="wig-tag">ambiente familiar</div>
+        <p class="wig-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet, lacus et suscipit laoreet, est ipsum commodo risus, elementum commodo ex lectus sit amet nibh. Maecenas nec enim ullamcorper, rhoncus lorem at, placerat ipsum. Etiam bibendum vitae massa nec gravida. Ut mauris nunc, auctor consequat faucibus at, tincidunt sit amet libero. Nam lobortis dui sed elit iaculis, at imperdiet ligula lacinia. Aliquam id orci eleifend ipsum porta sagittis eget eget nulla. Mauris ac ante elit. Ut sit amet elit sed justo varius mattis.</p>
+        
+        <div class="wig-establishment-map"></div>
         
         
     </section>
     <aside class="col-md-4">
+        <div class="wig-establishment-picture">
+            
+        </div>
+        <div class="wig-establishment-info">
+            <ul>
+                <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @e.address %></li>
+                <li><i class="fa fa-envelope-open" aria-hidden="true"></i> <%= @e.email %></li>
+                <li><i class="fa fa-globe" aria-hidden="true"></i> <%= @e.website %></li>
+            </ul>
+        </div>
+
         <div class="wig-review">
             <h3>Avalie este estabelecimento</h3>
-            
             <div class="wig-review-box">
                 <div class="wig-thumbs">
                     <a href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: true, id: @e.id) %>" id="review-true">
