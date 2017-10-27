@@ -4,5 +4,8 @@ end
 
 When(/^[Eu ]*clico em ([^"]*)$/) do |button|
     click_button(button)
-    #visit '/p/dashboard'
+end
+
+When (/^I press "Novo estabelecimento"$/) do
+    visit"/p/establishment/new"
 end

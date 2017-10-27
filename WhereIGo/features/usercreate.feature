@@ -3,8 +3,6 @@ Feature: Cadastro usuário
   Eu quero adicionar informações pessoais a minha conta
   Para que eu possa me diferenciar de outros clientes
   
-  #@javascript
-
   Scenario: Criação de usuário válida
     Given Eu estou na pagina inicial
     When Eu coloco Troinha no campo user_name

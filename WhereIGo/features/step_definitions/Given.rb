@@ -1,5 +1,6 @@
 Given(/^Eu estou na pagina de registro de estabelecimento$/) do
-  visit "/register/provider/establishment"
+  #visit "/register/provider/establishment"
+  visit "/p/dashboard"
 end
 
 Given(/^Eu estou na pagina inicial$/) do
@@ -18,11 +19,11 @@ Given(/^Eu estou na pagina de login, nao estou logado e sou cliente$/) do
   @user.save
 end
 
-Given(/^Eu estou logado$/) do
-    @user = User.new(name: "mcboco", "is_provider": true, email:'mc@troinha', password_digest:'123mctroia123')
+Given(/^Eu estou logado como provider$/) do
+    @user = User.new(name: "mcboco", "is_provider": true, email:'mc@boco', password_digest:'boco123')
     @user.save
-    visit(login_path)
-    fill_in "session[email]", with: "user@cin.ufpe"
-    fill_in "session[password]", with: "123456"
-    click_button("Fazer Login")
+    visit "/login"
+    fill_in "email", with: "mc@boco"
+    fill_in "password", with: "boco123"
+    click_button("Entrar")
 end
