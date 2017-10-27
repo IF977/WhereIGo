@@ -7,11 +7,13 @@ Rails.application.routes.draw do
     
     get 'logout' => 'account#logout'
     
-    get 'c/dashboard' => 'dashboard_client#index'
+    get 'c/dashboard' => 'dashboard_client#all_establishments'
     
     get 'c/establishment/:id' => 'dashboard_client#show_establishment'
     
     get 'c/establishment/:id/review' => 'dashboard_client#user_review_establishment'
+    
+    post 'c/establishment/:id/comment'=> 'dashboard_client#user_comment_establishment'
     
     get 'p/dashboard' => 'dashboard_provider#my_establishments'
     
