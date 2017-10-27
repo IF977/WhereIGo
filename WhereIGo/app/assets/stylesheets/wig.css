@@ -1,6 +1,8 @@
 html, body {
   height: 100%;
-  margin: 0; }
+  margin: 0;
+  background-color: #f0f0f0;
+  background-image: url("/assets/background-login.jpg"); }
 
 .wig-body-sign {
   background-repeat: repeat;
@@ -8,25 +10,35 @@ html, body {
   background-color: #f0f0f0;
   background-image: url("/assets/background-login.jpg"); }
 
+h1 {
+  color: #141414;
+  font-size: 1.6rem;
+  margin: 13px 0 20px 0; }
+  h1:after {
+    content: '~';
+    color: #f3276d;
+    margin: 8px;
+    font-weight: 200; }
+
 a {
   color: #f3276d; }
   a:hover, a:active {
     color: #f3276d;
     text-decoration: underline; }
 
-h1 {
-  color: #f0f0f0;
+h2 {
+  color: #141414;
   font-size: 1.3rem;
-  text-align: center;
-  margin: 25px 0 20px 0; }
-  h1:before, h1:after {
+  margin: 20px 0 10px 0; }
+  h2:after {
     content: '~';
     color: #f3276d;
-    margin: 8px; }
+    margin: 8px;
+    font-weight: 200; }
 
 .wig-textbox {
   display: block;
-  width: 100%;
+  width: 300px;
   padding: .5rem .75rem;
   font-size: 0.8em;
   line-height: 1.25;
@@ -61,8 +73,7 @@ h1 {
   font-size: 1rem;
   line-height: 1.25;
   border-radius: 4px;
-  cursor: pointer;
-  width: 100%; }
+  cursor: pointer; }
   .wig-button:focus {
     border: 1px solid #f0b567;
     outline: none; }
@@ -78,15 +89,25 @@ h1 {
   margin-top: 5px;
   font-size: 0.7em; }
 
+.login-form .wig-textbox {
+  width: 100%; }
+.login-form .wig-button {
+  width: 100%; }
+.login-form h1 {
+  color: #f0f0f0;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 25px 0 20px 0; }
+  .login-form h1:before, .login-form h1:after {
+    content: '~';
+    color: #f3276d;
+    margin: 8px; }
+
 #flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; }
-
-#login-button {
-  width: 100%;
-  line-height: 1.5em; }
 
 #signup {
   background-color: #141414;
@@ -268,5 +289,116 @@ h1 {
   text-align: center;
   margin-top: 15px;
   font-size: .9em; }
+
+.wig-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #141414;
+  font-size: .9em; }
+  .wig-navbar a {
+    color: #f0f0f0; }
+    .wig-navbar a:hover, .wig-navbar a:active {
+      color: #f0b567; }
+
+.wig-navbar-brand {
+  width: 92px; }
+
+.wig-search {
+  max-width: 425px !important;
+  width: 425px !important; }
+
+.wig-dropdown {
+  font-size: .9em;
+  font-weight: 200; }
+  .wig-dropdown a {
+    color: #141414; }
+    .wig-dropdown a:hover, .wig-dropdown a:active {
+      color: #f3276d; }
+
+.wig-userpic {
+  background-color: #f3276d;
+  width: 21px;
+  height: 21px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px; }
+
+.wig-sidebar {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f3276d;
+  max-width: 65px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1031;
+  padding: 20px 0;
+  overflow-x: hidden; }
+
+.wig-sidebar-icon {
+  text-align: center;
+  padding: 35px 0; }
+  .wig-sidebar-icon i {
+    color: #f0f0f0;
+    font-size: 1.4em;
+    transition: all .2s; }
+  .wig-sidebar-icon:hover {
+    background-color: #ff508c; }
+
+.wig-align {
+  width: 100%;
+  margin-left: 65px;
+  margin-top: 100px; }
+
+.wig-main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1070px;
+  padding: 40px;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
+  background-color: #fff; }
+  .wig-main .wig-flash {
+    background-color: transparent;
+    display: inline-block;
+    max-width: 180px;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 0.7em; }
+  .wig-main .wig-formlabel {
+    color: #141414; }
+
+.wig-dashboard-card {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  transition: all .2s; }
+  .wig-dashboard-card h3 {
+    font-size: 1.1em; }
+  .wig-dashboard-card p {
+    font-size: .9em;
+    font-weight: 300; }
+  .wig-dashboard-card a {
+    color: #141414; }
+    .wig-dashboard-card a:hover {
+      color: #141414;
+      text-decoration: none; }
+  .wig-dashboard-card:hover {
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2); }
+
+.wig-establishment-picture {
+  width: 100px;
+  height: 100px;
+  background-color: #f3276d; }
 
 /*# sourceMappingURL=wig.css.map */

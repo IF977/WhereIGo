@@ -1,0 +1,5 @@
+<h1><%= @e.name %></h1>
+<p>Endereço: <%= @e.address %></p>
+
+<%= link_to "Editar", {controller: "dashboard_provider", action: "edit_establishment", id: @e }, class: 'wig-button'  %>
+

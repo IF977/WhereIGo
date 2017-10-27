@@ -1,18 +1,34 @@
 class AccountController < ApplicationController
     
-    def flash_create_user(message)
+    def flash_message(message)
         session[:return_to] ||= request.referer
     	redirect_to session.delete(:return_to), :flash => {:error => message}
     	return
     end
     
+    
+    def flash_message_special(message)
+        redirect_to '/register', :flash => {:error => message}
+    	return
+    end
+    
+    def user_is_authorized_?
+        if session[:current_user_id] == nil
+            redirect_to({:action => 'login'}, :flash => {:error => "Faça login para continuar!"})  and return false
+        end
+        return true
+    end
+    
     def edit
         @title = "Minha conta"
-        if session[:current_user_id] == nil
-            redirect_to '/login', :flash => { :error => "Faça login para continuar!" }
-            return
+        if user_is_authorized_?
+            @user = User.find_by(id: session[:current_user_id])
+            if @user.is_provider
+                render layout: "provider"
+            else
+                render layout: "client"
+            end
         end
-        @user = User.find_by(id: session[:current_user_id])
     end
     
     def update
@@ -28,7 +44,7 @@ class AccountController < ApplicationController
     
     def login
     	if session[:current_user_id] != nil
-    		redirect_to '/account', :flash => { :error => "Você já está logado!" }
+    		redirect_to '/account'
     		return
     	end
     	@title = "Login"
@@ -40,13 +56,19 @@ class AccountController < ApplicationController
     	if user != nil
     		if user.password_digest == params["password"]
     		    session[:current_user_id] = user.id
-    			if user.is_client or user.is_provider
-    			    redirect_to '/dashboard'
-    			    return
-    			else
+    	        if user.is_client or user.is_provider
+    			    if user.is_provider
+    			        redirect_to '/p/dashboard'
+    			        return
+    			    else
+    			        redirect_to '/c/dashboard'
+    			        return
+    			    end
+    		    else
     			    redirect_to '/register/role'
     		    	return
-    		    end
+                end
+    		
     		else
     			redirect_to '/login', :flash => { :error => "Usuário ou senha incorretas!" }
     			return
@@ -59,7 +81,7 @@ class AccountController < ApplicationController
     
     def logout
     	session[:current_user_id] = nil
-	    redirect_to '/login', :flash => { :error => "Desconectado." }
+	    redirect_to :action => 'login'
 	    return
     end
     
@@ -73,26 +95,26 @@ class AccountController < ApplicationController
         new_user = User.new values
         if new_user.valid?
             if User.exists?(:email => params[:user][:email])
-                flash_create_user("O email já está em uso.")
+                flash_message_special("O email já está em uso.")
                 return
             else
                 new_user.save
         	    session[:current_user_id] = new_user[:id]
         	    redirect_to '/register/role'
         	    return
-        	end
+            end
         else
             if params[:user][:name].strip == ""
-                flash_create_user("O campo nome é obrigatório.")
+                flash_message_special("O campo nome é obrigatório.")
                 return
             elsif params[:user][:password_digest].size < 6
-        	    flash_create_user("A senha precisa ter no mínimo 6 caracteres.")
+        	    flash_message_special("A senha precisa ter no mínimo 6 caracteres.")
         	    return
             elsif params[:user][:email].strip == ""
-                flash_create_user("O campo e-mail é obrigatório.")
+                flash_message_special("O campo e-mail é obrigatório.")
                 return
             elsif params[:user][:password_digest].strip == ""
-                flash_create_user("O campo senha não pode ter espaço.")
+                flash_message_special("O campo senha não pode ter espaço.")
                 return
             end
         end
@@ -100,22 +122,37 @@ class AccountController < ApplicationController
     end
     
     def register_role_choice
-        render layout: "login-signup"
+        if user_is_authorized_?
+            render layout: "login-signup"
+        end
     end
     
     
     def register_role_provider
         User.update(session[:current_user_id], :is_provider => true)
         redirect_to '/register/provider/establishment'
+
     end
     
     def register_role_client
         User.update(session[:current_user_id], :is_client => true)
-        redirect_to '/dashboard'
+        redirect_to '/c/dashboard'
     end
     
     def register_provider_establishment
         @title = "Estabelecimento"
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_provider = 't' 
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_client', :action => 'all_establishments'}) 
+        end
+    end
+    
+    def register_client_preferences
+        @title = "Preferencias"
         render layout: "login-signup"
     end
     

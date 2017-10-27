@@ -1,11 +1,5 @@
-<br/>
-<br/>
-<br/><br/><br/>
-<br/><br/><br/>
-
-
 <h1>Editar estabelecimento</h1>
-<%=form_for @establishments, url: {action: 'update'}, :method => :POST do |e| %>
+<%=form_for @establishments, url: {action: 'update_establishment'}, :method => :POST do |e| %>
     <div id="form-inputs">
         <label for="name" class="wig-formlabel">Nome</label>
         <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento", value: @establishments.name %>
@@ -21,6 +15,11 @@
         
         <label for="website" class="wig-formlabel">Website</label>
         <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
+        
+        <label for="ups" class="wig-formlabel">Ups</label>
+        
+        <label for="downs" class="wig-formlabel">Downs</label>
     </div>
     <%= e.submit "Salvar alterações", class: "wig-button" %>
+    <%= flash_message.html_safe %>
 <%end%>
