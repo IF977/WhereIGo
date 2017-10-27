@@ -41,9 +41,9 @@ Back-end | Melhoramento do cadastro | Marcos e Augusto
 Front-end | Página inicial | Vinícius e Augusto
 Front-end | Layout dashboard do cliente (HU 2) | Vinícius e Augusto
 Back-end | Dashboard cliente (HU 2) | Augusto
-Front-end | Layout estabelecimento (HU 6/8) | Vinícius e Augusto
-Models | Avaliação de estabelecimento (HU 6/8) | Augusto
-Back-end | Avaliação (HU 6/8) | Eduardo
+Front-end | Layout estabelecimento (HU 6) | Vinícius e Augusto
+Models | Avaliação de estabelecimento (HU 6) | Augusto
+Back-end | Avaliação (HU 6) | Eduardo
 Doc | Postmortem | Time	
 
 -------------------------
