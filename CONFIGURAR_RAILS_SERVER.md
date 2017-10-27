@@ -14,5 +14,3 @@
 
     https://whereigo-marquinhosvhb.c9users.io
 
-
-cd WhereIGo; sudo service postgresql start; rails server -b $IP -p $PORT
