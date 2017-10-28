@@ -468,4 +468,17 @@ h2 {
   height: 300px;
   margin-bottom: 30px; }
 
+.wig-establishment-info ul {
+  font-size: .9em;
+  padding-left: 0; }
+  .wig-establishment-info ul li {
+    list-style: none;
+    margin-bottom: 8px; }
+.wig-establishment-info .info-icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  margin-right: 10px; }
+
 /*# sourceMappingURL=wig.css.map */

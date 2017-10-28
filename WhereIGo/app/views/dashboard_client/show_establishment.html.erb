@@ -18,9 +18,10 @@
         </div>
         <div class="wig-establishment-info">
             <ul>
-                <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @e.address %></li>
-                <li><i class="fa fa-envelope-open" aria-hidden="true"></i> <%= @e.email %></li>
-                <li><i class="fa fa-globe" aria-hidden="true"></i> <%= @e.website %></li>
+                <li><div class="info-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div><%= @e.address %></li>
+                <li><div class="info-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>(81) 3498-3298</li>
+                <li><div class="info-icon"><i class="fa fa-envelope-open" aria-hidden="true"></i></div><%= @e.email %></li>
+                <li><div class="info-icon"><i class="fa fa-globe" aria-hidden="true"></i></div><%= @e.website %></li>
             </ul>
         </div>
 
