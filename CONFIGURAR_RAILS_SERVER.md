@@ -15,4 +15,7 @@
     https://whereigo-augustocgon.c9users.io
 
 
-cd WhereIGo; sudo service postgresql start; rails server -b $IP -p $PORT
+Deploy to Heroku (no workspace):
+heroku login
+
+git subtree push --prefix WhereIGo heroku master
