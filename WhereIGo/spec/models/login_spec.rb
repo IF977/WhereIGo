@@ -6,7 +6,9 @@ RSpec.describe User, :type => :request do
     before do
         values = {:name => 'edu',
                   :email => 'edu@edu',
-                  :password_digest => 'eduedu'}
+                  :password_digest => 'eduedu',
+                  :is_client => true
+        }
         @user = User.create values
     end
   
