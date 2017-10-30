@@ -1,8 +1,9 @@
 # WhereIGo
 ![WhereIGo](https://user-images.githubusercontent.com/18203276/31318014-7114942a-ac21-11e7-952b-dcfd46b3b2f3.png)
-Link do app no Heroku: http://where-i-go.herokuapp.com/
 
 Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em Sistemas de Informação do Centro de Informática da Universidade Federal de Pernambuco (UFPE).
+
+Link do app no Heroku: http://where-i-go.herokuapp.com/
 
 ## Equipe:
 * Antonio Augusto Corrêa Gondim Neto: Desenvolvedor e Gerente de Projeto
