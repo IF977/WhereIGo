@@ -1,5 +1,3 @@
-
-
 <div class="row">
     <section class="col-md-8">
         <h1><%= @e.name %></h1>
@@ -9,7 +7,29 @@
         <p class="wig-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet, lacus et suscipit laoreet, est ipsum commodo risus, elementum commodo ex lectus sit amet nibh. Maecenas nec enim ullamcorper, rhoncus lorem at, placerat ipsum. Etiam bibendum vitae massa nec gravida. Ut mauris nunc, auctor consequat faucibus at, tincidunt sit amet libero. Nam lobortis dui sed elit iaculis, at imperdiet ligula lacinia. Aliquam id orci eleifend ipsum porta sagittis eget eget nulla. Mauris ac ante elit. Ut sit amet elit sed justo varius mattis.</p>
         
         <div class="wig-establishment-map"></div>
-        
+        <h2>Comentários</h2>
+
+        <% @comments.each do |c| %>
+            <div class="wig-comment">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="wig-comment-userpic" style="width:100px;height:100px;background-color:green;"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <h4><%= c[0] %></h4>
+                        <p><%= c[1] %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+
+        <%=form_for :establishment_comment, url: {action: 'user_comment_establishment'}, :method => :POST do |e| %>
+            <div id="form-inputs">
+                <%= e.text_area :comment, class: "wig-textbox", placeholder: "Digite aqui seu comentário" %>
+            </div>
+            <%= e.submit "Comentar", class: "wig-button" %>
+
+        <% end %>
         
     </section>
     <aside class="col-md-4">

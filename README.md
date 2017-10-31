@@ -3,6 +3,8 @@
 
 Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em Sistemas de Informação do Centro de Informática da Universidade Federal de Pernambuco (UFPE).
 
+Link do app no Heroku: http://where-i-go.herokuapp.com/
+
 ## Equipe:
 * Antonio Augusto Corrêa Gondim Neto: Desenvolvedor e Gerente de Projeto
 * Eduardo Santos de Moura: Desenvolvedor

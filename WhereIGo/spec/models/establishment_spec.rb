@@ -1,46 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Establishment, type: :model do
-  
-before do
-  valuesUser = {:name => 'edu',
-            :email => 'edu@edu',
-            :password_digest => 'edueduedu'}
-  @userTest = User.create valuesUser
-  
-  valuesEstablishment = {:name => 'rio doce cdu',
-  :email => 'rio@doce',
-  :cnpj => '12345678901230',
-  :address => 'terminal mais proximo',
-  :website => nil}
-  
-  @establishmentTest = Establishment.create valuesEstablishment
-end
-=begin
-context "testes de edição de estabelecimento" do
-    it "edição de estabelecimento - como gerente" do
-      visit '/login'
-      fill_in "email", :with => @userTest.email
-      fill_in "password", :with =>@userTest.password_digest
-      click_button "Entrar"
-      visit '/dashboard'
-      expect(page).to have_content 'Editar conta'
-      
-      visit '/establishments/new'
-      fill_in "establishment_name", :with => @establishmentTest.name
-      fill_in 'establishment_email', :with => @establishmentTest.email
-      fill_in 'establishment_cnpj', :with => '82345678901230'
-      fill_in 'establishment_address', :with => @establishmentTest.address
-      click_button 'Criar estabelecimento'
-      visit '/establishments'
-      expect(page).to have_content '1.'
-      #click_button 'rio doce cdu'
-      #page.find(:link,"rio doce cdu").click
-      #click_link '/establishments/1'
-      #expect(page).to have_text 'Salvar alterações'
-  end
-end
-=end
 context "quantidade de estabelecimentos no banco de dados" do
     it "o banco de dados está armazenando os novos estabelecimentos?" do
       establishment= Establishment.count
@@ -56,7 +16,7 @@ context "quantidade de estabelecimentos no banco de dados" do
         end
     end
   context "validade de um estabelecimento" do 
-    it "estabelecimento valido?" do
+    it "estabelecimento valido? - caminho feliz" do
       establishment = Establishment.new
       establishment.name = "bar do cava"
       establishment.email = "bar@cava"
