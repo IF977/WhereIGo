@@ -4,6 +4,7 @@ $wig-greatpink: #f3276d;
 $wig-oddyellow: #f0b567;
 $wig-lightgrey: #f0f0f0;
 $wig-lightpink: #ff508c;
+$wig-halfgrey: #ddd;
 
 // outros atributos
 $valor-borda: 4px;
@@ -37,7 +38,7 @@ html, body {
 h1 {
     color: $wig-xdarkgrey;
     font-size: 1.6rem;
-    margin: 13px 0 20px 0;
+    margin: 13px 0 5px 0;
     &:after {
         content: '~';
         color: $wig-greatpink;
@@ -508,4 +509,107 @@ h2 {
     width: 100px;
     height: 100px;
     background-color: $wig-greatpink;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// ESTABELECIMENTO LAYOUT ///////////////////
+////////////////////////////////////////////////////////////
+.wig-review {
+    width: 100%;
+    h3 {
+        font-size: .8em;
+        text-transform: uppercase;
+        font-weight: 700;
+        &:after {
+            content: '~';
+            font-weight: 600;
+            color: $wig-greatpink;
+            margin-left: 5px;
+        }
+    }
+}
+
+.wig-tag {
+    padding: 4px 8px;
+    background-color: #f0b567;
+    font-size: 0.8em;
+    color: #f0f0f0;
+    font-weight: 800;
+    border-radius: 4px;
+    margin-right: 5px;
+    display: inline-block;
+    margin: 10px 0;
+}
+.wig-description {
+    text-align: justify;
+}
+.wig-establishment-picture {
+    width: 100%;
+    background-color: $wig-halfgrey;
+    height: 310px;
+    margin-bottom: 30px;
+}
+.wig-establishment-info {
+    ul {
+        li {
+            
+        }
+    }
+}
+.wig-review-box {
+    width: 80px;
+}
+.wig-thumbs {
+    display: flex;
+    flex-flow: row nowrap;
+    a {
+        color: $wig-halfgrey;
+    }
+    
+}
+.wig-thumbs-active {
+    color: $wig-greatpink !important;
+}
+
+.wig-review-thumb {
+    font-size: 2em;
+    margin: 0 5px;
+}
+.wig-percentbar {
+    width: 100%;
+    background-color: $wig-halfgrey;
+    height: 5px;
+    margin-top: 3px;
+    #positive {
+        width: 50%;
+        height: 5px;
+        background-color: $wig-greatpink;
+    }
+    #percent {
+        font-size: .7em;
+        text-align: left;
+        font-weight: 700;
+    }
+}
+.wig-establishment-map {
+    background-color: $wig-halfgrey;
+    height: 300px;
+    margin-bottom: 30px;
+}
+.wig-establishment-info {
+    ul {
+        font-size: .9em;
+        padding-left: 0;
+        li {
+            list-style: none;
+            margin-bottom: 8px;
+        }
+    }
+    .info-icon {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        margin-right: 10px;
+    }
 }

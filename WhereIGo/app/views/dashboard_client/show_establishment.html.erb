@@ -1,36 +1,91 @@
-<h1><%= @e.name %></h1>
-<p>Endereço: <%= @e.address %></p>
-<p>Contato: <%= @e.email %></p>
-<p>Site: <%= @e.website %></p>
+<div class="row">
+    <section class="col-md-8">
+        <h1><%= @e.name %></h1>
+        <div class="wig-tag">mpb</div>
+        <div class="wig-tag">comida brasileira</div>
+        <div class="wig-tag">ambiente familiar</div>
+        <p class="wig-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet, lacus et suscipit laoreet, est ipsum commodo risus, elementum commodo ex lectus sit amet nibh. Maecenas nec enim ullamcorper, rhoncus lorem at, placerat ipsum. Etiam bibendum vitae massa nec gravida. Ut mauris nunc, auctor consequat faucibus at, tincidunt sit amet libero. Nam lobortis dui sed elit iaculis, at imperdiet ligula lacinia. Aliquam id orci eleifend ipsum porta sagittis eget eget nulla. Mauris ac ante elit. Ut sit amet elit sed justo varius mattis.</p>
+        
+        <div class="wig-establishment-map"></div>
+        <h2>Comentários</h2>
 
-<h2>Avaliação</h2>
-<p>Gostou desse estabelecimento?</p>
-<a href="<%=url_for(controller: "dashboard_client", action: "user_review_establishment", review: true, id: @e.id) %>">UP</a>
-<a href="<%=url_for(controller: "dashboard_client", action: "user_review_establishment", review: false, id: @e.id) %>">DOWN</a>
-<%= @rating_percentage%>
-
-
-
-<h2>Comentário</h2>
-
-<% @comments.each do |c| %>
-    <div class="wig-comment">
-        <div class="row">
-            <div class="col-md-2">
-                <div class="wig-comment-userpic" style="width:100px;height:100px;background-color:green;"></div>
+        <% @comments.each do |c| %>
+            <div class="wig-comment">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="wig-comment-userpic" style="width:100px;height:100px;background-color:green;"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <h4><%= c[0] %></h4>
+                        <p><%= c[1] %></p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-10">
-                <h4><%= c[0] %></h4>
-                <p><%= c[1] %></p>
+        <% end %>
+
+        <%=form_for :establishment_comment, url: {action: 'user_comment_establishment'}, :method => :POST do |e| %>
+            <div id="form-inputs">
+                <%= e.text_area :comment, class: "wig-textbox", placeholder: "Digite aqui seu comentário" %>
+            </div>
+            <%= e.submit "Comentar", class: "wig-button" %>
+
+        <% end %>
+        
+    </section>
+    <aside class="col-md-4">
+        <div class="wig-establishment-pic">
+            
+        </div>
+        <div class="wig-establishment-info">
+            <ul>
+                <li><div class="info-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div><%= @e.address %></li>
+                <li><div class="info-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>(81) 3498-3298</li>
+                <li><div class="info-icon"><i class="fa fa-envelope-open" aria-hidden="true"></i></div><%= @e.email %></li>
+                <li><div class="info-icon"><i class="fa fa-globe" aria-hidden="true"></i></div><%= @e.website %></li>
+            </ul>
+        </div>
+
+        <div class="wig-review">
+            <h3>Avalie este estabelecimento</h3>
+            <div class="wig-review-box">
+                <div class="wig-thumbs">
+                    <a href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: true, id: @e.id) %>" id="review-true">
+                        <div class="wig-review-thumb" >
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a href="<%= url_for(controller: "dashboard_client", action: "user_review_establishment", review: false, id: @e.id) %>" id="review-false">
+                        <div class="wig-review-thumb">
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="wig-percentbar" data-toggle="tooltip" data-placement="bottom" title="">
+                    <div id="positive"></div>
+                    <div id="percent"><%= @rating_percentage %></div>
+                </div>
             </div>
         </div>
-    </div>
-<% end %>
-
-<%=form_for :establishment_comment, url: {action: 'user_comment_establishment'}, :method => :POST do |e| %>
-    <div id="form-inputs">
-        <%= e.text_area :comment, class: "wig-textbox", placeholder: "Digite aqui seu comentário" %>
-    </div>
-    <%= e.submit "Comentar", class: "wig-button" %>
+    </aside>
+</div>
+<script>
+    function setPercentBarWidth() {
+        $("#positive").css("width", $("#percent").html());
+    }
+    function setExistingReview() {
+        <% if @user_review_selected == true %>
+            $("#review-true").addClass("wig-thumbs-active");
+            console.log("true");
+        <% end %>
+        <% if @user_review_selected == false %>
+            $("#review-false").addClass("wig-thumbs-active");
+            console.log("false");
+        <% end %>
+    }
+    $(document).ready(function() { 
+        setPercentBarWidth();
+        setExistingReview();
+    });
     
-<% end %>
+</script>
