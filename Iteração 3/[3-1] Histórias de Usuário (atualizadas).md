@@ -9,7 +9,7 @@ Id | Escopo | História | Status
 5 | Cliente | Como um cliente<br/>Eu quero avaliar os locais, deixando um comentario para os estabelecimentos<br/>Para que o atendimento possa ser melhorado | On hold
 6 | Cliente | Como um cliente<br/>Eu quero adicionar avaliações públicas ao estabelecimento<br/>Para que outras pessoas possam ter conhecimento da qualidade do local | Implementado (Iteração 2)
 7 | Cliente | Como um cliente<br/>Eu quero seguir promoções/eventos de estabelecimentos<br/>Para que eu possa usufruir das supracitadas | On hold
-8 | Dono de estabelecimento | Como um dono de estabelecimento<br/>Eu quero ver os feedbacks associados ao meu estabelecimento<br/>Para que eu possa estar em constante evolução | On hold
+8 | Cliente | Como um cliente<br/>Eu quero dar feedbacks aos estabelecimentos<br/>Para que eles possam estar em constante evolução | On hold
 9 | Dono de estabelecimento | Como um dono de estabelecimento<br/>Eu quero cadastrar informações de meu estabelecimento<br/>Para que eu possa ter uma maior visibilidade | Implementado (Iteração 1)
 10 | Dono de estabelecimento | Como um dono de estabelecimento<br/>Eu quero ver quantas indicações foram feitas em meu estabelecimento<br/>Para que eu possa ter uma maior noção | On hold
 11 | Dono de estabelecimento | Como um dono de estabelecimento<br/>Eu quero editar ou remover informações cadastradas<br/>Para que eu possa atualizar os dados do meu estabelecimento | Implementado (Iteração 1)
