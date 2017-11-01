@@ -19,5 +19,5 @@ Then(/^Eu devo ser direcionado para a pagina de criacao de estabelecimento$/) do
 end
 
 Then(/^Eu devo ser direcionado para a pagina de edicao de estabelecimento$/) do
-    page.assert_current_path('/p/establishment/edit/1')
+    page.assert_current_path('/p/establishment/edit/' + @establishment.id.to_s)
 end

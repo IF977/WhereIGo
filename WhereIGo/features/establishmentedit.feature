@@ -6,8 +6,9 @@ Feature: Edição de Estabelecimento
     Background:
       Given Eu estou logado como provider
       And Eu tenho um estabelecimento
-      And Eu estou na pagina do meu estabelecimento
-      When Eu clico no botao "Editar" 
+      And Eu estou na pagina do estabelecimento
+      When Eu clico no botao "Editar"
+      Then Eu devo ser direcionado para a pagina de edicao de estabelecimento
       
     Scenario: Edicao de nome - valida
         And Eu coloco bar do ze no campo establishment_name
