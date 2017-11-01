@@ -6,6 +6,10 @@ When(/^[Eu ]*clico em ([^"]*)$/) do |button|
     click_button(button)
 end
 
-When (/^I press "Novo estabelecimento"$/) do
+When (/^Eu clico no botao "Novo estabelecimento"$/) do
     visit"/p/establishment/new"
+end
+
+When (/^Eu clico no botao "Editar"$/) do
+    visit ("/p/establishment/edit/" + @establishment.id.to_s)
 end

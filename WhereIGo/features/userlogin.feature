@@ -9,7 +9,7 @@ Feature: Login usuario
       And Eu coloco 123mctroia123 no campo password
       And Eu clico em Entrar
       Then Eu devo ser direcionado para a pagina do dashboard provider
-      Then Eu devo ver o texto Meus estabelecimentos 
+      And Eu devo ver o texto Meus estabelecimentos 
       
     Scenario: Login sem sucesso - email invalido - provider
       Given Eu estou na pagina de login, nao estou logado e sou provider

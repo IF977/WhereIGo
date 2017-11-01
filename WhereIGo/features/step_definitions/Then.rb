@@ -13,3 +13,11 @@ end
 Then(/^Eu devo ser direcionado para a pagina do cliente$/) do
     page.assert_current_path('/c/dashboard')
 end
+
+Then(/^Eu devo ser direcionado para a pagina de criacao de estabelecimento$/) do
+    page.assert_current_path('/p/establishment/new')
+end
+
+Then(/^Eu devo ser direcionado para a pagina de edicao de estabelecimento$/) do
+    page.assert_current_path('/p/establishment/edit/1')
+end
