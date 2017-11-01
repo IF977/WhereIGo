@@ -16,7 +16,7 @@
 #
 default: &default
   adapter: postgresql
-  encoding: SQL_ASCII
+  encoding: UNICODE
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -59,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test: &test
   <<: *default
-  database: WhereIGo_test
+  database: whereigo_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,7 +82,7 @@ test: &test
 #
 production:
   <<: *default
-  database: WhereIGo_production
+  database: whereigo_production
   username: WhereIGo
   password: <%= ENV['WHEREIGO_DATABASE_PASSWORD'] %>
 
