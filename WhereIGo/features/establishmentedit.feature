@@ -15,7 +15,7 @@ Feature: Edição de Estabelecimento
         Then Eu devo ver o texto Meus estabelecimentos
     
     Scenario: Edicao de nome para vazio - invalida
-        And Eu coloco  no campo establishment_name
+        And Eu deixo em branco no campo establishment_name
         And Eu clico em Salvar alterações
         Then Eu devo ver o texto O campo nome é obrigatório.
       
@@ -25,7 +25,7 @@ Feature: Edição de Estabelecimento
         Then Eu devo ver o texto Meus estabelecimentos
         
     Scenario: Edicao de email para vazio - invalida
-        And Eu coloco  no campo establishment_email
+        And Eu deixo em branco no campo establishment_email
         And Eu clico em Salvar alterações
         Then Eu devo ver o texto O campo e-mail é obrigatório.
                 
@@ -45,12 +45,12 @@ Feature: Edição de Estabelecimento
         Then Eu devo ver o texto Meus estabelecimentos
                 
     Scenario: Edicao de endereco para vazio - invalida
-        And Eu coloco  no campo establishment_address
+        And Eu deixo em branco no campo establishment_address
         And Eu clico em Salvar alterações
         Then Eu devo ver o texto O campo endereço é obrigatório.
         
     Scenario: Edicao de website para vazio - valida
-        And Eu coloco  no campo establishment_website
+        And Eu deixo em branco no campo establishment_website
         And Eu clico em Salvar alterações
         Then Eu devo ver o texto Meus estabelecimentos
         
