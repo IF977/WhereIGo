@@ -6,10 +6,6 @@ Given(/^Eu estou na pagina do estabelecimento$/) do
   visit ("/p/establishment/show/" + @establishment.id.to_s)
 end
 
-Given(/^Eu estou na pagina do estabelecimento a ser comentado$/) do
-  visit ("/c/establishment/" + @establishment.id.to_s)
-end
-
 Given(/^Eu estou na pagina inicial$/) do
   visit(root_path)
 end
@@ -35,7 +31,6 @@ Given(/^Eu estou logado como cliente$/) do
     click_button("Entrar")
     visit "/c/dashboard"
 end
-
 
 Given(/^Eu estou logado como provider$/) do
     @user = User.new(name: "mcboco", is_provider: true, email:'mc@boco', password_digest:'boco123')
