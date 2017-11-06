@@ -74,10 +74,17 @@ class DashboardClientController < ApplicationController
                   :comment => comment_text
         }
         
-        EstablishmentComment.create values
+        comment =  EstablishmentComment.new values
+        if comment.valid?
+            comment.save!
+            redirect_to '/c/establishment/' + establishment
+            return
+        else
+            if comment_text.strip == ""
+                flash_message("O campo comentário está vazio.")
+            end
+        end
         
-        redirect_to '/c/establishment/' + establishment
-        return
     end
     
     
