@@ -86,6 +86,10 @@ h2 {
     }
 }
 
+textarea.wig-textbox {
+    width: 100%;
+}
+
 .wig-formlabel {
     color: $wig-lightgrey;
     text-align: left;
@@ -116,6 +120,13 @@ h2 {
     }
     &:active {
         opacity: 0.8;
+    }
+}
+
+a.wig-button {
+    &:hover {
+        color: #fff;
+        text-decoration: none;
     }
 }
 
@@ -541,7 +552,7 @@ h2 {
 .wig-description {
     text-align: justify;
 }
-.wig-establishment-picture {
+.wig-establishment-pic {
     width: 100%;
     background-color: $wig-halfgrey;
     height: 310px;
@@ -610,4 +621,28 @@ h2 {
         text-align: center;
         margin-right: 10px;
     }
+}
+
+.wig-comment {
+    margin: 15px 0;
+}
+.wig-comment p {
+    font-size: .9em;
+    margin: 0;
+}
+.wig-comment-userpic {
+    width: 50px;
+    height: 50px;
+    background-color: $wig-oddyellow;
+}
+h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+#comment-area {
+    margin: 8px 0;
+}
+#textarea-comment {
+    margin: 10px 0;
 }
