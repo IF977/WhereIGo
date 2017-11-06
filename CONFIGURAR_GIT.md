@@ -20,3 +20,7 @@ git pull origin master
 
 Para fazer deploy pro Heroku
 git subtree --prefix WhereIGo push heroku master
+
+Para fazer atualização do banco de dados
+heroku run rake db:create
+heroku run rake db:migrate
