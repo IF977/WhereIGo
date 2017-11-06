@@ -84,7 +84,7 @@ test: &test
 production:
   <<: *default
   database: whereigo_production
-  username: whereigo
+  username: WhereIGo
   password: <%= ENV['WHEREIGO_DATABASE_PASSWORD'] %>
 
 cucumber:
