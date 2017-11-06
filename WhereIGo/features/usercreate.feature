@@ -22,14 +22,14 @@ Feature: Cadastro usuário
   Scenario: Criação de usuario invalida - email vazio
     Given Eu estou na pagina inicial
     When Eu coloco Pedro no campo user_name
-    And Eu coloco  no campo user_email
+    And Eu deixo em branco no campo user_email
     And Eu coloco 123456 no campo user_password_digest
     And Eu clico em Criar conta
     Then Eu devo ver o texto O campo e-mail é obrigatório.
   
   Scenario: Criação de usuario - nome invalido
     Given Eu estou na pagina inicial
-    When Eu coloco  no campo user_name
+    When Eu deixo em branco no campo user_name
     And Eu coloco joao@pedro no campo user_email
     And Eu coloco 456123 no campo user_password_digest
     And Eu clico em Criar conta

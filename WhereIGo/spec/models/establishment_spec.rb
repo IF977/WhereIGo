@@ -1,7 +1,94 @@
 require 'rails_helper'
 
 RSpec.describe Establishment, type: :model do
-context "quantidade de estabelecimentos no banco de dados" do
+  
+      before do
+        values = {:name => 'edu do espetinho',
+                  :cnpj => '12345678901234',
+                  :address => 'rua do espeto',
+                  :email => 'edu@espeto',
+                  :website => 'edu.edu',
+                  :user_id => 1
+        }
+        @establishment = Establishment.create values
+    end
+  
+  context "edicao de dados do estabelecimento" do
+    it "edicao de nome - valida" do
+      @establishment.name = "kea"
+      expect(@establishment.name).to eq("kea")
+      expect(@establishment.valid?).to be_truthy
+    end
+    
+    it "edicao de nome - invalida" do
+      @establishment.name = nil
+      expect(@establishment.valid?).to be_falsey
+    end
+    
+    it "edicao de cnpj - valida" do
+      @establishment.cnpj = '12345678900000'
+      expect(@establishment.cnpj).to eq('12345678900000')
+      expect(@establishment.valid?).to be_truthy
+    end
+    
+    it "edicao de cnpj - invalida" do
+      @establishment.cnpj = '123456789000001'
+      expect(@establishment.valid?).to be_falsey
+    end    
+
+    it "edicao de cnpj - invalida - campo vazio" do
+      @establishment.cnpj = nil
+      expect(@establishment.valid?).to be_falsey
+    end    
+
+    it "edicao de endereco - valida" do
+      @establishment.address = 'Rua do futuro'
+      expect(@establishment.address).to eq('Rua do futuro')
+      expect(@establishment.valid?).to be_truthy
+    end        
+
+    it "edicao de endereco - invalida" do
+      @establishment.address = nil
+      expect(@establishment.valid?).to be_falsey
+    end        
+ 
+    it "edicao de email - valida" do
+      @establishment.email = 'espeto@edu'
+      expect(@establishment.email).to eq('espeto@edu')
+      expect(@establishment.valid?).to be_truthy
+    end        
+
+    it "edicao de email - invalida" do
+      @establishment.email = nil
+      expect(@establishment.valid?).to be_falsey
+    end    
+        
+    it "edicao de website - valida" do
+      @establishment.website = 'espeto.edu.edu'
+      expect(@establishment.website).to eq('espeto.edu.edu')
+      expect(@establishment.valid?).to be_truthy
+    end        
+
+    it "edicao de website - valida - campo vazio" do
+      @establishment.website = nil
+      expect(@establishment.valid?).to be_truthy
+    end   
+    
+    it "edicao de mais de um campo ao mesmo tempo" do
+      @establishment.name = "kea"
+      expect(@establishment.name).to eq("kea")      
+      @establishment.cnpj = '12345678900000'
+      expect(@establishment.cnpj).to eq('12345678900000')
+      @establishment.address = 'Rua do futuro'
+      expect(@establishment.address).to eq('Rua do futuro')
+      @establishment.email = 'espeto@edu'
+      expect(@establishment.email).to eq('espeto@edu')      
+      @establishment.website = 'espeto.edu.edu'
+      expect(@establishment.website).to eq('espeto.edu.edu')
+      expect(@establishment.valid?).to be_truthy      
+    end
+  end
+  context "quantidade de estabelecimentos no banco de dados" do
     it "o banco de dados está armazenando os novos estabelecimentos?" do
       establishment= Establishment.count
       old_qtd = establishment

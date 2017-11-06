@@ -51,7 +51,7 @@ RSpec.describe User, type: :model do
         end
     end
   context "validade de um usuario" do 
-    it "usuario valido?" do
+    it "usuario valido" do
       user = User.new
       user.name = "edu mito"
       user.email = "a@a"
@@ -59,7 +59,7 @@ RSpec.describe User, type: :model do
       
       expect(user.valid?).to be_truthy
             end
-    it "usuario invalido? - campo nome vazio" do
+    it "usuario invalido - campo nome vazio" do
       user = User.new
       user.name = nil
       user.email = "abc@df"
@@ -68,7 +68,7 @@ RSpec.describe User, type: :model do
       expect(user.valid?).to be_falsey
         end
         
-    it "usuario invalido? - campo email vazio" do
+    it "usuario invalido - campo email vazio" do
       user = User.new
       user.name = "Sheldon Diamante Negro"
       user.email = ""
@@ -77,7 +77,7 @@ RSpec.describe User, type: :model do
       expect(user.valid?).to be_falsey
         end
         
-    it "usuario invalido? - campo senha com menos de 6 (seis) dígitos" do
+    it "usuario invalido - campo senha com menos de 6 (seis) dígitos" do
       user = User.new
       user.name = "DJ Val"
       user.email = "detona@djval"
