@@ -17,4 +17,4 @@ Para que eles possam estar em constante evolução
     Scenario: Comentario invalido - campo em branco
       When Eu deixo em branco no campo establishment_comment_comment
       And Eu clico em Comentar 
-      Then Eu devo ver o texto Comentário inválido! 
+      Then Eu devo ver o texto O campo comentário está vazio.
