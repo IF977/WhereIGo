@@ -28,11 +28,11 @@ html, body {
     height: 100%;
     margin: 0;
     background-color: $wig-lightgrey;
-    background-image: url('/assets/background-login.jpg');
+    background-image: url(<%= image_url("background-login.jpg") %>);
 }
 .wig-body-sign {
     @include wig-body;
-    background-image: url('/assets/background-login.jpg');
+    background-image: url(<%= image_url("background-login.jpg") %>);
 }
 
 h1 {
@@ -66,8 +66,6 @@ h2 {
         font-weight: 200;
     }
 }
-
-
 
 .wig-textbox {
     display: block;
@@ -230,7 +228,7 @@ h2 {
 ////////////////////////////////////////////////////////////
 .wig-body-homepage {
     @include wig-body;
-    background-image: url('/assets/background-homepage.jpg');
+    background-image: url(<%= image_url("background-homepage.jpg") %>);
     color: $wig-lightgrey;
 }
 .wig-registerbox-homepage {
