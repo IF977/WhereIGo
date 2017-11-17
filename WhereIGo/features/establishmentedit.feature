@@ -40,6 +40,16 @@ Feature: Edição de Estabelecimento
         And Eu clico em Salvar alterações
         Then Eu devo ver o texto CNPJ inválido.
         
+    Scenario: Edicao de descricao - valida
+        And Eu coloco O cardapio mais variado do Recife no campo establishment_description
+        And Eu clico em Salvar alterações
+        Then Eu devo ver o texto Meus estabelecimentos
+        
+    Scenario: Edicao de descricao para vazio - valida
+        And Eu deixo em branco no campo establishment_description
+        And Eu clico em Salvar alterações
+        Then Eu devo ver o texto Meus estabelecimentos
+
     Scenario: Edicao de endereco - valida
         And Eu coloco Rua do Alemao no campo establishment_address
         And Eu clico em Salvar alterações
