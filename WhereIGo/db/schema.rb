@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026220907) do
+ActiveRecord::Schema.define(version: 20171114012744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ambient_prefences", force: :cascade do |t|
+    t.integer "ambient_id"
+    t.integer "user_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ambient_specialities", force: :cascade do |t|
+    t.integer "establishment_id"
+    t.integer "ambient_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ambients", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "establishment_comments", force: :cascade do |t|
     t.string "comment"
@@ -40,6 +62,50 @@ ActiveRecord::Schema.define(version: 20171026220907) do
     t.string "website"
     t.integer "user_id"
     t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "food_prefences", force: :cascade do |t|
+    t.integer "food_id"
+    t.integer "user_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "food_specialities", force: :cascade do |t|
+    t.integer "establishment_id"
+    t.integer "food_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "music_prefences", force: :cascade do |t|
+    t.integer "music_id"
+    t.integer "user_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "music_specialities", force: :cascade do |t|
+    t.integer "establishment_id"
+    t.integer "music_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "musics", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
