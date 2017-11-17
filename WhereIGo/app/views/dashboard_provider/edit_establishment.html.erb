@@ -4,21 +4,20 @@
         <label for="name" class="wig-formlabel">Nome</label>
         <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento", value: @establishments.name %>
         
-        <label for="email" class="wig-formlabel">E-mail</label>
-        <%= e.email_field :email, class: "wig-textbox", placeholder: "Email de contato", value: @establishments.email %>
-        
         <label for="cnpj" class="wig-formlabel">CNPJ</label>
         <%= e.text_field :cnpj, class: "wig-textbox", placeholder: "CNPJ", value: @establishments.cnpj %>
+        
+        <label for="cnpj" class="wig-formlabel">Descrição</label>
+        <%= e.text_area :description, class: "wig-textbox", placeholder: "Descrição", value: @establishments.description %>
+        
+        <label for="email" class="wig-formlabel">E-mail</label>
+        <%= e.email_field :email, class: "wig-textbox", placeholder: "Email de contato", value: @establishments.email %>
         
         <label for="address" class="wig-formlabel">Endereço</label>
         <%= e.text_field :address, class: "wig-textbox", placeholder: "Endereço", value: @establishments.address %>
         
         <label for="website" class="wig-formlabel">Website</label>
         <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
-        
-        <label for="ups" class="wig-formlabel">Ups</label>
-        
-        <label for="downs" class="wig-formlabel">Downs</label>
     </div>
     <%= e.submit "Salvar alterações", class: "wig-button" %>
     <%= flash_message.html_safe %>
