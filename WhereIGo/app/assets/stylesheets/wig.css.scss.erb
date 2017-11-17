@@ -435,7 +435,7 @@ a.wig-button {
 .wig-sidebar {
     display: flex !important;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     background-color: $wig-greatpink;
     max-width: 65px;
     position: fixed;
@@ -443,7 +443,7 @@ a.wig-button {
     bottom: 0;
     left: 0;
     z-index: 1031;
-    padding: 20px 0;
+    padding: 10px 7px;
     overflow-x: hidden;
 }
 .wig-sidebar-icon {
@@ -459,6 +459,28 @@ a.wig-button {
         background-color: $wig-lightpink;
     }
     
+}
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.sidebar-userpic {
+    margin: 0 auto;
+    #pic {
+        border-radius: 50%;
+        background-color: $wig-lightgrey;
+        width: 50px;
+        height: 50px;
+    }
+}
+.sidebar-text {
+    p {
+        font-weight: 500;
+        color: #fff;
+        font-size: 11px;
+    }
 }
 .wig-align {
     width: 100%;

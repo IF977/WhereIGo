@@ -43,9 +43,12 @@
     </header>
     <div class="container-fluid wig-bg">
       <div class="row">
-        <aside class="col-md-2 d-none d-sm-block wig-sidebar">
-          <ul class="nav nav-pills flex-column">
-            
+        <aside class="wig-sidebar">
+          <div class="sidebar-userpic">
+            <a href="<%= url_for controller: 'account', action: 'edit' %>"><div id="pic"></div></a>
+          </div>
+          
+          <ul class="nav nav-pills flex-column nav-buttons">
             <a href="<%= url_for controller: "dashboard_client", action: "all_establishments" %>" title="Home">
               <li class="nav-item wig-sidebar-icon">
                 <i class="fa fa-home" aria-hidden="true"></i>
@@ -77,6 +80,10 @@
             </a>
 
           </ul>
+          
+          <div class="sidebar-text">
+            <p>Criar um estabelecimento</p>
+          </div>
         </aside>
         <section class="wig-align">
           <div class="wig-main">
