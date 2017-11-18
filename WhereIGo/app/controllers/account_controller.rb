@@ -151,6 +151,29 @@ class AccountController < ApplicationController
         end
     end
     
+    def register_provider_establishment_create
+        values = params.require(:establishment).permit!
+        new_establishment = Establishment.new values
+        if new_establishment.valid?
+    		new_establishment.update_attributes(:user_id => session[:current_user_id])
+    		new_establishment.save!
+    		$establishment_id = new_establishment.id
+            redirect_to '/register/p/speciality/food'
+            return
+        else
+            if params[:establishment][:name].strip == ""
+                flash_message("O campo nome é obrigatório.")
+    		    return
+    		elsif params[:establishment][:cnpj].size != 14
+    		    flash_message("CNPJ inválido.")
+                return
+    		elsif params[:establishment][:address].strip == ""
+    		    flash_message("O campo endereço é obrigatório.")
+    		    return
+    	    end
+        end
+    end
+    
     def register_c_preferences_food
         @title = "Preferencias Gastronômicas"
         render layout: "login-signup"
@@ -202,5 +225,59 @@ class AccountController < ApplicationController
             end
         end
         redirect_to '/c/dashboard/'
+    end
+    
+        
+    def register_p_speciality_food
+        @title = "Especialidade Gastronômica"
+        render layout: "login-signup"
+    end
+    
+    def register_p_speciality_food_create
+        foods = params[:ambient]
+        establishment_id = $establishment_id
+        if foods != nil
+            foods.each do |c|
+                new_preference = FoodSpeciality.new ({:food_id => c, :establishment_id => establishment_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/register/p/speciality/music'
+    end
+    
+    def register_p_speciality_music
+        @title = "Especialidade Musical"
+        render layout: "login-signup"
+    end
+    
+    def register_p_speciality_music_create
+        musics = params[:ambient]
+        establishment_id = $establishment_id
+        if musics != nil
+            musics.each do |c|
+                new_preference = MusicSpeciality.new ({:music_id => c, :establishment_id => establishment_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/register/p/speciality/ambient'
+    end
+    
+    
+    def register_p_speciality_ambient
+        @title = "Especialidade Ambiental"
+        render layout: "login-signup"
+        
+    end
+    
+    def register_p_speciality_ambient_create
+        ambients = params[:ambient]
+        establishment_id = $establishment_id
+        if ambients != nil
+            ambients.each do |c|
+                new_preference = AmbientSpeciality.new ({:ambient_id => c, :establishment_id => establishment_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/p/dashboard/'
     end
 end

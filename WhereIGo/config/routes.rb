@@ -41,6 +41,20 @@ Rails.application.routes.draw do
     
     get 'register/provider/establishment' => 'account#register_provider_establishment'
 
+    post 'register/provider/establishment/create' => 'account#register_provider_establishment_create'
+
+    get 'register/p/speciality/music' => 'account#register_p_speciality_music'
+    
+    post 'register/p/speciality/music/create' => 'account#register_p_speciality_music_create'
+    
+    get 'register/p/speciality/food' => 'account#register_p_speciality_food'
+    
+    post 'register/p/speciality/food/create' => 'account#register_p_speciality_food_create'
+    
+    get 'register/p/speciality/ambient' => 'account#register_p_speciality_ambient'
+    
+    post 'register/p/speciality/ambient/create' => 'account#register_p_speciality_ambient_create'
+    
     get 'account' => 'account#edit'
     
     post 'account/update' => 'account#update'
