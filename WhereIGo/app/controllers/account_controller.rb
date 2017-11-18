@@ -161,7 +161,7 @@ class AccountController < ApplicationController
         user_id = session[:current_user_id]
         if foods != nil
             foods.each do |c|
-                new_preference = FoodPrefence.new ({:food_id => c, :user_id => user_id})
+                new_preference = FoodPreference.new ({:food_id => c, :user_id => user_id})
                 new_preference.save
             end
         end
@@ -178,7 +178,7 @@ class AccountController < ApplicationController
         user_id = session[:current_user_id]
         if musics != nil
             musics.each do |c|
-                new_preference = MusicPrefence.new ({:music_id => c, :user_id => user_id})
+                new_preference = MusicPreference.new ({:music_id => c, :user_id => user_id})
                 new_preference.save
             end
         end
@@ -197,11 +197,10 @@ class AccountController < ApplicationController
         user_id = session[:current_user_id]
         if ambients != nil
             ambients.each do |c|
-                new_preference = AmbientPrefence.new ({:ambient_id => c, :user_id => user_id})
+                new_preference = AmbientPreference.new ({:ambient_id => c, :user_id => user_id})
                 new_preference.save
             end
         end
         redirect_to '/c/dashboard/'
     end
-    
 end

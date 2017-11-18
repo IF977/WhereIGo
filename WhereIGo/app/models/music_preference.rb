@@ -1,0 +1,2 @@
+class MusicPreference < ApplicationRecord
+end
