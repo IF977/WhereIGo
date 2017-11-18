@@ -175,8 +175,17 @@ class AccountController < ApplicationController
     end
     
     def register_c_preferences_food
-        @title = "Preferencias Gastronômicas"
-        render layout: "login-signup"
+        
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_client = 't' 
+                @title = "Preferencias Gastronômicas"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_provider', :action => 'my_establishments'}) 
+        end
+        
     end
     
     def register_c_preferences_food_create
@@ -192,8 +201,15 @@ class AccountController < ApplicationController
     end
     
     def register_c_preferences_music
-        @title = "Preferencias Musicais"
-        render layout: "login-signup"
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_client = 't' 
+                @title = "Preferencias Musicais"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_provider', :action => 'my_establishments'}) 
+        end
     end
     
     def register_c_preferences_music_create
@@ -210,9 +226,15 @@ class AccountController < ApplicationController
     
     
     def register_c_preferences_ambient
-        @title = "Preferencias de Ambiente"
-        render layout: "login-signup"
-        
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_client = 't' 
+                @title = "Preferencias de Ambiente"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_provider', :action => 'my_establishments'}) 
+        end
     end
     
     def register_c_preferences_ambient_create
@@ -229,8 +251,15 @@ class AccountController < ApplicationController
     
         
     def register_p_speciality_food
-        @title = "Especialidade Gastronômica"
-        render layout: "login-signup"
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_provider = 't' 
+                @title = "Especialidade Gastronômica"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_client', :action => 'all_establishments'}) 
+        end
     end
     
     def register_p_speciality_food_create
@@ -246,8 +275,15 @@ class AccountController < ApplicationController
     end
     
     def register_p_speciality_music
-        @title = "Especialidade Musical"
-        render layout: "login-signup"
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_provider = 't' 
+                @title = "Especialidade Musical"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_client', :action => 'all_establishments'}) 
+        end
     end
     
     def register_p_speciality_music_create
@@ -264,9 +300,15 @@ class AccountController < ApplicationController
     
     
     def register_p_speciality_ambient
-        @title = "Especialidade Ambiental"
-        render layout: "login-signup"
-        
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_provider = 't' 
+                @title = "Especialidade de Ambiente"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_client', :action => 'all_establishments'}) 
+        end
     end
     
     def register_p_speciality_ambient_create
