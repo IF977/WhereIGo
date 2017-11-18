@@ -21,9 +21,9 @@ Rails.application.routes.draw do
     
     post 'register/create' => 'account#register_create_account'
     
-    get 'register/role' => 'account#register_role_choice'
+    get 'register/profile' => 'account#register_profile_choice'
     
-    get 'register/client' => 'account#register_role_client'
+    get 'register/client' => 'account#register_profile_client'
     
     get 'register/c/preferences/music' => 'account#register_c_preferences_music'
     
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     
     post 'register/c/preferences/ambient/create' => 'account#register_c_preferences_ambient_create'
     
-    get 'register/provider' => 'account#register_role_provider'
+    get 'register/provider' => 'account#register_profile_provider'
     
     get 'register/provider/establishment' => 'account#register_provider_establishment'
 

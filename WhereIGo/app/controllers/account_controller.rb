@@ -65,7 +65,7 @@ class AccountController < ApplicationController
     			        return
     			    end
     		    else
-    			    redirect_to '/register/role'
+    			    redirect_to '/register/profile'
     		    	return
                 end
     		
@@ -100,7 +100,7 @@ class AccountController < ApplicationController
             else
                 new_user.save
         	    session[:current_user_id] = new_user[:id]
-        	    redirect_to '/register/role'
+        	    redirect_to '/register/profile'
         	    return
             end
         else
@@ -121,20 +121,20 @@ class AccountController < ApplicationController
     	render layout: "login-signup"
     end
     
-    def register_role_choice
+    def register_profile_choice
         if user_is_authorized_?
             render layout: "login-signup"
         end
     end
     
     
-    def register_role_provider
+    def register_profile_provider
         User.update(session[:current_user_id], :is_provider => true)
         redirect_to '/register/provider/establishment'
 
     end
     
-    def register_role_client
+    def register_profile_client
         User.update(session[:current_user_id], :is_client => true)
         redirect_to '/register/c/preferences/food'
     end
