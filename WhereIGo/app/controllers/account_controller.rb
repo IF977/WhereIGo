@@ -136,7 +136,7 @@ class AccountController < ApplicationController
     
     def register_role_client
         User.update(session[:current_user_id], :is_client => true)
-        redirect_to '/c/dashboard'
+        redirect_to '/register/c/preferences/food'
     end
     
     def register_provider_establishment
@@ -151,9 +151,57 @@ class AccountController < ApplicationController
         end
     end
     
-    def register_client_preferences
-        @title = "Preferencias"
+    def register_c_preferences_food
+        @title = "Preferencias Gastronômicas"
         render layout: "login-signup"
+    end
+    
+    def register_c_preferences_food_create
+        foods = params[:ambient]
+        user_id = session[:current_user_id]
+        if foods != nil
+            foods.each do |c|
+                new_preference = FoodPrefence.new ({:food_id => c, :user_id => user_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/register/c/preferences/music'
+    end
+    
+    def register_c_preferences_music
+        @title = "Preferencias Musicais"
+        render layout: "login-signup"
+    end
+    
+    def register_c_preferences_music_create
+        musics = params[:ambient]
+        user_id = session[:current_user_id]
+        if musics != nil
+            musics.each do |c|
+                new_preference = MusicPrefence.new ({:music_id => c, :user_id => user_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/register/c/preferences/ambient'
+    end
+    
+    
+    def register_c_preferences_ambient
+        @title = "Preferencias de Ambiente"
+        render layout: "login-signup"
+        
+    end
+    
+    def register_c_preferences_ambient_create
+        ambients = params[:ambient]
+        user_id = session[:current_user_id]
+        if ambients != nil
+            ambients.each do |c|
+                new_preference = AmbientPrefence.new ({:ambient_id => c, :user_id => user_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/c/dashboard/'
     end
     
 end

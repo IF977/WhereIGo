@@ -25,6 +25,18 @@ Rails.application.routes.draw do
     
     get 'register/client' => 'account#register_role_client'
     
+    get 'register/c/preferences/music' => 'account#register_c_preferences_music'
+    
+    post 'register/c/preferences/music/create' => 'account#register_c_preferences_music_create'
+    
+    get 'register/c/preferences/food' => 'account#register_c_preferences_food'
+    
+    post 'register/c/preferences/food/create' => 'account#register_c_preferences_food_create'
+    
+    get 'register/c/preferences/ambient' => 'account#register_c_preferences_ambient'
+    
+    post 'register/c/preferences/ambient/create' => 'account#register_c_preferences_ambient_create'
+    
     get 'register/provider' => 'account#register_role_provider'
     
     get 'register/provider/establishment' => 'account#register_provider_establishment'
