@@ -322,4 +322,17 @@ class AccountController < ApplicationController
         end
         redirect_to '/p/dashboard/'
     end
+    
+    def add_client_profile
+        user_id = session[:current_user_id]
+        User.update(user_id, :is_client => true)
+        redirect_to '/c/dashboard/'
+    end
+    
+    def add_provider_profile
+        user_id = session[:current_user_id]
+        User.update(user_id, :is_provider => true)
+        redirect_to '/p/dashboard/'
+    end
+    
 end
