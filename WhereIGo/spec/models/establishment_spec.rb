@@ -21,7 +21,7 @@ RSpec.describe Establishment, type: :model do
       expect(@establishment.valid?).to be_truthy
     end
     
-    it "edicao de nome - invalida" do
+    it "edicao de nome para vazio - invalida" do
       @establishment.name = nil
       expect(@establishment.valid?).to be_falsey
     end
@@ -32,7 +32,7 @@ RSpec.describe Establishment, type: :model do
       expect(@establishment.valid?).to be_truthy
     end
     
-    it "edicao de cnpj - invalida" do
+    it "edicao de cnpj - invalida - mais de 14 caracteres" do
       @establishment.cnpj = '123456789000001'
       expect(@establishment.valid?).to be_falsey
     end    
@@ -54,7 +54,7 @@ RSpec.describe Establishment, type: :model do
       expect(@establishment.valid?).to be_truthy
     end        
 
-    it "edicao de endereco - invalida" do
+    it "edicao de endereco para vazio - invalida" do
       @establishment.address = nil
       expect(@establishment.valid?).to be_falsey
     end        
@@ -65,9 +65,9 @@ RSpec.describe Establishment, type: :model do
       expect(@establishment.valid?).to be_truthy
     end        
 
-    it "edicao de email - invalida" do
+    it "edicao de email para vazio - valida" do
       @establishment.email = nil
-      expect(@establishment.valid?).to be_falsey
+      expect(@establishment.valid?).to be_truthy
     end    
         
     it "edicao de website - valida" do
@@ -169,7 +169,7 @@ RSpec.describe Establishment, type: :model do
       establishment.address = "Próximo a UFPE"
       establishment.website = "sememail.com.br"
       
-      expect(establishment.valid?).to be_falsey
+      expect(establishment.valid?).to be_truthy
             end
     it "estabelecimento valido? - campo CNPJ com menos de 14 digitos" do
       establishment = Establishment.new

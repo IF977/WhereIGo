@@ -25,10 +25,10 @@ Feature: Edição de Estabelecimento
         And Eu clico em Salvar alterações
         Then Eu devo ver o texto Meus estabelecimentos
         
-    Scenario: Edicao de email para vazio - invalida
+    Scenario: Edicao de email para vazio - valida
         And Eu deixo em branco no campo establishment_email
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto O campo e-mail é obrigatório.
+        Then Eu devo ver o texto Meus estabelecimentos
                 
     Scenario: Edicao de CNPJ - valida
         And Eu coloco 12345678901234 no campo establishment_cnpj

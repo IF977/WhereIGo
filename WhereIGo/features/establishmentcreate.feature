@@ -29,7 +29,7 @@ Feature: Cadastro Estabelecimento
       And Eu clico em Criar estabelecimento
       Then Eu devo ver o texto O campo nome é obrigatório.
      
-    Scenario: Criação de estabelecimento inválido - email vazio
+    Scenario: Criação de estabelecimento válido - email vazio
       When Eu coloco Caldinho do Edu no campo establishment_name
       And Eu deixo em branco no campo establishment_email
       And Eu coloco 12345678901234 no campo establishment_cnpj
@@ -37,7 +37,7 @@ Feature: Cadastro Estabelecimento
       And Eu coloco Rua do CDU no campo establishment_address
       And Eu coloco caldo.edu.com no campo establishment_website
       And Eu clico em Criar estabelecimento
-      Then Eu devo ver o texto O campo e-mail é obrigatório.
+      Then Eu devo ver o texto Caldinho do Edu
       
     Scenario: Criação de estabelecimento inválido - CNPJ
       When Eu coloco Caldinho do Edu no campo establishment_name

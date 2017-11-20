@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 20171118013533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "ambient_prefences", force: :cascade do |t|
+    t.integer "ambient_id"
+    t.integer "user_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ambient_preferences", force: :cascade do |t|
     t.integer "user_id"
     t.integer "ambient_id"
@@ -67,6 +75,14 @@ ActiveRecord::Schema.define(version: 20171118013533) do
     t.text "description"
   end
 
+  create_table "food_prefences", force: :cascade do |t|
+    t.integer "food_id"
+    t.integer "user_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "food_preferences", force: :cascade do |t|
     t.integer "user_id"
     t.integer "food_id"
@@ -85,6 +101,14 @@ ActiveRecord::Schema.define(version: 20171118013533) do
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "music_prefences", force: :cascade do |t|
+    t.integer "music_id"
+    t.integer "user_id"
+    t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
