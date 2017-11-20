@@ -9,7 +9,7 @@
                 <%= flash_message.html_safe %>
                 <center>
                     <%= form_tag action: 'register_c_preferences_food_create', method: 'POST' do |f| %>
-                        <label for="food" class="wig-formlabel">Selecione um tipo de comida:</label><br>
+                        <label for="food" class="wig-formlabel">Selecione seu tipo de comida favorito:</label><br>
                         <%= select_tag :food, options_from_collection_for_select(Food.all, :id, :name), multiple: true %>
                         <%= submit_tag "Continuar", class: "wig-button" %>
                     <% end %>

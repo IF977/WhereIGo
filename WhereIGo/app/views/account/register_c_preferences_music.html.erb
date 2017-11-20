@@ -9,7 +9,7 @@
                 <%= flash_message.html_safe %>
                 <center>
                     <%= form_tag action: 'register_c_preferences_music_create', method: 'POST' do |f| %>
-                        <label for="music" class="wig-formlabel">Selecione um tipo de música:</label><br>
+                        <label for="music" class="wig-formlabel">Selecione seu tipo de música favorito:</label><br>
                         <%= select_tag :music, options_from_collection_for_select(Music.all, :id, :name), multiple: true %>
                         <%= submit_tag "Continuar", class: "wig-button" %>
                     <% end %>
