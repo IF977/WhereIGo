@@ -29,33 +29,21 @@ class DashboardProviderController < ApplicationController
     end
     
     def create_establishment
-        
         values = params.require(:establishment).permit!
 
         new_establishment = Establishment.new values
         if new_establishment.valid?
-            if Establishment.exists?(:cnpj => params[:establishment][:cnpj])
-                flash_message("CNPJ já está em uso.")
-    		    return
-    		else
-    		    new_establishment.update_attributes(:user_id => session[:current_user_id])
-    		    new_establishment.save!
-                redirect_to '/p/my_establishments'
-                return
-            end
+    		new_establishment.update_attributes(:user_id => session[:current_user_id])
+    		new_establishment.save!
+            redirect_to '/p/my_establishments'
+            return
         else
             if params[:establishment][:name].strip == ""
                 flash_message("O campo nome é obrigatório.")
     		    return
-    		
-    		elsif params[:establishment][:email] == ""
-    		    flash_message("O campo e-mail é obrigatório.")
-    		    return
-    		
     		elsif params[:establishment][:cnpj].size != 14
     		    flash_message("CNPJ inválido.")
-    		    return
-    		
+                return
     		elsif params[:establishment][:address].strip == ""
     		    flash_message("O campo endereço é obrigatório.")
     		    return

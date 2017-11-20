@@ -16,6 +16,12 @@
         <label for="address" class="wig-formlabel">Endereço</label>
         <%= e.text_field :address, class: "wig-textbox", placeholder: "Endereço"%>
         
+        <label for="description" class="wig-formlabel">Descrição</label>
+        <%= e.text_area :description, class: "wig-textbox", placeholder: "Descrição de estabelecimento"%>
+        
+        <label for="email" class="wig-formlabel">E-mail</label>
+        <%= e.email_field :email, class: "wig-textbox", placeholder: "Email de contato"%>
+        
         <label for="website" class="wig-formlabel">Website</label>
         <%= e.text_field :website, class: "wig-textbox", placeholder: "Website"%>
     </div>

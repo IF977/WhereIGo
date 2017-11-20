@@ -65,7 +65,7 @@ class AccountController < ApplicationController
     			        return
     			    end
     		    else
-    			    redirect_to '/register/role'
+    			    redirect_to '/register/profile'
     		    	return
                 end
     		
@@ -100,7 +100,7 @@ class AccountController < ApplicationController
             else
                 new_user.save
         	    session[:current_user_id] = new_user[:id]
-        	    redirect_to '/register/role'
+        	    redirect_to '/register/profile'
         	    return
             end
         else
@@ -121,22 +121,22 @@ class AccountController < ApplicationController
     	render layout: "login-signup"
     end
     
-    def register_role_choice
+    def register_profile_choice
         if user_is_authorized_?
             render layout: "login-signup"
         end
     end
     
     
-    def register_role_provider
+    def register_profile_provider
         User.update(session[:current_user_id], :is_provider => true)
         redirect_to '/register/provider/establishment'
 
     end
     
-    def register_role_client
+    def register_profile_client
         User.update(session[:current_user_id], :is_client => true)
-        redirect_to '/c/dashboard'
+        redirect_to '/register/c/preferences/food'
     end
     
     def register_provider_establishment
@@ -151,9 +151,188 @@ class AccountController < ApplicationController
         end
     end
     
-    def register_client_preferences
-        @title = "Preferencias"
-        render layout: "login-signup"
+    def register_provider_establishment_create
+        values = params.require(:establishment).permit!
+        new_establishment = Establishment.new values
+        if new_establishment.valid?
+    		new_establishment.update_attributes(:user_id => session[:current_user_id])
+    		new_establishment.save!
+    		$establishment_id = new_establishment.id
+            redirect_to '/register/p/speciality/food'
+            return
+        else
+            if params[:establishment][:name].strip == ""
+                flash_message("O campo nome é obrigatório.")
+    		    return
+    		elsif params[:establishment][:cnpj].size != 14
+    		    flash_message("CNPJ inválido.")
+                return
+    		elsif params[:establishment][:address].strip == ""
+    		    flash_message("O campo endereço é obrigatório.")
+    		    return
+    	    end
+        end
+    end
+    
+    def register_c_preferences_food
+        
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_client = 't' 
+                @title = "Preferencias Gastronômicas"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_provider', :action => 'my_establishments'}) 
+        end
+        
+    end
+    
+    def register_c_preferences_food_create
+        foods = params[:ambient]
+        user_id = session[:current_user_id]
+        if foods != nil
+            foods.each do |c|
+                new_preference = FoodPreference.new ({:food_id => c, :user_id => user_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/register/c/preferences/music'
+    end
+    
+    def register_c_preferences_music
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_client = 't' 
+                @title = "Preferencias Musicais"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_provider', :action => 'my_establishments'}) 
+        end
+    end
+    
+    def register_c_preferences_music_create
+        musics = params[:ambient]
+        user_id = session[:current_user_id]
+        if musics != nil
+            musics.each do |c|
+                new_preference = MusicPreference.new ({:music_id => c, :user_id => user_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/register/c/preferences/ambient'
+    end
+    
+    
+    def register_c_preferences_ambient
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_client = 't' 
+                @title = "Preferencias de Ambiente"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_provider', :action => 'my_establishments'}) 
+        end
+    end
+    
+    def register_c_preferences_ambient_create
+        ambients = params[:ambient]
+        user_id = session[:current_user_id]
+        if ambients != nil
+            ambients.each do |c|
+                new_preference = AmbientPreference.new ({:ambient_id => c, :user_id => user_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/c/dashboard/'
+    end
+    
+        
+    def register_p_speciality_food
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_provider = 't' 
+                @title = "Especialidade Gastronômica"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_client', :action => 'all_establishments'}) 
+        end
+    end
+    
+    def register_p_speciality_food_create
+        foods = params[:ambient]
+        establishment_id = $establishment_id
+        if foods != nil
+            foods.each do |c|
+                new_preference = FoodSpeciality.new ({:food_id => c, :establishment_id => establishment_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/register/p/speciality/music'
+    end
+    
+    def register_p_speciality_music
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_provider = 't' 
+                @title = "Especialidade Musical"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_client', :action => 'all_establishments'}) 
+        end
+    end
+    
+    def register_p_speciality_music_create
+        musics = params[:ambient]
+        establishment_id = $establishment_id
+        if musics != nil
+            musics.each do |c|
+                new_preference = MusicSpeciality.new ({:music_id => c, :establishment_id => establishment_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/register/p/speciality/ambient'
+    end
+    
+    
+    def register_p_speciality_ambient
+        if user_is_authorized_?
+            user = User.find_by(id: session[:current_user_id])
+            if user.is_provider = 't' 
+                @title = "Especialidade de Ambiente"
+                render layout: "login-signup"
+            end
+            else
+               redirect_to({:controller => 'dashboard_client', :action => 'all_establishments'}) 
+        end
+    end
+    
+    def register_p_speciality_ambient_create
+        ambients = params[:ambient]
+        establishment_id = $establishment_id
+        if ambients != nil
+            ambients.each do |c|
+                new_preference = AmbientSpeciality.new ({:ambient_id => c, :establishment_id => establishment_id})
+                new_preference.save
+            end
+        end
+        redirect_to '/p/dashboard/'
+    end
+    
+    def add_client_profile
+        user_id = session[:current_user_id]
+        User.update(user_id, :is_client => true)
+        redirect_to '/c/dashboard/'
+    end
+    
+    def add_provider_profile
+        user_id = session[:current_user_id]
+        User.update(user_id, :is_provider => true)
+        redirect_to '/p/dashboard/'
     end
     
 end

@@ -1,4 +1,4 @@
-class FoodPrefence < ApplicationRecord
+class FoodPreference < ApplicationRecord
     after_initialize :set_default_values
     
     def set_default_values

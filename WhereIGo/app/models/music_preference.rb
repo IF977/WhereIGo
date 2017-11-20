@@ -1,4 +1,4 @@
-class MusicPrefence < ApplicationRecord
+class MusicPreference < ApplicationRecord
     after_initialize :set_default_values
     
     def set_default_values
