@@ -9,7 +9,7 @@
                 <%= flash_message.html_safe %>
                 <center>
                     <%= form_tag action: 'register_p_speciality_music_create', method: 'POST' do |f| %>
-                        <label for="music" class="wig-formlabel">Selecione um ambiente:</label><br>
+                        <label for="music" class="wig-formlabel">Selecione sua especialidade musical:</label><br>
                         <%= select_tag :music, options_from_collection_for_select(Music.all, :id, :name), multiple: true %>
                         <%= submit_tag "Continuar", class: "wig-button" %>
                     <% end %>
