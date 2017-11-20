@@ -9,7 +9,7 @@
                 <%= flash_message.html_safe %>
                 <center>
                     <%= form_tag action: 'register_p_speciality_ambient_create', method: 'POST' do |f| %>
-                        <label for="ambient" class="wig-formlabel">Selecione um ambiente:</label><br>
+                        <label for="ambient" class="wig-formlabel">Selecione seu tipo de ambiente:</label><br>
                         <%= select_tag :ambient, options_from_collection_for_select(Ambient.all, :id, :name), multiple: true %>
                         <%= submit_tag "Continuar", class: "wig-button" %>
                     <% end %>
