@@ -424,26 +424,23 @@ a.wig-button {
 		background-color: $wig-lightgrey;
 	}
 }
-.wig-userpic {
-    background-color: $wig-greatpink;
-    width: 21px;
-    height: 21px;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 5px;
+.dropdown-toggle::after {
+    vertical-align: .165em;
+    margin-left: .455em;
 }
 .wig-sidebar {
     display: flex !important;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     background-color: $wig-greatpink;
-    max-width: 65px;
+    max-width: 64px;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     z-index: 1031;
-    padding: 20px 0;
+    // padding: 10px 7px;
+    padding: 10px 0;
     overflow-x: hidden;
 }
 .wig-sidebar-icon {
@@ -459,6 +456,37 @@ a.wig-button {
         background-color: $wig-lightpink;
     }
     
+}
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.sidebar-userpic {
+    margin: 0 auto;
+    #pic {
+        border-radius: 50%;
+        background-color: $wig-lightgrey;
+        width: 40px;
+        height: 40px;
+        margin-top: 5px;
+    }
+}
+.sidebar-text {
+    p {
+        font-weight: 500;
+        color: #fff;
+        font-size: 11px;
+        padding: 0 7px;
+    }
+    a {
+        color: $wig-oddyellow;
+        &:hover, &:active {
+            color: $wig-oddyellow;
+            text-decoration: none;
+        }
+    }
 }
 .wig-align {
     width: 100%;
