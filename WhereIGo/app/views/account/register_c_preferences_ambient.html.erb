@@ -1,0 +1,19 @@
+<div class="container" id="flex-container">     
+    <div class="col-md-4" id="signup">
+        <section class="login-form">
+                <div id="logo-signup">
+                    <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
+                </div>
+    
+                <h1><%= @title %></h1>
+                <%= flash_message.html_safe %>
+                <center>
+                    <%= form_tag action: 'register_c_preferences_ambient_create', method: 'POST' do |f| %>
+                        <label for="ambient" class="wig-formlabel">Selecione um ambiente:</label><br>
+                        <%= select_tag :ambient, options_from_collection_for_select(Ambient.all, :id, :name), multiple: true %>
+                        <%= submit_tag "Continuar", class: "wig-button" %>
+                    <% end %>
+                </center>
+        </section>  
+    </div>
+</div>
