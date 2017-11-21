@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-md wig-navbar">
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <form class="form-inline mt-2 mt-md-0 mr-auto ml-auto">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="<%= url_for controller: "dashboard_client", action: "all_establishments" %>">
               <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-brand", id: "logo-navbar") %>
             </a>
             <input class="form-control mr-sm-2 wig-textbox wig-search" type="text" placeholder="Encontrar bares e restaurantes..." aria-label="Search">
@@ -30,7 +30,7 @@
               <div class="dropdown-menu dropdown-menu-right wig-dropdown" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="#">Minha página</a>
                 <a class="dropdown-item" href="<%= url_for controller: "account", action: "edit" %>">Editar minha conta</a>
-                <a class="dropdown-item" href="#">Trocar perfil</a>
+                <a class="dropdown-item" href="<%= url_for controller: "dashboard_provider", action: "my_establishments" %>">Trocar perfil</a>
                 <a class="dropdown-item" href="<%= url_for controller: "account", action: "logout" %>">Sair</a>
               </div>
             </li>
@@ -45,7 +45,7 @@
       <div class="row">
         <aside class="wig-sidebar">
           <div class="sidebar-userpic">
-            <a href="<%= url_for controller: 'account', action: 'edit' %>"><div id="pic"></div></a>
+            <a href="<%= url_for controller: 'account', action: 'edit' %>"><%= image_tag(user_image, class: "sidebar-userpic", id:"pic") %></a>
           </div>
           
           <ul class="nav nav-pills flex-column nav-buttons">
@@ -82,7 +82,7 @@
           </ul>
           
           <div class="sidebar-text">
-            <p>Criar perfil de provedor? <br/><a href="#">Clique aqui</a></p>
+            <p>Criar perfil de provedor? <br/><a href="<%= url_for controller: 'account', action: 'add_provider_profile'%>">Clique aqui</a></p>
           </div>
         </aside>
         <section class="wig-align">

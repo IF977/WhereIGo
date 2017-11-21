@@ -4,7 +4,7 @@
         <div class="wig-tag">mpb</div>
         <div class="wig-tag">comida brasileira</div>
         <div class="wig-tag">ambiente familiar</div>
-        <p class="wig-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet, lacus et suscipit laoreet, est ipsum commodo risus, elementum commodo ex lectus sit amet nibh. Maecenas nec enim ullamcorper, rhoncus lorem at, placerat ipsum. Etiam bibendum vitae massa nec gravida. Ut mauris nunc, auctor consequat faucibus at, tincidunt sit amet libero. Nam lobortis dui sed elit iaculis, at imperdiet ligula lacinia. Aliquam id orci eleifend ipsum porta sagittis eget eget nulla. Mauris ac ante elit. Ut sit amet elit sed justo varius mattis.</p>
+        <p class="wig-description"><%= @e.description%></p>
         
         <div class="wig-establishment-map" id="map"></div>
 
@@ -14,11 +14,11 @@
             <div class="wig-comment">
                 <div class="row">
                     <div class="col-md-1">
-                        <div class="wig-comment-userpic"></div>
+                        <%=image_tag(c[1], class:"wig-comment-userpic")%>
                     </div>
                     <div class="col-md-11">
                         <h4><%= c[0] %></h4>
-                        <p><%= c[1] %></p>
+                        <p><%= c[2] %></p>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 
                 <div class="wig-percentbar" data-toggle="tooltip" data-placement="bottom" title="">
                     <div id="positive"></div>
-                    <div id="percent"><%= @rating_percentage %></div>
+                    <div id="percent"><%= @rating_percentage %> (<%= @count_reviews %> votos)</div>
                 </div>
             </div>
         </div>

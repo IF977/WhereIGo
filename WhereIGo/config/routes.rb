@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-    post 'add_profile/client' => 'account#add_client_profile'
+    get 'add_profile/client' => 'account#add_client_profile'
   
-    post 'add_profile/provider' => 'account#add_provider_profile'
+    get 'add_profile/provider' => 'account#add_provider_profile'
     
     get 'login' => 'account#login'
     

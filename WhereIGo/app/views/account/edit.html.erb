@@ -2,6 +2,14 @@
 <section>
 <%= form_for @user, url: {action: 'update'}, :method => :POST do |f| %>
     <div id="form-inputs">
+        
+        
+        <%=image_tag(@user.image, size:150)%>
+        <br>
+        
+        <label for="image" class="wig-formlabel">Imagem de perfil</label>    
+        <%= f.file_field :image, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
+        
         <label for="name" class="wig-formlabel">Nome</label>
         <%= f.text_field :name, class: "wig-textbox", value: @user.name %>
         
@@ -10,9 +18,6 @@
         
         <label for="password" class="wig-formlabel">Senha atual</label>
         <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
-    
-        <label for="image" class="wig-formlabel">Imagem de perfil</label>    
-        <%= f.file_field :image, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
     </div>
     
     <%= f.submit "Salvar", class: "wig-button" %>
