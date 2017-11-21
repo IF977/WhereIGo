@@ -36,6 +36,8 @@ class AccountController < ApplicationController
         user = User.find_by(email: params[:user][:email])
         if params[:user][:password_digest] == user.password_digest
             User.update(session[:current_user_id], values)
+            uploader = ImageUploader.new
+            uploader.store!(values[:image])
             redirect_to '/account', :flash => { :error => "Conta editada com sucesso!" }
         else
             redirect_to '/account', :flash => { :error => "Senha incorreta." }

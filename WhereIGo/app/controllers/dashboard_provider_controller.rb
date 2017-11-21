@@ -12,7 +12,7 @@ class DashboardProviderController < ApplicationController
         else
             user_logged = User.find(session[:current_user_id])
             if user_logged.is_provider != true
-                redirect_to({:controller =>'dashboard_client', :action => 'all_establishments'}, :flash => {:error => "O usuário não possui um perfil cliente."}) and return false
+                redirect_to({:controller =>'dashboard_client', :action => 'all_establishments'}) and return false
             end
             return true
         end
@@ -102,7 +102,9 @@ class DashboardProviderController < ApplicationController
     	    end
         else
             Establishment.update(params[:id], values)
-            redirect_to '/p/my_establishments'
+            uploader = ImageUploader.new
+            uploader.store!(values[:image])
+            flash_message("Estabelecimento editado com sucesso.")
         end
     end
     

@@ -1,6 +1,13 @@
 <h1>Editar estabelecimento</h1>
 <%=form_for @establishments, url: {action: 'update_establishment'}, :method => :POST do |e| %>
     <div id="form-inputs">
+        
+        <%=image_tag(@establishments.image, size:150)%>
+        <br>
+        
+        <label for="image" class="wig-formlabel">Imagem do estabelecimento</label>    
+        <%= e.file_field :image, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
+        
         <label for="name" class="wig-formlabel">Nome</label>
         <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento", value: @establishments.name %>
         
@@ -18,6 +25,7 @@
         
         <label for="website" class="wig-formlabel">Website</label>
         <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
+
     </div>
     <%= e.submit "Salvar alterações", class: "wig-button" %>
     <%= flash_message.html_safe %>

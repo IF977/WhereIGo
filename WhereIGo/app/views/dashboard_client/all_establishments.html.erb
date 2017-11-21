@@ -7,7 +7,7 @@
                 <a href="<%= url_for action: "show_establishment", id: e.id %>">
                     <div class="row">
                         <div class="col-md-2">
-                            <div class="wig-establishment-picture"></div>
+                            <div class="wig-establishment-picture"><%=image_tag(e.image, class:'wig-establishment-picture')%></div>
                         </div>
                         <div class="col-md-10">
                             <h3><%= e.name %></h3>
