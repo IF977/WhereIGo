@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-md wig-navbar">
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <form class="form-inline mt-2 mt-md-0 mr-auto ml-auto">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="<%= url_for controller: "dashboard_provider", action: "my_establishments" %>">
               <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-brand", id: "logo-navbar") %>
             </a>
             <input class="form-control mr-sm-2 wig-textbox wig-search" type="text" placeholder="Encontrar bares e restaurantes..." aria-label="Search">
@@ -26,11 +26,11 @@
           
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= user_name %><div class="wig-userpic"></div></a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= user_name %></a>
               <div class="dropdown-menu dropdown-menu-right wig-dropdown" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="#">Minha página</a>
                 <a class="dropdown-item" href="<%= url_for controller: "account", action: "edit" %>">Editar minha conta</a>
-                <a class="dropdown-item" href="#">Trocar perfil</a>
+                <a class="dropdown-item" href="<%=url_for controller: "dashboard_client", action: "all_establishments"%>">Trocar perfil</a>
                 <a class="dropdown-item" href="<%= url_for controller: "account", action: "logout" %>">Sair</a>
               </div>
             </li>
@@ -43,10 +43,13 @@
     </header>
     <div class="container-fluid wig-bg">
       <div class="row">
-        <aside class="col-md-2 d-none d-sm-block wig-sidebar">
-          <ul class="nav nav-pills flex-column">
-            
-            <a href="<%= url_for controller: "dashboard_provider", action: "my_establishments" %>" title="Home">
+        <aside class="wig-sidebar">
+          <div class="sidebar-userpic">
+            <a href="<%= url_for controller: 'account', action: 'edit' %>"><%= image_tag(user_image, class: "sidebar-userpic", id:"pic") %></a>
+          </div>
+          
+          <ul class="nav nav-pills flex-column nav-buttons">
+            <a href="<%= url_for controller: "dashboard_provider", action: "my_establishments" %> title="Home">
               <li class="nav-item wig-sidebar-icon">
                 <i class="fa fa-home" aria-hidden="true"></i>
               </li>
@@ -77,6 +80,10 @@
             </a>
 
           </ul>
+          
+          <div class="sidebar-text">
+            <p>Criar perfil de cliente? <br/><a href="<%= url_for controller: 'account', action: 'add_client_profile'%>">Clique aqui</a></p>
+          </div>
         </aside>
         <section class="wig-align">
           <div class="wig-main">
@@ -91,5 +98,3 @@
   </body>
 
 </html>
-
-
