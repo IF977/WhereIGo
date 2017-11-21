@@ -13,7 +13,7 @@ Feature: Edição de Estabelecimento
     Scenario: Edicao de nome - valida
         And Eu coloco bar do ze no campo establishment_name
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
     
     Scenario: Edicao de nome para vazio - invalida
         And Eu deixo em branco no campo establishment_name
@@ -23,17 +23,17 @@ Feature: Edição de Estabelecimento
     Scenario: Edicao de email - valida
         And Eu coloco caldo@edu no campo establishment_email
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
         
     Scenario: Edicao de email para vazio - valida
         And Eu deixo em branco no campo establishment_email
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
                 
     Scenario: Edicao de CNPJ - valida
         And Eu coloco 12345678901234 no campo establishment_cnpj
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
         
     Scenario: Edicao de CNPJ invalido
         And Eu coloco 123 no campo establishment_cnpj
@@ -43,17 +43,17 @@ Feature: Edição de Estabelecimento
     Scenario: Edicao de descricao - valida
         And Eu coloco O cardapio mais variado do Recife no campo establishment_description
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
         
     Scenario: Edicao de descricao para vazio - valida
         And Eu deixo em branco no campo establishment_description
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
 
     Scenario: Edicao de endereco - valida
         And Eu coloco Rua do Alemao no campo establishment_address
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
                 
     Scenario: Edicao de endereco para vazio - invalida
         And Eu deixo em branco no campo establishment_address
@@ -63,9 +63,9 @@ Feature: Edição de Estabelecimento
     Scenario: Edicao de website para vazio - valida
         And Eu deixo em branco no campo establishment_website
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
         
     Scenario: Edicao de website - valida
         And Eu coloco novo.site.com no campo establishment_website
         And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Meus estabelecimentos
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
