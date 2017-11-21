@@ -10,7 +10,18 @@
         
         <label for="password" class="wig-formlabel">Senha atual</label>
         <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
+    
+        <label for="image" class="wig-formlabel">Imagem de perfil</label>    
+        <%= f.file_field :image, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
+        
+        
     </div>
+    
+    <p>
+      <strong>Image:</strong>
+      <%= image_tag @user.image %>
+    </p>
+    
     <%= f.submit "Salvar", class: "wig-button" %>
     <%= flash_message.html_safe %>
 
