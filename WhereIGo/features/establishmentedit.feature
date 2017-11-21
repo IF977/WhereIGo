@@ -69,3 +69,8 @@ Feature: Edição de Estabelecimento
         And Eu coloco novo.site.com no campo establishment_website
         And Eu clico em Salvar alterações
         Then Eu devo ver o texto Estabelecimento editado com sucesso.
+        
+    Scenario: Edicao de foto - valida
+        And Eu anexo uma imagem em browse
+        And Eu clico em Salvar alterações
+        Then Eu devo ver o texto Estabelecimento editado com sucesso.
