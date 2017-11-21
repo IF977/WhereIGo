@@ -5,6 +5,8 @@ class Establishment < ApplicationRecord
         self.is_active ||= true
     end
     
+    mount_uploader :image, ImageUploader
+    
     validates :name, presence:true
     validates_length_of :cnpj, :minimum => 14, :maximum => 14
     validates :address, presence:true

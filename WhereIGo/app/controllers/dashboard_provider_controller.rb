@@ -106,6 +106,8 @@ class DashboardProviderController < ApplicationController
     	    end
         else
             Establishment.update(params[:id], values)
+            uploader = ImageUploader.new
+            uploader.store!(values[:image])
             redirect_to '/p/my_establishments'
         end
     end
