@@ -14,11 +14,11 @@
             <div class="wig-comment">
                 <div class="row">
                     <div class="col-md-1">
-                        <div class="wig-comment-userpic"></div>
+                        <%=image_tag(c[1], class:"wig-comment-userpic")%>
                     </div>
                     <div class="col-md-11">
                         <h4><%= c[0] %></h4>
-                        <p><%= c[1] %></p>
+                        <p><%= c[2] %></p>
                     </div>
                 </div>
             </div>

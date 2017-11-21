@@ -45,7 +45,7 @@
       <div class="row">
         <aside class="wig-sidebar">
           <div class="sidebar-userpic">
-            <a href="<%= url_for controller: 'account', action: 'edit' %>"><div id="pic"></div></a>
+            <a href="<%= url_for controller: 'account', action: 'edit' %>"><%= image_tag(user_image, class: "sidebar-userpic", id:"pic") %></a>
           </div>
           
           <ul class="nav nav-pills flex-column nav-buttons">

@@ -53,9 +53,10 @@ class DashboardClientController < ApplicationController
         all_comments.each do |c|
             user = User.find_by(id: c.user_id)
             user_name = user.name
+            user_image = user.image
             comment_text = c.comment
             comment_date = c.created_at
-            @comments << [user_name, comment_text, comment_date]
+            @comments << [user_name, user_image, comment_text, comment_date]
         end
         
         if user_is_authorized_?
