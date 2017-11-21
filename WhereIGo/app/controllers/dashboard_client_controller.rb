@@ -12,7 +12,7 @@ class DashboardClientController < ApplicationController
         else
             user_logged = User.find_by(id: session[:current_user_id])
             if user_logged.is_client != true
-                redirect_to({:controller =>'dashboard_provider', :action => 'my_establishments'}, :flash => {:error => "O usuário não possui um perfil de dono de estabelecimento."}) and return false
+                redirect_to({:controller =>'dashboard_provider', :action => 'my_establishments'}) and return false
             end
             return true
         end
