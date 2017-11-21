@@ -8,7 +8,6 @@ class Establishment < ApplicationRecord
     mount_uploader :image, ImageUploader
     
     validates :name, presence:true
-    validates :email, presence:true
-    validates :address, presence:true
     validates_length_of :cnpj, :minimum => 14, :maximum => 14
+    validates :address, presence:true
 end
