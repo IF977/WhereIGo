@@ -23,7 +23,8 @@ class AccountController < ApplicationController
         @title = "Minha conta"
         if user_is_authorized_?
             @user = User.find_by(id: session[:current_user_id])
-            if @user.is_provider
+            
+            if request.referer.include?'/p/'
                 render layout: "provider"
             else
                 render layout: "client"
