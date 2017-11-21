@@ -5,6 +5,8 @@ class Establishment < ApplicationRecord
         self.is_active ||= true
     end
     
+    mount_uploader :image, ImageUploader
+    
     validates :name, presence:true
     validates :email, presence:true
     validates :address, presence:true
