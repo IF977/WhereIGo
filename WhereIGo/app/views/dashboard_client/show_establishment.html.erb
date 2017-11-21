@@ -6,7 +6,7 @@
         <div class="wig-tag">ambiente familiar</div>
         <p class="wig-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet, lacus et suscipit laoreet, est ipsum commodo risus, elementum commodo ex lectus sit amet nibh. Maecenas nec enim ullamcorper, rhoncus lorem at, placerat ipsum. Etiam bibendum vitae massa nec gravida. Ut mauris nunc, auctor consequat faucibus at, tincidunt sit amet libero. Nam lobortis dui sed elit iaculis, at imperdiet ligula lacinia. Aliquam id orci eleifend ipsum porta sagittis eget eget nulla. Mauris ac ante elit. Ut sit amet elit sed justo varius mattis.</p>
         
-        <div class="wig-establishment-map"></div>
+        <div class="wig-establishment-map" id="map"></div>
 
         <h2>Comentários</h2>
 
@@ -31,7 +31,7 @@
             <%= e.submit "Comentar", class: "wig-button" %>
 
         <% end %>
- <%= flash_message.html_safe %>        
+        <%= flash_message.html_safe %>        
     </section>
     <aside class="col-md-4">
         <div class="wig-establishment-pic">
@@ -88,5 +88,30 @@
         setPercentBarWidth();
         setExistingReview();
     });
+    
+    function initMap() {
+
+        var geo = new google.maps.Geocoder();
+        
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: -8.0624203, lng: -34.9270747 }, /* Recife */
+            zoom: 15
+        })
+        
+        geo.geocode( { 'address': '<%= @e.address %>' }, function(results, status) {
+            if (status == 'OK') {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                console.log('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+    
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_VH_8voCP76YUOPKhmIsTaWwhN3rHK0M&libraries=places&callback=initMap" async defer></script>
     
 </script>
