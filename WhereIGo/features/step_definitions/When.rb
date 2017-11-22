@@ -35,6 +35,6 @@ When (/^Eu clico no botao "Editar"$/) do
 end
 
 When(/^Eu anexo uma imagem em browse$/) do
-  path = File.join('public', 'uploads', '19848903.jpeg')
+  path = File.join('features', 'photos', '19848903.jpeg')
   attach_file('establishment_image', path)
 end
