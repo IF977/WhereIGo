@@ -67,12 +67,26 @@
                     <div id="percent"><%= @rating_percentage %> (<%= @count_reviews %> votos)</div>
                 </div>
             </div>
+            
+            <h3>Avalie este estabelecimento</h3>
+            <div class="wig-review-box">
+                <div class="wig-thumbs">
+                    <%= form_for @user, url: {action: 'update'}, :method => :POST do |f| %>
+                        
+                    <%= end %>
+                </div>
+                
+                <div class="wig-percentbar" data-toggle="tooltip" data-placement="bottom" title="">
+                    <div id="positive"></div>
+                    <div id="percent"><%= @rating_percentage %> (<%= @count_reviews %> votos)</div>
+                </div>
+            </div>
         </div>
     </aside>
 </div>
 <script>
     function setPercentBarWidth() {
-        $("#positive").css("width", $("#percent").html());
+        $("#positive").css("width", "<%= @rating_percentage %>");
     }
     function setExistingReview() {
         <% if @user_review_selected == true %>
