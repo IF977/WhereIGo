@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-    get 'add_profile/client' => 'account#add_client_profile'
-  
     get 'add_profile/provider' => 'account#add_provider_profile'
     
     get 'login' => 'account#login'
@@ -11,15 +9,15 @@ Rails.application.routes.draw do
     
     get 'logout' => 'account#logout'
     
-    get 'c/dashboard' => 'dashboard_client#all_establishments'
+    get 'dashboard/all_establishments' => 'dashboard#all_establishments'
     
-    get 'c/establishment/:id' => 'dashboard_client#show_establishment'
+    get 'establishment/:id' => 'dashboard#show_establishment'
     
-    get 'c/establishment/:id/review' => 'dashboard_client#user_review_establishment'
+    get 'establishment/:id/review' => 'dashboard#user_review_establishment'
     
-    post 'c/establishment/:id/comment'=> 'dashboard_client#user_comment_establishment'
+    post 'establishment/:id/comment'=> 'dashboard#user_comment_establishment'
     
-    get 'p/dashboard' => 'dashboard_provider#my_establishments'
+    get 'dashboard/my_establishments' => 'dashboard#my_establishments'
     
     get 'register' => 'account#register_account'
     
@@ -59,22 +57,20 @@ Rails.application.routes.draw do
     
     post 'register/p/speciality/ambient/create' => 'account#register_p_speciality_ambient_create'
     
-    get 'account' => 'account#edit'
+    get 'dashboard/account' => 'account#edit'
     
-    post 'account/update' => 'account#update'
+    post 'dashboard/account/update' => 'account#update'
     
-    get 'p/my_establishments' => 'dashboard_provider#my_establishments'
+    get 'dashboard/my_establishments' => 'dashboard#my_establishments'
     
-    get 'p/establishment/show/:id' => 'dashboard_provider#show_establishment'
+    get 'dashboard/establishment/new' => 'dashboard#new_establishment'
     
-    get 'p/establishment/new' => 'dashboard_provider#new_establishment'
+    post 'dashboard/establishment/create' => 'dashboard#create_establishment'
     
-    post 'p/establishment/create' => 'dashboard_provider#create_establishment'
+    get 'dashboard/my_establishment/edit/:id' => 'dashboard#edit_my_establishment'
     
-    get 'p/establishment/edit/:id' => 'dashboard_provider#edit_establishment'
-    
-    post 'p/establishment/update/:id' => 'dashboard_provider#update_establishment'
+    post 'dashboard/my_establishment/update/:id' => 'dashboard#update_my_establishment'
 
-    root 'application#index' 
-  
+    root 'application#index'
+    
 end
