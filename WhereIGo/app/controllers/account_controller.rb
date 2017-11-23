@@ -126,11 +126,11 @@ class AccountController < ApplicationController
     
     
     def register_profile_provider
+        User.update(session[:current_user_id], :is_provider => true)
         redirect_to :action => 'register_provider_establishment'
     end
     
     def register_profile_client
-        User.update(session[:current_user_id], :is_client => true)
         redirect_to :action => 'register_c_preferences_music'
     end
     
