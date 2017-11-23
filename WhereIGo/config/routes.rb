@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     
     get 'dashboard/all_establishments' => 'dashboard#all_establishments'
     
+    get 'search/establishments' => 'dashboard#search_establishments'
+    
     get 'establishment/:id' => 'dashboard#show_establishment'
     
     get 'establishment/:id/review' => 'dashboard#user_review_establishment'

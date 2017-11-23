@@ -17,11 +17,11 @@
     <header>
       <nav class="navbar navbar-expand-md wig-navbar">
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <form class="form-inline mt-2 mt-md-0 mr-auto ml-auto">
+          <form class="form-inline mt-2 mt-md-0 mr-auto ml-auto" action="/search/establishments">
             <a class="navbar-brand" href="<%= url_for controller: "dashboard", action: "all_establishments" %>">
               <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-brand", id: "logo-navbar") %>
             </a>
-            <input class="form-control mr-sm-2 wig-textbox wig-search" type="text" placeholder="Encontrar bares e restaurantes..." aria-label="Search">
+            <input class="form-control mr-sm-2 wig-textbox wig-search" type="text" placeholder="Encontrar bares e restaurantes..." aria-label="Search" name="filter">
           </form>
           
           <ul class="navbar-nav">
