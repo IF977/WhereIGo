@@ -1,5 +1,7 @@
 class AccountController < ApplicationController
     
+    helper_method :user_logged
+        
     def user_logged
         if session[:current_user_id] != nil
             user = User.find_by(id: session[:current_user_id])
