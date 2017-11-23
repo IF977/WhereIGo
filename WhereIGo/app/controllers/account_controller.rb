@@ -65,11 +65,11 @@ class AccountController < ApplicationController
     	        redirect_to({:controller => 'dashboard', :action => 'all_establishments'}) 
     	        return
     		else
-    			redirect_to :action => 'login', :flash => { :error => "Usuário ou senha incorretas!" }
+    		    flash_message("Usuário ou senha incorretas!")
     			return
     		end
     	else
-    		redirect_to :action => 'login', :flash => { :error => "Usuário não encontrado!" }
+    	    flash_message("Usuário não encontrado!")
     		return
     	end
     end
@@ -124,9 +124,7 @@ class AccountController < ApplicationController
     
     
     def register_profile_provider
-        User.update(session[:current_user_id], :is_provider => true)
         redirect_to :action => 'register_provider_establishment'
-
     end
     
     def register_profile_client
