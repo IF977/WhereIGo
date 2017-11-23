@@ -70,6 +70,10 @@ Rails.application.routes.draw do
     get 'dashboard/my_establishment/edit/:id' => 'dashboard#edit_my_establishment'
     
     post 'dashboard/my_establishment/update/:id' => 'dashboard#update_my_establishment'
+    
+    get 'import_csv' => 'import_csv#show'
+    
+    post 'import_csv/import/' => 'import_csv#import'
 
     root 'application#index'
     
