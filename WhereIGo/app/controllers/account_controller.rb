@@ -44,9 +44,9 @@ class AccountController < ApplicationController
             User.update(session[:current_user_id], values)
             uploader = ImageUploader.new
             uploader.store!(values[:image])
-            redirect_to :action => 'edit', :flash => { :error => "Conta editada com sucesso!" }
+            flash_message("Conta editada com sucesso!")
         else
-            redirect_to :action => 'edit', :flash => { :error => "Senha incorreta." }
+            flash_message("Senha incorreta.")
         end
     end
     
