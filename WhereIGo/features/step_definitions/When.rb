@@ -33,3 +33,8 @@ end
 When (/^Eu clico no botao "Editar"$/) do
     visit ("/p/establishment/edit/" + @establishment.id.to_s)
 end
+
+When(/^Eu anexo uma imagem em browse$/) do
+  path = File.join('features', 'photos', '19848903.jpeg')
+  attach_file('establishment_image', path)
+end
