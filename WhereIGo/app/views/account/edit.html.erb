@@ -16,8 +16,13 @@
         <label for="email" class="wig-formlabel">E-mail</label>
         <%=f.email_field :email, class: "wig-textbox", value: @user.email %>
         
-        <label for="password" class="wig-formlabel">Senha atual</label>
+        <label for="password" class="wig-formlabel">Digite sua senha para confirmar modificações</label>
         <%= f.password_field :password_digest, class: "wig-textbox", placeholder: "Escolha uma senha segura" %>
+        
+        <% if user_logged.is_provider != true %>
+        <br><p style="font-size: small;">Adicionar permissões de provedor? <a style="color: #f0b567;"href="<%= url_for controller: 'account', action: 'add_provider_profile'%>">Clique aqui</a></p>
+        <%end%>
+        
         
     </div>
     
