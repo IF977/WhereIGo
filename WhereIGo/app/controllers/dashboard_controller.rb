@@ -41,6 +41,41 @@ class DashboardController < ApplicationController
         return false
     end
     
+    
+    def preference_establishments_result
+        @title = "Bares e restaurantes baseados no que você mais gosta"
+        music_preference = MusicPreference.find_by(user_id: user_logged.id)
+        food_preference = FoodPreference.find_by(user_id: user_logged.id)
+        ambient_preference = AmbientPreference.find_by(user_id: user_logged.id)
+        
+        music_specialyt_match = []
+        food_specialyt_match = []
+        ambient_specialyt_match =[]
+        
+        music_preference.each do |m|
+            music_specialyt_match += MusicSpecialyt.where(music_id: m.music_id)
+        end
+        
+        food_preference.each do |f|
+            food_specialyt_match += FoodSpecialyt.where(food_id: f.food_id)
+        end
+        
+        ambient_preference.each do |a|
+            ambient_specialyt_match = AmbientSpecialyt.where(food_id: a.ambient_id)
+        end
+        
+        all_matchs = music_specialyt_match + food_specialyt_match + ambient_specialyt_match
+        
+        establishments = []
+        
+        all_matchs.each do |e|
+            establishments << Establishment.find_by(id: e.establishment_id)
+        end
+        
+        @establishments = establishments
+        
+    end
+    
     def search_establishments
         @filter = params[:filter]
         @title = "Resultado de pesquisa para " + @filter

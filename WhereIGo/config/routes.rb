@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     
     get 'logout' => 'account#logout'
     
+    get 'dashboard/recommended_establishments' => 'dashboard#preference_establishments_result'
+    
     get 'dashboard/all_establishments' => 'dashboard#all_establishments'
     
     get 'search/establishments' => 'dashboard#search_establishments'
