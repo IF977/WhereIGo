@@ -18,8 +18,8 @@ class AccountController < ApplicationController
     
     
     def flash_message_special(message)
-        redirect_to :action => 'register_account', :flash => {:error => message}
-    	return
+        redirect_to({:action => 'register_account'}, :flash => {:error => message}) and return false
+    	return true
     end
     
     def user_is_authorized_?
@@ -92,7 +92,7 @@ class AccountController < ApplicationController
         new_user = User.new values
         if new_user.valid?
             if User.exists?(:email => params[:user][:email])
-                flash_message_special("O email já está em uso.")
+                flash_message("O email já está em uso.")
                 return
             else
                 new_user.save
@@ -102,16 +102,16 @@ class AccountController < ApplicationController
             end
         else
             if params[:user][:name].strip == ""
-                flash_message_special("O campo nome é obrigatório.")
+                flash_message("O campo nome é obrigatório.")
+                return
+            elsif params[:user][:email].strip == ""
+                flash_message("O campo e-mail é obrigatório.")
                 return
             elsif params[:user][:password_digest].size < 6
-        	    flash_message_special("A senha precisa ter no mínimo 6 caracteres.")
+        	    flash_message("A senha precisa ter no mínimo 6 caracteres.")
         	    return
-            elsif params[:user][:email].strip == ""
-                flash_message_special("O campo e-mail é obrigatório.")
-                return
             elsif params[:user][:password_digest].strip == ""
-                flash_message_special("O campo senha não pode ter espaço.")
+                flash_message("O campo senha não pode ter espaço.")
                 return
             end
         end
