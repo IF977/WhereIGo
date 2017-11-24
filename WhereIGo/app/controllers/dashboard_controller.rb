@@ -45,7 +45,7 @@ class DashboardController < ApplicationController
         @filter = params[:filter]
         @title = "Resultado de pesquisa para " + @filter
         e = Establishment.arel_table
-        @establishments = Establishment.where(e[:name].matches("#{@filter}%"))
+        @establishments = Establishment.where(e[:name].matches("%#{@filter}%"))
         if user_is_authorized_?
             render layout: "dashboard"
         end
