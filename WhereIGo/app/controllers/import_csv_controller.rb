@@ -21,9 +21,11 @@ class ImportCsvController < ApplicationController
         
     def import
         values = params.require(:file).permit!
-        @arquivo = values[:file1]
+        arquivo_e = values[:file_establishments]
+        arquivo_m = values[:file_musics]
+        arquivo_a = values[:file_ambients]
         
-        SmarterCSV.process(@arquivo.path, col_sep: ';') do |row|
+        SmarterCSV.process(arquivo_e.path, col_sep: ';') do |row|
            e = Establishment.new
            f = Food.new
            fe = FoodSpeciality.new
@@ -45,9 +47,19 @@ class ImportCsvController < ApplicationController
                 fe.food_id = food.id
                 fe.save!
            end
-           
         end
         
-    
+        SmarterCSV.process(arquivo_m.path, col_sep: ';') do |row|
+            m = Music.new
+            m.name = row[0][:genre]
+            m.save!
+        end
+            
+        SmarterCSV.process(arquivo_a.path, col_sep: ';') do |row|
+            a = Ambient.new
+            a.name = row[0][:ambient]
+            a.save!
+        end
+    end
 end
-end
+
