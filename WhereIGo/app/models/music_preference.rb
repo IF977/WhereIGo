@@ -5,6 +5,6 @@ class MusicPreference < ApplicationRecord
         self.is_active ||= true
     end
     
-    validates :food_id, presence:true
+    validates :music_id, presence:true
     validates :user_id, presence:true
 end
