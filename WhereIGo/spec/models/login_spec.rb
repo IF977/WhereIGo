@@ -6,8 +6,7 @@ RSpec.describe User, :type => :request do
     before do
         values = {:name => 'edu',
                   :email => 'edu@edu',
-                  :password_digest => 'eduedu',
-                  :is_client => true
+                  :password_digest => 'eduedu'
         }
         @user = User.create values
     end
@@ -39,7 +38,7 @@ RSpec.describe User, :type => :request do
             fill_in "email", :with => 'edu@edu'
             fill_in "password", :with => 'eduedu'
             click_button "Entrar"
-            visit '/c/dashboard'
+            visit '/dashboard/all_establishments'
             expect(page).to have_text 'Bares e restaurantes perto de você'
         end
     end

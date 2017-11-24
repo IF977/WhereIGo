@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
         fill_in "email", :with => @userTest.email
         fill_in "password", :with =>@userTest.password_digest
         click_button "Entrar"
-        visit '/account'
+        visit '/dashboard/account'
         fill_in "user_name", :with => "Pedro"
         fill_in 'user_email', :with => @userTest.email
         fill_in 'user_password_digest', :with => 'edueduedu'
@@ -29,7 +29,7 @@ RSpec.describe User, type: :model do
         fill_in "email", :with => @userTest.email
         fill_in "password", :with =>@userTest.password_digest
         click_button "Entrar"
-        visit '/account'
+        visit '/dashboard/account'
         fill_in "user_name", :with => "Pedro"
         fill_in 'user_email', :with => @userTest.email
         fill_in 'user_password_digest', :with => 'senhaerrada'

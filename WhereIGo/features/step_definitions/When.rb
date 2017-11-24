@@ -10,28 +10,28 @@ When(/^[Eu ]*clico em ([^"]*)$/) do |button|
     click_button(button)
 end
 
-When(/^I click on the ([^"]*) link$/) do |link|
-  click_link(link)
-end
-        
 When (/^Eu clico no nome do estabelecimento$/) do
-  visit ("/c/establishment/" + @establishment.id.to_s)
+  visit ("/establishment/" + @establishment.id.to_s)
 end
 
 When (/^Eu clico no botao "positivo"$/) do
-    visit("/c/establishment/" + @establishment.id.to_s + "/review?review=true")
+    visit("/establishment/" + @establishment.id.to_s + "/review?review=true")
 end
 
 When (/^Eu clico no botao "negativo"$/) do
-    visit("/c/establishment/" + @establishment.id.to_s + "/review?review=false")
+    visit("/establishment/" + @establishment.id.to_s + "/review?review=false")
 end
 
 When (/^Eu clico no botao "Novo estabelecimento"$/) do
-    visit"/p/establishment/new"
+    visit ("/dashboard/establishment/new")
 end
 
 When (/^Eu clico no botao "Editar"$/) do
-    visit ("/p/establishment/edit/" + @establishment.id.to_s)
+    visit ("/dashboard/my_establishment/edit/" + @establishment.id.to_s)
+end
+
+When (/^Eu clico no botão do garfo e faca$/) do
+    visit ("/dashboard/my_establishments")
 end
 
 When(/^Eu anexo uma imagem em browse$/) do
