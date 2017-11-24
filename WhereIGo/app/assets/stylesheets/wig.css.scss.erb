@@ -109,17 +109,19 @@ textarea.wig-textbox {
     user-select: none;
     border: 1px solid transparent;
     padding: .5rem .75rem;
-    font-size: 1rem;
+    font-size: .9rem;
     line-height: 1.25;
     border-radius: $valor-borda;
     cursor: pointer;
     //transition: all .15s ease-in-out;
+    &:hover, &:focus, &:active {
+        outline: none;
+        opacity: 0.8;
+        text-decoration: none;
+        color: $wig-lightgrey;
+    }
     &:focus {
         border: 1px solid $wig-oddyellow;
-        outline: none;
-    }
-    &:active {
-        opacity: 0.8;
     }
 }
 
@@ -689,4 +691,32 @@ h4 {
 }
 #textarea-comment {
     margin: 10px 0;
+}
+.wig-control-button {
+    color: $wig-lightgrey;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem .75rem;
+    font-size: .9rem;
+    line-height: 1.25;
+    border-radius: $valor-borda;
+    cursor: pointer;
+    //transition: all .15s ease-in-out;
+    &:hover, &:focus, &:active {
+        outline: none;
+        opacity: 0.8;
+        text-decoration: none;
+        color: $wig-lightgrey;
+    }
+    &:focus {
+        border: 1px solid $wig-oddyellow;
+    }
+
+    background-color: $wig-xdarkgrey;
+    float: right;
 }
