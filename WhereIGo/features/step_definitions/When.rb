@@ -38,3 +38,8 @@ When(/^Eu anexo uma imagem em browse$/) do
   path = File.join('features', 'photos', '19848903.jpeg')
   attach_file('establishment_image', path)
 end
+
+When(/^[Eu ]*digito ([^"]*) no campo ([^"]*)$/) do |data,input|
+    fill_in input, with: data
+    visit('/search/establishments?filter=' + data)
+end

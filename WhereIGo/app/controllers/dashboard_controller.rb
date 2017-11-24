@@ -167,9 +167,6 @@ class DashboardController < ApplicationController
             if params[:establishment][:name].strip == ""
                 flash_message("O campo nome é obrigatório.")
     		    return
-    		elsif params[:establishment][:cnpj].size != 14
-    		    flash_message("CNPJ inválido.")
-                return
     		elsif params[:establishment][:address].strip == ""
     		    flash_message("O campo endereço é obrigatório.")
     		    return
