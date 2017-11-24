@@ -18,7 +18,7 @@ class AccountController < ApplicationController
     
     
     def flash_message_special(message)
-        redirect_to :action => 'register_account', :flash => {:error => message}
+        redirect_to({:action => 'register_account'}, :flash => {:error => message})
     	return
     end
     
@@ -104,12 +104,12 @@ class AccountController < ApplicationController
             if params[:user][:name].strip == ""
                 flash_message_special("O campo nome é obrigatório.")
                 return
-            elsif params[:user][:password_digest].size < 6
-        	    flash_message_special("A senha precisa ter no mínimo 6 caracteres.")
-        	    return
             elsif params[:user][:email].strip == ""
                 flash_message_special("O campo e-mail é obrigatório.")
                 return
+            elsif params[:user][:password_digest].size < 6
+        	    flash_message_special("A senha precisa ter no mínimo 6 caracteres.")
+        	    return
             elsif params[:user][:password_digest].strip == ""
                 flash_message_special("O campo senha não pode ter espaço.")
                 return
