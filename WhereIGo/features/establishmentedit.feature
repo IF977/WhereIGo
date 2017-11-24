@@ -30,16 +30,6 @@ Feature: Edição de Estabelecimento
         And Eu clico em Salvar alterações
         Then Eu devo ver o texto Estabelecimento editado com sucesso.
                 
-    Scenario: Edicao de CNPJ - valida
-        And Eu coloco 12345678901234 no campo establishment_cnpj
-        And Eu clico em Salvar alterações
-        Then Eu devo ver o texto Estabelecimento editado com sucesso.
-        
-    Scenario: Edicao de CNPJ invalido
-        And Eu coloco 123 no campo establishment_cnpj
-        And Eu clico em Salvar alterações
-        Then Eu devo ver o texto CNPJ inválido.
-        
     Scenario: Edicao de descricao - valida
         And Eu coloco O cardapio mais variado do Recife no campo establishment_description
         And Eu clico em Salvar alterações

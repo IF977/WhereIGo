@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(version: 20171123221216) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "food_prefences", force: :cascade do |t|
+    t.integer "food_id"
+    t.integer "user_id"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "food_preferences", force: :cascade do |t|
     t.integer "user_id"
     t.integer "food_id"

@@ -6,10 +6,8 @@ RSpec.describe EstablishmentReview, type: :model do
         values = {:name => 'edu',
                   :email => 'edu@edu',
                   :password_digest => 'eduedu',
-                  :is_client => true
         }
         valuesE = {:name => 'edu do espetinho',
-                  :cnpj => '12345678901234',
                   :address => 'rua do espeto',
                   :email => 'edu@espeto',
                   :website => 'edu.edu'
