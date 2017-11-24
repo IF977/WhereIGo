@@ -1,0 +1,26 @@
+<div class="container" id="flex-container">     
+    <div class="col-md-4" id="signup">
+        <section class="login-form">
+                <div id="logo-signup">
+                    <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
+                </div>
+                
+                
+                <%=form_for :file, url: {action: 'import'}, :method => :POST do |f| %>
+                    <div id="form-inputs">
+                        
+                        <label for="file_e" class="wig-formlabel">Estabelecimentos</label>    
+                        <%= f.file_field :file_establishments, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
+                        
+                        <label for="file_m" class="wig-formlabel">Musicas</label>    
+                        <%= f.file_field :file_musics, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
+                    
+                    </div>
+                    <%= f.submit "Continuar", class: "wig-button" %>
+                <%end%>
+                
+        </section>  
+        <h1><%=@title %></h1>
+        
+    </div>
+</div>
