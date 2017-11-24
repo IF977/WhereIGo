@@ -18,7 +18,7 @@ class AccountController < ApplicationController
     
     
     def flash_message_special(message)
-        redirect_to :action => 'register_account', :flash => {:error => message}
+        redirect_to({:action => 'register_account'}, :flash => {:error => message})
     	return
     end
     
@@ -104,12 +104,12 @@ class AccountController < ApplicationController
             if params[:user][:name].strip == ""
                 flash_message_special("O campo nome é obrigatório.")
                 return
-            elsif params[:user][:password_digest].size < 6
-        	    flash_message_special("A senha precisa ter no mínimo 6 caracteres.")
-        	    return
             elsif params[:user][:email].strip == ""
                 flash_message_special("O campo e-mail é obrigatório.")
                 return
+            elsif params[:user][:password_digest].size < 6
+        	    flash_message_special("A senha precisa ter no mínimo 6 caracteres.")
+        	    return
             elsif params[:user][:password_digest].strip == ""
                 flash_message_special("O campo senha não pode ter espaço.")
                 return
@@ -142,7 +142,7 @@ class AccountController < ApplicationController
     end
     
     def register_c_preferences_music_create
-        musics = params[:ambient]
+        musics = params[:music]
         user_id = session[:current_user_id]
         if musics != nil
             musics.each do |c|
@@ -181,7 +181,7 @@ class AccountController < ApplicationController
     end
     
     def register_c_preferences_food_create
-        foods = params[:ambient]
+        foods = params[:food]
         user_id = session[:current_user_id]
         if foods != nil
             foods.each do |c|
@@ -232,7 +232,7 @@ class AccountController < ApplicationController
     end
     
     def register_p_speciality_music_create
-        musics = params[:ambient]
+        musics = params[:music]
         establishment_id = $establishment_id
         if musics != nil
             musics.each do |c|
@@ -272,7 +272,7 @@ class AccountController < ApplicationController
     end
     
     def register_p_speciality_food_create
-        foods = params[:ambient]
+        foods = params[:food]
         establishment_id = $establishment_id
         if foods != nil
             foods.each do |c|

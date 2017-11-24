@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20171123221216) do
     t.text "description"
     t.string "image"
     t.string "phone"
+
   end
 
   create_table "food_preferences", force: :cascade do |t|
