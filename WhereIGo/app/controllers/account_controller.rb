@@ -142,7 +142,7 @@ class AccountController < ApplicationController
     end
     
     def register_c_preferences_music_create
-        musics = params[:ambient]
+        musics = params[:music]
         user_id = session[:current_user_id]
         if musics != nil
             musics.each do |c|
@@ -181,7 +181,7 @@ class AccountController < ApplicationController
     end
     
     def register_c_preferences_food_create
-        foods = params[:ambient]
+        foods = params[:food]
         user_id = session[:current_user_id]
         if foods != nil
             foods.each do |c|
@@ -232,7 +232,7 @@ class AccountController < ApplicationController
     end
     
     def register_p_speciality_music_create
-        musics = params[:ambient]
+        musics = params[:music]
         establishment_id = $establishment_id
         if musics != nil
             musics.each do |c|
@@ -272,7 +272,7 @@ class AccountController < ApplicationController
     end
     
     def register_p_speciality_food_create
-        foods = params[:ambient]
+        foods = params[:food]
         establishment_id = $establishment_id
         if foods != nil
             foods.each do |c|
