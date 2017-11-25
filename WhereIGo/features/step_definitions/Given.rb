@@ -62,3 +62,31 @@ Given(/^Existe um estabelecimento visível a mim chamado Feijao do Edu$/) do
     @establishment = Establishment.new(name: "Feijao do Edu", address: "Rua do CDU", email:"caldo@caldo", website:"caldo.com", user_id: 1)
     @establishment.save!
 end
+
+Given(/^Eu estou na pagina de preferencias de musica$/) do
+  visit ("/register/preferences/music")
+end
+
+Given(/^Existem restaurantes cadastrados$/) do
+  @establishment = Establishment.new(name: "Edmilson Da Carne de Sol", address: "Rua do CDU", email:"caldo@caldo", website:"caldo.com")
+  @establishment.save!
+  
+  @food = Food.new(name:"carne de sol")
+  @food.save!
+  
+  @foodSpecialities = FoodSpeciality.new(establishment_id: @establishment.id, food_id: @food.id)
+  @foodSpecialities.save!
+  
+  @music = Music.new(name:'Jazz')
+  @music.save!
+  
+  @musicSpecialities = MusicSpeciality.new(establishment_id: @establishment.id, music_id: @music.id)
+  @musicSpecialities.save!
+  
+  @ambient = Ambient.new(name:'Familiar')
+  @ambient.save!
+  
+  @ambientSpecialities = AmbientSpeciality.new(establishment_id: @establishment.id, ambient_id: @ambient.id)
+  @ambientSpecialities.save!
+  
+end
