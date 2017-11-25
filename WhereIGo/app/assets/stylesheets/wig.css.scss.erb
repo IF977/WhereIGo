@@ -109,17 +109,19 @@ textarea.wig-textbox {
     user-select: none;
     border: 1px solid transparent;
     padding: .5rem .75rem;
-    font-size: 1rem;
+    font-size: .9rem;
     line-height: 1.25;
     border-radius: $valor-borda;
     cursor: pointer;
     //transition: all .15s ease-in-out;
+    &:hover, &:focus, &:active {
+        outline: none;
+        opacity: 0.8;
+        text-decoration: none;
+        color: $wig-lightgrey;
+    }
     &:focus {
         border: 1px solid $wig-oddyellow;
-        outline: none;
-    }
-    &:active {
-        opacity: 0.8;
     }
 }
 
@@ -258,6 +260,9 @@ a.wig-button {
     height: 100vh;
     max-width: 1000px;
 }
+#link-about, #link-team {
+    cursor: pointer;
+}
 .wig-navbar-homepage {
     background-color: rgba(0,0,0,0);
     transition: all .2s;
@@ -303,20 +308,23 @@ a.wig-button {
 .wig-about {
     background-color: rgba(255,255,255, .95);
     /*height: 100vh;*/
+    h2 {
+        font-size: 1.3em;
+        font-weight: 500;
+        color: $wig-xdarkgrey;
+        margin-top: 34px;
+        &:after {
+            display: none;
+        }
+    }
+    p {
+        color: $wig-xdarkgrey;
+    }
 }
 .wig-flex-about {
     justify-content: center;
     align-items: center;
-    padding: 80px;
-}
-.wig-about h2 {
-    font-size: 1.3em;
-    font-weight: 500;
-    color: $wig-xdarkgrey;
-    margin-top: 34px;
-}
-.wig-about p {
-    color: $wig-xdarkgrey;
+    padding: 40px 80px;
 }
 .wig-about-item {
     text-align: center;
@@ -334,8 +342,8 @@ a.wig-button {
     h1 {
         color: $wig-lightgrey;
         text-align: center;
-        font-size: 1.8em;
-        margin: 40px;
+        font-size: 1.6em;
+        margin: 16px 0 50px 0;
         width: 100%;
         &:before, &:after {
             content: '~';
@@ -351,6 +359,10 @@ a.wig-button {
     h2 {
         font-size: 1.3em;
         margin-bottom: 0;
+        color: $wig-lightgrey;
+        &:after {
+            display: none;
+        }
     }
     p {
         font-size: .9em;
@@ -369,13 +381,13 @@ a.wig-button {
 
 .wig-team-pic {
     width: 120px;
-    border-radius: 47%;
+    border-radius: 50%;
     border: 5px solid #ef4471;
-    margin: 30px;
+    margin: 0 30px;
 }
 
 .wig-footer {
-    color: $wig-lightgrey;
+    color: $wig-xdarkgrey;
     text-align: center;
     margin-top: 15px;
     font-size: .9em;
@@ -395,6 +407,7 @@ a.wig-button {
     z-index: 1030;
     background-color: $wig-xdarkgrey;
     font-size: .9em;
+    padding: 2px;
     a {
         color: $wig-lightgrey;
         &:hover, &:active {
@@ -433,7 +446,7 @@ a.wig-button {
     flex-direction: column;
     justify-content: space-between;
     background-color: $wig-greatpink;
-    max-width: 64px;
+    width: 54px;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -635,7 +648,7 @@ a.wig-button {
 }
 .wig-establishment-map {
     background-color: $wig-halfgrey;
-    height: 300px;
+    height: 225px;
     margin-bottom: 30px;
 }
 .wig-establishment-info {
@@ -678,4 +691,32 @@ h4 {
 }
 #textarea-comment {
     margin: 10px 0;
+}
+.wig-control-button {
+    color: $wig-lightgrey;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem .75rem;
+    font-size: .9rem;
+    line-height: 1.25;
+    border-radius: $valor-borda;
+    cursor: pointer;
+    //transition: all .15s ease-in-out;
+    &:hover, &:focus, &:active {
+        outline: none;
+        opacity: 0.8;
+        text-decoration: none;
+        color: $wig-lightgrey;
+    }
+    &:focus {
+        border: 1px solid $wig-oddyellow;
+    }
+
+    background-color: $wig-xdarkgrey;
+    float: right;
 }

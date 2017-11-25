@@ -1,0 +1,29 @@
+<script>
+    $(".wig-search").prop("value","<%= @filter %>");
+</script>
+<div class="row">
+    <section class="col-md-12"><%= flash_message.html_safe %></section>
+    <section class="col-md-8">
+        <h1><%= @title%></h1>
+        <% if @establishments.size > 0 %>
+            <% @establishments.each do |e| %>
+                <div class="wig-dashboard-card">
+                    <a href="<%= url_for action: "show_establishment", id: e.id %>">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="wig-establishment-picture"><%=image_tag(e.image, class:'wig-establishment-picture')%></div>
+                            </div>
+                            <div class="col-md-10">
+                                <h3><%= e.name %></h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% end %>
+        <% else %>
+            Nenhum estabelecimento encontrado!
+        <% end %>
+    </section>
+    <aside class="col-md-4">
+    </aside>
+</div>

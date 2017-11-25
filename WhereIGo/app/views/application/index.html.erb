@@ -11,28 +11,40 @@
     </head>
     <body class="wig-body-homepage">
         <script>
-            $(document).ready(function() { showNavbar() });
+            $(document).ready(function() { 
+                showNavbar();
+                $("#link-about").click(function() {
+                    let offset = $(".wig-flex-about").offset().top - 85;
+                    $(window).scrollTop(offset);
+                });
+                $("#link-team").click(function() { 
+                    let offset = $(".wig-flex-team").offset().top - 85;
+                    $(window).scrollTop(offset);
+                });
+                
+            });
             $(document).scroll(function() { showNavbar() });
 
             function showNavbar() {
                 var scroll = $(window).scrollTop();
-                if(scroll >= 330) {
+                if(scroll > 0) {
                     $("#navbar").addClass("wig-navbar-homepage-active");
                     //$("#navbar").removeClass("wig-navbar-homepage");
-                    
-                    $("#logo-navbar").addClass("wig-navbar-logo-active");
-                    $("#logo-navbar").removeClass("wig-navbar-logo");
-                    
-                    
                 } else {
                     $("#navbar").removeClass("wig-navbar-homepage-active");
                     $("#navbar").addClass("wig-navbar-homepage");
-
+                }
+                if(scroll >= 330) {
+                    $("#logo-navbar").addClass("wig-navbar-logo-active");
+                    $("#logo-navbar").removeClass("wig-navbar-logo");
+                } else {
                     $("#logo-navbar").addClass("wig-navbar-logo");
                     $("#logo-navbar").removeClass("wig-navbar-logo-active");
   
                 }
             }
+            
+            
 
         </script>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar">
@@ -46,14 +58,11 @@
             
                 <div class="collapse navbar-collapse wig-navbar-right">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" id="link-about">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Equipe</a>
+                            <span class="nav-link" id="link-team">Equipe</span>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<%= url_for controller: 'account', action: 'register_account' %>">Cadastro</a>
