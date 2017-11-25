@@ -196,9 +196,10 @@ class DashboardController < ApplicationController
     
     def create_establishment
         values = params.require(:establishment).permit!
-
         new_establishment = Establishment.new values
         if new_establishment.valid?
+            uploader = ImageUploader.new
+            uploader.store!(values[:image])
     		new_establishment.update_attributes(:user_id => session[:current_user_id])
     		new_establishment.save!
              redirect_to :action => 'my_establishments'
