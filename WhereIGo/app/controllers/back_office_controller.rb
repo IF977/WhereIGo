@@ -4,7 +4,7 @@ class BackOfficeController < ApplicationController
     def user_authorized_?
         if session[:current_user_id] != nil
             user = User.find_by(id: session[:current_user_id])
-            if user.name == "BackOfficeWIG" and user.password_digest == "passwordWIG2017BackOffice"
+            if user.email == "backoffice@wig"
                 return true
             end
         end
