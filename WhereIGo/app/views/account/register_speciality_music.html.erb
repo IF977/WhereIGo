@@ -2,13 +2,13 @@
 <p>Descreva corretamente o gênero musical mais tocado do seu estabelecimento para que outros usuários possam encontra-ló. Portanto em qual ritmo seu estabelecimento mais se encaixa?</p>
 <%= flash_message.html_safe %>
 
-<%= form_tag action: 'register_p_speciality_music_create', method: 'POST' do |f| %>
+<%= form_tag action: 'register_speciality_music_create', method: 'POST' do |f| %>
 
     <div class="wig-choices-container">
-        <% @checkboxes.each_pair do |id, name| %>
-            <div class="wig-pref-choice wig-ambient">
-                <%= check_box("music", "genre", {:multiple => true }, id, nil) %>
-                <label><%= name %></label>
+        <% @checkboxes.each_pair do |id, array| %>
+            <div class="wig-pref-choice wig-music">
+                <%= check_box_tag("music[]", id, array[1]) %>
+                <label><%= array[0] %></label>
             </div>
         <% end %>
     </div>
