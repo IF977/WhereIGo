@@ -38,3 +38,13 @@ Para fazer atualização do banco de dados
 heroku run rake db:create
 
 heroku run rake db:migrate
+
+Para limpar o bando de dados do Heroku
+
+heroku pg:reset DATABASE
+
+heroku run rake db:migrate
+
+Popular com seu banco
+
+heroku run rake db:seed
