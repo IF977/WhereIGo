@@ -381,7 +381,7 @@ class AccountController < ApplicationController
     end
     
     
-    def add_provider_permisson
+    def add_provider_permission
         user_id = session[:current_user_id]
         User.update(user_id, :is_provider => true)
         redirect_to({:controller => 'dashboard', :action => 'my_establishments'})
