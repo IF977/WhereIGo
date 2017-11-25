@@ -38,7 +38,7 @@ html, body {
 h1 {
     color: $wig-xdarkgrey;
     font-size: 1.6rem;
-    margin: 13px 0 5px 0;
+    margin: 0px 0 5px 0;
     &:after {
         content: '~';
         color: $wig-greatpink;
@@ -719,4 +719,76 @@ h4 {
 
     background-color: $wig-xdarkgrey;
     float: right;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// PREFERENCIAS LAYOUT //////////////////////
+////////////////////////////////////////////////////////////
+
+.wig-body-pref {
+    background-image: url(<%= image_url("background-homepage.jpg") %>);
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-color: $wig-xdarkgrey;
+    color: $wig-xdarkgrey;
+    
+    h1 {
+        color: $wig-xdarkgrey;
+    }
+    h2 {
+        color: $wig-xdarkgrey;
+    }
+}
+.wig-pref-container {
+    background-color: #fff;
+    padding: 30px;
+    margin: 15px;
+    border-radius: $valor-borda;
+}
+.wig-clearfix {
+    width: 100%;
+}
+#logo-pref {
+    margin: 0px 0px 25px 35px;
+}
+.wig-pref-buttons {
+    width: 100%;
+    text-align: right;
+    margin: 30px 0 0 0;
+}
+
+.wig-choices-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.wig-pref-choice {
+    padding: 5px 20px;
+    background-color: $wig-oddyellow;
+    margin: 5px;
+    font-weight: 500;
+    border-radius: $valor-borda;
+    flex-basis: 1;
+    label {
+        margin: 0;
+    }
+}
+
+.wig-music {
+    background-color: #5196e0;
+}
+.wig-food {
+    background-color: #32ab4d;
+}
+.wig-ambient {
+    background-color: #a377a9;
+}
+
+.pref-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 775px;
+    margin-right: auto;
+    margin-left: auto;
 }

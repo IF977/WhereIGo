@@ -1,19 +1,21 @@
-<div class="container" id="flex-container">     
-    <div class="col-md-4" id="signup">
-        <section class="login-form">
-                <div id="logo-signup">
-                    <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
-                </div>
-    
-                <h1><%= @title %></h1>
-                <%= flash_message.html_safe %>
-                <center>
-                    <%= form_tag action: 'register_c_preferences_music_create', method: 'POST' do |f| %>
-                        <label for="music" class="wig-formlabel">Selecione seu tipo de música favorito:</label><br>
-                        <%= select_tag :music, options_from_collection_for_select(Music.all, :id, :name), multiple: true %>
-                        <%= submit_tag "Continuar", class: "wig-button" %>
-                    <% end %>
-                </center>
-        </section>  
+<h1>Seus gêneros de música favoritos</h1>
+<p>Encontre estabelecimentos compatíveis com seu perfil musical. Quais gêneros você mais ouve?</p>
+<%= flash_message.html_safe %>
+
+<%= form_tag action: 'register_c_preferences_music_create', method: 'POST' do |f| %>
+
+    <!--<= select_tag :music, options_from_collection_for_select(Music.all, :id, :name), multiple: true %> -->
+    <div class="wig-choices-container">
+        <% @checkboxes.each_pair do |id, name| %>
+            <div class="wig-pref-choice wig-music">
+                <%= check_box("music", "genre", {:multiple => true }, id, nil) %>
+                <label><%= name %></label>
+            </div>
+        <% end %>
     </div>
-</div>
+    
+
+    <div class="wig-pref-buttons">
+        <%= submit_tag "Continuar", class: "wig-button" %>
+    </div>
+<% end %>

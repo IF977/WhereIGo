@@ -136,8 +136,13 @@ class AccountController < ApplicationController
     
     def register_c_preferences_music
         if user_is_authorized_?
-                @title = "Preferencias Musicais"
-                render layout: "login-signup"
+            @title = "Preferências: Música"
+            @checkboxes = {
+                1 => "rock",
+                2 => "pop",
+                3 => "jazz"
+            }
+            render layout: "pref"
         end
     end
     
@@ -156,7 +161,15 @@ class AccountController < ApplicationController
     def register_c_preferences_ambient
         if user_is_authorized_?
             @title = "Preferencias de Ambiente"
-            render layout: "login-signup"
+            @checkboxes = {
+                1 => "casual",
+                2 => "familiar",
+                3 => "café",
+                4 => "pub",
+                5 => "bar",
+                6 => "casa de show"
+            }
+            render layout: "pref"
         end
     end
     
@@ -175,7 +188,15 @@ class AccountController < ApplicationController
     def register_c_preferences_food
         if user_is_authorized_?
             @title = "Preferencias Gastronômicas"
-            render layout: "login-signup"
+            
+            @checkboxes = {
+                1 => "tradicional",
+                2 => "japonesa",
+                3 => "pizza",
+                4 => "mexicana",
+                5 => "hambúrguer"
+            }
+            render layout: "pref"
         end
         
     end
