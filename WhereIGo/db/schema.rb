@@ -66,12 +66,8 @@ ActiveRecord::Schema.define(version: 20171123221216) do
     t.text "description"
     t.string "image"
     t.string "phone"
-
-<<<<<<< HEAD
-=======
   end
 
->>>>>>> 224ecc397f5061aee91d16d2b3b430846791702e
   create_table "food_preferences", force: :cascade do |t|
     t.integer "user_id"
     t.integer "food_id"
