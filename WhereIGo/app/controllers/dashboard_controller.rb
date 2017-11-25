@@ -65,7 +65,7 @@ class DashboardController < ApplicationController
         
         if ambient_preference != nil
             ambient_preference.each do |a|
-                ambient_specialyt_match = AmbientSpeciality.where(ambient_id: a.ambient_id)
+                ambient_specialyt_match += AmbientSpeciality.where(ambient_id: a.ambient_id)
             end
         end
         
