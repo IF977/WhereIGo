@@ -52,7 +52,14 @@ When (/^Eu clico no ícone do coração$/) do
     visit ("/dashboard/recommended_establishments")
 end
 
-When(/^Eu marco "carne de sol"$/) do
-    find("food_type_1", :visible => false).click
-    check("carne de sol")
+When(/^Eu marco ([^"]*) no checkbox de comida$/) do |checkbox|
+    check("food_")
+end
+
+When(/^Eu marco ([^"]*) no checkbox de musica$/) do |checkbox|
+    check("music_")
+end
+
+When(/^Eu marco ([^"]*) no checkbox de ambiente$/) do |checkbox|
+    check("ambient_")
 end

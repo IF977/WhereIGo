@@ -3,7 +3,7 @@ Feature: Como um cliente
     Para encontrar estabelecimentos compatíveis com meu gosto
     
     Background:
-        Given Teste
+        Given Existem restaurantes cadastrados 
         And Eu estou na pagina inicial
         When Eu coloco Giles no campo user_name
         And Eu coloco mc@giles no campo user_email
@@ -30,11 +30,56 @@ Feature: Como um cliente
       Then Eu devo ser direcionado para a pagina de preferencias de ambiente
       When Eu clico em Continuar
       Then Eu devo ser direcionado para a pagina de preferencias de comida
-      When Eu marco "carne de sol" 
+      When Eu marco Carne de Sol no checkbox de comida
       And Eu clico em Continuar 
-      Then Eu devo ver o texto Todos os bares e restaurantes
+      Then Eu tenho uma conta criada com preferencia de comida 
+      And Eu devo ver o texto Todos os bares e restaurantes
       When Eu clico no ícone do coração
       Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
-      And Eu devo ver o texto Nenhum estabelecimento encontrado!
+      And Eu devo ver o texto Edmilson Da Carne de Sol 
       
-      
+    Scenario: Escolhendo preferencia de musica
+      Given Eu estou na pagina de preferencias de musica
+      When Eu marco Jazz no checkbox de musica
+      And Eu clico em Continuar
+      Then Eu devo ser direcionado para a pagina de preferencias de ambiente
+      When Eu clico em Continuar
+      Then Eu devo ser direcionado para a pagina de preferencias de comida
+      When Eu clico em Continuar
+      Then Eu tenho uma conta criada com preferencia de musica
+      And Eu devo ver o texto Todos os bares e restaurantes
+      When Eu clico no ícone do coração
+      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Edmilson Da Carne de Sol 
+            
+            
+    Scenario: Escolhendo preferencia de ambiente
+      Given Eu estou na pagina de preferencias de musica
+      When Eu clico em Continuar
+      Then Eu devo ser direcionado para a pagina de preferencias de ambiente
+      When Eu marco familiar no checkbox de ambiente
+      And Eu clico em Continuar 
+      Then Eu devo ser direcionado para a pagina de preferencias de comida
+      When Eu clico em Continuar
+      Then Eu tenho uma conta criada com preferencia de ambiente
+      And Eu devo ver o texto Todos os bares e restaurantes
+      When Eu clico no ícone do coração
+      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Edmilson Da Carne de Sol 
+
+
+    Scenario: Escolhendo preferencia de musica, ambiente e comida 
+      Given Eu estou na pagina de preferencias de musica
+      When Eu marco Jazz no checkbox de musica
+      And Eu clico em Continuar
+      Then Eu devo ser direcionado para a pagina de preferencias de ambiente
+      When Eu marco familiar no checkbox de ambiente
+      And Eu clico em Continuar 
+      Then Eu devo ser direcionado para a pagina de preferencias de comida
+      When Eu marco Carne de Sol no checkbox de comida
+      And Eu clico em Continuar
+      Then Eu tenho uma conta criada com preferencia de musica, ambiente e comida
+      And Eu devo ver o texto Todos os bares e restaurantes
+      When Eu clico no ícone do coração
+      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Edmilson Da Carne de Sol             
