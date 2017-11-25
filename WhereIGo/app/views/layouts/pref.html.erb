@@ -1,0 +1,27 @@
+<!-- Layout das preferencias/especialidades -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @title %> - WhereIGo</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all' %>
+    <%= stylesheet_link_tag    'wig.css', media: 'all' %>
+  </head>
+  <body class="wig-body-pref">
+    <div class="pref-align">
+      <div class="wig-clearfix">
+        <div id="logo-pref">
+            <%= image_tag("wig-logo-signup.png", class: "img-responsive") %>
+        </div>
+        <section class="wig-pref-container">
+            <%= yield %>
+        </section>  
+      </div>
+        
+    </div>
+  </body>
+</html>
