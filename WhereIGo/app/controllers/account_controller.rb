@@ -153,15 +153,19 @@ class AccountController < ApplicationController
     
     def register_c_preferences_music_create
         begin
-            musics = params["music"]["genrer"]
+            musics = params["music"]["genre"]
         rescue
             musics = nil
         end
         user_id = session[:current_user_id]
         if musics != nil
             musics.each do |m|
-                new_preference = MusicPreference.new ({:music_id => m.to_i, :user_id => user_id})
-                new_preference.save
+                if MusicPreference.exists?(:user_id=>user_id,:music_id=>m.to_i)
+                    redirect_to :action => 'register_c_preferences_ambient'
+                else
+                    new_preference = MusicPreference.new ({:music_id => m.to_i, :user_id => user_id})
+                    new_preference.save
+                end
             end
         end
          redirect_to :action => 'register_c_preferences_ambient'
@@ -193,8 +197,12 @@ class AccountController < ApplicationController
         user_id = session[:current_user_id]
         if ambients != nil
             ambients.each do |a|
-                new_preference = AmbientPreference.new ({:ambient_id => a.to_i, :user_id => user_id})
-                new_preference.save
+                if AmbientPreference.exists?(:user_id=>user_id,:ambient_id=>a.to_i)
+                    redirect_to :action => 'register_c_preferences_food'
+                else
+                    new_preference = AmbientPreference.new ({:ambient_id => a.to_i, :user_id => user_id})
+                    new_preference.save
+                end
             end
         end
         redirect_to :action => 'register_c_preferences_food'
@@ -228,8 +236,13 @@ class AccountController < ApplicationController
         user_id = session[:current_user_id]
         if foods != nil
             foods.each do |c|
-                new_preference = FoodPreference.new ({:food_id => c.to_i, :user_id => user_id})
-                new_preference.save
+                if FoodPreference.exists?(:user_id =>user_id, :food_id => c.to_i)
+                     redirect_to({:controller => 'dashboard', :action => 'all_establishments'})
+                     return
+                else
+                    new_preference = FoodPreference.new ({:food_id => c.to_i, :user_id => user_id})
+                    new_preference.save
+                end
             end
         end
         redirect_to({:controller => 'dashboard', :action => 'all_establishments'})
