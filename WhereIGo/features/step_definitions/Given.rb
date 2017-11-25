@@ -62,3 +62,7 @@ Given(/^Existe um estabelecimento visível a mim chamado Feijao do Edu$/) do
     @establishment = Establishment.new(name: "Feijao do Edu", address: "Rua do CDU", email:"caldo@caldo", website:"caldo.com", user_id: 1)
     @establishment.save!
 end
+
+Given(/^Eu estou na pagina de preferencias de musica$/) do
+  visit ("/register/c/preferences/music")
+end

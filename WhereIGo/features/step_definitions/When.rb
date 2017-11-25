@@ -43,3 +43,11 @@ When(/^[Eu ]*digito ([^"]*) no campo ([^"]*)$/) do |data,input|
     fill_in input, with: data
     visit('/search/establishments?filter=' + data)
 end
+
+When (/^Eu clico no botão Eu quero encontrar bares e restaurantes$/) do
+    visit ("/register/client")
+end
+
+When (/^Eu clico no ícone do coração$/) do
+    visit ("/dashboard/recommended_establishments")
+end
