@@ -9,7 +9,7 @@ Feature: Login usuario
       And Eu coloco 123mctroia123 no campo password
       And Eu clico em Entrar
       Then Eu devo ser direcionado para a pagina de dashboard
-      And Eu devo ver o texto Bares e restaurantes perto de você
+      And Eu devo ver o texto Todos os bares e restaurantes
       
     Scenario: Login sem sucesso - email inval
       ido - provider
@@ -32,7 +32,7 @@ Feature: Login usuario
       And Eu coloco dadaboladao no campo password
       And Eu clico em Entrar
       Then Eu devo ser direcionado para a pagina de dashboard
-      Then Eu devo ver o texto Bares e restaurantes perto de você
+      Then Eu devo ver o texto Todos os bares e restaurantes
       
     Scenario: Login sem sucesso - email invalido - cliente
       Given Eu estou na pagina de login, nao estou logado e sou cliente

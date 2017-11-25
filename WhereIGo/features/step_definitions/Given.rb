@@ -66,3 +66,16 @@ end
 Given(/^Eu estou na pagina de preferencias de musica$/) do
   visit ("/register/c/preferences/music")
 end
+
+Given(/^Teste$/) do
+  @user = User.new(name: "mcdada", email:'mc@dada', password_digest:'dadaboladao')
+  @user.save!
+  @establishment = Establishment.new(name: "Feijao do Edu", address: "Rua do CDU", email:"caldo@caldo", website:"caldo.com", user_id: @user.id)
+  @establishment.save!
+  @food = Food.new(name:'carne de sol')
+  @food.save!
+  @foodPreferences = FoodPreference.new(user_id: @user.id, food_id: @food.id)
+  @foodPreferences.save!
+  @foodSpecialities = FoodSpeciality.new(establishment_id: @establishment.id, food_id: @food.id)
+  @foodSpecialities.save!
+end

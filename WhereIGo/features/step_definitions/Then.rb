@@ -34,6 +34,6 @@ Then(/^Eu devo ser direcionado para a pagina de preferencias de comida$/) do
     page.assert_current_path('/register/c/preferences/food')
 end
 
-Then(/^ Eu devo ser direcionado para a pagina de estabelecimentos recomendados0$/) do
+Then(/^Eu devo ser direcionado para a pagina de estabelecimentos recomendados$/) do
     page.assert_current_path('/dashboard/recommended_establishments')
 end

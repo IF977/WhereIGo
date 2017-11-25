@@ -39,7 +39,7 @@ RSpec.describe User, :type => :request do
             fill_in "password", :with => 'eduedu'
             click_button "Entrar"
             visit '/dashboard/all_establishments'
-            expect(page).to have_text 'Bares e restaurantes perto de você'
+            expect(page).to have_text 'Todos os bares e restaurantes'
         end
     end
 

@@ -3,7 +3,8 @@ Feature: Como um cliente
     Para encontrar estabelecimentos compatíveis com meu gosto
     
     Background:
-        Given Eu estou na pagina inicial
+        Given Teste
+        And Eu estou na pagina inicial
         When Eu coloco Giles no campo user_name
         And Eu coloco mc@giles no campo user_email
         And Eu coloco 123giles123 no campo user_password_digest
@@ -18,4 +19,22 @@ Feature: Como um cliente
       When Eu clico em Continuar
       Then Eu devo ser direcionado para a pagina de preferencias de comida
       When Eu clico em Continuar 
-      Then Eu devo ver o texto Bares e restaurantes perto de você 
+      Then Eu devo ver o texto Todos os bares e restaurantes
+      When Eu clico no ícone do coração
+      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Nenhum estabelecimento encontrado!
+      
+    Scenario: Escolhendo preferencia de comida
+      Given Eu estou na pagina de preferencias de musica
+      When Eu clico em Continuar
+      Then Eu devo ser direcionado para a pagina de preferencias de ambiente
+      When Eu clico em Continuar
+      Then Eu devo ser direcionado para a pagina de preferencias de comida
+      When Eu marco "carne de sol" 
+      And Eu clico em Continuar 
+      Then Eu devo ver o texto Todos os bares e restaurantes
+      When Eu clico no ícone do coração
+      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Nenhum estabelecimento encontrado!
+      
+      

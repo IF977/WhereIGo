@@ -51,3 +51,8 @@ end
 When (/^Eu clico no ícone do coração$/) do
     visit ("/dashboard/recommended_establishments")
 end
+
+When(/^Eu marco "carne de sol"$/) do
+    find("food_type_1", :visible => false).click
+    check("carne de sol")
+end
