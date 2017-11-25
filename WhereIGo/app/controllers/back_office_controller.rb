@@ -1,25 +1,35 @@
 require 'smarter_csv'
-
-class ImportCsvController < ApplicationController
+class BackOfficeController < ApplicationController
     
-    $teste = "qweqwe"
-    def show
-        @title = $teste 
+    def user_authorized_?
+        if session[:current_user_id] != nil
+            user = User.find_by(id: session[:current_user_id])
+            if user.email == "backoffice@wig"
+                return true
+            end
+        end
+        redirect_to({:controller => 'dashboard', :action => 'all_establishments'}) and return false
     end
     
-    def check_food(name)
-        if name != nil
-            if Food.find_by(name: name) != nil
-                true
-            else
-                false
-            end
-        else
-            true
+    def import_all_data
+        if user_authorized_?
+            @title = "Migração de dados - BackOffice WhereIGo"
         end
     end
-        
-    def import
+      
+    def bootstrap_all_data
+        def check_food(name)
+            if name != nil
+                if Food.find_by(name: name) != nil
+                    true
+                else
+                    false
+                end
+            else
+                true
+            end
+        end
+    
         values = params.require(:file).permit!
         arquivo_e = values[:file_establishments]
         arquivo_m = values[:file_musics]
@@ -62,4 +72,3 @@ class ImportCsvController < ApplicationController
         end
     end
 end
-

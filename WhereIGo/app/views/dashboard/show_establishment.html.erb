@@ -1,9 +1,21 @@
 <div class="row">
     <section class="col-md-8">
         <h1><%= @e.name %> <%if user_is_host_? %> <%=link_to "Editar", {controller: "dashboard", action: "edit_my_establishment", id: @e }, class: 'wig-control-button' %><%end%></h1>
-        <div class="wig-tag">mpb</div>
-        <div class="wig-tag">comida brasileira</div>
-        <div class="wig-tag">ambiente familiar</div>
+        <% if @food_tag != [] %>
+            <% @food_tag.each do |ft| %>
+                <div class="wig-tag wig-food"><%= ft %></div>
+            <%end%>
+        <%end%>
+        <% if @music_tag != [] %>
+            <% @music_tag.each do |mt| %>
+                <div class="wig-tag wig-music"><%= mt %></div>
+            <%end%>
+        <%end%>
+        <% if @ambient_tag != [] %>
+            <% @ambient_tag.each do |at| %>
+                <div class="wig-tag wig-ambient"><%= at %></div>
+            <%end%>
+        <%end%>
         <p class="wig-description"><%= @e.description%></p>
         
         <div class="wig-establishment-map" id="map"></div>

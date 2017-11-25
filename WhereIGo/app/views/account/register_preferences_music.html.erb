@@ -2,18 +2,17 @@
 <p>Encontre estabelecimentos compatíveis com seu perfil musical. Quais gêneros você mais ouve?</p>
 <%= flash_message.html_safe %>
 
-<%= form_tag action: 'register_c_preferences_music_create', method: 'POST' do |f| %>
+<%= form_tag action: 'register_preferences_music_create', method: 'POST' do |f| %>
 
     <div class="wig-choices-container">
-        <% @checkboxes.each_pair do |id, name| %>
+        <% @checkboxes.each_pair do |id, array| %>
             <div class="wig-pref-choice wig-music">
-                <%= check_box("music", "genre", {:multiple => true }, id, nil) %>
-                <label><%= name %></label>
+                <%= check_box_tag("music[]", id, array[1]) %>
+                <label><%= array[0] %></label>
             </div>
         <% end %>
     </div>
     
-
     <div class="wig-pref-buttons">
         <%= submit_tag "Continuar", class: "wig-button" %>
     </div>

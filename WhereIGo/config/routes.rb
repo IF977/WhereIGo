@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-    get 'add_profile/provider' => 'account#add_provider_profile'
+    get 'permission/provider' => 'account#add_provider_permission'
     
     get 'login' => 'account#login'
     
@@ -33,17 +33,17 @@ Rails.application.routes.draw do
     
     get 'register/client' => 'account#register_profile_client'
     
-    get 'register/c/preferences/music' => 'account#register_c_preferences_music'
+    get 'register/preferences/music' => 'account#register_preferences_music'
     
-    post 'register/c/preferences/music/create' => 'account#register_c_preferences_music_create'
+    post 'register/preferences/music/create' => 'account#register_preferences_music_create'
     
-    get 'register/c/preferences/food' => 'account#register_c_preferences_food'
+    get 'register/preferences/food' => 'account#register_preferences_food'
     
-    post 'register/c/preferences/food/create' => 'account#register_c_preferences_food_create'
+    post 'register/preferences/food/create' => 'account#register_preferences_food_create'
     
-    get 'register/c/preferences/ambient' => 'account#register_c_preferences_ambient'
+    get 'register/preferences/ambient' => 'account#register_preferences_ambient'
     
-    post 'register/c/preferences/ambient/create' => 'account#register_c_preferences_ambient_create'
+    post 'register/preferences/ambient/create' => 'account#register_preferences_ambient_create'
     
     get 'register/provider' => 'account#register_profile_provider'
     
@@ -51,17 +51,17 @@ Rails.application.routes.draw do
 
     post 'register/provider/establishment/create' => 'account#register_provider_establishment_create'
 
-    get 'register/p/speciality/music' => 'account#register_p_speciality_music'
+    get 'register/speciality/music' => 'account#register_speciality_music'
     
-    post 'register/p/speciality/music/create' => 'account#register_p_speciality_music_create'
+    post 'register/speciality/music/create' => 'account#register_speciality_music_create'
     
-    get 'register/p/speciality/food' => 'account#register_p_speciality_food'
+    get 'register/speciality/food' => 'account#register_speciality_food'
     
-    post 'register/p/speciality/food/create' => 'account#register_p_speciality_food_create'
+    post 'register/speciality/food/create' => 'account#register_speciality_food_create'
     
-    get 'register/p/speciality/ambient' => 'account#register_p_speciality_ambient'
+    get 'register/speciality/ambient' => 'account#register_speciality_ambient'
     
-    post 'register/p/speciality/ambient/create' => 'account#register_p_speciality_ambient_create'
+    post 'register/speciality/ambient/create' => 'account#register_speciality_ambient_create'
     
     get 'dashboard/account' => 'account#edit'
     
@@ -77,9 +77,9 @@ Rails.application.routes.draw do
     
     post 'dashboard/my_establishment/update/:id' => 'dashboard#update_my_establishment'
     
-    get 'import_csv' => 'import_csv#show'
+    get 'backoffice/import' => 'back_office#import_all_data'
     
-    post 'import_csv/import/' => 'import_csv#import'
+    post 'backoffice/bootstrap/data' => 'back_office#bootstrap_all_data'
 
     root 'application#index'
     

@@ -105,6 +105,35 @@ class DashboardController < ApplicationController
         @e = Establishment.find_by(id: params[:id])
         @title = @e.name
         
+        establishment_food_speciality = FoodSpeciality.where(:establishment_id => @e.id)
+        establishment_music_speciality = MusicSpeciality.where(:establishment_id => @e.id)
+        establishment_ambient_speciality = AmbientSpeciality.where(:establishment_id => @e.id)
+        
+        @food_tag = []
+        @music_tag = []
+        @ambient_tag = []
+        
+        if establishment_food_speciality != nil
+            establishment_food_speciality.each do |f|
+                food = Food.find_by(id: f.food_id)
+                @food_tag << food.name
+            end
+        end
+        
+        if establishment_music_speciality != nil
+            establishment_music_speciality.each do |m|
+                music = Music.find_by(id: m.music_id)
+                @music_tag << music.name
+            end
+        end
+        
+        if establishment_ambient_speciality != nil
+            establishment_ambient_speciality.each do |a|
+                ambient = Ambient.find_by(id: a.ambient_id)
+                @ambient_tag << ambient.name
+            end
+        end
+        
         user_review = EstablishmentReview.where(:user_id => session[:current_user_id]).where(:establishment_id => @e.id).first
         if user_review != nil
             @user_review_selected = user_review.review
