@@ -53,6 +53,11 @@
                 <i class="fa fa-home" aria-hidden="true"></i>
               </li>
             </a>
+            <a href="<%= url_for controller: "dashboard", action: "preference_establishments_result" %>" title="Estabelecimentos recomendados">
+              <li class="nav-item wig-sidebar-icon">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </li>
+            </a>
             <% if user_logged.is_provider == true %>
               <a href="<%= url_for controller: "dashboard", action: "my_establishments" %>" title="Meus estabelecimentos">
                 <li class="nav-item wig-sidebar-icon">
@@ -65,14 +70,7 @@
                 <i class="fa fa-comments" aria-hidden="true"></i>
               </li>
             </a>
-            
-            <a href="#" title="Indicações">
-              <li class="nav-item wig-sidebar-icon">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-              </li>
-            </a>
-            
-            <a href="#" title="Configurações">
+            <a href="<%= url_for controller: "account", action: "register_c_preferences_music" %>" title="Configurar preferências">
               <li class="nav-item wig-sidebar-icon">
                 <i class="fa fa-gear" aria-hidden="true"></i>
               </li>
