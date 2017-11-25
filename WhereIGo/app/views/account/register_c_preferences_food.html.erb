@@ -2,9 +2,8 @@
 <p>Encontre estabelecimentos seus tipos de comida preferido. De quais você gosta?</p>
 <%= flash_message.html_safe %>
 
-<%= form_tag action: 'register_c_preferences_music_create', method: 'POST' do |f| %>
+<%= form_tag action: 'register_c_preferences_food_create', method: 'POST' do |f| %>
 
-    <!--<= select_tag :music, options_from_collection_for_select(Music.all, :id, :name), multiple: true %> -->
     <div class="wig-choices-container">
         <% @checkboxes.each_pair do |id, name| %>
             <div class="wig-pref-choice wig-food">

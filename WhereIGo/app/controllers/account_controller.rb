@@ -137,21 +137,26 @@ class AccountController < ApplicationController
     def register_c_preferences_music
         if user_is_authorized_?
             @title = "Preferências: Música"
-            @checkboxes = {
-                1 => "rock",
-                2 => "pop",
-                3 => "jazz"
-            }
+            musics = Music.all
+            
+            hash_musics = {}
+            
+            musics.each do |m|
+                hash_musics[m.id] = m.name
+            end
+            
+            @checkboxes = hash_musics
+            
             render layout: "pref"
         end
     end
     
     def register_c_preferences_music_create
-        musics = params[:music]
+        musics = params["music"]["genre"]
         user_id = session[:current_user_id]
         if musics != nil
-            musics.each do |c|
-                new_preference = MusicPreference.new ({:music_id => c, :user_id => user_id})
+            musics.each do |m|
+                new_preference = MusicPreference.new ({:music_id => m.to_i, :user_id => user_id})
                 new_preference.save
             end
         end
@@ -161,24 +166,26 @@ class AccountController < ApplicationController
     def register_c_preferences_ambient
         if user_is_authorized_?
             @title = "Preferencias de Ambiente"
-            @checkboxes = {
-                1 => "casual",
-                2 => "familiar",
-                3 => "café",
-                4 => "pub",
-                5 => "bar",
-                6 => "casa de show"
-            }
+            ambients = Ambient.all
+            
+            hash_ambient = {}
+            
+            ambients.each do |a|
+                hash_ambient[a.id] = a.name
+            end
+            
+            @checkboxes = hash_ambient
+            
             render layout: "pref"
         end
     end
     
     def register_c_preferences_ambient_create
-        ambients = params[:ambient]
+        ambients = params["ambient"]["type"]
         user_id = session[:current_user_id]
         if ambients != nil
-            ambients.each do |c|
-                new_preference = AmbientPreference.new ({:ambient_id => c, :user_id => user_id})
+            ambients.each do |a|
+                new_preference = AmbientPreference.new ({:ambient_id => a.to_i, :user_id => user_id})
                 new_preference.save
             end
         end
@@ -189,24 +196,27 @@ class AccountController < ApplicationController
         if user_is_authorized_?
             @title = "Preferencias Gastronômicas"
             
-            @checkboxes = {
-                1 => "tradicional",
-                2 => "japonesa",
-                3 => "pizza",
-                4 => "mexicana",
-                5 => "hambúrguer"
-            }
+            foods = Food.all
+            
+            hash_foods = {}
+            
+            foods.each do |f|
+                hash_foods[f.id] = f.name
+            end
+            
+            @checkboxes = hash_foods
+            
             render layout: "pref"
         end
         
     end
     
     def register_c_preferences_food_create
-        foods = params[:food]
+        foods = params["food"]["type"]
         user_id = session[:current_user_id]
         if foods != nil
             foods.each do |c|
-                new_preference = FoodPreference.new ({:food_id => c, :user_id => user_id})
+                new_preference = FoodPreference.new ({:food_id => c.to_i, :user_id => user_id})
                 new_preference.save
             end
         end

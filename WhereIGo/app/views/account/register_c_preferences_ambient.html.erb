@@ -4,7 +4,6 @@
 
 <%= form_tag action: 'register_c_preferences_ambient_create', method: 'POST' do |f| %>
 
-    <!--<= select_tag :music, options_from_collection_for_select(Music.all, :id, :name), multiple: true %> -->
     <div class="wig-choices-container">
         <% @checkboxes.each_pair do |id, name| %>
             <div class="wig-pref-choice wig-ambient">

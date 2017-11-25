@@ -84,24 +84,29 @@ class DashboardController < ApplicationController
     
     def preference_establishments_result
         @title = "Bares e restaurantes baseados no que você mais gosta"
-        music_preference = MusicPreference.find_by(user_id: user_logged.id)
-        food_preference = FoodPreference.find_by(user_id: user_logged.id)
-        ambient_preference = AmbientPreference.find_by(user_id: user_logged.id)
+        
+        music_preference = MusicPreference.where(user_id: user_logged.id)
+        food_preference = FoodPreference.where(user_id: user_logged.id)
+        ambient_preference = AmbientPreference.where(user_id: user_logged.id)
         
         music_specialyt_match = []
         food_specialyt_match = []
         ambient_specialyt_match =[]
         
-        music_preference.each do |m|
-            music_specialyt_match += MusicSpecialyt.where(music_id: m.music_id)
+        if music_preference == nil
+            music_preference.each do |m|
+                music_specialyt_match += MusicSpeciality.where(music_id: m.music_id)
+            end
         end
-        
-        food_preference.each do |f|
-            food_specialyt_match += FoodSpecialyt.where(food_id: f.food_id)
-        end
-        
-        ambient_preference.each do |a|
-            ambient_specialyt_match = AmbientSpecialyt.where(food_id: a.ambient_id)
+        if food_preference == nil
+            food_preference.each do |f|
+                food_specialyt_match += FoodSpeciality.where(food_id: f.food_id)
+            end
+        end  
+        if ambient_preference == nil
+            ambient_preference.each do |a|
+                ambient_specialyt_match = AmbientSpeciality.where(food_id: a.ambient_id)
+            end
         end
         
         all_matchs = music_specialyt_match + food_specialyt_match + ambient_specialyt_match
