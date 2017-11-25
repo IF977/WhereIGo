@@ -95,6 +95,8 @@ class AccountController < ApplicationController
                 flash_message_special("O email já está em uso.")
                 return
             else
+                uploader = ImageUploader.new
+                uploader.store!(values[:image])
                 new_user.save
         	    session[:current_user_id] = new_user[:id]
         	    redirect_to :action => 'register_profile_choice'
@@ -258,6 +260,8 @@ class AccountController < ApplicationController
         new_establishment = Establishment.new values
         if new_establishment.valid?
     		new_establishment.update_attributes(:user_id => session[:current_user_id])
+    		uploader = ImageUploader.new
+            uploader.store!(values[:image])
     		new_establishment.save!
     		$establishment_id = new_establishment.id
             redirect_to :action => 'register_speciality_music'

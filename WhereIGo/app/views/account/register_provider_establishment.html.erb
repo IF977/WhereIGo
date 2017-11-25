@@ -8,6 +8,9 @@
                 <%= flash_message.html_safe %>
                 <%=form_for :establishment, url: {action: 'register_provider_establishment_create'}, :method => :POST do |e| %>
                     <div id="form-inputs">
+                        <label for="image" class="wig-formlabel">Imagem do estabelecimento</label>    
+                        <%= e.file_field :image, class: "wig-textbox", placeholder: "Imagem do estabelecimento" %>
+                        
                         <label for="name" class="wig-formlabel">Nome</label>
                         <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento" %>
                         
