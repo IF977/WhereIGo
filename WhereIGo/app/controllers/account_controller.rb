@@ -153,9 +153,9 @@ class AccountController < ApplicationController
     
     def register_c_preferences_music_create
         begin
-        musics = params["music"]["genre"]
+            musics = params["music"]["genrer"]
         rescue
-        musics = nil
+            musics = nil
         end
         user_id = session[:current_user_id]
         if musics != nil
@@ -186,9 +186,9 @@ class AccountController < ApplicationController
     
     def register_c_preferences_ambient_create
         begin
-        ambients = params["ambient"]["type"]
+            ambients = params["ambient"]["type"]
         rescue
-        ambients = nil
+            ambients = nil
         end
         user_id = session[:current_user_id]
         if ambients != nil
@@ -221,9 +221,9 @@ class AccountController < ApplicationController
     
     def register_c_preferences_food_create
         begin
-        foods = params["food"]["type"]
+            foods = params["food"]["type"]
         rescue
-        foods = nil
+            foods = nil
         end
         user_id = session[:current_user_id]
         if foods != nil
