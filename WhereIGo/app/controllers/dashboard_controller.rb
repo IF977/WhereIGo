@@ -68,9 +68,9 @@ class DashboardController < ApplicationController
            ambient_preference.each do |a|
             ambient_specialyt_match = AmbientSpeciality.where(ambient_id: a.ambient_id)
           end
-       end
+        end
        
-       all_matchs = music_specialyt_match + food_specialyt_match + ambient_specialyt_match
+        all_matchs = music_specialyt_match + food_specialyt_match + ambient_specialyt_match
         
         establishments = []
         all_matchs.each do |e|
