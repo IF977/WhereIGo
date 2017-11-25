@@ -131,10 +131,10 @@ class AccountController < ApplicationController
     end
     
     def register_profile_client
-        redirect_to :action => 'register_c_preferences_music'
+        redirect_to :action => 'register_preferences_music'
     end
     
-    def register_c_preferences_music
+    def register_preferences_music
         if user_is_authorized_?
             @title = "Preferências: Música"
             musics = Music.all
@@ -142,7 +142,7 @@ class AccountController < ApplicationController
             hash_musics = {}
             
             musics.each do |m|
-                hash_musics[m.id] = m.name
+                hash_musics[m.id] = m.name, MusicPreference.exists?(:user_id=> user_logged.id,:music_id=>m.id)
             end
             
             @checkboxes = hash_musics
@@ -151,23 +151,25 @@ class AccountController < ApplicationController
         end
     end
     
-    def register_c_preferences_music_create
+    def register_preferences_music_create
         begin
-            musics = params["music"]["genrer"]
+            musics = params["music"]
         rescue
             musics = nil
         end
-        user_id = session[:current_user_id]
+        user_id = user_logged.id
         if musics != nil
             musics.each do |m|
-                new_preference = MusicPreference.new ({:music_id => m.to_i, :user_id => user_id})
-                new_preference.save
+                if not MusicPreference.exists?(:user_id=>user_id,:music_id=>m.to_i)
+                    new_preference = MusicPreference.new ({:music_id => m.to_i, :user_id => user_id})
+                    new_preference.save
+                end
             end
         end
-         redirect_to :action => 'register_c_preferences_ambient'
+         redirect_to :action => 'register_preferences_ambient'
     end
     
-    def register_c_preferences_ambient
+    def register_preferences_ambient
         if user_is_authorized_?
             @title = "Preferencias de Ambiente"
             ambients = Ambient.all
@@ -175,7 +177,7 @@ class AccountController < ApplicationController
             hash_ambient = {}
             
             ambients.each do |a|
-                hash_ambient[a.id] = a.name
+                hash_ambient[a.id] = a.name, AmbientPreference.exists?(:user_id=>user_logged.id,:ambient_id=>a.id)
             end
             
             @checkboxes = hash_ambient
@@ -184,23 +186,25 @@ class AccountController < ApplicationController
         end
     end
     
-    def register_c_preferences_ambient_create
+    def register_preferences_ambient_create
         begin
-            ambients = params["ambient"]["type"]
+            ambients = params["ambient"]
         rescue
             ambients = nil
         end
-        user_id = session[:current_user_id]
+        user_id = user_logged.id
         if ambients != nil
             ambients.each do |a|
-                new_preference = AmbientPreference.new ({:ambient_id => a.to_i, :user_id => user_id})
-                new_preference.save
+                if not AmbientPreference.exists?(:user_id=>user_id,:ambient_id=>a.to_i)
+                    new_preference = AmbientPreference.new ({:ambient_id => a.to_i, :user_id => user_id})
+                    new_preference.save
+                end
             end
         end
-        redirect_to :action => 'register_c_preferences_food'
+        redirect_to :action => 'register_preferences_food'
     end
     
-    def register_c_preferences_food
+    def register_preferences_food
         if user_is_authorized_?
             @title = "Preferencias Gastronômicas"
             
@@ -209,7 +213,7 @@ class AccountController < ApplicationController
             hash_foods = {}
             
             foods.each do |f|
-                hash_foods[f.id] = f.name
+                hash_foods[f.id] = f.name, FoodPreference.exists?(:user_id =>user_logged.id, :food_id => f.id)
             end
             
             @checkboxes = hash_foods
@@ -219,17 +223,19 @@ class AccountController < ApplicationController
         
     end
     
-    def register_c_preferences_food_create
+    def register_preferences_food_create
         begin
-            foods = params["food"]["type"]
+            foods = params["food"]
         rescue
             foods = nil
         end
-        user_id = session[:current_user_id]
+        user_id = user_logged.id
         if foods != nil
-            foods.each do |c|
-                new_preference = FoodPreference.new ({:food_id => c.to_i, :user_id => user_id})
-                new_preference.save
+            foods.each do |f|
+                if not FoodPreference.exists?(:user_id =>user_id, :food_id => f.to_i)
+                    new_preference = FoodPreference.new ({:food_id => f.to_i, :user_id => user_id})
+                    new_preference.save
+                end
             end
         end
         redirect_to({:controller => 'dashboard', :action => 'all_establishments'})
@@ -254,7 +260,7 @@ class AccountController < ApplicationController
     		new_establishment.update_attributes(:user_id => session[:current_user_id])
     		new_establishment.save!
     		$establishment_id = new_establishment.id
-            redirect_to :action => 'register_p_speciality_music'
+            redirect_to :action => 'register_speciality_music'
             return
         else
             if params[:establishment][:name].strip == ""
@@ -267,67 +273,115 @@ class AccountController < ApplicationController
         end
     end
     
-    def register_p_speciality_music
+    def register_speciality_music
         if user_is_authorized_?
-            @title = "Especialidade Musical"
-            render layout: "login-signup"
+            @title = "Especialidade: Música"
+            musics = Music.all
+            
+            hash_musics = {}
+            
+            musics.each do |m|
+                hash_musics[m.id] = m.name, MusicSpeciality.exists?(:establishment_id => $establishment_id,:music_id => m.id)
+            end
+            
+            @checkboxes = hash_musics
+            
+            render layout: "pref"
         end
     end
     
-    def register_p_speciality_music_create
-        musics = params[:music]
+    def register_speciality_music_create
+        begin
+            musics = params["music"]
+        rescue
+            musics = nil
+        end
         establishment_id = $establishment_id
         if musics != nil
-            musics.each do |c|
-                new_preference = MusicSpeciality.new ({:music_id => c, :establishment_id => establishment_id})
-                new_preference.save
+            musics.each do |m|
+                if not MusicSpeciality.exists?(:establishment_id => establishment_id,:music_id => m.to_i)
+                    new_speciality = MusicSpeciality.new ({:music_id => m.to_i, :establishment_id => establishment_id})
+                    new_speciality.save
+                end
             end
         end
-        redirect_to :action => 'register_p_speciality_ambient'
+         redirect_to :action => 'register_speciality_ambient'
     end
     
-    def register_p_speciality_ambient
+    def register_speciality_ambient
         if user_is_authorized_?
-            @title = "Especialidade de Ambiente"
-            render layout: "login-signup"
+            @title = "Especialidade: Ambiente"
+            ambients = Ambient.all
+            
+            hash_ambients = {}
+            
+            ambients.each do |a|
+                hash_ambients[a.id] = a.name, AmbientSpeciality.exists?(:establishment_id => $establishment_id,:ambient_id => a.id)
+            end
+            
+            @checkboxes = hash_ambients
+            
+            render layout: "pref"
         end
     end
     
-    def register_p_speciality_ambient_create
-        ambients = params[:ambient]
+    def register_speciality_ambient_create
+        begin
+            ambients = params["ambient"]
+        rescue
+            ambients = nil
+        end
         establishment_id = $establishment_id
         if ambients != nil
-            ambients.each do |c|
-                new_preference = AmbientSpeciality.new ({:ambient_id => c, :establishment_id => establishment_id})
-                new_preference.save
+            ambients.each do |a|
+                if not AmbientSpeciality.exists?(:establishment_id => establishment_id,:ambient_id => a.to_i)
+                    new_speciality = AmbientSpeciality.new ({:ambient_id => a.to_i, :establishment_id => establishment_id})
+                    new_speciality.save
+                end
             end
         end
-        redirect_to :action => 'register_p_speciality_food'
+        redirect_to :action => 'register_speciality_food'
     end
     
     
         
-    def register_p_speciality_food
-        if user_is_authorized_?
-            @title = "Especialidade Gastronômica"
-            render layout: "login-signup"
+    def register_speciality_food
+       if user_is_authorized_?
+            @title = "Especialidade: Ambiente"
+            foods = Food.all
+            
+            hash_foods = {}
+            
+            foods.each do |f|
+                hash_foods[f.id] = f.name, FoodSpeciality.exists?(:establishment_id => $establishment_id,:food_id => f.id)
+            end
+            
+            @checkboxes = hash_foods
+            
+            render layout: "pref"
         end
     end
     
-    def register_p_speciality_food_create
-        foods = params[:food]
+    def register_speciality_food_create
+        begin
+            foods = params["food"]
+        rescue
+            foods = nil
+        end
         establishment_id = $establishment_id
         if foods != nil
-            foods.each do |c|
-                new_preference = FoodSpeciality.new ({:food_id => c, :establishment_id => establishment_id})
-                new_preference.save
+            foods.each do |f|
+                if not FoodSpeciality.exists?(:establishment_id => establishment_id,:food_id => f.to_i)
+                    new_speciality = FoodSpeciality.new ({:food_id => f.to_i, :establishment_id => establishment_id})
+                    new_speciality.save
+                end
             end
         end
         redirect_to({:controller => 'dashboard', :action => 'all_establishments'})
     end
     
     
-    def add_provider_profile
+    def add_provider_permisson
         user_id = session[:current_user_id]
         User.update(user_id, :is_provider => true)
         redirect_to({:controller => 'dashboard', :action => 'my_establishments'})

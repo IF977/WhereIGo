@@ -1,0 +1,19 @@
+<h1>Seu ambiente ideal</h1>
+<p>Encontre estabelecimentos que combinem com seu astral. Quais tipos de ambiente são mais agradáveis?</p>
+<%= flash_message.html_safe %>
+
+<%= form_tag action: 'register_preferences_ambient_create', method: 'POST' do |f| %>
+
+    <div class="wig-choices-container">
+        <% @checkboxes.each_pair do |id, array| %>
+            <div class="wig-pref-choice wig-ambient">
+                <%= check_box_tag("ambient[]", id, array[1]) %>
+                <label><%= array[0] %></label>
+            </div>
+        <% end %>
+    </div>
+    
+    <div class="wig-pref-buttons">
+        <%= submit_tag "Continuar", class: "wig-button" %>
+    </div>
+<% end %>

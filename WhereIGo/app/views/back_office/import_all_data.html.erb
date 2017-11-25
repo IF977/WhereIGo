@@ -1,0 +1,30 @@
+<h1><%=@title %></h1>
+<div class="container" id="flex-container">     
+    <div class="col-md-4" id="signup">
+        <section class="login-form">
+                <div id="logo-signup">
+                    <%=image_tag("wig-logo-signup.png", class: "img-responsive")%>
+                </div>
+                
+                <%=form_for :file, url: {action: 'bootstrap_all_data'}, :method => :POST do |f| %>
+                    <div id="form-inputs">
+                        
+                        <label for="file_e" class="wig-formlabel">Estabelecimentos e especialidades(dados abertos)</label>    
+                        <%= f.file_field :file_establishments, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
+                        <br>
+                        
+                        <label for="file_m" class="wig-formlabel">Musicas</label>    
+                        <%= f.file_field :file_musics, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
+                        <br>
+                        
+                        <label for="file_a" class="wig-formlabel">Ambientes</label>    
+                        <%= f.file_field :file_ambients, class: "wig-textbox", placeholder: "Coloque sua imagem" %>
+                        <br>
+                        
+                    </div>
+                    <%= f.submit "Continuar", class: "wig-button" %>
+                <%end%>
+                
+        </section>  
+    </div>
+</div>

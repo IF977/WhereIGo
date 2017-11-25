@@ -1,0 +1,19 @@
+<h1>Sua especialidade gastronômica</h1>
+<p>Descreva corretamente a especialidade gastronômica do seu estabelecimento para que outros usuários possam encontra-ló. Portanto em qual especialidade gastrômica seu estabelecimento mais se encaixa?</p>
+<%= flash_message.html_safe %>
+
+<%= form_tag action: 'register_speciality_food_create', method: 'POST' do |f| %>
+
+    <div class="wig-choices-container">
+        <% @checkboxes.each_pair do |id, array| %>
+            <div class="wig-pref-choice wig-food">
+                <%= check_box_tag("food[]", id, array[1]) %>
+                <label><%= array[0] %></label>
+            </div>
+        <% end %>
+    </div>
+    
+    <div class="wig-pref-buttons">
+        <%= submit_tag "Continuar", class: "wig-button" %>
+    </div>
+<% end %>

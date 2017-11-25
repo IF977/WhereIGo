@@ -1,0 +1,19 @@
+<h1>Seus sabores prediletos</h1>
+<p>Encontre estabelecimentos seus tipos de comida preferido. De quais você gosta?</p>
+<%= flash_message.html_safe %>
+
+<%= form_tag action: 'register_preferences_food_create', method: 'POST' do |f| %>
+
+    <div class="wig-choices-container">
+        <% @checkboxes.each_pair do |id, array| %>
+            <div class="wig-pref-choice wig-food">
+                <%= check_box_tag("food[]", id, array[1]) %>
+                <label><%= array[0] %></label>
+            </div>
+        <% end %>
+    </div>
+    
+    <div class="wig-pref-buttons">
+        <%= submit_tag "Continuar", class: "wig-button" %>
+    </div>
+<% end %>
