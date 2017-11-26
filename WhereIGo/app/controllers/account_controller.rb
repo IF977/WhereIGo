@@ -361,7 +361,7 @@ class AccountController < ApplicationController
             musics = nil
         end
         
-        establishment_music_speciality_query = MusicSpeciality.where(:establishment_id => establishment_id, :is_active => true)
+        establishment_music_speciality_query = MusicSpeciality.where(:establishment_id => $establishment_id, :is_active => true)
         
         establishment_music_speciality = []
         establishment_music = []
@@ -379,7 +379,7 @@ class AccountController < ApplicationController
                     new_speciality = MusicSpeciality.new ({:music_id => m, :establishment_id => establishment_id})
                     new_speciality.save
                 else
-                    index = establishment_music.find(m)
+                    index = establishment_music.index(m)
                     establishment_music_speciality.delete_at(index)
                 end
             end
@@ -416,7 +416,7 @@ class AccountController < ApplicationController
             ambients = nil
         end
         
-        establishment_ambient_speciality_query = AmbientSpeciality.where(:establishment_id => establishment_id, :is_active => true)
+        establishment_ambient_speciality_query = AmbientSpeciality.where(:establishment_id => $establishment_id, :is_active => true)
         
         establishment_ambient_speciality = []
         establishment_ambient = []
@@ -429,12 +429,12 @@ class AccountController < ApplicationController
         if ambients != nil
             ambients.each do |a|
                 a = a.to_i
-                if not establishment_food.include?(a)
+                if not establishment_ambient.include?(a)
                     new_speciality = AmbientSpeciality.new ({:ambient_id => a, :establishment_id => establishment_id})
                     new_speciality.save
                 else
-                    index = establishment_ambient.find(a)
-                    establishment_ambient_speciality.delete_at(index) 
+                    index = establishment_ambient.index(a)
+                    establishment_ambient_speciality.delete_at(index)
                 end
             end
         end
@@ -473,7 +473,7 @@ class AccountController < ApplicationController
         end
         establishment_id = $establishment_id
         
-        establishment_food_speciality_query = FoodSpeciality.where(:establishment_id => establishment_id, :is_active => true)
+        establishment_food_speciality_query = FoodSpeciality.where(:establishment_id => $establishment_id, :is_active => true)
         
         establishment_food_speciality = []
         establishment_food = []
@@ -489,7 +489,7 @@ class AccountController < ApplicationController
                     new_speciality = FoodSpeciality.new ({:food_id => f, :establishment_id => establishment_id})
                     new_speciality.save
                 else
-                    index = establishment_food.find(f)
+                    index = establishment_food.index(f)
                     establishment_food_speciality.delete_at(index)
                 end
             end

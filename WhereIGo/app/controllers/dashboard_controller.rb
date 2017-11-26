@@ -25,7 +25,7 @@ class DashboardController < ApplicationController
             if provider_autorization
                 user = user_logged()
                 if user.is_provider != true
-                    redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É Necessário perfil de provedor para acessar essa função!"}) and return false
+                    redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É Necessária permissão de provedor para acessar essa função!"}) and return false
                 end
             end
             return true
@@ -46,6 +46,10 @@ class DashboardController < ApplicationController
         music_preference = MusicPreference.where(user_id: user_logged.id, is_active: true)
         food_preference = FoodPreference.where(user_id: user_logged.id, is_active: true)
         ambient_preference = AmbientPreference.where(user_id: user_logged.id, is_active: true)
+        
+        if music_preference == [] and food_preference == [] and ambient_preference == []
+            redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É Necessário definir suas preferências para prosseguir, para fazê-lo clique no ícone da engrenagem."}) and return
+        end
         
         music_specialyt_match = []
         food_specialyt_match = []
