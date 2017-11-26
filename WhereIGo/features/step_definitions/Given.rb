@@ -49,7 +49,7 @@ Given(/^Existe um estabelecimento visível a mim$/) do
 end
 
 Given(/^Eu tenho um estabelecimento$/) do
-    @establishment = Establishment.new(name: "Caldinho do Edu", address: "Rua do CDU", email:"caldo@caldo", website:"caldo.com", user_id: 1)
+    @establishment = Establishment.new(name: "Caldinho do Edu", address: "Rua do CDU", email:"caldo@caldo", website:"caldo.com", user_id: @user.id)
     @establishment.save!
 end
 
