@@ -48,8 +48,11 @@ class DashboardController < ApplicationController
         ambient_preference = AmbientPreference.where(user_id: user_logged.id, is_active: true)
         
         if music_preference == [] and food_preference == [] and ambient_preference == []
-            redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É Necessário definir suas preferências para prosseguir, para fazê-lo clique no ícone da engrenagem."}) and return
+            @preferences_set = false
+            return
         end
+        
+        @preferences_set = true
         
         music_specialyt_match = []
         food_specialyt_match = []
