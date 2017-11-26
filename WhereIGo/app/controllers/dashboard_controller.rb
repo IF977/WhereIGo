@@ -265,8 +265,9 @@ class DashboardController < ApplicationController
         
         if user_is_authorized_?(true) and user_is_host_?
             render layout: "dashboard"
+            return
         else
-            redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É ser dono do estabelecimento para fazer modificações!"})
+            redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É preciso ser dono do estabelecimento para fazer modificações!"}) and return
         end
         
         
