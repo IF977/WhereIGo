@@ -25,7 +25,7 @@ class DashboardController < ApplicationController
             if provider_autorization
                 user = user_logged()
                 if user.is_provider != true
-                    redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É Necessário perfil de provedor para acessar essa função!"}) and return false
+                    redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É Necessária permissão de provedor para acessar essa função!"}) and return false
                 end
             end
             return true
@@ -43,9 +43,16 @@ class DashboardController < ApplicationController
 
     def preference_establishments_result
         @title = "Bares e restaurantes baseados no que você mais gosta"
-        music_preference = MusicPreference.where(user_id: user_logged.id)
-        food_preference = FoodPreference.where(user_id: user_logged.id)
-        ambient_preference = AmbientPreference.where(user_id: user_logged.id)
+        music_preference = MusicPreference.where(user_id: user_logged.id, is_active: true)
+        food_preference = FoodPreference.where(user_id: user_logged.id, is_active: true)
+        ambient_preference = AmbientPreference.where(user_id: user_logged.id, is_active: true)
+        
+        if music_preference == [] and food_preference == [] and ambient_preference == []
+            @preferences_set = false
+            return
+        end
+        
+        @preferences_set = true
         
         music_specialyt_match = []
         food_specialyt_match = []
@@ -53,19 +60,19 @@ class DashboardController < ApplicationController
         
         if music_preference != nil
             music_preference.each do |m|
-                music_specialyt_match += MusicSpeciality.where(music_id: m.music_id)
+                music_specialyt_match += MusicSpeciality.where(music_id: m.music_id, is_active: true)
             end
         end
         
         if food_preference != nil
             food_preference.each do |f|
-                food_specialyt_match += FoodSpeciality.where(food_id: f.food_id)
+                food_specialyt_match += FoodSpeciality.where(food_id: f.food_id, is_active: true)
             end
         end
         
         if ambient_preference != nil
             ambient_preference.each do |a|
-                ambient_specialyt_match += AmbientSpeciality.where(ambient_id: a.ambient_id)
+                ambient_specialyt_match += AmbientSpeciality.where(ambient_id: a.ambient_id, is_active: true)
             end
         end
         
@@ -85,7 +92,7 @@ class DashboardController < ApplicationController
         @filter = params[:filter]
         @title = "Resultado de pesquisa para " + @filter
         e = Establishment.arel_table
-        @establishments = Establishment.where(e[:name].matches("%#{@filter}%"))
+        @establishments = Establishment.where(e[:name].matches("%#{@filter}%")).where(:is_active => true)
         if user_is_authorized_?
             render layout: "dashboard"
         end
@@ -94,7 +101,7 @@ class DashboardController < ApplicationController
     
     def all_establishments
         @title = "Dashboard"
-        @establishments = Establishment.all
+        @establishments = Establishment.where(is_active: true)
         
         if user_is_authorized_?
             render layout: "dashboard"
@@ -105,9 +112,9 @@ class DashboardController < ApplicationController
         @e = Establishment.find_by(id: params[:id])
         @title = @e.name
         
-        establishment_food_speciality = FoodSpeciality.where(:establishment_id => @e.id)
-        establishment_music_speciality = MusicSpeciality.where(:establishment_id => @e.id)
-        establishment_ambient_speciality = AmbientSpeciality.where(:establishment_id => @e.id)
+        establishment_food_speciality = FoodSpeciality.where(:establishment_id => @e.id, is_active: true)
+        establishment_music_speciality = MusicSpeciality.where(:establishment_id => @e.id, is_active: true)
+        establishment_ambient_speciality = AmbientSpeciality.where(:establishment_id => @e.id, is_active: true)
         
         @food_tag = []
         @music_tag = []
@@ -153,7 +160,7 @@ class DashboardController < ApplicationController
         
         @comments = []
         
-        all_comments = EstablishmentComment.where(:establishment_id => @e.id)
+        all_comments = EstablishmentComment.where(:establishment_id => @e.id, is_active: true)
         all_comments.each do |c|
             user = User.find_by(id: c.user_id)
             user_name = user.name
@@ -246,7 +253,7 @@ class DashboardController < ApplicationController
     
     def my_establishments
         @title = "Meus estabelecimentos"
-        @establishments = Establishment.where(user_id: session[:current_user_id])
+        @establishments = Establishment.where(user_id: session[:current_user_id], is_active: true)
         if user_is_authorized_?(true)
             render layout: "dashboard"
         end
@@ -256,9 +263,12 @@ class DashboardController < ApplicationController
         
         @establishments = Establishment.find_by(id: params[:id])
         
-        if user_is_authorized_?(true)
+        if user_is_authorized_?(true) and user_is_host_?
             render layout: "dashboard"
+        else
+            redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É ser dono do estabelecimento para fazer modificações!"})
         end
+        
         
     end
     
@@ -284,6 +294,14 @@ class DashboardController < ApplicationController
         end
     end
     
-    
+    def remove_my_establishment
+        if user_is_host_?
+            Establishment.update(params[:id], :is_active => false)
+            redirect_to :action => 'my_establishments'
+            return
+        end
+        redirect_to :action => 'all_establishments'
+        return
+    end
     
 end

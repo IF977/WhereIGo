@@ -77,6 +77,8 @@ Rails.application.routes.draw do
     
     post 'dashboard/my_establishment/update/:id' => 'dashboard#update_my_establishment'
     
+    get 'dashboard/my_establishment/remove/:id' => 'dashboard#remove_my_establishment'
+    
     get 'backoffice/import' => 'back_office#import_all_data'
     
     post 'backoffice/bootstrap/data' => 'back_office#bootstrap_all_data'
