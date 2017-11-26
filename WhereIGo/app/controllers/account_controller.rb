@@ -144,7 +144,7 @@ class AccountController < ApplicationController
             hash_musics = {}
             
             musics.each do |m|
-                hash_musics[m.id] = m.name, MusicPreference.exists?(:user_id=> user_logged.id,:music_id=>m.id)
+                hash_musics[m.id] = m.name, MusicPreference.exists?(:user_id=> user_logged.id,:music_id=>m.id, :is_active => true)
             end
             
             @checkboxes = hash_musics
@@ -159,15 +159,35 @@ class AccountController < ApplicationController
         rescue
             musics = nil
         end
+        
+        user_music_preference_query = MusicPreference.where(:user_id => user_logged.id, :is_active => true)
+        
+        user_music_preference = []
+        user_music = []
+        user_music_preference_query.each do |q|
+            user_music << q.music_id
+            user_music_preference << q.id
+		end
+        
         user_id = user_logged.id
+        
         if musics != nil
             musics.each do |m|
-                if not MusicPreference.exists?(:user_id=>user_id,:music_id=>m.to_i)
-                    new_preference = MusicPreference.new ({:music_id => m.to_i, :user_id => user_id})
+                m = m.to_i
+                if not user_music.include?(m)
+                    new_preference = MusicPreference.new ({:music_id => m, :user_id => user_id})
                     new_preference.save
+                else
+                    index = user_music.index(m)
+                    user_music_preference.delete_at(index)
                 end
             end
         end
+        
+        user_music_preference.each do |u|
+            MusicPreference.update(u, :is_active => false)
+        end
+        
          redirect_to :action => 'register_preferences_ambient'
     end
     
@@ -179,7 +199,7 @@ class AccountController < ApplicationController
             hash_ambient = {}
             
             ambients.each do |a|
-                hash_ambient[a.id] = a.name, AmbientPreference.exists?(:user_id=>user_logged.id,:ambient_id=>a.id)
+                hash_ambient[a.id] = a.name, AmbientPreference.exists?(:user_id=>user_logged.id,:ambient_id=>a.id, :is_active => true)
             end
             
             @checkboxes = hash_ambient
@@ -194,15 +214,35 @@ class AccountController < ApplicationController
         rescue
             ambients = nil
         end
+        
+        user_ambient_preference_query = AmbientPreference.where(:user_id => user_logged.id, :is_active => true)
+        
+        user_ambient_preference = []
+        user_ambient = []
+        user_ambient_preference_query.each do |q|
+            user_ambient << q.ambient_id
+            user_ambient_preference << q.id
+		end
+        
         user_id = user_logged.id
+        
         if ambients != nil
             ambients.each do |a|
-                if not AmbientPreference.exists?(:user_id=>user_id,:ambient_id=>a.to_i)
-                    new_preference = AmbientPreference.new ({:ambient_id => a.to_i, :user_id => user_id})
+                a = a.to_i
+                if not user_ambient.include?(a)
+                    new_preference = AmbientPreference.new ({:ambient_id => a, :user_id => user_id})
                     new_preference.save
+                else
+                    index = user_ambient.index(a)
+                    user_ambient_preference.delete_at(index)
                 end
             end
         end
+        
+        user_ambient_preference.each do |u|
+            AmbientPreference.update(u, :is_active => false)
+        end
+        
         redirect_to :action => 'register_preferences_food'
     end
     
@@ -215,7 +255,7 @@ class AccountController < ApplicationController
             hash_foods = {}
             
             foods.each do |f|
-                hash_foods[f.id] = f.name, FoodPreference.exists?(:user_id =>user_logged.id, :food_id => f.id)
+                hash_foods[f.id] = f.name, FoodPreference.exists?(:user_id =>user_logged.id, :food_id => f.id, :is_active => true)
             end
             
             @checkboxes = hash_foods
@@ -231,15 +271,35 @@ class AccountController < ApplicationController
         rescue
             foods = nil
         end
+        
+        user_food_preference_query = FoodPreference.where(:user_id => user_logged.id, :is_active => true)
+        
+        user_food_preference = []
+        user_food = []
+        user_food_preference_query.each do |q|
+            user_food << q.food_id
+            user_food_preference << q.id
+		end
+        
         user_id = user_logged.id
+        
         if foods != nil
             foods.each do |f|
-                if not FoodPreference.exists?(:user_id =>user_id, :food_id => f.to_i)
-                    new_preference = FoodPreference.new ({:food_id => f.to_i, :user_id => user_id})
+                f = f.to_i
+                if not user_food.include?(f)
+                    new_preference = FoodPreference.new ({:food_id => f, :user_id => user_id})
                     new_preference.save
+                else
+                    index = user_food.index(f)
+                    user_food_preference.delete_at(index)
                 end
             end
         end
+        
+        user_food_preference.each do |u|
+            FoodPreference.update(u, :is_active => false)
+        end
+        
         redirect_to({:controller => 'dashboard', :action => 'all_establishments'})
     end
     
@@ -285,7 +345,7 @@ class AccountController < ApplicationController
             hash_musics = {}
             
             musics.each do |m|
-                hash_musics[m.id] = m.name, MusicSpeciality.exists?(:establishment_id => $establishment_id,:music_id => m.id)
+                hash_musics[m.id] = m.name, MusicSpeciality.exists?(:establishment_id => $establishment_id,:music_id => m.id, :is_active => true)
             end
             
             @checkboxes = hash_musics
@@ -300,15 +360,35 @@ class AccountController < ApplicationController
         rescue
             musics = nil
         end
+        
+        establishment_music_speciality_query = MusicSpeciality.where(:establishment_id => establishment_id, :is_active => true)
+        
+        establishment_music_speciality = []
+        establishment_music = []
+        establishment_music_speciality_query.each do |q|
+            establishment_music << q.music_id
+            establishment_music_speciality << q.id
+		end
+        
         establishment_id = $establishment_id
+        
         if musics != nil
             musics.each do |m|
-                if not MusicSpeciality.exists?(:establishment_id => establishment_id,:music_id => m.to_i)
-                    new_speciality = MusicSpeciality.new ({:music_id => m.to_i, :establishment_id => establishment_id})
+                m = m.to_i
+                if not establishment_music.include?(m)
+                    new_speciality = MusicSpeciality.new ({:music_id => m, :establishment_id => establishment_id})
                     new_speciality.save
+                else
+                    index = establishment_music.find(m)
+                    establishment_music_speciality.delete_at(index)
                 end
             end
         end
+        
+        establishment_music_speciality.each do |u|
+            MusicSpeciality.update(u, :is_active => false)
+        end
+        
          redirect_to :action => 'register_speciality_ambient'
     end
     
@@ -320,7 +400,7 @@ class AccountController < ApplicationController
             hash_ambients = {}
             
             ambients.each do |a|
-                hash_ambients[a.id] = a.name, AmbientSpeciality.exists?(:establishment_id => $establishment_id,:ambient_id => a.id)
+                hash_ambients[a.id] = a.name, AmbientSpeciality.exists?(:establishment_id => $establishment_id,:ambient_id => a.id, :is_active => true)
             end
             
             @checkboxes = hash_ambients
@@ -335,29 +415,48 @@ class AccountController < ApplicationController
         rescue
             ambients = nil
         end
+        
+        establishment_ambient_speciality_query = AmbientSpeciality.where(:establishment_id => establishment_id, :is_active => true)
+        
+        establishment_ambient_speciality = []
+        establishment_ambient = []
+        establishment_ambient_speciality_query.each do |q|
+            establishment_ambient << q.ambient_id
+            establishment_ambient_speciality << q.id
+		end
+        
         establishment_id = $establishment_id
         if ambients != nil
             ambients.each do |a|
-                if not AmbientSpeciality.exists?(:establishment_id => establishment_id,:ambient_id => a.to_i)
-                    new_speciality = AmbientSpeciality.new ({:ambient_id => a.to_i, :establishment_id => establishment_id})
+                a = a.to_i
+                if not establishment_food.include?(a)
+                    new_speciality = AmbientSpeciality.new ({:ambient_id => a, :establishment_id => establishment_id})
                     new_speciality.save
+                else
+                    index = establishment_ambient.find(a)
+                    establishment_ambient_speciality.delete_at(index) 
                 end
             end
         end
+        
+        establishment_ambient_speciality.each do |u|
+            AmbientSpeciality.update(u, :is_active => false)
+        end
+        
         redirect_to :action => 'register_speciality_food'
     end
     
     
         
     def register_speciality_food
-       if user_is_authorized_?
+        if user_is_authorized_?
             @title = "Especialidade: Ambiente"
             foods = Food.all
             
             hash_foods = {}
             
             foods.each do |f|
-                hash_foods[f.id] = f.name, FoodSpeciality.exists?(:establishment_id => $establishment_id,:food_id => f.id)
+                hash_foods[f.id] = f.name, FoodSpeciality.exists?(:establishment_id => $establishment_id,:food_id => f.id, :is_active => true)
             end
             
             @checkboxes = hash_foods
@@ -373,14 +472,33 @@ class AccountController < ApplicationController
             foods = nil
         end
         establishment_id = $establishment_id
+        
+        establishment_food_speciality_query = FoodSpeciality.where(:establishment_id => establishment_id, :is_active => true)
+        
+        establishment_food_speciality = []
+        establishment_food = []
+        establishment_food_speciality_query.each do |q|
+            establishment_food << q.food_id
+            establishment_food_speciality << q.id
+        end
+        
         if foods != nil
             foods.each do |f|
-                if not FoodSpeciality.exists?(:establishment_id => establishment_id,:food_id => f.to_i)
-                    new_speciality = FoodSpeciality.new ({:food_id => f.to_i, :establishment_id => establishment_id})
+                f = f.to_i
+                if not establishment_food.include?(f)
+                    new_speciality = FoodSpeciality.new ({:food_id => f, :establishment_id => establishment_id})
                     new_speciality.save
+                else
+                    index = establishment_food.find(f)
+                    establishment_food_speciality.delete_at(index)
                 end
             end
         end
+        
+        establishment_food_speciality.each do |u|
+            FoodSpeciality.update(u, :is_active => false)
+        end
+        
         redirect_to({:controller => 'dashboard', :action => 'all_establishments'})
     end
     

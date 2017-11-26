@@ -43,9 +43,9 @@ class DashboardController < ApplicationController
 
     def preference_establishments_result
         @title = "Bares e restaurantes baseados no que você mais gosta"
-        music_preference = MusicPreference.where(user_id: user_logged.id)
-        food_preference = FoodPreference.where(user_id: user_logged.id)
-        ambient_preference = AmbientPreference.where(user_id: user_logged.id)
+        music_preference = MusicPreference.where(user_id: user_logged.id, is_active: true)
+        food_preference = FoodPreference.where(user_id: user_logged.id, is_active: true)
+        ambient_preference = AmbientPreference.where(user_id: user_logged.id, is_active: true)
         
         music_specialyt_match = []
         food_specialyt_match = []
@@ -53,19 +53,19 @@ class DashboardController < ApplicationController
         
         if music_preference != nil
             music_preference.each do |m|
-                music_specialyt_match += MusicSpeciality.where(music_id: m.music_id)
+                music_specialyt_match += MusicSpeciality.where(music_id: m.music_id, is_active: true)
             end
         end
         
         if food_preference != nil
             food_preference.each do |f|
-                food_specialyt_match += FoodSpeciality.where(food_id: f.food_id)
+                food_specialyt_match += FoodSpeciality.where(food_id: f.food_id, is_active: true)
             end
         end
         
         if ambient_preference != nil
             ambient_preference.each do |a|
-                ambient_specialyt_match += AmbientSpeciality.where(ambient_id: a.ambient_id)
+                ambient_specialyt_match += AmbientSpeciality.where(ambient_id: a.ambient_id, is_active: true)
             end
         end
         
@@ -85,7 +85,7 @@ class DashboardController < ApplicationController
         @filter = params[:filter]
         @title = "Resultado de pesquisa para " + @filter
         e = Establishment.arel_table
-        @establishments = Establishment.where(e[:name].matches("%#{@filter}%"))
+        @establishments = Establishment.where(e[:name].matches("%#{@filter}%"), is_active: true)
         if user_is_authorized_?
             render layout: "dashboard"
         end
@@ -94,7 +94,7 @@ class DashboardController < ApplicationController
     
     def all_establishments
         @title = "Dashboard"
-        @establishments = Establishment.all
+        @establishments = Establishment.where(is_active: true)
         
         if user_is_authorized_?
             render layout: "dashboard"
@@ -105,9 +105,9 @@ class DashboardController < ApplicationController
         @e = Establishment.find_by(id: params[:id])
         @title = @e.name
         
-        establishment_food_speciality = FoodSpeciality.where(:establishment_id => @e.id)
-        establishment_music_speciality = MusicSpeciality.where(:establishment_id => @e.id)
-        establishment_ambient_speciality = AmbientSpeciality.where(:establishment_id => @e.id)
+        establishment_food_speciality = FoodSpeciality.where(:establishment_id => @e.id, is_active: true)
+        establishment_music_speciality = MusicSpeciality.where(:establishment_id => @e.id, is_active: true)
+        establishment_ambient_speciality = AmbientSpeciality.where(:establishment_id => @e.id, is_active: true)
         
         @food_tag = []
         @music_tag = []
@@ -153,7 +153,7 @@ class DashboardController < ApplicationController
         
         @comments = []
         
-        all_comments = EstablishmentComment.where(:establishment_id => @e.id)
+        all_comments = EstablishmentComment.where(:establishment_id => @e.id, is_active: true)
         all_comments.each do |c|
             user = User.find_by(id: c.user_id)
             user_name = user.name
@@ -246,7 +246,7 @@ class DashboardController < ApplicationController
     
     def my_establishments
         @title = "Meus estabelecimentos"
-        @establishments = Establishment.where(user_id: session[:current_user_id])
+        @establishments = Establishment.where(user_id: session[:current_user_id], is_active: true)
         if user_is_authorized_?(true)
             render layout: "dashboard"
         end
