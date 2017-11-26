@@ -263,9 +263,12 @@ class DashboardController < ApplicationController
         
         @establishments = Establishment.find_by(id: params[:id])
         
-        if user_is_authorized_?(true)
+        if user_is_authorized_?(true) and user_is_host_?
             render layout: "dashboard"
+        else
+            redirect_to({:controller =>'dashboard', :action => 'all_establishments'}, :flash => {:error => "É ser dono do estabelecimento para fazer modificações!"})
         end
+        
         
     end
     
