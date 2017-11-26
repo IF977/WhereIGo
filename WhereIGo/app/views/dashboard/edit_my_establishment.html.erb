@@ -22,6 +22,8 @@
         
         <label for="website" class="wig-formlabel">Website</label>
         <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
+        
+        <br><p style="font-size: small;">Deseja excluir este estabelecimento? <a style="color: #f0b567;"href="<%= url_for controller: 'dashboard', action: 'remove_my_establishment'%>">Clique aqui</a></p>
 
     </div>
     <%= e.submit "Salvar alterações", class: "wig-button" %>

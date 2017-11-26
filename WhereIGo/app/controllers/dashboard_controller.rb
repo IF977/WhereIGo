@@ -85,7 +85,7 @@ class DashboardController < ApplicationController
         @filter = params[:filter]
         @title = "Resultado de pesquisa para " + @filter
         e = Establishment.arel_table
-        @establishments = Establishment.where(e[:name].matches("%#{@filter}%"), is_active: true)
+        @establishments = Establishment.where(e[:name].matches("%#{@filter}%")).where(:is_active => true)
         if user_is_authorized_?
             render layout: "dashboard"
         end
@@ -284,6 +284,14 @@ class DashboardController < ApplicationController
         end
     end
     
-    
+    def remove_my_establishment
+        if user_is_host_?
+            Establishment.update(params[:id], :is_active => false)
+            redirect_to :action => 'my_establishments'
+            return
+        end
+        redirect_to :action => 'all_establishments'
+        return
+    end
     
 end
