@@ -81,7 +81,10 @@ class DashboardController < ApplicationController
         establishments = []
         
         all_matchs.each do |e|
-            establishments << Establishment.find_by(id: e.establishment_id)
+            establishment = Establishment.find_by(id: e.establishment_id)
+            if not establishments.include?(establishment)
+                establishments << establishment
+            end
         end
         
         @establishments = establishments
