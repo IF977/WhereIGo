@@ -266,6 +266,8 @@ class DashboardController < ApplicationController
         
         @establishments = Establishment.find_by(id: params[:id])
         
+        $establishment_id = @establishments.id
+        
         if user_is_authorized_?(true) and user_is_host_?
             render layout: "dashboard"
             return
