@@ -1,21 +1,27 @@
 <div class="row">
     <section class="col-md-8">
         <h1>Meus estabelecimentos</h1>
+        <% index = 0 %>
         <% @establishments.each do |place| %>
-            
             <div class="wig-dashboard-card">
                 <a href="<%=url_for(controller: "dashboard", action: "show_establishment", id: place.id) %>">
                     <div class="row">
                         <div class="col-md-2">
                             <div class="wig-establishment-picture"><%=image_tag(place.image, size: "100")%></div>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-10" id="lulu">
                             <h3><%= place.name %></h3>
+                            <div class="wig-establishment-percentage"><i class="fa fa-thumbs-up" aria-hidden="true"></i><%= @array_rating_percentage[index] %></div>
+                            <% if (place.description.length > 245) %>
+                                <p><%= place.description[0..242] + "..." %></p>
+                            <% else %>
+                                <p><%= place.description %></p>
+                            <% end %>
                         </div>
                     </div>
                 </a>
             </div>
-            
+        <% index += 1%>
         <% end %>
     </section>
     <aside class="col-md-4">

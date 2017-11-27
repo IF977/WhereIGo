@@ -17,7 +17,7 @@
     <header>
       <nav class="navbar navbar-expand-md wig-navbar">
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <form class="form-inline mt-2 mt-md-0 mr-auto ml-auto" action="/search/establishments">
+          <form class="form-inline mt-2 mt-md-0 mr-auto" action="/search/establishments">
             <a class="navbar-brand" href="<%= url_for controller: "dashboard", action: "preference_establishments_result" %>">
               <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-brand", id: "logo-navbar") %>
             </a>
@@ -89,6 +89,21 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() { showNavbar() });
+            $(document).scroll(function() { showNavbar() });
+
+            function showNavbar() {
+                var scroll = $(window).scrollTop();
+                if(scroll > 0) {
+                    $("header").addClass("wig-navbar-homepage-active");
+                    //$("#navbar").removeClass("wig-navbar-homepage");
+                } else {
+                    $("header").removeClass("wig-navbar-homepage-active");
+                    $("header").addClass("wig-navbar-homepage");
+                }
+            }
+    </script>
   </body>
 
 </html>

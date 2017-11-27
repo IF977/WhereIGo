@@ -31,8 +31,11 @@ html {
 body {
     height: 100%;
     margin: 0;
-    background-color: $wig-lightgrey;
-    background-image: url(<%= image_url("background-login.jpg") %>);
+    background-image: url(<%= image_url("background-homepage.jpg") %>); 
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-color: $wig-xdarkgrey;
+    color: $wig-xdarkgrey;
 }
 .wig-body-sign {
     @include wig-body;
@@ -403,15 +406,25 @@ a.wig-button {
 .wig-bg {
     
 }
-.wig-navbar {
+header {
+    background-color: transparent;
+    height: 80px;
     position: fixed;
+    width: 100%;
+    z-index: 1030;
+}
+.wig-navbar {
     top: 0;
     right: 0;
     left: 0;
-    z-index: 1030;
-    background-color: $wig-xdarkgrey;
     font-size: .9em;
     padding: 2px;
+    height: 80px;
+    max-width: 1070px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 65px;
+    
     a {
         color: $wig-lightgrey;
         &:hover, &:active {
@@ -420,7 +433,7 @@ a.wig-button {
     }
 }
 .wig-navbar-brand {
-    width: 92px;
+    width: 114px;
 }
 .wig-search {
     max-width: 425px!important;
@@ -459,6 +472,7 @@ a.wig-button {
     // padding: 10px 7px;
     padding: 10px 0;
     overflow: hidden;
+    min-height: 620px;
 }
 .wig-sidebar-icon {
     text-align: center;
@@ -509,15 +523,17 @@ a.wig-button {
     width: 100%;
     margin-left: 65px;
     margin-top: 100px;
+    margin-right: 10px;
 }
 .wig-main {
     margin-left: auto;
     margin-right: auto;
-    width: 1070px;
+    max-width: 1070px;
     padding: 40px;
     border-radius: $valor-borda $valor-borda 0 0;
     box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
     background-color: #fff;
+    min-height: 88vh;
     
     .wig-flash {
         background-color: transparent;
@@ -564,10 +580,26 @@ a.wig-button {
     }
     
 }
+.wig-dashboard-card p {
+    margin-bottom: 0;
+}
+#lulu > h3 {
+    display: inline-block;
+}
 .wig-establishment-picture {
     width: 100px;
     height: 100px;
     background-color: $wig-greatpink;
+}
+.wig-establishment-percentage {
+    float: right;
+    font-size: 10px;
+    color: $wig-greatpink;
+    font-size: 14px;
+    color: #f3276d;
+    display: inline-block;
+    /* margin-right: auto; */
+    float: right;
 }
 
 ////////////////////////////////////////////////////////////
@@ -597,10 +629,11 @@ a.wig-button {
     border-radius: 4px;
     margin-right: 5px;
     display: inline-block;
-    margin: 10px 0;
+    margin: 10px 0 0 0;
 }
 .wig-description {
     text-align: justify;
+    margin-top: 15px;
 }
 .wig-establishment-pic {
     width: 100%;
@@ -640,7 +673,7 @@ a.wig-button {
     height: 5px;
     margin-top: 3px;
     #positive {
-        width: 50%;
+        width: 0%;
         height: 5px;
         background-color: $wig-greatpink;
     }

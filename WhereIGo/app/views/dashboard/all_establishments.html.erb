@@ -2,6 +2,7 @@
     <section class="col-md-12"><%= flash_message.html_safe %></section>
     <section class="col-md-8">
         <h1>Todos os bares e restaurantes</h1>
+        <% index = 0 %>
         <% @establishments.each do |e| %>
             
             <div class="wig-dashboard-card">
@@ -10,13 +11,26 @@
                         <div class="col-md-2">
                             <div class="wig-establishment-picture"><%=image_tag(e.image, class:'wig-establishment-picture')%></div>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-10" id="lulu">
                             <h3><%= e.name %></h3>
+                                <% if @array_rating_percentage[index] != nil %>
+                                    <div class="wig-establishment-percentage">
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                        <%= @array_rating_percentage[index] %>
+                                    </div>
+                                <% end %>
+                            <% if e.description != nil %>
+                                <% if (e.description.length > 245) %>
+                                    <p><%= e.description[0..242] + "..." %></p>
+                                <% else %>
+                                    <p><%= e.description %></p>
+                                <% end %>
+                            <% end %>
                         </div>
                     </div>
                 </a>
             </div>
-            
+        <% index += 1 %>
         <% end %>
     </section>
     <aside class="col-md-4">

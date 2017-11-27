@@ -43,6 +43,9 @@ class DashboardController < ApplicationController
 
     def preference_establishments_result
         @title = "Bares e restaurantes baseados no que você mais gosta"
+        
+        
+        
         music_preference = MusicPreference.where(user_id: user_logged.id, is_active: true)
         food_preference = FoodPreference.where(user_id: user_logged.id, is_active: true)
         ambient_preference = AmbientPreference.where(user_id: user_logged.id, is_active: true)
@@ -89,6 +92,28 @@ class DashboardController < ApplicationController
         
         @establishments = establishments
         
+        @array_rating_percentage = []
+        
+        @establishments.each do |e|
+            user_review = EstablishmentReview.where(:user_id => session[:current_user_id]).where(:establishment_id => e.id).first
+            if user_review != nil
+                user_review_selected = user_review.review
+            else
+                user_review_selected = nil
+            end
+            
+            count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => e.id).count
+            count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => e.id).count
+            
+            count_reviews = count_review_up + count_review_down
+            
+            if count_review_up != 0 || count_review_down != 0
+                rating = (count_review_up.to_f / (count_review_up + count_review_down)) * 100
+                rating_percentage = rating.round(0).to_s + '%'
+                @array_rating_percentage << rating_percentage
+            end
+        end
+        
     end
     
     def search_establishments
@@ -105,6 +130,28 @@ class DashboardController < ApplicationController
     def all_establishments
         @title = "Dashboard"
         @establishments = Establishment.where(is_active: true)
+        
+        @array_rating_percentage = []
+        
+        @establishments.each do |e|
+            user_review = EstablishmentReview.where(:user_id => session[:current_user_id]).where(:establishment_id => e.id).first
+            if user_review != nil
+                user_review_selected = user_review.review
+            else
+                user_review_selected = nil
+            end
+            
+            count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => e.id).count
+            count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => e.id).count
+            
+            count_reviews = count_review_up + count_review_down
+            
+            if count_review_up != 0 || count_review_down != 0
+                rating = (count_review_up.to_f / (count_review_up + count_review_down)) * 100
+                rating_percentage = rating.round(0).to_s + '%'
+                @array_rating_percentage << rating_percentage
+            end
+        end
         
         if user_is_authorized_?
             render layout: "dashboard"
@@ -257,6 +304,31 @@ class DashboardController < ApplicationController
     def my_establishments
         @title = "Meus estabelecimentos"
         @establishments = Establishment.where(user_id: session[:current_user_id], is_active: true)
+        
+        @array_rating_percentage = []
+        
+        @establishments.each do |e|
+            user_review = EstablishmentReview.where(:user_id => session[:current_user_id]).where(:establishment_id => e.id).first
+            if user_review != nil
+                user_review_selected = user_review.review
+            else
+                user_review_selected = nil
+            end
+            
+            count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => e.id).count
+            count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => e.id).count
+            
+            count_reviews = count_review_up + count_review_down
+            
+            if count_review_up != 0 || count_review_down != 0
+                rating = (count_review_up.to_f / (count_review_up + count_review_down)) * 100
+                rating_percentage = rating.round(0).to_s + '%'
+                @array_rating_percentage << rating_percentage
+            end
+        end
+        
+        
+        
         if user_is_authorized_?(true)
             render layout: "dashboard"
         end
@@ -265,6 +337,7 @@ class DashboardController < ApplicationController
     def edit_my_establishment
         
         @establishments = Establishment.find_by(id: params[:id])
+        $establishment_id = @establishments.id
         
         if user_is_authorized_?(true) and user_is_host_?
             render layout: "dashboard"

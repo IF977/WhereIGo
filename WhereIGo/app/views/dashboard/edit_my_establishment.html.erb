@@ -22,17 +22,13 @@
         
         <label for="website" class="wig-formlabel">Website</label>
         <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
+        
+        <p style="font-size: small;">Deseja excluir este estabelecimento? <a style="color: #f0b567;"href="<%= url_for controller: 'dashboard', action: 'remove_my_establishment'%>">Clique aqui</a></p>
 
     </div>
     <%= e.submit "Salvar alterações", class: "wig-button" %>
-    <br>
-    <br>
-    
-    <%$establishment_id = @establishments.id%>
-    <a href="<%= url_for controller: "account", action: "register_speciality_music"%>" title="Editar especialidades">
-        <label for="Editar especialidades" class="wig-button">Editar especialidades</label>
+    <a href="<%= url_for controller: "account", action: "register_speciality_music"%>" title="" class="wig-control-button">
+        <i class="fa fa-gear" aria-hidden="true"></i> Editar especialidades
     </a>
-    <br>
-    <br><p style="font-size: small;">Deseja excluir este estabelecimento? <a style="color: #f0b567;"href="<%= url_for controller: 'dashboard', action: 'remove_my_establishment'%>">Clique aqui</a></p>
     <%= flash_message.html_safe %>
 <%end%>

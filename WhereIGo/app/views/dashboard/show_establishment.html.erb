@@ -1,6 +1,11 @@
 <div class="row">
     <section class="col-md-8">
-        <h1><%= @e.name %> <%if user_is_host_? %> <%=link_to "Editar", {controller: "dashboard", action: "edit_my_establishment", id: @e }, class: 'wig-control-button' %><%end%></h1>
+        <h1><%= @e.name %> <%if user_is_host_? %> 
+            <a href="<%= url_for controller: "dashboard", action: "edit_my_establishment", id: @e %>" title="" class="wig-control-button">
+                <i class="fa fa-gear" aria-hidden="true"></i> Editar
+            </a>
+            <% end %>
+        </h1>
         <% if @food_tag != [] %>
             <% @food_tag.each do |ft| %>
                 <div class="wig-tag wig-food"><%= ft %></div>
