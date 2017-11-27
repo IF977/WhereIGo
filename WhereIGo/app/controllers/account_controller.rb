@@ -160,7 +160,7 @@ class AccountController < ApplicationController
             musics = nil
         end
         
-        user_music_preference_query = MusicPreference.where(:user_id => user_logged.id, :is_active => true)
+        user_music_preference_query = MusicPreference.where(:user_id => user_logged.id)
         
         user_music_preference = []
         user_music = []
@@ -179,6 +179,7 @@ class AccountController < ApplicationController
                     new_preference.save
                 else
                     index = user_music.index(m)
+                    MusicPreference.update(user_music_preference[index], :is_active => true)
                     user_music_preference.delete_at(index)
                 end
             end
@@ -215,7 +216,7 @@ class AccountController < ApplicationController
             ambients = nil
         end
         
-        user_ambient_preference_query = AmbientPreference.where(:user_id => user_logged.id, :is_active => true)
+        user_ambient_preference_query = AmbientPreference.where(:user_id => user_logged.id)
         
         user_ambient_preference = []
         user_ambient = []
@@ -234,6 +235,7 @@ class AccountController < ApplicationController
                     new_preference.save
                 else
                     index = user_ambient.index(a)
+                    AmbientPreference.update(user_ambient_preference[index], :is_active => true)
                     user_ambient_preference.delete_at(index)
                 end
             end
@@ -272,7 +274,7 @@ class AccountController < ApplicationController
             foods = nil
         end
         
-        user_food_preference_query = FoodPreference.where(:user_id => user_logged.id, :is_active => true)
+        user_food_preference_query = FoodPreference.where(:user_id => user_logged.id)
         
         user_food_preference = []
         user_food = []
@@ -291,6 +293,7 @@ class AccountController < ApplicationController
                     new_preference.save
                 else
                     index = user_food.index(f)
+                    FoodPreference.update(user_food_preference[index], :is_active => true)
                     user_food_preference.delete_at(index)
                 end
             end
@@ -361,7 +364,7 @@ class AccountController < ApplicationController
             musics = nil
         end
         
-        establishment_music_speciality_query = MusicSpeciality.where(:establishment_id => $establishment_id, :is_active => true)
+        establishment_music_speciality_query = MusicSpeciality.where(:establishment_id => $establishment_id)
         
         establishment_music_speciality = []
         establishment_music = []
@@ -380,6 +383,7 @@ class AccountController < ApplicationController
                     new_speciality.save
                 else
                     index = establishment_music.index(m)
+                    MusicSpeciality.update(establishment_music_speciality[index], :is_active => true)
                     establishment_music_speciality.delete_at(index)
                 end
             end
@@ -416,7 +420,7 @@ class AccountController < ApplicationController
             ambients = nil
         end
         
-        establishment_ambient_speciality_query = AmbientSpeciality.where(:establishment_id => $establishment_id, :is_active => true)
+        establishment_ambient_speciality_query = AmbientSpeciality.where(:establishment_id => $establishment_id)
         
         establishment_ambient_speciality = []
         establishment_ambient = []
@@ -434,6 +438,7 @@ class AccountController < ApplicationController
                     new_speciality.save
                 else
                     index = establishment_ambient.index(a)
+                    AmbientSpeciality.update(establishment_ambient_speciality[index], :is_active => true)
                     establishment_ambient_speciality.delete_at(index)
                 end
             end
@@ -473,7 +478,7 @@ class AccountController < ApplicationController
         end
         establishment_id = $establishment_id
         
-        establishment_food_speciality_query = FoodSpeciality.where(:establishment_id => $establishment_id, :is_active => true)
+        establishment_food_speciality_query = FoodSpeciality.where(:establishment_id => $establishment_id)
         
         establishment_food_speciality = []
         establishment_food = []
@@ -490,6 +495,7 @@ class AccountController < ApplicationController
                     new_speciality.save
                 else
                     index = establishment_food.index(f)
+                    FoodSpeciality.update(establishment_food_speciality[index], :is_active => true)
                     establishment_food_speciality.delete_at(index)
                 end
             end

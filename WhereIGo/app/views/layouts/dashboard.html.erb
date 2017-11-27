@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-md wig-navbar">
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <form class="form-inline mt-2 mt-md-0 mr-auto ml-auto" action="/search/establishments">
-            <a class="navbar-brand" href="<%= url_for controller: "dashboard", action: "all_establishments" %>">
+            <a class="navbar-brand" href="<%= url_for controller: "dashboard", action: "preference_establishments_result" %>">
               <%= image_tag("wig-logo-large.png", class: "img-responsive wig-navbar-brand", id: "logo-navbar") %>
             </a>
             <input class="form-control mr-sm-2 wig-textbox wig-search" type="text" placeholder="Encontrar bares e restaurantes..." aria-label="Search" name="filter">
@@ -47,21 +47,22 @@
             <a href="<%= url_for controller: 'account', action: 'edit' %>"><%= image_tag(user_image, class: "sidebar-userpic", id:"pic") %></a>
           </div>
           
+          
           <ul class="nav nav-pills flex-column nav-buttons">
-            <a href="<%= url_for controller: "dashboard", action: "all_establishments" %>" title="Home">
-              <li class="nav-item wig-sidebar-icon">
-                <i class="fa fa-home" aria-hidden="true"></i>
-              </li>
-            </a>
             <a href="<%= url_for controller: "dashboard", action: "preference_establishments_result" %>" title="Estabelecimentos recomendados">
               <li class="nav-item wig-sidebar-icon">
                 <i class="fa fa-heart" aria-hidden="true"></i>
               </li>
             </a>
+            <a href="<%= url_for controller: "dashboard", action: "all_establishments" %>" title="Todos os estabelecimentos">
+              <li class="nav-item wig-sidebar-icon">
+                <i class="fa fa-cutlery" aria-hidden="true"></i>
+              </li>
+            </a>
             <% if user_logged.is_provider == true %>
               <a href="<%= url_for controller: "dashboard", action: "my_establishments" %>" title="Meus estabelecimentos">
                 <li class="nav-item wig-sidebar-icon">
-                  <i class="fa fa-cutlery" aria-hidden="true"></i>
+                  <i class="fa fa-line-chart" aria-hidden="true"></i>
                 </li>
               </a>
             <% end %>
