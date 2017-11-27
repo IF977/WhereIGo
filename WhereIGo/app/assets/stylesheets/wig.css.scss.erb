@@ -24,7 +24,11 @@ $valor-borda: 4px;
     background-attachment: fixed;
     background-color: $wig-lightgrey;
 }
-html, body {
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
     height: 100%;
     margin: 0;
     background-color: $wig-lightgrey;
@@ -725,7 +729,7 @@ h4 {
 ///////////////// PREFERENCIAS LAYOUT //////////////////////
 ////////////////////////////////////////////////////////////
 
-.wig-body-pref {
+body.wig-body-pref {
     background-image: url(<%= image_url("background-homepage.jpg") %>); 
     background-repeat: repeat;
     background-attachment: fixed;
@@ -747,6 +751,7 @@ h4 {
 }
 .wig-clearfix {
     width: 100%;
+    margin: 75px 0;
 }
 #logo-pref {
     margin: 0px 0px 25px 35px;
@@ -767,7 +772,7 @@ h4 {
     margin: 5px;
     font-weight: 500;
     border-radius: $valor-borda;
-    flex-basis: 1;
+    flex-grow: 1;
     label {
         margin: 0;
     }
@@ -784,10 +789,6 @@ h4 {
 }
 
 .pref-align {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     max-width: 775px;
     margin-right: auto;
     margin-left: auto;
