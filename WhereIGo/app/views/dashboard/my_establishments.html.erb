@@ -11,7 +11,6 @@
                         </div>
                         <div class="col-md-10" id="lulu">
                             <h3><%= place.name %></h3>
-                            <div class="wig-establishment-percentage"><i class="fa fa-thumbs-up" aria-hidden="true"></i><%= @array_rating_percentage[index] %></div>
                             <% if (place.description.length > 245) %>
                                 <p><%= place.description[0..242] + "..." %></p>
                             <% else %>

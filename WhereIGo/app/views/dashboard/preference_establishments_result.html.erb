@@ -15,12 +15,6 @@
                                 </div>
                                 <div class="col-md-10" id="lulu">
                                     <h3><%= e.name %></h3>
-                                        <% if @array_rating_percentage[index] != nil %>
-                                            <div class="wig-establishment-percentage">
-                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                <%= @array_rating_percentage[index] %>
-                                            </div>
-                                        <% end %>
                                     <% if e.description != nil %>
                                         <% if (e.description.length > 245) %>
                                             <p><%= e.description[0..242] + "..." %></p>
