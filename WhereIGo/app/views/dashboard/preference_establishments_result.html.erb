@@ -4,7 +4,7 @@
         <h1><%= @title%></h1>
         <% if @preferences_set %>
             <% if @establishments.size > 0 %>
-                Para ver todos os bares e restaurantes cadastrados, clique no ícone de casa ao seu lado esquerdo.
+                Para ver todos os bares e restaurantes cadastrados, clique no ícone de talhares ao seu lado esquerdo.
                 <% @establishments.each do |e| %>
                     <div class="wig-dashboard-card">
                         <a href="<%= url_for action: "show_establishment", id: e.id %>">
@@ -23,16 +23,13 @@
                 Nenhum estabelecimento encontrado!
                 <br>
                 <br>
-                Para ver todos os bares e restaurantes cadastrados, clique no ícone de casa ao seu lado esquerdo.
+                Para ver todos os bares e restaurantes cadastrados, clique no ícone de talhares ao seu lado esquerdo.
             <% end %>
         <% else %>
             Nenhum estabelecimento encontrado!
             <br>
             <br>
-            Clique no ícone de engranagem ao seu lado esquerdo para configurar suas preferências e encontrarmos resultados baseados no que você mais gosta.
-            <br>
-            <br>
-            Para ver todos os bares e restaurantes cadastrados, clique no ícone de casa.
+            Clique no ícone de engranagem ao seu lado esquerdo para configurar suas preferências e encontrarmos resultados baseados no que você mais gosta. Para ver todos os bares e restaurantes cadastrados, clique no ícone de talheres.
         <%end%>
     </section>
     <aside class="col-md-4">
