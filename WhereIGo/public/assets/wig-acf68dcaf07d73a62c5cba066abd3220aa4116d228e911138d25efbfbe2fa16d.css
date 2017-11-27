@@ -1,0 +1,967 @@
+/* line 27, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+html {
+  height: 100%;
+  margin: 0;
+}
+
+/* line 31, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+body {
+  height: 100%;
+  margin: 0;
+  background-image: url(/assets/background-homepage-15f2c8f2be9ca910d0530915d45418eb13b79d1b600df2454c2a93c3216d7361.jpg);
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-color: #141414;
+  color: #141414;
+}
+
+/* line 40, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-body-sign {
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-color: #f0f0f0;
+  background-image: url(/assets/background-login-ad896d3e31d8e9f43426e282a5b688c0573ed00db710caeb703e230598c7c867.jpg);
+}
+
+/* line 45, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+h1 {
+  color: #141414;
+  font-size: 1.6rem;
+  margin: 0px 0 5px 0;
+}
+/* line 49, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+h1:after {
+  content: '~';
+  color: #f3276d;
+  margin: 8px;
+  font-weight: 200;
+}
+
+/* line 57, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+a {
+  color: #f3276d;
+}
+/* line 59, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+a:hover, a:active {
+  color: #f3276d;
+  text-decoration: underline;
+}
+
+/* line 65, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+h2 {
+  color: #141414;
+  font-size: 1.3rem;
+  margin: 20px 0 10px 0;
+}
+/* line 69, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+h2:after {
+  content: '~';
+  color: #f3276d;
+  margin: 8px;
+  font-weight: 200;
+}
+
+/* line 77, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-textbox {
+  display: block;
+  width: 300px;
+  padding: .5rem .75rem;
+  font-size: 0.8em;
+  line-height: 1.25;
+  color: #141414;
+  background-color: #f0f0f0;
+  background-clip: padding-box;
+  border: 0;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  border-radius: 4px;
+}
+/* line 90, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-textbox:focus {
+  border: 1px solid #f0b567;
+  outline: none;
+}
+
+/* line 96, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+textarea.wig-textbox {
+  width: 100%;
+}
+
+/* line 100, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-formlabel {
+  color: #f0f0f0;
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 12px;
+  font-size: .8em;
+}
+
+/* line 108, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-button {
+  color: #f0f0f0;
+  background-color: #f3276d;
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem .75rem;
+  font-size: .9rem;
+  line-height: 1.25;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* line 124, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-button:hover, .wig-button:focus, .wig-button:active {
+  outline: none;
+  opacity: 0.8;
+  text-decoration: none;
+  color: #f0f0f0;
+}
+/* line 130, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-button:focus {
+  border: 1px solid #f0b567;
+}
+
+/* line 136, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+a.wig-button:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 142, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-flash {
+  background-color: #f0b567;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  padding: 8px;
+  margin-top: 5px;
+  font-size: 0.7em;
+}
+
+/* line 156, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.login-align {
+  max-width: 450px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* line 163, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.login-form span {
+  color: #141414;
+}
+/* line 167, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.login-form h1 {
+  color: #141414;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 25px 0 20px 0;
+}
+/* line 172, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.login-form h1:before, .login-form h1:after {
+  content: '~';
+  color: #f3276d;
+  margin: 8px;
+}
+/* line 178, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.login-form h2 {
+  color: #141414;
+}
+/* line 181, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.login-form .wig-textbox, .login-form .wig-button {
+  width: 100%;
+}
+/* line 185, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.login-form label {
+  color: #141414;
+}
+
+/* line 191, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* line 198, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#signup {
+  background-color: #141414;
+  padding: 30px;
+  margin: 15px;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 205, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#signup a:hover {
+  text-decoration: none;
+}
+
+/* line 210, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#logo-signup {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* line 215, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#form-inputs {
+  margin-bottom: 30px;
+}
+
+/* line 219, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-formlinks {
+  margin-top: 15px;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+/* line 225, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-formlinks a {
+  color: #f0b567;
+}
+
+/* line 232, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-choice-box {
+  margin-bottom: 20px;
+  padding: 6px;
+  transition: all .15s ease-in-out;
+  cursor: pointer;
+  font-weight: 500;
+  color: #f0f0f0;
+  border-radius: 4px;
+}
+/* line 240, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-choice-box:hover {
+  background-color: #f0b567;
+  color: #f0f0f0;
+}
+
+/* line 247, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-choice-link:hover {
+  text-decoration: none;
+}
+
+/* line 251, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-choice-box span {
+  line-height: 1.1em;
+  display: block;
+  margin-top: 11px;
+}
+
+/* line 257, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#signup h1 {
+  color: #f0f0f0;
+}
+
+/* line 262, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.turbolinks-progress-bar {
+  background-color: #f3276d;
+}
+
+/* line 269, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-body-homepage {
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-color: #f0f0f0;
+  background-image: url(/assets/background-homepage-15f2c8f2be9ca910d0530915d45418eb13b79d1b600df2454c2a93c3216d7361.jpg);
+  color: #f0f0f0;
+}
+
+/* line 274, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-registerbox-homepage {
+  padding: 15px;
+  margin: 0;
+}
+
+/* line 279, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#logo-homepage {
+  display: block;
+  margin-bottom: 40px;
+}
+
+/* line 283, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-flex-homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 1000px;
+}
+
+/* line 290, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#link-about, #link-team {
+  cursor: pointer;
+}
+
+/* line 293, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar-homepage {
+  background-color: rgba(0, 0, 0, 0);
+  transition: all .2s;
+}
+
+/* line 297, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar-homepage-active {
+  background-color: rgba(0, 0, 0, 0.85);
+  transition: all .2;
+}
+
+/* line 301, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar-container-homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  height: 66px;
+}
+
+/* line 308, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar-right {
+  flex-basis: 0;
+}
+
+/* line 311, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar-logo {
+  opacity: 0;
+  transition: all .2s;
+  width: 122px;
+}
+
+/* line 316, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar-logo-active {
+  transition: all .2s;
+  opacity: 1;
+  width: 122px;
+  top: 0;
+}
+
+/* line 322, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-homepage-title {
+  color: #fff;
+  font-size: 3em;
+  font-weight: 500;
+  line-height: .8em;
+}
+
+/* line 328, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-homepage-message {
+  margin-top: 12px;
+  font-size: 1.2em;
+  font-weight: 200;
+  /* line-height: 1.2em; */
+  display: block;
+}
+
+/* line 335, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-about {
+  background-color: rgba(255, 255, 255, 0.95);
+  /*height: 100vh;*/
+}
+/* line 338, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-about h2 {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #141414;
+  margin-top: 34px;
+}
+/* line 343, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-about h2:after {
+  display: none;
+}
+/* line 347, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-about p {
+  color: #141414;
+}
+
+/* line 351, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-flex-about {
+  justify-content: center;
+  align-items: center;
+  padding: 40px 80px;
+}
+
+/* line 356, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-about-item {
+  text-align: center;
+}
+
+/* line 360, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team {
+  background-color: #141414;
+  color: #f0f0f0;
+}
+
+/* line 365, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-flex-team {
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+/* line 369, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-flex-team h1 {
+  color: #f0f0f0;
+  text-align: center;
+  font-size: 1.6em;
+  margin: 16px 0 50px 0;
+  width: 100%;
+}
+/* line 375, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-flex-team h1:before, .wig-flex-team h1:after {
+  content: '~';
+  color: #f3276d;
+  font-weight: 200;
+  margin: 10px;
+}
+
+/* line 384, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team-member {
+  text-align: center;
+}
+/* line 386, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team-member h2 {
+  font-size: 1.3em;
+  margin-bottom: 0;
+  color: #f0f0f0;
+}
+/* line 390, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team-member h2:after {
+  display: none;
+}
+/* line 394, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team-member p {
+  font-size: .9em;
+}
+/* line 397, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team-member a {
+  color: #f0b567;
+}
+/* line 399, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team-member a:hover {
+  text-decoration: underline;
+  color: #f0b567;
+}
+/* line 403, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team-member a:active {
+  color: #f3276d;
+}
+
+/* line 409, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-team-pic {
+  width: 120px;
+  border-radius: 50%;
+  border: 5px solid #ef4471;
+  margin: 0 30px;
+}
+
+/* line 416, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-footer {
+  color: #141414;
+  text-align: center;
+  margin-top: 15px;
+  font-size: .9em;
+}
+
+/* line 429, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+header {
+  background-color: transparent;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 1030;
+}
+
+/* line 436, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar {
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: .9em;
+  padding: 2px;
+  height: 80px;
+  max-width: 1070px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 65px;
+}
+/* line 448, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar a {
+  color: #f0f0f0;
+}
+/* line 450, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar a:hover, .wig-navbar a:active {
+  color: #f0b567;
+}
+
+/* line 455, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-navbar-brand {
+  width: 114px;
+}
+
+/* line 458, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-search {
+  max-width: 425px !important;
+  width: 425px !important;
+}
+
+/* line 462, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dropdown {
+  font-size: .9em;
+  font-weight: 200;
+}
+/* line 463, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dropdown a {
+  color: #141414;
+}
+/* line 465, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dropdown a:hover, .wig-dropdown a:active {
+  color: #f3276d;
+}
+
+/* line 473, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.dropdown-item:active {
+  background-color: #f0f0f0;
+}
+
+/* line 477, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.dropdown-toggle::after {
+  vertical-align: .165em;
+  margin-left: .455em;
+}
+
+/* line 481, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-sidebar {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f3276d;
+  width: 54px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1031;
+  padding: 10px 0;
+  overflow: hidden;
+  min-height: 620px;
+}
+
+/* line 497, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-sidebar-icon {
+  text-align: center;
+  padding: 35px 0;
+}
+/* line 501, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-sidebar-icon i {
+  color: #f0f0f0;
+  font-size: 1.4em;
+  transition: all .2s;
+}
+/* line 506, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-sidebar-icon:hover {
+  background-color: #ff508c;
+}
+
+/* line 511, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+/* line 517, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.sidebar-userpic {
+  margin: 2px auto;
+}
+/* line 519, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.sidebar-userpic #pic {
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #f0f0f0;
+}
+
+/* line 528, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.sidebar-text p {
+  font-weight: 500;
+  color: #fff;
+  font-size: 11px;
+  padding: 0 7px;
+}
+/* line 534, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.sidebar-text a {
+  color: #f0b567;
+}
+/* line 536, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.sidebar-text a:hover, .sidebar-text a:active {
+  color: #f0b567;
+  text-decoration: none;
+}
+
+/* line 542, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-align {
+  width: 100%;
+  margin-left: 65px;
+  margin-top: 100px;
+  margin-right: 10px;
+}
+
+/* line 548, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1070px;
+  padding: 40px;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  min-height: 88vh;
+}
+/* line 558, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-main .wig-flash {
+  background-color: transparent;
+  display: inline-block;
+  max-width: 180px;
+  width: 100%;
+  text-align: left;
+  font-weight: 500;
+  padding: 8px;
+  margin-top: 5px;
+  font-size: 0.7em;
+}
+/* line 569, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-main .wig-formlabel {
+  color: #141414;
+}
+
+/* line 577, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dashboard-card {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  transition: all .2s;
+}
+/* line 584, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dashboard-card h3 {
+  font-size: 1.1em;
+}
+/* line 587, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dashboard-card p {
+  font-size: .9em;
+  font-weight: 300;
+}
+/* line 591, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dashboard-card a {
+  color: #141414;
+}
+/* line 593, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dashboard-card a:hover {
+  color: #141414;
+  text-decoration: none;
+}
+/* line 598, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dashboard-card:hover {
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* line 603, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-dashboard-card p {
+  margin-bottom: 0;
+}
+
+/* line 606, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#lulu > h3 {
+  display: inline-block;
+}
+
+/* line 609, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-establishment-picture {
+  width: 100px;
+  height: 100px;
+  background-color: #f3276d;
+}
+
+/* line 614, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-establishment-percentage {
+  float: right;
+  font-size: 10px;
+  color: #f3276d;
+  font-size: 14px;
+  color: #f3276d;
+  display: inline-block;
+  /* margin-right: auto; */
+  float: right;
+}
+
+/* line 628, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-review {
+  width: 100%;
+}
+/* line 630, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-review h3 {
+  font-size: .8em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+/* line 634, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-review h3:after {
+  content: '~';
+  font-weight: 600;
+  color: #f3276d;
+  margin-left: 5px;
+}
+
+/* line 643, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-tag {
+  padding: 4px 8px;
+  background-color: #f0b567;
+  font-size: 0.8em;
+  color: #f0f0f0;
+  font-weight: 800;
+  border-radius: 4px;
+  margin-right: 5px;
+  display: inline-block;
+  margin: 10px 0 0 0;
+}
+
+/* line 654, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-description {
+  text-align: justify;
+  margin-top: 15px;
+}
+
+/* line 658, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-establishment-pic {
+  width: 100%;
+  background-color: #ddd;
+  height: 310px;
+  margin-bottom: 30px;
+}
+
+/* line 671, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-review-box {
+  width: 80px;
+}
+
+/* line 674, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-thumbs {
+  display: flex;
+  flex-flow: row nowrap;
+}
+/* line 677, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-thumbs a {
+  color: #ddd;
+}
+
+/* line 682, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-thumbs-active {
+  color: #f3276d !important;
+}
+
+/* line 686, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-review-thumb {
+  font-size: 2em;
+  margin: 0 5px;
+}
+
+/* line 690, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-percentbar {
+  width: 100%;
+  background-color: #ddd;
+  height: 5px;
+  margin-top: 3px;
+}
+/* line 695, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-percentbar #positive {
+  width: 0%;
+  height: 5px;
+  background-color: #f3276d;
+}
+/* line 700, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-percentbar #percent {
+  font-size: .7em;
+  text-align: left;
+  font-weight: 700;
+}
+
+/* line 706, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-establishment-map {
+  background-color: #ddd;
+  height: 225px;
+  margin-bottom: 30px;
+}
+
+/* line 712, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-establishment-info ul {
+  font-size: .9em;
+  padding-left: 0;
+}
+/* line 715, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-establishment-info ul li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+/* line 720, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-establishment-info .info-icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+/* line 729, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-comment {
+  margin: 15px 0;
+}
+
+/* line 732, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-comment p {
+  font-size: .9em;
+  margin: 0;
+}
+
+/* line 736, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-comment-userpic {
+  width: 50px;
+  height: 50px;
+  background-color: #f0b567;
+}
+
+/* line 741, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+h4 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+/* line 746, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#comment-area {
+  margin: 8px 0;
+}
+
+/* line 749, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#textarea-comment {
+  margin: 10px 0;
+}
+
+/* line 752, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-control-button, input[type="file"] button {
+  color: #f0f0f0;
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem .75rem;
+  font-size: .9rem;
+  line-height: 1.25;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #141414;
+  float: right;
+}
+/* line 767, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-control-button:hover, .wig-control-button:focus, .wig-control-button:active, input[type="file"] button:hover, input[type="file"] button:focus, input[type="file"] button:active {
+  outline: none;
+  opacity: 0.8;
+  text-decoration: none;
+  color: #f0f0f0;
+}
+/* line 773, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-control-button:focus, input[type="file"] button:focus {
+  border: 1px solid #f0b567;
+}
+
+/* line 785, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+body.wig-body-pref {
+  background-image: url(/assets/background-homepage-15f2c8f2be9ca910d0530915d45418eb13b79d1b600df2454c2a93c3216d7361.jpg);
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-color: #141414;
+  color: #141414;
+}
+/* line 792, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+body.wig-body-pref h1 {
+  color: #141414;
+}
+/* line 795, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+body.wig-body-pref h2 {
+  color: #141414;
+}
+
+/* line 799, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-pref-container {
+  background-color: #fff;
+  padding: 30px;
+  margin: 15px;
+  border-radius: 4px;
+}
+
+/* line 805, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-clearfix {
+  width: 100%;
+  margin: 75px 0;
+}
+
+/* line 809, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+#logo-pref {
+  margin: 0px 0px 25px 35px;
+}
+
+/* line 812, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-pref-buttons {
+  width: 100%;
+  text-align: right;
+  margin: 30px 0 0 0;
+}
+
+/* line 818, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-choices-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 822, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-pref-choice {
+  padding: 5px 20px;
+  background-color: #f0b567;
+  margin: 5px;
+  font-weight: 500;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+/* line 829, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-pref-choice label {
+  margin: 0;
+}
+
+/* line 834, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-music {
+  background-color: #5196e0;
+}
+
+/* line 837, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-food {
+  background-color: #32ab4d;
+}
+
+/* line 840, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.wig-ambient {
+  background-color: #a377a9;
+}
+
+/* line 844, /home/ubuntu/workspace/WhereIGo/app/assets/stylesheets/wig.css.scss.erb */
+.pref-align {
+  max-width: 775px;
+  margin-right: auto;
+  margin-left: auto;
+}
