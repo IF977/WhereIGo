@@ -52,7 +52,7 @@ class AccountController < ApplicationController
     
     def login
     	if session[:current_user_id] != nil
-    		redirect_to({:controller => 'dashboard', :action => 'all_establishments'}) 
+    		redirect_to({:controller => 'dashboard', :action => 'preference_establishments_result'}) 
     		return
     	end
     	@title = "Login"
@@ -64,7 +64,7 @@ class AccountController < ApplicationController
     	if user != nil
     		if user.password_digest == params["password"]
     		    session[:current_user_id] = user.id
-    	        redirect_to({:controller => 'dashboard', :action => 'all_establishments'}) 
+    	        redirect_to({:controller => 'dashboard', :action => 'preference_establishments_result'}) 
     	        return
     		else
     		    flash_message("Usuário ou senha incorretas!")
@@ -300,7 +300,7 @@ class AccountController < ApplicationController
             FoodPreference.update(u, :is_active => false)
         end
         
-        redirect_to({:controller => 'dashboard', :action => 'all_establishments'})
+        redirect_to({:controller => 'dashboard', :action => 'preference_establishments_result'})
     end
     
     
@@ -499,7 +499,7 @@ class AccountController < ApplicationController
             FoodSpeciality.update(u, :is_active => false)
         end
         
-        redirect_to({:controller => 'dashboard', :action => 'all_establishments'})
+        redirect_to({:controller => 'dashboard', :action => 'preference_establishments_result'})
     end
     
     
