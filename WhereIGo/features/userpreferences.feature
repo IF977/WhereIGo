@@ -19,9 +19,7 @@ Feature: Como um cliente
       When Eu clico em Continuar
       Then Eu devo ser direcionado para a pagina de preferencias de comida
       When Eu clico em Continuar 
-      Then Eu devo ver o texto Todos os bares e restaurantes
-      When Eu clico no ícone do coração
-      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      Then Eu devo ver o texto Bares e restaurantes baseados no que você mais gosta
       And Eu devo ver o texto Nenhum estabelecimento encontrado!
       
     Scenario: Escolhendo preferencia de comida
@@ -33,9 +31,7 @@ Feature: Como um cliente
       When Eu marco Carne de Sol no checkbox de comida
       And Eu clico em Continuar 
       Then Eu tenho uma conta criada com preferencia de comida 
-      And Eu devo ver o texto Todos os bares e restaurantes
-      When Eu clico no ícone do coração
-      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Bares e restaurantes baseados no que você mais gosta
       And Eu devo ver o texto Edmilson Da Carne de Sol 
       
     Scenario: Escolhendo preferencia de musica
@@ -47,9 +43,7 @@ Feature: Como um cliente
       Then Eu devo ser direcionado para a pagina de preferencias de comida
       When Eu clico em Continuar
       Then Eu tenho uma conta criada com preferencia de musica
-      And Eu devo ver o texto Todos os bares e restaurantes
-      When Eu clico no ícone do coração
-      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Bares e restaurantes baseados no que você mais gosta
       And Eu devo ver o texto Edmilson Da Carne de Sol 
             
             
@@ -62,9 +56,7 @@ Feature: Como um cliente
       Then Eu devo ser direcionado para a pagina de preferencias de comida
       When Eu clico em Continuar
       Then Eu tenho uma conta criada com preferencia de ambiente
-      And Eu devo ver o texto Todos os bares e restaurantes
-      When Eu clico no ícone do coração
-      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Bares e restaurantes baseados no que você mais gosta
       And Eu devo ver o texto Edmilson Da Carne de Sol 
 
 
@@ -79,7 +71,5 @@ Feature: Como um cliente
       When Eu marco Carne de Sol no checkbox de comida
       And Eu clico em Continuar
       Then Eu tenho uma conta criada com preferencia de musica, ambiente e comida
-      And Eu devo ver o texto Todos os bares e restaurantes
-      When Eu clico no ícone do coração
-      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Bares e restaurantes baseados no que você mais gosta
       And Eu devo ver o texto Edmilson Da Carne de Sol             

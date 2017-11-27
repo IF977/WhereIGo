@@ -8,8 +8,8 @@ Feature: Login usuario
       And Eu coloco mc@troinha no campo email
       And Eu coloco 123mctroia123 no campo password
       And Eu clico em Entrar
-      Then Eu devo ser direcionado para a pagina de dashboard
-      And Eu devo ver o texto Todos os bares e restaurantes
+      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      And Eu devo ver o texto Bares e restaurantes baseados no que você mais gosta
       
     Scenario: Login sem sucesso - email inval
       ido - provider
@@ -31,8 +31,8 @@ Feature: Login usuario
       And Eu coloco mc@dada no campo email
       And Eu coloco dadaboladao no campo password
       And Eu clico em Entrar
-      Then Eu devo ser direcionado para a pagina de dashboard
-      Then Eu devo ver o texto Todos os bares e restaurantes
+      Then Eu devo ser direcionado para a pagina de estabelecimentos recomendados
+      Then Eu devo ver o texto Bares e restaurantes baseados no que você mais gosta
       
     Scenario: Login sem sucesso - email invalido - cliente
       Given Eu estou na pagina de login, nao estou logado e sou cliente
