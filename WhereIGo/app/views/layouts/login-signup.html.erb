@@ -1,5 +1,4 @@
 <!-- Layout do login e signup -->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,7 +10,17 @@
     <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all' %>
     <%= stylesheet_link_tag    'wig.css', media: 'all' %>
   </head>
-  <body class="wig-body-sign">
-    <%= yield %>
+  <body class="wig-body-pref">
+    <div class="login-align">
+      <div class="wig-clearfix">
+        <div id="logo-pref">
+            <%= image_tag("wig-logo-signup.png", class: "img-responsive") %>
+        </div>
+        <section class="wig-pref-container login-form">
+            <%= yield %>
+        </section>  
+      </div>
+        
+    </div>
   </body>
 </html>

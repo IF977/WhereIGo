@@ -28,7 +28,6 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= user_name %></a>
               <div class="dropdown-menu dropdown-menu-right wig-dropdown" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="#">Minha página</a>
                 <a class="dropdown-item" href="<%= url_for controller: "account", action: "edit" %>">Editar minha conta</a>
                 <a class="dropdown-item" href="<%= url_for controller: "account", action: "logout" %>">Sair</a>
               </div>

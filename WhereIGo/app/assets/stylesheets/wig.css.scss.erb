@@ -153,24 +153,39 @@ a.wig-button {
 ///////////////// LOGIN ////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
+.login-align {
+    max-width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .login-form {
-    .wig-textbox {
-        width: 100%;
+    span {
+        color: $wig-xdarkgrey;
     }
-    .wig-button {
-        width: 100%;
-    }
+    
     h1 {
-    color: $wig-lightgrey;
-    font-size: 1.3rem;
-    text-align: center;
-    margin: 25px 0 20px 0;
-    &:before, &:after {
-        content: '~';
-        color: $wig-greatpink;
-        margin: 8px;
-        }
+        color: $wig-xdarkgrey;
+        font-size: 1.3rem;
+        text-align: center;
+        margin: 25px 0 20px 0;
+        &:before, &:after {
+            content: '~';
+            color: $wig-greatpink;
+            margin: 8px;
+            }
     }
+    h2 {
+        color: $wig-xdarkgrey;
+    }
+    .wig-textbox, .wig-button {
+        width: 100%;
+    }
+
+    label {
+        color: $wig-xdarkgrey;
+    }
+    
 }
 
 #flex-container {
@@ -223,11 +238,16 @@ a.wig-button {
     color: $wig-lightgrey;
     border-radius: $valor-borda;
     &:hover {
-        background-color: $wig-lightgrey;
-        color: $wig-xdarkgrey;
+        background-color: $wig-oddyellow;
+        color: $wig-lightgrey;
     }
 }
 
+.wig-choice-link {
+    &:hover {
+        text-decoration: none;
+    }
+}
 .wig-choice-box span {
     line-height: 1.1em;
     display: block;
@@ -729,7 +749,7 @@ h4 {
 #textarea-comment {
     margin: 10px 0;
 }
-.wig-control-button {
+.wig-control-button, input[type="file"]  button {
     color: $wig-lightgrey;
     display: inline-block;
     font-weight: 500;
