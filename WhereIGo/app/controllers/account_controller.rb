@@ -169,6 +169,8 @@ class AccountController < ApplicationController
             user_music_preference << q.id
 		end
         
+	user_music_preference_copy = user_music_preference.clone
+	
         user_id = user_logged.id
         
         if musics != nil
@@ -179,7 +181,7 @@ class AccountController < ApplicationController
                     new_preference.save
                 else
                     index = user_music.index(m)
-                    MusicPreference.update(user_music_preference[index], :is_active => true)
+                    MusicPreference.update(user_music_preference_copy[index], :is_active => true)
                     user_music_preference.delete_at(index)
                 end
             end
@@ -225,6 +227,8 @@ class AccountController < ApplicationController
             user_ambient_preference << q.id
 		end
         
+	user_ambient_preference_copy = user_ambient_preference.clone
+	    
         user_id = user_logged.id
         
         if ambients != nil
@@ -235,7 +239,7 @@ class AccountController < ApplicationController
                     new_preference.save
                 else
                     index = user_ambient.index(a)
-                    AmbientPreference.update(user_ambient_preference[index], :is_active => true)
+                    AmbientPreference.update(user_ambient_preference_copy[index], :is_active => true)
                     user_ambient_preference.delete_at(index)
                 end
             end
@@ -281,9 +285,11 @@ class AccountController < ApplicationController
         user_food_preference_query.each do |q|
             user_food << q.food_id
             user_food_preference << q.id
-		end
-        
-        user_id = user_logged.id
+	end
+	
+	user_food_preference_copy = user_food_preference.clone
+	    
+	user_id = user_logged.id
         
         if foods != nil
             foods.each do |f|
@@ -293,7 +299,7 @@ class AccountController < ApplicationController
                     new_preference.save
                 else
                     index = user_food.index(f)
-                    FoodPreference.update(user_food_preference[index], :is_active => true)
+                    FoodPreference.update(user_food_preference_copy[index], :is_active => true)
                     user_food_preference.delete_at(index)
                 end
             end
@@ -373,6 +379,8 @@ class AccountController < ApplicationController
             establishment_music_speciality << q.id
 		end
         
+	establishment_music_speciality_copy = establishment_music_speciality.clone
+	    
         establishment_id = $establishment_id
         
         if musics != nil
@@ -383,7 +391,7 @@ class AccountController < ApplicationController
                     new_speciality.save
                 else
                     index = establishment_music.index(m)
-                    MusicSpeciality.update(establishment_music_speciality[index], :is_active => true)
+                    MusicSpeciality.update(establishment_music_speciality_copy[index], :is_active => true)
                     establishment_music_speciality.delete_at(index)
                 end
             end
@@ -429,6 +437,8 @@ class AccountController < ApplicationController
             establishment_ambient_speciality << q.id
 		end
         
+	establishment_ambient_speciality_copy = establishment_ambient_speciality.clone
+	    
         establishment_id = $establishment_id
         if ambients != nil
             ambients.each do |a|
@@ -438,7 +448,7 @@ class AccountController < ApplicationController
                     new_speciality.save
                 else
                     index = establishment_ambient.index(a)
-                    AmbientSpeciality.update(establishment_ambient_speciality[index], :is_active => true)
+                    AmbientSpeciality.update(establishment_ambient_speciality_copy[index], :is_active => true)
                     establishment_ambient_speciality.delete_at(index)
                 end
             end
@@ -486,6 +496,8 @@ class AccountController < ApplicationController
             establishment_food << q.food_id
             establishment_food_speciality << q.id
         end
+	    
+	establishment_food_speciality_copy = establishment_food_speciality.clone
         
         if foods != nil
             foods.each do |f|
@@ -495,7 +507,7 @@ class AccountController < ApplicationController
                     new_speciality.save
                 else
                     index = establishment_food.index(f)
-                    FoodSpeciality.update(establishment_food_speciality[index], :is_active => true)
+                    FoodSpeciality.update(establishment_food_speciality_copy[index], :is_active => true)
                     establishment_food_speciality.delete_at(index)
                 end
             end
