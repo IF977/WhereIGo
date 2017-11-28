@@ -1,7 +1,6 @@
 <div class="row">
     <section class="col-md-8">
         <h1>Meus estabelecimentos</h1>
-        <% index = 0 %>
         <% @establishments.each do |place| %>
             <div class="wig-dashboard-card">
                 <a href="<%=url_for(controller: "dashboard", action: "show_establishment", id: place.id) %>">
@@ -20,7 +19,6 @@
                     </div>
                 </a>
             </div>
-        <% index += 1%>
         <% end %>
     </section>
     <aside class="col-md-4">

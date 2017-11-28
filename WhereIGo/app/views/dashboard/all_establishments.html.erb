@@ -2,9 +2,7 @@
     <section class="col-md-12"><%= flash_message.html_safe %></section>
     <section class="col-md-8">
         <h1>Todos os bares e restaurantes</h1>
-        <% index = 0 %>
         <% @establishments.each do |e| %>
-            
             <div class="wig-dashboard-card">
                 <a href="<%= url_for action: "show_establishment", id: e.id %>">
                     <div class="row">
@@ -24,7 +22,6 @@
                     </div>
                 </a>
             </div>
-        <% index += 1 %>
         <% end %>
     </section>
     <aside class="col-md-4">

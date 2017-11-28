@@ -5,7 +5,6 @@
         <% if @preferences_set %>
             <% if @establishments.size > 0 %>
                 Para ver todos os bares e restaurantes cadastrados, clique no ícone de talhares ao seu lado esquerdo.
-                <% index = 0 %>
                 <% @establishments.each do |e| %>
                     <div class="wig-dashboard-card">
                         <a href="<%= url_for action: "show_establishment", id: e.id %>">
@@ -26,7 +25,6 @@
                             </div>
                         </a>
                     </div>
-                    <% index += 1 %>
                 <% end %>
             <% else %>
                 Nenhum estabelecimento encontrado!
