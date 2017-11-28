@@ -84,7 +84,7 @@ class DashboardController < ApplicationController
         establishments = []
         
         all_matchs.each do |e|
-            establishment = Establishment.find_by(id: e.establishment_id, is_active: true)
+            establishment = Establishment.find_by(id: e.establishment_id)
             if not establishments.include?(establishment)
                 establishments << establishment
             end
@@ -94,12 +94,10 @@ class DashboardController < ApplicationController
         
         @array_rating_percentage = []
         
-        establishments.each do |establishment|
+        @establishments.each do |establishment|
             
             count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => establishment.id).count
             count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => establishment.id).count
-            
-            count_reviews = count_review_up + count_review_down
             
             if count_review_up != 0 || count_review_down != 0
                 rating = (count_review_up.to_f / (count_review_up + count_review_down)) * 100
