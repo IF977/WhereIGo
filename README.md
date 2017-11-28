@@ -5,6 +5,8 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 Link do app no Heroku: http://where-i-go.herokuapp.com/
 
+Screencast: https://drive.google.com/open?id=1mZnqGwSX0IcfSF7Hac0c_iDjwFKKfVkS
+
 ## Equipe:
 * Antonio Augusto Corrêa Gondim Neto: Desenvolvedor Back-End e Gerente de Projeto
 * Eduardo Santos de Moura: Desenvolvedor Back-End
