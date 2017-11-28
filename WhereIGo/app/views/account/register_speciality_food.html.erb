@@ -2,7 +2,7 @@
 <p>Descreva corretamente a especialidade gastronômica do seu estabelecimento para que outros usuários possam encontra-ló. Portanto em qual especialidade gastrômica seu estabelecimento mais se encaixa?</p>
 <%= flash_message.html_safe %>
 
-<%= form_tag action: 'register_speciality_food_create', method: 'POST' do |f| %>
+<%= form_tag({:action=>'register_speciality_food_create'}, {:method=>'POST'}) do |f| %>
 
     <div class="wig-choices-container">
         <% @checkboxes.each_pair do |id, array| %>

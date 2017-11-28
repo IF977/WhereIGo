@@ -2,7 +2,7 @@
 <p>Encontre estabelecimentos que combinem com seu astral. Quais tipos de ambiente são mais agradáveis?</p>
 <%= flash_message.html_safe %>
 
-<%= form_tag action: 'register_preferences_ambient_create', method: 'POST' do |f| %>
+<%= form_tag({:action=>'register_preferences_ambient_create'}, {:method=>'POST'}) do |f| %>
 
     <div class="wig-choices-container">
         <% @checkboxes.each_pair do |id, array| %>
