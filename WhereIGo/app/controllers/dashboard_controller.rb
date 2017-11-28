@@ -94,16 +94,10 @@ class DashboardController < ApplicationController
         
         @array_rating_percentage = []
         
-        @establishments.each do |e|
-            user_review = EstablishmentReview.where(:user_id => session[:current_user_id]).where(:establishment_id => e.id).first
-            if user_review != nil
-                user_review_selected = user_review.review
-            else
-                user_review_selected = nil
-            end
+        @establishments.each do |establishment|
             
-            count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => e.id).count
-            count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => e.id).count
+            count_review_up = EstablishmentReview.where(:review => true).where(:establishment_id => establishment.id).count
+            count_review_down = EstablishmentReview.where(:review => false).where(:establishment_id => establishment.id).count
             
             count_reviews = count_review_up + count_review_down
             
