@@ -2,7 +2,7 @@
 <p>Encontre estabelecimentos compatíveis com seu perfil musical. Quais gêneros você mais ouve?</p>
 <%= flash_message.html_safe %>
 
-<%= form_tag action: 'register_preferences_music_create', method: 'POST' do |f| %>
+<%= form_tag({:action=>'register_preferences_music_create'}, {:method=>'POST'}) do |f| %>
 
     <div class="wig-choices-container">
         <% @checkboxes.each_pair do |id, array| %>
