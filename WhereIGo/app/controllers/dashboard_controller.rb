@@ -44,8 +44,6 @@ class DashboardController < ApplicationController
     def preference_establishments_result
         @title = "Bares e restaurantes baseados no que você mais gosta"
         
-        
-        
         music_preference = MusicPreference.where(user_id: user_logged.id, is_active: true)
         food_preference = FoodPreference.where(user_id: user_logged.id, is_active: true)
         ambient_preference = AmbientPreference.where(user_id: user_logged.id, is_active: true)
@@ -84,9 +82,9 @@ class DashboardController < ApplicationController
         establishments = []
         
         all_matchs.each do |e|
-            establishment = Establishment.find_by(id: e.establishment_id)
+            establishment = Establishment.find_by(id: e.establishment_id, is_active: true)
             if not establishments.include?(establishment)
-                if establishment.is_active == true
+                if establishment != nil
                     establishments << establishment
                 end
             end
@@ -109,7 +107,7 @@ class DashboardController < ApplicationController
     
     def all_establishments
         @title = "Dashboard"
-        @establishments = Establishment.where(is_active: true)
+        @establishments = Establishment.where(:is_active => true)
         
         if user_is_authorized_?
             render layout: "dashboard"
@@ -120,9 +118,9 @@ class DashboardController < ApplicationController
         @e = Establishment.find_by(id: params[:id])
         @title = @e.name
         
-        establishment_food_speciality = FoodSpeciality.where(:establishment_id => @e.id, is_active: true)
-        establishment_music_speciality = MusicSpeciality.where(:establishment_id => @e.id, is_active: true)
-        establishment_ambient_speciality = AmbientSpeciality.where(:establishment_id => @e.id, is_active: true)
+        establishment_food_speciality = FoodSpeciality.where(:establishment_id => @e.id, :is_active => true)
+        establishment_music_speciality = MusicSpeciality.where(:establishment_id => @e.id, :is_active => true)
+        establishment_ambient_speciality = AmbientSpeciality.where(:establishment_id => @e.id, :is_active => true)
         
         @food_tag = []
         @music_tag = []
@@ -168,7 +166,7 @@ class DashboardController < ApplicationController
         
         @comments = []
         
-        all_comments = EstablishmentComment.where(:establishment_id => @e.id, is_active: true)
+        all_comments = EstablishmentComment.where(:establishment_id => @e.id, :is_active => true)
         all_comments.each do |c|
             user = User.find_by(id: c.user_id)
             user_name = user.name
