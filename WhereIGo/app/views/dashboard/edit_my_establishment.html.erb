@@ -23,7 +23,7 @@
         <label for="website" class="wig-formlabel">Website</label>
         <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
         
-        <p style="font-size: small;">Deseja excluir este estabelecimento? <a style="color: #f0b567;"href="<%= url_for controller: 'dashboard', action: 'remove_my_establishment'%>">Clique aqui</a></p>
+        <p style="font-size: small; margin-top: 10px;">Deseja excluir este estabelecimento?<a><%= link_to "Clique aqui", {:controller => "dashboard", :action => "remove_my_establishment"}, :style=>'color:#f0b567;', :data => {:confirm => 'Você tem certeza que deseja excluir esse estabelecimento?'} %></a></p> 
 
     </div>
     <%= e.submit "Salvar alterações", class: "wig-button" %>
