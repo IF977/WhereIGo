@@ -101,11 +101,9 @@
     function setExistingReview() {
         <% if @user_review_selected == true %>
             $("#review-true").addClass("wig-thumbs-active");
-            console.log("true");
         <% end %>
         <% if @user_review_selected == false %>
             $("#review-false").addClass("wig-thumbs-active");
-            console.log("false");
         <% end %>
     }
     $(document).ready(function() { 
